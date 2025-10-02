@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__canva__generate-design",
+      "mcp__canva__search-designs",
+      "mcp__canva__get-design",
+      "mcp__canva__get-design-content",
+      "WebSearch",
+      "mcp__canva__comment-on-design",
+      "WebFetch(domain:www.canva.dev)",
+      "WebFetch(domain:www.canva.com)",
+      "WebFetch(domain:revealjs.com)",
+      "Bash(git init:*)",
+      "Bash(mkdir:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

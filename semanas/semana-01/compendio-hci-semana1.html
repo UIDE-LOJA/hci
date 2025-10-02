@@ -1,0 +1,1571 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Compendio HCI - Semana 1: Introducción a la Interacción Persona-Ordenador</title>
+    <meta name="description" content="Compendio completo de aprendizaje autónomo sobre fundamentos de HCI">
+    <meta name="author" content="Universidad Internacional del Ecuador">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css" id="theme">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/github.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    
+    <style>
+        :root {
+            --university-primary: #910048;    /* UIDE Burgundy */
+            --university-secondary: #23356E;  /* UIDE Navy */
+            --university-accent: #E9AB21;     /* UIDE Gold */
+            --text-primary: #2c3e50;
+            --text-secondary: #34495e;
+            --bg-light: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+
+        .reveal {
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
+            font-size: 32px;
+            color: var(--text-primary);
+        }
+
+        .reveal .slides section {
+            text-align: left;
+            padding: 30px;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+
+        .reveal h1, .reveal h2, .reveal h3 {
+            color: var(--university-primary);
+            font-weight: 600;
+            margin-bottom: 0.8em;
+            line-height: 1.2;
+        }
+
+        .reveal h1 { 
+            font-size: 2.2em; 
+            text-align: center;
+            margin-bottom: 1em;
+        }
+        
+        .reveal h2 { 
+            font-size: 1.6em; 
+            border-bottom: 3px solid var(--university-accent);
+            padding-bottom: 0.3em;
+        }
+        
+        .reveal h3 { 
+            font-size: 1.3em; 
+            color: var(--university-secondary);
+        }
+
+        .reveal p, .reveal ul, .reveal ol {
+            font-size: 0.75em;
+            line-height: 1.6;
+            margin-bottom: 1.2em;
+            text-align: justify;
+        }
+
+        .reveal ul li, .reveal ol li {
+            margin-bottom: 0.8em;
+        }
+
+        .reveal strong {
+            color: var(--university-primary);
+            font-weight: 600;
+        }
+
+        .reveal em {
+            color: var(--university-secondary);
+            font-style: italic;
+        }
+
+        /* Header with logo */
+        .header-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2em;
+            padding: 20px 0;
+            border-bottom: 2px solid var(--university-accent);
+        }
+
+        .logo-container {
+            width: 200px;
+            height: auto;
+        }
+
+        .university-info {
+            text-align: right;
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+
+        .university-info h4 {
+            margin: 0;
+            color: var(--university-primary);
+            font-size: 0.9em;
+        }
+
+        .university-info p {
+            margin: 0;
+            font-size: 0.7em;
+            color: var(--text-secondary);
+        }
+
+        /* Content boxes */
+        .content-box {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--university-accent);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .definition-box {
+            background: linear-gradient(to right, rgba(145, 0, 72, 0.1), rgba(35, 53, 110, 0.05));
+            border-left: 4px solid var(--university-primary);
+        }
+
+        .objective-box {
+            background: linear-gradient(to right, rgba(35, 53, 110, 0.1), rgba(233, 171, 33, 0.05));
+            border-left: 4px solid var(--university-secondary);
+        }
+
+        .reflection-box {
+            background: linear-gradient(to right, rgba(233, 171, 33, 0.1), rgba(145, 0, 72, 0.05));
+            border-left: 4px solid var(--university-accent);
+        }
+
+        /* Timeline styles */
+        .timeline-container {
+            position: relative;
+            margin: 30px 0;
+        }
+
+        .timeline-item {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--university-accent);
+        }
+
+        .timeline-year {
+            color: var(--university-primary);
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .timeline-title {
+            color: var(--university-secondary);
+            font-weight: 600;
+            margin: 5px 0;
+        }
+
+        /* Law and principle boxes */
+        .law-box {
+            background: var(--university-primary);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .principle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .principle-card {
+            background: white;
+            border: 2px solid var(--university-accent);
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .principle-number {
+            color: var(--university-primary);
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        /* Math highlighting */
+        .math-highlight {
+            background: rgba(233, 171, 33, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        /* References */
+        .reference-item {
+            font-size: 0.65em;
+            margin-bottom: 15px;
+            text-indent: -30px;
+            margin-left: 30px;
+        }
+
+        /* Navigation aids */
+        .nav-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--university-primary);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 0.6em;
+            z-index: 1000;
+        }
+
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .reveal { font-size: 28px; }
+            .header-section { flex-direction: column; text-align: center; }
+            .university-info { margin-left: 0; margin-top: 15px; text-align: center; }
+            .principle-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Print styles */
+        @media print {
+            .reveal .slides section { 
+                page-break-inside: avoid; 
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-indicator">Semana 1: Introducción a HCI</div>
+    
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Portada -->
+            <section data-background-color="var(--university-primary)">
+                <div class="header-section" style="border-bottom: 2px solid white; margin-bottom: 3em;">
+                    <img src="Logo UIDE.png" alt="Logo UIDE" class="logo-container" style="filter: brightness(0) invert(1);">
+                    <div class="university-info" style="color: white;">
+                        <h4 style="color: var(--university-accent); font-size: 1.2em;">Universidad Internacional del Ecuador</h4>
+                        <p style="color: white; font-size: 0.9em;">Facultad de Ingeniería y Ciencias Aplicadas</p>
+                        <p style="color: white; font-size: 0.8em;">Carrera de Ingeniería en Sistemas</p>
+                    </div>
+                </div>
+                
+                <h1 style="color: var(--university-accent); text-align: center; font-size: 2.5em;">
+                    Compendio de Estudio Autónomo
+                </h1>
+                
+                <h2 style="color: white; text-align: center; border: none; font-size: 1.8em;">
+                    Introducción a la Interacción Persona-Ordenador (HCI)
+                </h2>
+                
+                <div style="text-align: center; margin-top: 2em;">
+                    <p style="color: var(--university-accent); font-size: 0.9em; font-weight: 600;">
+                        Semana 1 - Material de Aprendizaje Autónomo
+                    </p>
+                    <p style="color: white; font-size: 0.7em;">
+                        Este compendio está diseñado para el estudio independiente y la comprensión profunda de los conceptos fundamentales de HCI
+                    </p>
+                </div>
+            </section>
+
+            <!-- Objetivos de Aprendizaje -->
+            <section>
+                <div class="header-section">
+                    <img src="Logo UIDE.png" alt="Logo UIDE" class="logo-container">
+                    <div class="university-info">
+                        <h4>Universidad Internacional del Ecuador</h4>
+                        <p>Interacción Persona-Ordenador</p>
+                    </div>
+                </div>
+                
+                <h2>Objetivos de Aprendizaje</h2>
+                
+                <div class="objective-box">
+                    <h3>Al finalizar el estudio de este compendio, serás capaz de:</h3>
+                    <ol>
+                        <li><strong>Definir</strong> qué es la Interacción Persona-Ordenador (HCI) y explicar su importancia en el diseño de sistemas informáticos.</li>
+                        <li><strong>Identificar</strong> las disciplinas que convergen en HCI y explicar cómo contribuye cada una al campo.</li>
+                        <li><strong>Describir</strong> la evolución histórica de HCI desde los años 1940 hasta la actualidad.</li>
+                        <li><strong>Explicar</strong> la Ley de Moore y su impacto en la usabilidad y experiencia del usuario.</li>
+                        <li><strong>Aplicar</strong> los principios fundamentales de usabilidad en el análisis de interfaces.</li>
+                        <li><strong>Utilizar</strong> las Leyes de Miller, Hick-Hyman y el Umbral de Doherty para evaluar diseños de interfaz.</li>
+                        <li><strong>Implementar</strong> las Ocho Reglas de Oro de Shneiderman en propuestas de diseño.</li>
+                        <li><strong>Analizar</strong> interfaces existentes aplicando principios de cognición y diseño.</li>
+                    </ol>
+                </div>
+                
+                <div class="reflection-box">
+                    <h3>Antes de empezar, reflexiona:</h3>
+                    <ul>
+                        <li>¿Qué dispositivos tecnológicos utilizas diariamente?</li>
+                        <li>¿Has tenido alguna experiencia frustrante al usar una aplicación o sitio web? ¿Por qué crees que ocurrió?</li>
+                        <li>¿Qué características hacen que una interfaz sea fácil de usar?</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Índice de Contenidos -->
+            <section>
+                <div class="header-section">
+                    <img src="Logo UIDE.png" alt="Logo UIDE" class="logo-container">
+                    <div class="university-info">
+                        <h4>Universidad Internacional del Ecuador</h4>
+                        <p>Interacción Persona-Ordenador</p>
+                    </div>
+                </div>
+                
+                <h2>Índice de Contenidos</h2>
+                
+                <div class="content-box">
+                    <ol>
+                        <li><strong>Definición y Alcance de HCI</strong>
+                            <ul>
+                                <li>Concepto fundamental</li>
+                                <li>Campo multidisciplinario</li>
+                                <li>Componentes en la Computación Ubicua</li>
+                            </ul>
+                        </li>
+                        <li><strong>Evolución Histórica de HCI</strong>
+                            <ul>
+                                <li>Cronología completa (1940s-actualidad)</li>
+                                <li>Hitos fundamentales</li>
+                                <li>Figuras clave</li>
+                            </ul>
+                        </li>
+                        <li><strong>Historia de la Computación y Ley de Moore</strong>
+                            <ul>
+                                <li>Evolución de las interfaces</li>
+                                <li>Impacto en HCI y usabilidad</li>
+                            </ul>
+                        </li>
+                        <li><strong>Principios de Usabilidad</strong>
+                            <ul>
+                                <li>Definición y componentes</li>
+                                <li>Leyes y modelos fundamentales</li>
+                            </ul>
+                        </li>
+                        <li><strong>Las Ocho Reglas de Oro de Shneiderman</strong></li>
+                        <li><strong>Principios de Diseño y Cognición</strong></li>
+                        <li><strong>Referencias Bibliográficas</strong></li>
+                    </ol>
+                </div>
+                
+                <div class="reflection-box">
+                    <h3>Estrategia de Estudio Recomendada:</h3>
+                    <ol>
+                        <li>Lee cada sección completamente</li>
+                        <li>Toma notas de los conceptos clave</li>
+                        <li>Reflexiona sobre las preguntas planteadas</li>
+                        <li>Busca ejemplos adicionales en tu experiencia diaria</li>
+                        <li>Revisa las referencias para profundizar</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Definición y Alcance de HCI -->
+            <section>
+                <div class="header-section">
+                    <img src="Logo UIDE.png" alt="Logo UIDE" class="logo-container">
+                    <div class="university-info">
+                        <h4>Universidad Internacional del Ecuador</h4>
+                        <p>Interacción Persona-Ordenador</p>
+                    </div>
+                </div>
+                
+                <h2>1. Definición y Alcance de HCI</h2>
+                
+                <div class="definition-box">
+                    <h3>¿Qué es HCI?</h3>
+                    <p>La <strong>Interacción Persona-Ordenador</strong> (HCI, por sus siglas en inglés, Human-Computer Interaction) es un campo de estudio que surgió formalmente en la década de 1980. Aunque su emergencia fue en esa década, HCI debe gran parte de sus fundamentos a disciplinas previas. La más central de estas es el campo de los factores humanos o ergonomía.</p>
+                </div>
+                
+                <p><strong>HCI se considera esencialmente como factores humanos</strong>, pero enfocada específicamente en la interacción humana con algún tipo de tecnología informática. El campo de los factores humanos es tanto una ciencia como una rama de la ingeniería, preocupada por las capacidades, limitaciones y rendimiento humanos.</p>
+                
+                <div class="content-box">
+                    <h3>Objetivo Fundamental</h3>
+                    <p>El objetivo fundamental de HCI es <strong>distinguir los pares de acción-respuesta que funcionan bien de aquellos que resultan incómodos o confusos</strong>. El resultado final buscado es el diseño de mejores productos y diseños.</p>
+                </div>
+                
+                <h3>Campo Multidisciplinario</h3>
+                <p>HCI es un campo de alcance tremendamente amplio y multidisciplinario, que se nutre de la experiencia e intereses de varias disciplinas:</p>
+                
+                <div class="principle-grid">
+                    <div class="principle-card">
+                        <h4>Psicología</h4>
+                        <p>Especialmente cognitiva y experimental. Aporta el entendimiento de cómo los humanos procesan información, aprenden y toman decisiones.</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <h4>Ciencias de la Computación</h4>
+                        <p>Proporciona las bases técnicas para el desarrollo de sistemas interactivos y algoritmos de procesamiento.</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <h4>Ciencia Cognitiva</h4>
+                        <p>Estudia los procesos mentales que influyen en la interacción con sistemas computacionales.</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <h4>Sociología y Antropología</h4>
+                        <p>Analiza cómo los contextos sociales y culturales afectan el uso de la tecnología.</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <h4>Lingüística</h4>
+                        <p>Contribuye al diseño de interfaces de lenguaje natural y comprensión de la comunicación humano-máquina.</p>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    Enfatizar la naturaleza interdisciplinaria de HCI y cómo cada campo contribuye de manera única.
+                </aside>
+            </section>
+
+            <!-- Componentes y Desafíos -->
+            <section>
+                <div class="header-section">
+                    <img src="Logo UIDE.png" alt="Logo UIDE" class="logo-container">
+                    <div class="university-info">
+                        <h4>Universidad Internacional del Ecuador</h4>
+                        <p>Interacción Persona-Ordenador</p>
+                    </div>
+                </div>
+                
+                <h2>Componentes y Desafíos en la Era de la Computación Ubicua</h2>
+                
+                <p>En el contexto moderno de la <strong>Computación Ubicua (UbiCom)</strong>, los elementos de HCI son:</p>
+                
+                <div class="principle-grid">
+                    <div class="principle-card">
+                        <div class="principle-number">1. Humanos</div>
+                        <h4>Los Usuarios</h4>
+                        <p><strong>Usuarios que interactúan, con diversas habilidades físicas y mentales.</strong></p>
+                        <ul>
+                            <li>Diferentes niveles de experiencia tecnológica</li>
+                            <li>Variabilidad en capacidades cognitivas</li>
+                            <li>Diversidad de necesidades de accesibilidad</li>
+                            <li>Contextos culturales diversos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <div class="principle-number">2. Ordenadores</div>
+                        <h4>Los Sistemas</h4>
+                        <p><strong>No solo PC, sino una gama diversa de dispositivos</strong>, incluyendo informáticos embebidos de varios tamaños:</p>
+                        <ul>
+                            <li><strong>Dust:</strong> Dispositivos microscópicos</li>
+                            <li><strong>Tabs:</strong> Dispositivos de tamaño de etiqueta</li>
+                            <li><strong>Pads:</strong> Dispositivos de tamaño de página</li>
+                            <li><strong>Boards:</strong> Dispositivos de tamaño de pizarra</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <div class="principle-number">3. Interacción</div>
+                        <h4>Los Métodos</h4>
+                        <p>La interacción puede ser:</p>
+                        <ul>
+                            <li><strong>Explícita:</strong> Comandos directos o manipulación de objetos virtuales</li>
+                            <li><strong>Natural:</strong> Voz, gestos, movimientos corporales</li>
+                            <li><strong>Multimodal:</strong> Combinación de múltiples formas de interacción</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="reflection-box">
+                    <h3>El Desafío Humano</h3>
+                    <p><strong>El factor humano presenta los desafíos más profundos en HCI</strong>, ya que la variabilidad humana (edad, sexo, experiencia, contexto cultural, etc.) implica que el diseño nunca es preciso, sino siempre aproximado.</p>
+                    
+                    <h4>Para Reflexionar:</h4>
+                    <ul>
+                        <li>¿Cómo afecta tu edad y experiencia la forma en que interactúas con diferentes dispositivos?</li>
+                        <li>¿Has notado diferencias en cómo diferentes personas usan la misma aplicación?</li>
+                        <li>¿Qué dispositivos ubicuos (IoT) utilizas sin darte cuenta en tu día a día?</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Evolución Histórica de HCI -->
+            <section>
+                <div class="header-section">
+                    <img src="Logo UIDE.png" alt="Logo UIDE" class="logo-container">
+                    <div class="university-info">
+                        <h4>Universidad Internacional del Ecuador</h4>
+                        <p>Interacción Persona-Ordenador</p>
+                    </div>
+                </div>
+                
+                <h2>2. Evolución Histórica de HCI</h2>
+                
+                <div class="definition-box">
+                    <p>La evolución de HCI es una <strong>crónica de eventos significativos que culminaron en su formalización en la década de 1980</strong>. Esta cronología muestra cómo diversos avances tecnológicos y conceptuales convergieron para crear el campo moderno de HCI.</p>
+                </div>
+                
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-year">1940s</div>
+                        <div class="timeline-title">Los Primeros Ordenadores y la Visión de Bush</div>
+                        <p><strong>Surgimiento de los primeros ordenadores</strong>, que eran complejos y requerían la experiencia de científicos e ingenieros.</p>
+                        <p><strong>Hito clave:</strong> El ensayo <em>"As We May Think"</em> (1945) de <strong>Vannevar Bush</strong> es fundamental, pues describió el sistema <strong>MEMEX</strong>, anticipando conceptos de interfaz como hipertexto y la World Wide Web.</p>
+                        <div class="reflection-box">
+                            <p><strong>Reflexión:</strong> Bush imaginó un dispositivo que permitiría a las personas almacenar y acceder a información de manera asociativa, similar a como funciona la mente humana. ¿Cómo se relaciona esto con los motores de búsqueda actuales?</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">1960s</div>
+                        <div class="timeline-title">Innovaciones Fundamentales</div>
+                        <p><strong>Ivan Sutherland</strong> desarrolló <strong>Sketchpad (1962)</strong>, un sistema gráfico que permitía la manipulación de formas mediante un lápiz de luz.</p>
+                        <p><strong>Douglas Engelbart</strong> inventó <strong>el ratón (1963)</strong>, un dispositivo que simboliza la emergencia de HCI y que cambiaría fundamentalmente la interacción con ordenadores.</p>
+                        <div class="content-box">
+                            <p><strong>Impacto:</strong> Estas innovaciones introdujeron por primera vez la idea de interacción directa con objetos en pantalla, alejándose de los comandos puramente textuales.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">1969-1970s</div>
+                        <div class="timeline-title">Raíces Académicas y Xerox PARC</div>
+                        <p>En <strong>1969</strong>, se formó el <strong>SIGSOC de ACM</strong>, precursor del SIGCHI.</p>
+                        <p><strong>Xerox fundó PARC alrededor de 1970</strong>, donde se inventaron muchas convenciones de interfaz que hoy son comunes:</p>
+                        <ul>
+                            <li>La <strong>Interfaz Gráfica de Usuario (GUI)</strong></li>
+                            <li>Los <strong>gráficos de mapa de bits</strong></li>
+                            <li>Conceptos de ventanas, iconos y menús</li>
+                        </ul>
+                        <p><strong>Bill Moggridge</strong> y <strong>Bill Verplank</strong> acuñaron el término <strong>"Diseño de Interacción"</strong>.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">1981</div>
+                        <div class="timeline-title">Xerox Star - El Primer Sistema GUI Comercial</div>
+                        <p>Este fue el <strong>primer sistema informático disponible comercialmente en utilizar una GUI y un ratón</strong>.</p>
+                        <div class="definition-box">
+                            <p><strong>Concepto clave:</strong> Los trabajadores de oficina querían realizar su trabajo, no lidiar con ordenadores, por lo que la máquina debía ser invisible o fácil de usar.</p>
+                        </div>
+                        <p>Aunque comercialmente no fue exitoso, estableció muchos estándares de diseño que perduran hasta hoy.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">1983</div>
+                        <div class="timeline-title">Nacimiento Formal de HCI</div>
+                        <p><strong>Se considera el año clave</strong>, marcado por dos eventos fundamentales:</p>
+                        <ol>
+                            <li>El <strong>primer congreso ACM SIGCHI</strong></li>
+                            <li>La publicación del libro <em>"The Psychology of Human-Computer Interaction"</em> por <strong>Card, Moran y Newell</strong></li>
+                        </ol>
+                        <div class="content-box">
+                            <p>Este libro integró la <strong>psicología experimental y modelos predictivos</strong> (como la Ley de Hick y la Ley de Fitts) en el estudio de la interacción, estableciendo bases científicas sólidas para el campo.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">1984</div>
+                        <div class="timeline-title">Apple Macintosh - Popularización de las GUIs</div>
+                        <p>El éxito del <strong>Macintosh popularizó las GUIs</strong>, introduciendo este nuevo estilo de interacción a una comunidad mucho más amplia de usuarios e investigadores.</p>
+                        <p>Demostró que las interfaces gráficas no eran solo para expertos, sino que podían ser accesibles para usuarios comunes.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">1985-1990s</div>
+                        <div class="timeline-title">Expansión y Consolidación</div>
+                        <p><strong>Microsoft</strong> introdujo versiones tempranas de Windows en 1985, pero <strong>Windows 3.0 (1990)</strong> y <strong>3.1 (1992)</strong> se consolidaron como alternativas serias al Macintosh.</p>
+                        <p>Durante esta década, HCI se estableció como disciplina académica con:</p>
+                        <ul>
+                            <li>Programas de estudio especializados</li>
+                            <li>Metodologías de investigación bien definidas</li>
+                            <li>Conferencias internacionales regulares</li>
+                            <li>Publicaciones científicas especializadas</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="reflection-box">
+                    <h3>Actividad de Reflexión: Conectando el Pasado con el Presente</h3>
+                    <ol>
+                        <li><strong>Analiza:</strong> ¿Qué conceptos de MEMEX de Bush ves reflejados en las interfaces modernas?</li>
+                        <li><strong>Compara:</strong> ¿Cómo ha evolucionado el ratón de Engelbart en las interfaces táctiles actuales?</li>
+                        <li><strong>Investiga:</strong> Busca imágenes del Xerox Star y compáralas con interfaces modernas. ¿Qué elementos perduran?</li>
+                        <li><strong>Reflexiona:</strong> ¿Por qué crees que la GUI fue tan revolucionaria comparada con las interfaces de línea de comandos?</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Historia de la Computación y Ley de Moore -->
+            <section>
+                <div class="header-section">
+                    <img src="Logo UIDE.png" alt="Logo UIDE" class="logo-container">
+                    <div class="university-info">
+                        <h4>Universidad Internacional del Ecuador</h4>
+                        <p>Interacción Persona-Ordenador</p>
+                    </div>
+                </div>
+                
+                <h2>3. Historia de la Computación y Ley de Moore</h2>
+                
+                <h3>Breve Historia de la Computación desde la Perspectiva de HCI</h3>
+                
+                <div class="content-box">
+                    <h4>Los Primeros Años (Década de 1940)</h4>
+                    <p>En sus inicios, <strong>los ordenadores eran gigantescos y complejos</strong>. Para interactuar con ellos se requería ser un experto, como ingenieros o científicos informáticos, y se utilizaban métodos como:</p>
+                    <ul>
+                        <li>Conectar físicamente relés</li>
+                        <li>Usar comandos Unix complejos</li>
+                        <li>Programación directa en lenguaje máquina</li>
+                        <li>Configuración manual de hardware</li>
+                    </ul>
+                    <p><strong>Los ingenieros iniciales no se enfocaron en la interacción o la usabilidad</strong> - la prioridad era simplemente hacer que las máquinas funcionaran.</p>
+                </div>
+                
+                <div class="definition-box">
+                    <h4>El Punto de Inflexión (Década de 1980)</h4>
+                    <p><strong>La interacción se convirtió en un problema en la década de 1980.</strong> La introducción de la Xerox Star (1981) y el Apple Macintosh (1984) fue un cambio dramático que llevó a que los ordenadores fueran no solo potentes, sino <strong>utilizables por cualquiera</strong>.</p>
+                </div>
+                
+                <h3>La Ley de Moore y su Impacto en HCI</h3>
+                
+                <div class="law-box">
+                    <h3>Ley de Moore (1965)</h3>
+                    <p>Postulada por <strong>Gordon Moore</strong> en 1965</p>
+                </div>
+                
+                <div class="content-box">
+                    <h4>Concepto y Naturaleza</h4>
+                    <p>La ley predice que <strong>el número de transistores que contendrá un microprocesador se duplicará aproximadamente cada 24 meses</strong>.</p>
+                    
+                    <div class="math-highlight">
+                        <p><strong>Fórmula:</strong></p>
+                        \[T(t) = T_0 \times 2^{\frac{t}{24}}\]
+                        <p>donde <em>t</em> = tiempo en meses</p>
+                    </div>
+                    
+                    <p><strong>Importante:</strong> Aunque se la denomina "ley", Moore mismo reconoció que <em>no se basa en fundamentos físicos</em>, sino que representa una <strong>tendencia tecnológica</strong> y una meta de la industria.</p>
+                </div>
+                
+                <h3>Impacto de la Ley de Moore en HCI y Usabilidad</h3>
+                
+                <p>La Ley de Moore, al impulsar el aumento de potencia y velocidad, repercute directamente en la <strong>Experiencia de Usuario (UX)</strong> y la <strong>Usabilidad</strong>:</p>
+                
+                <div class="principle-grid">
+                    <div class="principle-card">
+                        <div class="principle-number">1</div>
+                        <h4>Reducción de Latencia</h4>
+                        <p>El incremento en la velocidad de los microprocesadores disminuye el tiempo de latencia de las operaciones.</p>
+                        <p><strong>Esto es esencial para que las transacciones cumplan con el Umbral de Doherty (396 ms).</strong></p>
+                        <div class="content-box">
+                            <p>Una respuesta rápida del sistema mantiene al usuario en un estado de "flujo" y aumenta la productividad.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <div class="principle-number">2</div>
+                        <h4>Aumento de Expectativas</h4>
+                        <p>Los usuarios se acostumbran a esperar menos tiempo como resultado de esta evolución.</p>
+                        <p><strong>Esto constantemente eleva el listón de lo que se percibe como una buena UX.</strong></p>
+                        <div class="reflection-box">
+                            <p>Piensa en cómo han cambiado tus expectativas: ¿Cuánto tiempo estás dispuesto a esperar que cargue una página web hoy vs. hace 10 años?</p>
+                        </div>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <div class="principle-number">3</div>
+                        <h4>Imperativo de Evolución</h4>
+                        <p>Si los sistemas no evolucionan periódicamente, no cumplirán las expectativas de los usuarios.</p>
+                        <p><strong>Esto lleva al abandono del producto debido a la percepción de mala Usabilidad.</strong></p>
+                        <div class="content-box">
+                            <p>Las aplicaciones deben actualizarse constantemente no solo para agregar funciones, sino para mantener el rendimiento esperado.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reflection-box">
+                    <h3>Para Reflexionar: La Ley de Moore en tu Experiencia</h3>
+                    <ol>
+                        <li><strong>Observa:</strong> ¿Cómo ha cambiado la velocidad de tu teléfono móvil en los últimos años?</li>
+                        <li><strong>Analiza:</strong> ¿Qué aplicaciones que usas regularmente han mejorado su rendimiento recientemente?</li>
+                        <li><strong>Predice:</strong> ¿Cómo crees que la Ley de Moore seguirá influyendo en las interfaces de usuario en los próximos 5 años?</li>
+                        <li><strong>Evalúa:</strong> ¿Has dejado de usar alguna aplicación por ser "lenta"? ¿Qué constituye "lento" para ti?</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Principios de Usabilidad -->
+            <section>
+                <div class="header-section">
+                    <img src="Logo UIDE.png" alt="Logo UIDE" class="logo-container">
+                    <div class="university-info">
+                        <h4>Universidad Internacional del Ecuador</h4>
+                        <p>Interacción Persona-Ordenador</p>
+                    </div>
+                </div>
+                
+                <h2>4. Principios de Usabilidad</h2>
+                
+                <div class="definition-box">
+                    <h3>Definición de Usabilidad</h3>
+                    <p>La usabilidad se define como <strong>la medida en que un producto puede ser utilizado por usuarios específicos para lograr metas específicas con efectividad, eficiencia y satisfacción en un contexto de uso determinado</strong>.</p>
+                </div>
+                
+                <div class="principle-grid">
+                    <div class="principle-card">
+                        <h4>Efectividad</h4>
+                        <p>La precisión y completitud con que los usuarios logran objetivos específicos.</p>
+                        <div class="content-box">
+                            <p><em>¿El usuario puede completar la tarea exitosamente?</em></p>
+                        </div>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <h4>Eficiencia</h4>
+                        <p>Los recursos gastados en relación con la precisión y completitud de los objetivos logrados.</p>
+                        <div class="content-box">
+                            <p><em>¿Qué tan rápido y con qué esfuerzo puede completar la tarea?</em></p>
+                        </div>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <h4>Satisfacción</h4>
+                        <p>La libertad de disconformidad y las actitudes positivas hacia el uso del producto.</p>
+                        <div class="content-box">
+                            <p><em>¿Qué tan agradable es la experiencia de uso?</em></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-box">
+                    <p><strong>Los principios de usabilidad se enfocan en hacer que la interacción sea intuitiva y minimizar la carga cognitiva y motora del usuario.</strong></p>
+                </div>
+            </section>
+
+            <!-- Leyes y Modelos Fundamentales -->
+            <section>
+                <div class="header-section">
+                    <img src="Logo UIDE.png" alt="Logo UIDE" class="logo-container">
+                    <div class="university-info">
+                        <h4>Universidad Internacional del Ecuador</h4>
+                        <p>Interacción Persona-Ordenador</p>
+                    </div>
+                </div>
+                
+                <h2>5. Leyes y Modelos Fundamentales</h2>
+                
+                <p>Estas leyes y modelos proporcionan principios científicos que guían el diseño de interfaces efectivas.</p>
+                
+                <!-- Primera Norma de Krug -->
+                <div class="law-box">
+                    <h3>1. Primera Norma de Krug: "¡No me hagas pensar!"</h3>
+                    <p>Steve Krug - Principio fundamental de usabilidad web</p>
+                </div>
+                
+                <div class="content-box">
+                    <p>Este <strong>principio esencial</strong> dicta que el usuario promedio no debería tener que pensar para descubrir cómo funciona un producto o cómo navegar una página.</p>
+                    <ul>
+                        <li>Si un diseño no puede ser completamente obvio, debe ser <strong>autoexplicativo</strong></li>
+                        <li>Evitar "interrogantes" que detengan al usuario y lo obliguen a reflexionar</li>
+                        <li>La interfaz debe hablar el lenguaje del usuario</li>
+                        <li>Los elementos deben aparecer donde el usuario espera encontrarlos</li>
+                    </ul>
+                </div>
+                
+                <div class="reflection-box">
+                    <h4>Aplicación Práctica:</h4>
+                    <p><strong>Ejercicio:</strong> Piensa en una aplicación que usas frecuentemente. ¿Hay algún elemento que te haga "pensar" cada vez que lo usas? ¿Cómo podría mejorarse?</p>
+                </div>
+                
+                <!-- Ley de Miller -->
+                <div class="law-box">
+                    <h3>2. Ley de Miller (1956)</h3>
+                    <p>George Armitage Miller - "El número mágico siete"</p>
+                </div>
+                
+                <div class="content-box">
+                    <p>Establece que <strong>la capacidad de la memoria a corto plazo es extremadamente limitada</strong>, pudiendo recordar solo siete objetos o entidades, más o menos dos, en un momento dado.</p>
+                    
+                    <div class="math-highlight">
+                        <p><strong>Capacidad de memoria a corto plazo:</strong></p>
+                        \[7 \pm 2\]
+                        <p>Rango: 5 a 9 elementos</p>
+                    </div>
+                    
+                    <h4>Aplicación Práctica:</h4>
+                    <ul>
+                        <li><strong>Limitar opciones en menús:</strong> No más de 7±2 elementos por nivel</li>
+                        <li><strong>Fragmentación (Chunking):</strong> Agrupar elementos de manera significativa</li>
+                        <li><strong>Navegación:</strong> Estructuras jerárquicas que respeten esta limitación</li>
+                        <li><strong>Formularios:</strong> Dividir campos extensos en secciones manejables</li>
+                    </ul>
+                </div>
+                
+                <div class="reflection-box">
+                    <h4>Actividad de Análisis:</h4>
+                    <ol>
+                        <li><strong>Observa:</strong> El menú principal de tu aplicación favorita. ¿Respeta la regla de Miller?</li>
+                        <li><strong>Cuenta:</strong> ¿Cuántos elementos hay en la navegación principal de sitios web populares?</li>
+                        <li><strong>Evalúa:</strong> ¿Cómo se agrupan los elementos para facilitar la comprensión?</li>
+                    </ol>
+                </div>
+                
+                <!-- Ley de Hick-Hyman -->
+                <div class="law-box">
+                    <h3>3. Ley de Hick-Hyman (1952)</h3>
+                    <p>William Edmund Hick y Ray Hyman - Tiempo de decisión</p>
+                </div>
+                
+                <div class="content-box">
+                    <p><strong>Demuestra que el tiempo que se tarda en tomar una decisión aumenta en función del número de opciones disponibles.</strong></p>
+                    
+                    <div class="math-highlight">
+                        <p><strong>Fórmula:</strong></p>
+                        \[T = b \log_2(n + 1)\]
+                        <p>donde:</p>
+                        <ul style="font-size: 0.9em; margin: 10px 0;">
+                            <li><strong>T</strong> = tiempo de decisión</li>
+                            <li><strong>b</strong> = constante empírica</li>
+                            <li><strong>n</strong> = número de opciones</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>Implicaciones para el Diseño:</h4>
+                    <ul>
+                        <li><strong>Parálisis de decisión:</strong> Demasiadas opciones pueden paralizar al usuario</li>
+                        <li><strong>Estructuración categórica:</strong> Reducir opciones mediante subdivisiones</li>
+                        <li><strong>Priorización visual:</strong> Destacar opciones más importantes</li>
+                        <li><strong>Valores por defecto:</strong> Proporcionar opciones preseleccionadas inteligentes</li>
+                    </ul>
+                </div>
+                
+                <div class="reflection-box">
+                    <h4>Casos de Estudio:</h4>
+                    <p><strong>Netflix vs. Menú de Restaurante:</strong> ¿Cómo manejan cada uno el problema de demasiadas opciones? ¿Qué estrategias diferentes utilizan?</p>
+                    <p><strong>Tu experiencia:</strong> ¿Alguna vez has abandonado una compra online porque había demasiadas opciones? ¿Qué habría ayudado?</p>
+                </div>
+                
+                <!-- Umbral de Doherty -->
+                <div class="law-box">
+                    <h3>4. Umbral de Doherty (1982)</h3>
+                    <p>Walter J. Doherty - Productividad en interacción Persona-Ordenador</p>
+                </div>
+                
+                <div class="content-box">
+                    <p><strong>Establece que el tiempo de espera en una interacción Persona-Ordenador no debe superar los 396 milisegundos.</strong></p>
+                    
+                    <div class="math-highlight">
+                        <p><strong>Tiempo crítico de respuesta:</strong></p>
+                        <p style="font-size: 2em; color: var(--university-primary);">396 ms</p>
+                        <p>Umbral para mantener productividad y flujo del usuario</p>
+                    </div>
+                    
+                    <h4>Principios del Umbral:</h4>
+                    <ul>
+                        <li><strong>Flujo continuo:</strong> Mantiene al usuario en estado de "flujo"</li>
+                        <li><strong>Mayor productividad:</strong> El usuario se siente más cómodo y positivo</li>
+                        <li><strong>Retroalimentación inmediata:</strong> El sistema debe responder instantáneamente</li>
+                        <li><strong>Prevención de abandono:</strong> Evita que el usuario pierda interés</li>
+                    </ul>
+                    
+                    <h4>Estrategias de Implementación:</h4>
+                    <ul>
+                        <li><strong>Indicadores de progreso:</strong> Para operaciones que excedan 396ms</li>
+                        <li><strong>Carga progresiva:</strong> Mostrar contenido parcial rápidamente</li>
+                        <li><strong>Retroalimentación visual inmediata:</strong> Confirmar acciones del usuario</li>
+                        <li><strong>Optimización de rendimiento:</strong> Priorizar velocidad en operaciones críticas</li>
+                    </ul>
+                </div>
+                
+                <div class="reflection-box">
+                    <h4>Medición Personal:</h4>
+                    <ol>
+                        <li><strong>Cronometra:</strong> ¿Cuánto tardas en perder paciencia esperando que cargue una página?</li>
+                        <li><strong>Observa:</strong> ¿Qué aplicaciones en tu teléfono se sienten "instantáneas"?</li>
+                        <li><strong>Compara:</strong> ¿Hay diferencia entre tus expectativas en móvil vs. computadora?</li>
+                        <li><strong>Analiza:</strong> ¿Cómo afecta una conexión lenta a tu tolerancia de espera?</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Las Ocho Reglas de Oro de Shneiderman -->
+            <section>
+                <div class="header-section">
+                    <img src="Logo UIDE.png" alt="Logo UIDE" class="logo-container">
+                    <div class="university-info">
+                        <h4>Universidad Internacional del Ecuador</h4>
+                        <p>Interacción Persona-Ordenador</p>
+                    </div>
+                </div>
+                
+                <h2>6. Las Ocho Reglas de Oro de Shneiderman</h2>
+                
+                <div class="definition-box">
+                    <p><strong>Ben Shneiderman</strong> estableció estas reglas que son <strong>aplicables a la mayoría de los sistemas interactivos</strong>. Constituyen una guía práctica y comprobada para el diseño de interfaces usables.</p>
+                </div>
+                
+                <div class="content-box">
+                    <h3>Regla 1: Esfuérzate por la Consistencia</h3>
+                    <p><strong>Es la regla que más se viola.</strong> Requiere:</p>
+                    <ul>
+                        <li><strong>Secuencias de acciones consistentes</strong> en situaciones similares</li>
+                        <li><strong>Terminología idéntica</strong> en mensajes, menús y pantallas de ayuda</li>
+                        <li><strong>Uso uniforme de elementos visuales</strong> (color, fuentes, layout)</li>
+                    </ul>
+                    
+                    <div class="reflection-box">
+                        <h4>Tipos de Consistencia:</h4>
+                        <ul>
+                            <li><strong>Interna:</strong> Dentro del mismo producto</li>
+                            <li><strong>Externa:</strong> Con otros productos similares</li>
+                            <li><strong>Funcional:</strong> Comportamientos similares para funciones similares</li>
+                            <li><strong>Visual:</strong> Apariencia uniforme de elementos similares</li>
+                        </ul>
+                    </div>
+                    
+                    <p><strong>Beneficio:</strong> Reduce la curva de aprendizaje y facilita la transferencia de conocimientos.</p>
+                </div>
+                
+                <div class="content-box">
+                    <h3>Regla 2: Adáptate a la Usabilidad Universal</h3>
+                    <p><strong>Diseña para la plasticidad y la diversidad de usuarios:</strong></p>
+                    <ul>
+                        <li><strong>Experiencia diversa:</strong> Novatos vs. Expertos</li>
+                        <li><strong>Rango de edades:</strong> Niños, adultos, tercera edad</li>
+                        <li><strong>Discapacidades:</strong> Motoras, visuales, auditivas, cognitivas</li>
+                        <li><strong>Contextos tecnológicos:</strong> Diferentes dispositivos y capacidades</li>
+                        <li><strong>Diversidad cultural:</strong> Diferentes idiomas y costumbres</li>
+                    </ul>
+                    
+                    <div class="reflection-box">
+                        <h4>Estrategias de Implementación:</h4>
+                        <ul>
+                            <li><strong>Interfaces adaptables:</strong> Permiten personalización</li>
+                            <li><strong>Múltiples modalidades:</strong> Visual, auditiva, táctil</li>
+                            <li><strong>Niveles de complejidad:</strong> Opciones básicas y avanzadas</li>
+                            <li><strong>Internacionalización:</strong> Soporte para múltiples idiomas</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="content-box">
+                    <h3>Regla 3: Ofrece Feedback Informativo</h3>
+                    <p><strong>Proporciona retroalimentación del sistema por cada acción del usuario.</strong></p>
+                    
+                    <div class="principle-grid">
+                        <div class="principle-card">
+                            <h4>Acciones Frecuentes</h4>
+                            <p>Feedback modesto y discreto</p>
+                            <ul>
+                                <li>Cambios de color en botones</li>
+                                <li>Destacado visual sutil</li>
+                                <li>Sonidos suaves</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <h4>Acciones Poco Frecuentes</h4>
+                            <p>Feedback más sustancial</p>
+                            <ul>
+                                <li>Mensajes de confirmación</li>
+                                <li>Indicadores de progreso</li>
+                                <li>Cambios visuales notables</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <h4>Acciones Críticas</h4>
+                            <p>Feedback completo y explícito</p>
+                            <ul>
+                                <li>Diálogos de confirmación</li>
+                                <li>Resúmenes detallados</li>
+                                <li>Opciones de reversión</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-box">
+                    <h3>Regla 4: Diseña Diálogos que Conduzcan al Cierre</h3>
+                    <p><strong>Las secuencias de tareas deben tener un inicio, desarrollo y final claros</strong> para brindar satisfacción y preparación para la siguiente tarea.</p>
+                    
+                    <div class="timeline-container">
+                        <div class="timeline-item">
+                            <div class="timeline-title">Inicio</div>
+                            <p>Presentación clara de la tarea y sus requisitos</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Desarrollo</div>
+                            <p>Progreso visible y feedback continuo durante la ejecución</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Final</div>
+                            <p>Confirmación clara de finalización y resultado obtenido</p>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Beneficio:</strong> Proporciona sensación de logro y prepara mentalmente para la siguiente actividad.</p>
+                </div>
+                
+                <div class="content-box">
+                    <h3>Regla 5: Previene Errores</h3>
+                    <p><strong>El diseño debe evitar que los usuarios cometan errores graves.</strong></p>
+                    
+                    <div class="reflection-box">
+                        <h4>Estrategias de Prevención:</h4>
+                        <ul>
+                            <li><strong>Deshabilitar opciones inapropiadas:</strong> "Graying out" elementos no válidos</li>
+                            <li><strong>Validación en tiempo real:</strong> Verificar datos mientras el usuario escribe</li>
+                            <li><strong>Restricciones de entrada:</strong> Limitar tipos de datos válidos</li>
+                            <li><strong>Valores por defecto seguros:</strong> Opciones preseleccionadas que minimizan riesgos</li>
+                            <li><strong>Confirmación para acciones destructivas:</strong> "¿Está seguro de eliminar?"</li>
+                        </ul>
+                    </div>
+                    
+                    <p><strong>Principio:</strong> Es mejor prevenir errores que tener que manejarlos después.</p>
+                </div>
+                
+                <div class="content-box">
+                    <h3>Regla 6: Permite la Fácil Reversibilidad de las Acciones</h3>
+                    <p><strong>Proporcionar una función general de Deshacer (Undo)</strong> reduce la ansiedad y fomenta la exploración.</p>
+                    
+                    <div class="principle-grid">
+                        <div class="principle-card">
+                            <h4>Niveles de Reversibilidad</h4>
+                            <ul>
+                                <li><strong>Acción única:</strong> Ctrl+Z simple</li>
+                                <li><strong>Secuencia de acciones:</strong> Deshacer múltiple</li>
+                                <li><strong>Toda la sesión:</strong> Volver al estado inicial</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <h4>Beneficios Psicológicos</h4>
+                            <ul>
+                                <li><strong>Reduce ansiedad:</strong> El usuario no teme experimentar</li>
+                                <li><strong>Fomenta aprendizaje:</strong> Permite ensayo y error</li>
+                                <li><strong>Aumenta confianza:</strong> Control sobre las acciones</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-box">
+                    <h3>Regla 7: Apoya el Locus de Control Interno</h3>
+                    <p><strong>Los usuarios deben sentir que son los iniciadores de las acciones y dueños de la interfaz.</strong></p>
+                    
+                    <div class="reflection-box">
+                        <h4>Principios del Control Interno:</h4>
+                        <ul>
+                            <li><strong>Usuario como iniciador:</strong> Las acciones surgen de decisiones del usuario</li>
+                            <li><strong>Respuesta a demanda:</strong> El sistema responde, no actúa por sí mismo</li>
+                            <li><strong>Predictibilidad:</strong> El usuario puede anticipar los resultados</li>
+                            <li><strong>Autonomía:</strong> Libertad para elegir cómo proceder</li>
+                        </ul>
+                    </div>
+                    
+                    <p><strong>Evitar:</strong> Acciones automáticas sorpresivas, cambios de contexto inesperados, o limitaciones arbitrarias.</p>
+                </div>
+                
+                <div class="content-box">
+                    <h3>Regla 8: Reduce la Carga de la Memoria a Corto Plazo</h3>
+                    <p><strong>Mantén las pantallas simples y evita obligar al usuario a recordar información de una pantalla a otra.</strong></p>
+                    
+                    <div class="principle-grid">
+                        <div class="principle-card">
+                            <h4>Reconocimiento vs. Recuerdo</h4>
+                            <p><strong>Facilita el reconocimiento</strong> en lugar de obligar al recuerdo</p>
+                            <ul>
+                                <li>Menús vs. comandos</li>
+                                <li>Iconos descriptivos</li>
+                                <li>Opciones visibles</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <h4>Continuidad de Información</h4>
+                            <p><strong>Mantén visible la información relevante</strong></p>
+                            <ul>
+                                <li>Breadcrumbs de navegación</li>
+                                <li>Información de contexto</li>
+                                <li>Estados persistentes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reflection-box">
+                    <h3>Actividad Integradora: Evaluación de Interfaces</h3>
+                    <p><strong>Selecciona una aplicación que uses frecuentemente y evalúala contra las 8 Reglas de Oro:</strong></p>
+                    <ol>
+                        <li><strong>Crea una tabla</strong> con las 8 reglas como filas</li>
+                        <li><strong>Para cada regla:</strong> Califica del 1-5 qué tan bien la cumple la aplicación</li>
+                        <li><strong>Identifica ejemplos específicos</strong> donde la aplicación falla o sobresale</li>
+                        <li><strong>Propón mejoras concretas</strong> para las reglas que reciben calificación baja</li>
+                    </ol>
+                    
+                    <h4>Preguntas Guía:</h4>
+                    <ul>
+                        <li>¿Qué regla consideras más importante para esta aplicación específica?</li>
+                        <li>¿Hay alguna regla que entra en conflicto con otra en este caso?</li>
+                        <li>¿Cómo priorizarías las mejoras si fueras el diseñador?</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Principios de Diseño y Cognición -->
+            <section>
+                <div class="header-section">
+                    <img src="Logo UIDE.png" alt="Logo UIDE" class="logo-container">
+                    <div class="university-info">
+                        <h4>Universidad Internacional del Ecuador</h4>
+                        <p>Interacción Persona-Ordenador</p>
+                    </div>
+                </div>
+                
+                <h2>7. Principios de Diseño y Cognición</h2>
+                
+                <p>Estos principios se basan en cómo los humanos procesan información y toman decisiones, aplicando conocimientos de psicología cognitiva al diseño de interfaces.</p>
+                
+                <div class="content-box">
+                    <h3>Reconocimiento sobre Recuerdo (Recognition over Recall)</h3>
+                    <p><strong>La interfaz debe presentar opciones para que el usuario las reconozca</strong> (ej. menús) en lugar de obligarlo a recordar comandos sin pistas.</p>
+                    
+                    <div class="principle-grid">
+                        <div class="principle-card">
+                            <h4>Recuerdo (Más Difícil)</h4>
+                            <p>Requiere recuperar información de la memoria sin pistas externas</p>
+                            <ul>
+                                <li>Comandos de línea</li>
+                                <li>Atajos de teclado</li>
+                                <li>Códigos y passwords</li>
+                                <li>Procedimientos paso a paso</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <h4>Reconocimiento (Más Fácil)</h4>
+                            <p>Identificar información entre opciones presentadas</p>
+                            <ul>
+                                <li>Menús desplegables</li>
+                                <li>Iconos descriptivos</li>
+                                <li>Botones con etiquetas</li>
+                                <li>Listas de opciones</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="reflection-box">
+                        <p><strong>El reconocimiento es más fácil porque:</strong></p>
+                        <ul>
+                            <li>Reduce la carga cognitiva</li>
+                            <li>Proporciona pistas contextuales</li>
+                            <li>Minimiza errores</li>
+                            <li>Acelera el proceso de decisión</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="content-box">
+                    <h3>Affordances (Pistas Visuales)</h3>
+                    <p><strong>Las pistas visuales en el diseño sugieren claramente cómo se debe usar un objeto.</strong> La affordance puede considerarse un concepto puramente cognitivo: lo que creemos que el objeto puede hacer.</p>
+                    
+                    <div class="timeline-container">
+                        <div class="timeline-item">
+                            <div class="timeline-title">Affordances Físicas</div>
+                            <p>En el mundo real: Una manija sugiere tirar, un botón sugiere presionar</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Affordances Digitales</div>
+                            <p>En interfaces: Un botón 3D sugiere clic, un enlace subrayado sugiere navegación</p>
+                        </div>
+                    </div>
+                    
+                    <div class="principle-grid">
+                        <div class="principle-card">
+                            <h4>Affordances Visuales Comunes</h4>
+                            <ul>
+                                <li><strong>Botones elevados:</strong> Sugieren que se pueden presionar</li>
+                                <li><strong>Enlaces subrayados:</strong> Indican navegación</li>
+                                <li><strong>Campos con bordes:</strong> Invitan a escribir</li>
+                                <li><strong>Deslizadores:</strong> Sugieren arrastrar</li>
+                                <li><strong>Pestañas:</strong> Implican múltiples vistas</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <h4>Falsos Affordances</h4>
+                            <ul>
+                                <li><strong>Texto que parece enlace</strong> pero no lo es</li>
+                                <li><strong>Elementos que parecen botones</strong> pero no responden</li>
+                                <li><strong>Áreas que parecen clickeables</strong> pero son estáticas</li>
+                                <li><strong>Controles deshabilitados</strong> sin indicación clara</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-box">
+                    <h3>Jerarquía Visual Clara</h3>
+                    <p><strong>Lo más importante debe ser lo más prominente visualmente</strong> (tamaño, color, negrita) para que el usuario pueda preprocesar la página y establecer prioridades casi instantáneamente.</p>
+                    
+                    <div class="reflection-box">
+                        <h4>Herramientas de Jerarquía Visual:</h4>
+                        <ul>
+                            <li><strong>Tamaño:</strong> Elementos grandes llaman más atención</li>
+                            <li><strong>Color:</strong> Colores vibrantes vs. sutiles</li>
+                            <li><strong>Contraste:</strong> Diferencias claras entre elementos</li>
+                            <li><strong>Espaciado:</strong> Separación para agrupar o aislar</li>
+                            <li><strong>Posición:</strong> Ubicación estratégica en la pantalla</li>
+                            <li><strong>Tipografía:</strong> Pesos y estilos de fuente</li>
+                        </ul>
+                    </div>
+                    
+                    <p><strong>Principio del Preprocesamiento:</strong> Los usuarios escanean antes de leer, identificando patrones y prioridades en milisegundos.</p>
+                </div>
+                
+                <div class="content-box">
+                    <h3>Uso de Convenciones</h3>
+                    <p><strong>Las convenciones conocidas facilitan el aprendizaje y el descubrimiento.</strong> Los diseñadores deben aprovechar los patrones comunes, ya que la creatividad excesiva puede generar confusión.</p>
+                    
+                    <div class="principle-grid">
+                        <div class="principle-card">
+                            <h4>Convenciones Universales</h4>
+                            <ul>
+                                <li><strong>Logo en esquina superior izquierda</strong> lleva al inicio</li>
+                                <li><strong>Carrito de compras</strong> en esquina superior derecha</li>
+                                <li><strong>Breadcrumbs</strong> bajo la navegación principal</li>
+                                <li><strong>Formularios de arriba hacia abajo</strong></li>
+                                <li><strong>Enlaces en azul</strong> y subrayados</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <h4>Convenciones Culturales</h4>
+                            <ul>
+                                <li><strong>Lectura:</strong> Izquierda a derecha vs. derecha a izquierda</li>
+                                <li><strong>Colores:</strong> Significados culturales específicos</li>
+                                <li><strong>Símbolos:</strong> Interpretaciones locales</li>
+                                <li><strong>Gestos:</strong> Diferencias en interfaces táctiles</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="reflection-box">
+                        <p><strong>Cuándo romper convenciones:</strong> Solo cuando la innovación proporciona un valor significativo y se puede enseñar fácilmente al usuario.</p>
+                    </div>
+                </div>
+                
+                <div class="content-box">
+                    <h3>Diseño para la Accesibilidad e Inclusión</h3>
+                    <p><strong>El principio de Usabilidad Universal requiere diseñar para la diversidad humana</strong>, asegurando perceptibilidad, operabilidad, simplicidad y perdón.</p>
+                    
+                    <div class="principle-grid">
+                        <div class="principle-card">
+                            <h4>Principios POUR</h4>
+                            <ul>
+                                <li><strong>Perceptible:</strong> Información presentada de múltiples formas</li>
+                                <li><strong>Operable:</strong> Controles accesibles para todos</li>
+                                <li><strong>Comprensible:</strong> Información clara y predecible</li>
+                                <li><strong>Robusto:</strong> Compatible con tecnologías asistivas</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <h4>Beneficios Universales</h4>
+                            <ul>
+                                <li><strong>Rampas:</strong> Benefician a usuarios de sillas de ruedas y personas con carritos</li>
+                                <li><strong>Subtítulos:</strong> Ayudan en ambientes ruidosos</li>
+                                <li><strong>Alto contraste:</strong> Mejora legibilidad para todos</li>
+                                <li><strong>Navegación por teclado:</strong> Útil para power users</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Principio clave:</strong> A menudo, lo que beneficia a un grupo con necesidades especiales (ej. usuarios con problemas de control motor) beneficia a todos los usuarios.</p>
+                </div>
+                
+                <div class="reflection-box">
+                    <h3>Síntesis: Aplicando Principios de Cognición</h3>
+                    <p><strong>Proyecto Práctico:</strong> Diseña la página principal de una aplicación móvil aplicando todos los principios de cognición:</p>
+                    
+                    <ol>
+                        <li><strong>Elige un dominio:</strong> Banca móvil, red social, e-commerce, etc.</li>
+                        <li><strong>Aplica reconocimiento sobre recuerdo:</strong> ¿Cómo evitas que el usuario tenga que recordar información?</li>
+                        <li><strong>Diseña affordances claras:</strong> ¿Qué elementos deben parecer clickeables?</li>
+                        <li><strong>Establece jerarquía visual:</strong> ¿Qué es lo más importante que debe ver el usuario?</li>
+                        <li><strong>Usa convenciones apropiadas:</strong> ¿Qué patrones espera el usuario?</li>
+                        <li><strong>Considera accesibilidad:</strong> ¿Cómo funciona para usuarios con diferentes capacidades?</li>
+                    </ol>
+                    
+                    <h4>Preguntas de Evaluación:</h4>
+                    <ul>
+                        <li>¿Un usuario nuevo puede entender la interfaz en 5 segundos?</li>
+                        <li>¿Es obvio qué elementos son interactivos?</li>
+                        <li>¿La información más importante es la más prominente?</li>
+                        <li>¿Seguiste o rompiste convenciones? ¿Por qué?</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Referencias Bibliográficas -->
+            <section>
+                <div class="header-section">
+                    <img src="Logo UIDE.png" alt="Logo UIDE" class="logo-container">
+                    <div class="university-info">
+                        <h4>Universidad Internacional del Ecuador</h4>
+                        <p>Interacción Persona-Ordenador</p>
+                    </div>
+                </div>
+                
+                <h2>Referencias Bibliográficas</h2>
+                
+                <div class="content-box">
+                    <p>A continuación se presenta la bibliografía citada en formato APA, priorizando las referencias fundamentales del campo de HCI.</p>
+                </div>
+                
+                <div class="reference-item">
+                    <strong>Bush, V.</strong> (1945, Julio). As we may think. <em>The Atlantic Monthly</em>, 176, 101–108. (Reimpreso en ACM's interactions, 1996).
+                </div>
+                
+                <div class="reference-item">
+                    <strong>Card, S. K., Moran, T. P., & Newell, A.</strong> (1983). <em>The Psychology of Human-Computer Interaction</em>. Hillsdale, NJ: Erlbaum.
+                </div>
+                
+                <div class="reference-item">
+                    <strong>Doherty, W. J., & Chakraborty, A.</strong> (1982). El Umbral de Doherty (Implícito en el texto sobre el Umbral de 396 ms).
+                </div>
+                
+                <div class="reference-item">
+                    <strong>Dix, A., Finlay, J., Abowd, G., & Beale, R.</strong> (2004). <em>Human-Computer Interaction</em> (3ra ed.). Prentice Hall.
+                </div>
+                
+                <div class="reference-item">
+                    <strong>Fitts, P. M.</strong> (1954). The information capacity of the human motor system in controlling amplitude of movement. <em>Journal of Experimental Psychology</em>, 4, 381–391.
+                </div>
+                
+                <div class="reference-item">
+                    <strong>Hick, W. E.</strong> (1952). On the rate of gain of information. <em>Quarterly Journal of Experimental Psychology</em>, 4, 11–36.
+                </div>
+                
+                <div class="reference-item">
+                    <strong>ISO.</strong> (2000). Ergonomic requirements for office work with visual display terminals (VDTs)—Part 11: Guidance on Usability (ISO 9241–11). International Organisation for Standardisation.
+                </div>
+                
+                <div class="reference-item">
+                    <strong>Krug, S.</strong> (2014). <em>Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability</em>. New Riders.
+                </div>
+                
+                <div class="reference-item">
+                    <strong>Miller, G. A.</strong> (1956). The magical number seven plus or minus two: Some limits on our capacity for processing information. <em>Psychological Review</em>, 63, 81–97.
+                </div>
+                
+                <div class="reference-item">
+                    <strong>Moore, G. E.</strong> (1965). Moore's Law (Implícito en el texto sobre la duplicación de transistores cada 24 meses).
+                </div>
+                
+                <div class="reference-item">
+                    <strong>Norman, D. A.</strong> (1988). <em>The Psychology of Everyday Things</em> (Mencionado en el texto como fundamento del modelo de etapas de acción).
+                </div>
+                
+                <div class="reference-item">
+                    <strong>Norman, D. A.</strong> (1998). <em>The Invisible Computer</em>. The MIT Press.
+                </div>
+                
+                <div class="reference-item">
+                    <strong>Shneiderman, B.</strong> (2005). <em>Designing the User Interface: Strategies for Effective Human-Computer Interaction</em> (4ta ed.). Pearson Education, Inc.
+                </div>
+                
+                <div class="reference-item">
+                    <strong>Sutherland, I.</strong> (1963). <em>Sketchpad: A Man-Machine Graphical Communication System</em>. (Implícito en el texto).
+                </div>
+                
+                <div class="reference-item">
+                    <strong>Weiser, M.</strong> (1991, Septiembre). The computer for the 21st century. <em>Scientific American</em>, 265, 94–105.
+                </div>
+            </section>
+
+            <!-- Síntesis y Próximos Pasos -->
+            <section>
+                <div class="header-section">
+                    <img src="Logo UIDE.png" alt="Logo UIDE" class="logo-container">
+                    <div class="university-info">
+                        <h4>Universidad Internacional del Ecuador</h4>
+                        <p>Interacción Persona-Ordenador</p>
+                    </div>
+                </div>
+                
+                <h2>Síntesis y Evaluación del Aprendizaje</h2>
+                
+                <div class="definition-box">
+                    <h3>Conceptos Clave Adquiridos</h3>
+                    <p>Al completar este compendio, has explorado los <strong>fundamentos teóricos y prácticos de HCI</strong> que forman la base para el diseño de interfaces efectivas.</p>
+                </div>
+                
+                <div class="principle-grid">
+                    <div class="principle-card">
+                        <h4>Fundamentos Teóricos</h4>
+                        <ul>
+                            <li>HCI como campo multidisciplinario</li>
+                            <li>Evolución histórica desde 1940</li>
+                            <li>Impacto de la Ley de Moore</li>
+                            <li>Bases psicológicas de la interacción</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <h4>Principios Aplicables</h4>
+                        <ul>
+                            <li>Leyes cognitivas (Miller, Hick, Doherty)</li>
+                            <li>Las Ocho Reglas de Oro</li>
+                            <li>Principios de diseño y cognición</li>
+                            <li>Accesibilidad e inclusión</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="reflection-box">
+                    <h3>Actividad Final de Síntesis</h3>
+                    <p><strong>Análisis Integral de una Interfaz:</strong> Selecciona una aplicación que uses frecuentemente y realiza un análisis completo aplicando todos los conceptos aprendidos.</p>
+                    
+                    <h4>Estructura del Análisis:</h4>
+                    <ol>
+                        <li><strong>Contexto (100 palabras):</strong> Describe la aplicación y su propósito</li>
+                        <li><strong>Análisis de Usabilidad (300 palabras):</strong> Evalúa efectividad, eficiencia y satisfacción</li>
+                        <li><strong>Aplicación de Leyes Cognitivas (200 palabras):</strong> ¿Cómo maneja Miller, Hick y Doherty?</li>
+                        <li><strong>Evaluación contra las 8 Reglas de Oro (400 palabras):</strong> Califica cada regla del 1-5 con justificación</li>
+                        <li><strong>Principios de Cognición (200 palabras):</strong> Analiza reconocimiento vs. recuerdo, affordances, jerarquía</li>
+                        <li><strong>Propuestas de Mejora (300 palabras):</strong> Tres mejoras específicas con justificación teórica</li>
+                    </ol>
+                    
+                    <h4>Criterios de Evaluación:</h4>
+                    <ul>
+                        <li><strong>Aplicación correcta de conceptos teóricos</strong></li>
+                        <li><strong>Análisis crítico y reflexivo</strong></li>
+                        <li><strong>Propuestas de mejora viables y justificadas</strong></li>
+                        <li><strong>Conexión entre teoría y práctica</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="content-box">
+                    <h3>Preparación para la Siguiente Semana</h3>
+                    <h4>Actividades Recomendadas:</h4>
+                    <ul>
+                        <li><strong>Lectura:</strong> Revisa los capítulos 2-3 del material complementario sobre metodologías de investigación en HCI</li>
+                        <li><strong>Observación:</strong> Durante la semana, nota conscientemente cómo interactúas con diferentes dispositivos</li>
+                        <li><strong>Investigación:</strong> Busca ejemplos de interfaces que consideres excepcionales o problemáticas</li>
+                        <li><strong>Reflexión:</strong> Considera cómo los conceptos de esta semana se aplican en tu experiencia diaria</li>
+                    </ul>
+                    
+                    <h4>Preguntas para Reflexionar:</h4>
+                    <ul>
+                        <li>¿Cómo ha cambiado tu percepción sobre las interfaces después de estudiar estos conceptos?</li>
+                        <li>¿Qué principio de HCI consideras más importante para tu área de especialización?</li>
+                        <li>¿Cómo podrías aplicar estos conocimientos en proyectos futuros?</li>
+                    </ul>
+                </div>
+                
+                <div class="objective-box">
+                    <h3>Verificación de Objetivos de Aprendizaje</h3>
+                    <p>Revisa los objetivos planteados al inicio y verifica que puedes:</p>
+                    <ul>
+                        <li>Definir HCI y explicar su naturaleza multidisciplinaria</li>
+                        <li>Describir la evolución histórica del campo</li>
+                        <li>Explicar el impacto de la Ley de Moore en la usabilidad</li>
+                        <li>Aplicar las leyes cognitivas al análisis de interfaces</li>
+                        <li>Utilizar las Ocho Reglas de Oro para evaluar diseños</li>
+                        <li>Analizar interfaces desde principios de cognición</li>
+                    </ul>
+                    
+                    <p><strong>Si puedes hacer todo lo anterior con confianza, has completado exitosamente los objetivos de aprendizaje de la Semana 1.</strong></p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/math/math.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
+    <script>
+        Reveal.initialize({
+            hash: true,
+            center: false,
+            controls: true,
+            progress: true,
+            history: true,
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+
+            width: 1024,
+            height: 768,
+            margin: 0.05,
+            minScale: 0.2,
+            maxScale: 2.0,
+
+            showNotes: false,
+            keyboard: true,
+            overview: true,
+            touch: true,
+            loop: false,
+            rtl: false,
+            shuffle: false,
+            fragments: true,
+            fragmentInURL: false,
+            autoSlide: 0,
+            autoSlideStoppable: true,
+            mouseWheel: false,
+            hideInactiveCursor: true,
+            hideCursorTime: 5000,
+
+
+            katex: {
+                version: 'latest',
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            },
+
+            plugins: [
+                RevealNotes,
+                RevealMarkdown,
+                RevealHighlight,
+                RevealMath.KaTeX
+            ]
+        });
+
+        // Navigation indicator update
+        Reveal.on('slidechanged', event => {
+            const indicator = document.querySelector('.nav-indicator');
+            const slideNumber = event.indexh + 1;
+            const totalSlides = Reveal.getTotalSlides();
+            indicator.textContent = `Semana 1: Sección ${slideNumber} de ${totalSlides}`;
+        });
+
+    </script>
+
+</body>
+</html>
