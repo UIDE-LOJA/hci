@@ -8,7 +8,7 @@ Este repositorio contiene las presentaciones y materiales de todas las semanas d
 
 ## 🌐 Sitio Web
 
-Visita nuestro sitio web desplegado en GitHub Pages: [Ver Compendios](https://charliecardenastoledo.github.io/HCI)
+Visita nuestro sitio web desplegado en GitHub Pages: [Ver Compendios](https://uide-loja.github.io/hci/)
 
 ## 📁 Estructura del Proyecto
 
