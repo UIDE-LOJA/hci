@@ -8,7 +8,7 @@ Este repositorio contiene las presentaciones y materiales de todas las semanas d
 
 ## 🌐 Sitio Web
 
-Visita nuestro sitio web desplegado en GitHub Pages: [Ver Compendios](https://tu-usuario.github.io/HCI)
+Visita nuestro sitio web desplegado en GitHub Pages: [Ver Compendios](https://charliecardenastoledo.github.io/HCI)
 
 ## 📁 Estructura del Proyecto
 
@@ -34,7 +34,7 @@ El sitio se despliega automáticamente en GitHub Pages cada vez que se hace push
    ```bash
    git add .
    git commit -m "Configuración inicial del proyecto HCI"
-   git remote add origin https://github.com/tu-usuario/HCI.git
+   git remote add origin https://github.com/CharlieCardenasToledo/HCI.git
    git push -u origin main
    ```
 
