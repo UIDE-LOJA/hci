@@ -12,18 +12,6 @@ Visita nuestro sitio web desplegado en GitHub Pages: [Ver Compendios](https://ch
 
 ## 📁 Estructura del Proyecto
 
-```
-HCI/
-├── index.html              # Página principal con navegación
-├── semanas/
-│   ├── semana-01/          # Introducción a HCI
-│   ├── semana-02/          # (Próximamente)
-│   ├── semana-03/          # (Próximamente)
-│   └── ...
-├── examples/               # Ejemplos y demos
-└── Logo UIDE.png          # Recursos gráficos
-```
-
 ## 🚀 Despliegue
 
 El sitio se despliega automáticamente en GitHub Pages cada vez que se hace push a la rama principal.
