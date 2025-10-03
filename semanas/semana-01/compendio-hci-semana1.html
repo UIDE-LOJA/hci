@@ -99,263 +99,165 @@
             color: var(--uide-secondary);
             padding: 0.2em 0.4em;
             border-radius: 3px;
+            font-weight: 500;
         }
 
-        /* Logo positioning - Book corner */
+        /* Logo positioning */
         .logo-container {
             position: absolute;
-            top: 3vh;
-            right: 3vw;
-            z-index: 10;
-            opacity: 0.8;
+            top: 1em;
+            right: 1em;
+            z-index: 100;
         }
 
         .logo-container img {
-            width: 8vw;
+            width: min(10vw, 80px);
             height: auto;
-            max-width: 120px;
+            opacity: 0.9;
         }
 
-        /* Page numbers - Book style */
-        .page-number {
-            position: absolute;
-            bottom: 3vh;
-            right: 3vw;
-            font-size: 0.9em;
+        /* Blockquotes */
+        .reveal blockquote {
+            background: rgba(255,255,255,0.8);
+            border-left: 4px solid var(--uide-primary);
+            margin: 1em 0;
+            padding: 1em 2em;
+            font-style: italic;
             color: var(--uide-secondary);
-            font-family: 'Times New Roman', serif;
+            border-radius: 0 8px 8px 0;
         }
 
-        /* Title slide - Book cover style */
+        /* Title slide styling */
         .title-slide {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--uide-light) 0%, #e8e8e8 100%);
+            background: rgba(255,255,255,0.95);
+            padding: 2em;
+            border-radius: 15px;
             border: 3px double var(--uide-primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .title-slide h1 {
-            font-size: min(6vw, 4em);
-            margin-bottom: 0.5em;
             color: var(--uide-primary);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            margin-bottom: 0.5em;
         }
 
         .title-slide h2 {
-            font-size: min(4vw, 2.5em);
+            color: var(--uide-secondary);
+            font-size: min(3vw, 2em);
             margin-bottom: 1em;
-            color: var(--uide-secondary);
         }
 
-        /* Content styling - Book typography */
-        .reveal blockquote {
-            font-style: italic;
-            border-left: 4px solid var(--uide-accent);
-            padding-left: 1em;
+        .course-info {
+            background: rgba(255,255,255,0.9);
+            border-radius: 10px;
+            padding: 1em;
             margin: 1em 0;
-            color: var(--uide-primary);
-            font-size: min(2.2vw, 1.1em);
+            border: 2px solid var(--uide-accent);
+            font-size: min(2vw, 1em);
         }
 
-        .reveal table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5em 0;
-            font-size: min(2vw, 0.9em);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .reveal table th, .reveal table td {
-            border: 1px solid var(--uide-secondary);
-            padding: 0.8em;
-            text-align: left;
-        }
-
-        .reveal table th {
-            background-color: var(--uide-primary);
-            color: white;
-            font-weight: bold;
-        }
-
-        .reveal table tr:nth-child(even) {
-            background-color: rgba(255,255,255,0.5);
-        }
-
-        /* Fragment animations - Book page turning effect */
-        .fragment {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .fragment.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .fragment.fade-in {
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-
-        .fragment.fade-in.visible {
-            opacity: 1;
-        }
-
-
-
-        /* Highlight important text */
-        .highlight {
-            background-color: var(--uide-accent);
+        /* Cross-references */
+        .cross-reference {
+            background: rgba(233, 171, 33, 0.1);
+            border: 1px solid var(--uide-accent);
+            border-radius: 8px;
+            padding: 1em;
+            margin: 1em 0;
+            font-style: italic;
             color: var(--uide-secondary);
-            padding: 0.2em 0.4em;
-            border-radius: 3px;
-            font-weight: bold;
         }
-
-
 
         /* Media placeholders */
         .media-placeholder {
-            background: rgba(0,0,0,0.05);
-            border: 2px dashed var(--uide-secondary);
+            background: rgba(145, 0, 72, 0.1);
+            border: 2px dashed var(--uide-primary);
+            border-radius: 10px;
             padding: 3vh 2vw;
-            margin: 2vh 0;
             text-align: center;
-            border-radius: 5px;
-            color: var(--uide-secondary);
+            color: var(--uide-primary);
+            margin: 1em 0;
+            font-style: italic;
         }
 
-        /* Chapter headers */
-        .chapter-header {
+        /* Two column layout */
+        .column {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .column h4 {
+            color: var(--uide-primary);
+            border-bottom: 2px solid var(--uide-accent);
+            padding-bottom: 0.3em;
+            margin-bottom: 0.8em;
+        }
+
+        /* Special styling for concept boxes */
+        .concept-box {
+            background: rgba(145, 0, 72, 0.1);
+            border: 2px solid var(--uide-primary);
+            border-radius: 10px;
+            padding: 1em;
+            margin: 0.5em 0;
             text-align: center;
-            border-bottom: 2px solid var(--uide-primary);
-            padding-bottom: 0.5em;
-            margin-bottom: 2em;
-            font-size: min(3vw, 2em);
+        }
+
+        .concept-box.timeline {
+            text-align: left;
+        }
+
+        .timeline-item {
+            background: rgba(255,255,255,0.9);
+            border-left: 4px solid var(--uide-accent);
+            padding: 1em;
+            margin: 0.5em 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Metrics styling */
+        .metric-card {
+            background: rgba(255,255,255,0.9);
+            border: 1px solid var(--uide-accent);
+            border-radius: 8px;
+            padding: 1em;
+            margin: 0.5em 0;
+            text-align: center;
+        }
+
+        .metric-number {
+            font-size: 2em;
+            font-weight: bold;
             color: var(--uide-primary);
         }
 
-        /* Footer with university info */
-        .slide-footer {
-            position: absolute;
-            bottom: 3vh;
-            left: 3vw;
-            font-size: 0.8em;
-            color: var(--uide-secondary);
-            font-family: 'Times New Roman', serif;
+        /* References section - optimized for readability */
+        .references-container {
+            column-count: 2;
+            column-gap: 2em;
+            column-rule: 1px solid #ddd;
+            text-align: left;
         }
 
-        /* Responsive Design - Mobile First */
+        .references-container p {
+            break-inside: avoid;
+            margin-bottom: 0.8em;
+            text-align: left;
+        }
+
+        /* Responsive design */
         @media (max-width: 768px) {
             .reveal {
                 font-size: min(4vw, 18px);
             }
 
-            .reveal h1 {
-                font-size: min(8vw, 2.5em);
-            }
-
-            .reveal h2 {
-                font-size: min(6vw, 2em);
-            }
-
-            .reveal h3 {
-                font-size: min(5vw, 1.5em);
-            }
-
-            .reveal p, .reveal li {
-                font-size: min(4vw, 1em);
-            }
-
-            /* Two-column layout becomes single column on mobile */
-            .two-column {
+            .r-hstack {
                 flex-direction: column;
-                gap: 2vh;
-            }
-
-            .column {
-                padding: 1vh 1vw;
-            }
-
-            /* Timeline becomes vertical on mobile */
-            .timeline::before {
-                left: 20px;
-                width: 2px;
-                height: 100%;
-            }
-
-            .timeline-item {
-                flex-direction: column;
-                align-items: flex-start;
-                margin-bottom: 3vh;
-            }
-
-            .timeline-marker {
-                width: 40px;
-                height: 40px;
-                font-size: min(3vw, 0.9em);
-                margin-bottom: 1vh;
-                align-self: flex-start;
-                position: relative;
-                left: 0;
-                transform: none;
-            }
-
-            .timeline-content {
-                margin-left: 0;
-                margin-right: 0;
-                padding-left: 2vw;
-                border-left: 4px solid var(--uide-accent);
-            }
-
-            .timeline-item:nth-child(even) .timeline-content {
-                margin-left: 0;
-                margin-right: 0;
-            }
-
-
-
-            /* Tables become scrollable on mobile */
-            .reveal table {
-                font-size: min(3vw, 0.8em);
-                overflow-x: auto;
-                display: block;
-                white-space: nowrap;
-            }
-
-            .reveal table th, .reveal table td {
-                padding: 0.5em;
-                min-width: 120px;
-            }
-
-            /* Logo positioning on mobile */
-            .logo-container {
-                top: 2vh;
-                right: 2vw;
+                gap: 1em;
             }
 
             .logo-container img {
                 width: 12vw;
-                max-width: 80px;
-            }
-
-            /* Page numbers on mobile */
-            .page-number {
-                bottom: 2vh;
-                right: 2vw;
-                font-size: 0.7em;
-            }
-
-            /* Footer positioning on mobile */
-            .slide-footer {
-                bottom: 1vh;
-                left: 2vw;
-                font-size: 0.7em;
+                max-width: 60px;
             }
 
             /* Title slide adjustments */
@@ -365,107 +267,6 @@
 
             .title-slide h2 {
                 font-size: min(7vw, 2em);
-            }
-
-            /* Math formula container */
-            .math-container {
-                font-size: min(4vw, 1em);
-                overflow-x: auto;
-            }
-
-            /* References section */
-            .references-container {
-                column-count: 1 !important;
-                font-size: min(3.5vw, 0.7em);
-            }
-
-            /* Vertical navigation hint */
-            .reveal p[style*="text-align: center"][style*="font-style: italic"] {
-                font-size: min(3.5vw, 0.9em);
-            }
-
-            .reveal h1 {
-                font-size: min(8vw, 2.5em);
-            }
-
-            .reveal h2 {
-                font-size: min(6vw, 2em);
-            }
-
-            .reveal h3 {
-                font-size: min(5vw, 1.5em);
-            }
-
-            .reveal p, .reveal li {
-                font-size: min(4vw, 1em);
-            }
-
-            /* Two-column layout becomes single column on mobile */
-            .two-column {
-                flex-direction: column;
-                gap: 2vh;
-            }
-
-            .column {
-                padding: 1vh 1vw;
-            }
-
-            /* Tables become scrollable on mobile */
-            .reveal table {
-                font-size: min(3vw, 0.8em);
-                overflow-x: auto;
-                display: block;
-                white-space: nowrap;
-            }
-
-            .reveal table th, .reveal table td {
-                padding: 0.5em;
-                min-width: 120px;
-            }
-
-            /* Logo positioning on mobile */
-            .logo-container {
-                top: 2vh;
-                right: 2vw;
-            }
-
-            .logo-container img {
-                width: 12vw;
-                max-width: 80px;
-            }
-
-            /* Page numbers on mobile */
-            .page-number {
-                bottom: 2vh;
-                right: 2vw;
-                font-size: 0.7em;
-            }
-
-            /* Footer positioning on mobile */
-            .slide-footer {
-                bottom: 1vh;
-                left: 2vw;
-                font-size: 0.7em;
-            }
-
-            /* Title slide adjustments */
-            .title-slide h1 {
-                font-size: min(10vw, 3em);
-            }
-
-            .title-slide h2 {
-                font-size: min(7vw, 2em);
-            }
-
-            /* Math formula container */
-            .math-container {
-                font-size: min(4vw, 1em);
-                overflow-x: auto;
-            }
-
-            /* Media placeholders */
-            .media-placeholder {
-                padding: 2vh 1vw;
             }
 
             /* References section */
@@ -484,8 +285,6 @@
                 padding: 3vh 3vw;
             }
 
-
-
             .logo-container img {
                 width: 15vw;
                 max-width: 60px;
@@ -500,8 +299,6 @@
             }
         }
 
-
-
         /* Touch-friendly interactions for mobile */
         @media (max-width: 768px) and (pointer: coarse) {
             .reveal .controls {
@@ -511,17 +308,7 @@
             .fragment {
                 transition-duration: 0.6s;
             }
-
-
-
-            /* Ensure touch targets are large enough */
         }
-
-
-
-
-
-
 
         /* Vertical slide indicators */
         .reveal .controls .navigate-up, .reveal .controls .navigate-down {
@@ -539,8 +326,6 @@
             background: var(--uide-light);
         }
 
-
-
         /* High DPI displays */
         @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
             .logo-container img {
@@ -549,34 +334,7 @@
             }
         }
 
-        /* Gamified Quiz Cards */
-        .quiz-section {
-            background: linear-gradient(135deg, rgba(145, 0, 72, 0.1), rgba(35, 53, 110, 0.1));
-            border-radius: 15px;
-            padding: 2em;
-            margin: 2em 0;
-            border: 2px solid var(--uide-accent);
-        }
-
-        .quiz-intro {
-            text-align: center;
-            margin-bottom: 2em;
-        }
-
-        .quiz-intro h3 {
-            color: var(--uide-primary);
-            margin-bottom: 0.5em;
-        }
-
-        .score-display {
-            background: rgba(255,255,255,0.9);
-            border-radius: 10px;
-            padding: 1em;
-            text-align: center;
-            margin: 1em 0;
-            border: 2px solid var(--uide-accent);
-        }
-
+        /* Flashcard styles */
         .flashcard {
             background: #ffffff;
             border: 1px solid #e0e0e0;
@@ -670,127 +428,7 @@
             color: var(--uide-secondary);
         }
 
-        .quiz-question {
-            background: rgba(255,255,255,0.95);
-            border-radius: 15px;
-            padding: 2em;
-            margin: 1.5em 0;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            border-left: 5px solid var(--uide-accent);
-        }
-
-        .quiz-options {
-            display: grid;
-            gap: 1em;
-            margin: 1.5em 0;
-        }
-
-        .quiz-option {
-            background: rgba(255,255,255,0.9);
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            padding: 1em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: left;
-        }
-
-        .quiz-option:hover {
-            background: rgba(233, 171, 33, 0.1);
-            border-color: var(--uide-accent);
-            transform: translateX(5px);
-        }
-
-        .quiz-option.selected {
-            background: rgba(233, 171, 33, 0.2);
-            border-color: var(--uide-accent);
-            font-weight: bold;
-        }
-
-        .quiz-option.correct {
-            background: rgba(76, 175, 80, 0.2);
-            border-color: #4CAF50;
-            color: #2E7D32;
-        }
-
-        .quiz-option.incorrect {
-            background: rgba(244, 67, 54, 0.2);
-            border-color: #F44336;
-            color: #C62828;
-        }
-
-        .quiz-feedback {
-            background: rgba(255,255,255,0.95);
-            border-radius: 10px;
-            padding: 1.5em;
-            margin: 1em 0;
-            border-left: 4px solid var(--uide-primary);
-            display: none;
-        }
-
-        .quiz-feedback.show {
-            display: block;
-            animation: slideIn 0.5s ease;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .quiz-button {
-            background: var(--uide-primary);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            padding: 1em 2em;
-            font-size: 1em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 0.5em;
-        }
-
-        .quiz-button:hover {
-            background: var(--uide-secondary);
-            transform: translateY(-2px);
-        }
-
-        .quiz-button:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .achievement-badge {
-            display: inline-block;
-            background: linear-gradient(45deg, var(--uide-accent), #FFD54F);
-            color: var(--uide-secondary);
-            padding: 0.5em 1em;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 0.9em;
-            margin: 0.5em;
-            box-shadow: 0 4px 15px rgba(233, 171, 33, 0.3);
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 20px;
-            background: #ddd;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 1em 0;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--uide-primary), var(--uide-accent));
-            border-radius: 10px;
-            transition: width 0.5s ease;
-            width: 0%;
-        }
-
-        /* Mobile responsive for quiz elements */
+        /* Mobile responsive for flashcards */
         @media (max-width: 768px) {
             .flashcard {
                 min-height: 120px;
@@ -811,15 +449,6 @@
             .flashcard small {
                 font-size: 0.7em;
             }
-            
-            .quiz-options {
-                grid-template-columns: 1fr;
-            }
-            
-            .quiz-button {
-                width: 100%;
-                margin: 0.5em 0;
-            }
         }
     </style>
 </head>
@@ -833,38 +462,26 @@
                 <div class="logo-container">
                     <img src="../../Logo UIDE.png" alt="Logo UIDE">
                 </div>
-
-                <h3 style="color: var(--uide-secondary);">Semana 1</h3>
-                <div style="width: 100px; height: 3px; background: var(--uide-primary); margin: 1em auto; border-radius: 2px;"></div>
-
-                <h1 style="color: var(--uide-primary);">Introducción a HCI</h1>
-                <h2 style="color: var(--uide-secondary);">Interacción Humano-Computadora</h2>
-
-                <div style="margin: 2em 0; padding: 1.5em; background: rgba(255,255,255,0.9); border-radius: 10px; border-left: 4px solid var(--uide-accent);">
-                    <h4 style="color: var(--uide-primary); margin: 0 0 0.5em 0;">Universidad Internacional del Ecuador</h4>
-                    <p style="margin: 0; color: var(--uide-secondary); font-style: italic;">
-                        "Formando líderes con visión global y excelencia académica"
-                    </p>
-                </div>
-
-                <div class="r-hstack" style="justify-content: center;">
-                    <div style="text-align: center;">
-                        <div style="color: var(--uide-primary); font-weight: bold;">PP-07-HCI</div>
-                        <div style="color: var(--uide-secondary); font-size: 0.8em;">Código del Curso</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="color: var(--uide-primary); font-weight: bold;">Oct 2025 - Feb 2026</div>
-                        <div style="color: var(--uide-secondary); font-size: 0.8em;">Período Académico</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="color: var(--uide-primary); font-weight: bold;">Séptimo Nivel</div>
-                        <div style="color: var(--uide-secondary); font-size: 0.8em;">Nivel</div>
-                    </div>
-                </div>
                 
-                <div style="margin-top: 2em; text-align: center; color: var(--uide-secondary); font-size: 0.9em;">
-                    <strong>Prof. Charlie Cárdenas Toledo, M.Sc.</strong><br>
-                    <em>chcardenasto@uide.edu.ec</em>
+                <div class="title-slide">
+                    <h1>Introducción a HCI</h1>
+                    <h2>Semana 1</h2>
+                    
+                    <div class="course-info">
+                        <strong>PP-07-HCI</strong> • Séptimo Nivel<br>
+                        <strong>Human-Computer Interaction</strong><br>
+                        <em>Prof. Charlie Cárdenas Toledo, M.Sc.</em><br>
+                        Universidad Internacional del Ecuador • Octubre 2025
+                    </div>
+                    
+                    <div style="background: rgba(233, 171, 33, 0.1); border-radius: 8px; padding: 1em; margin: 1em 0; font-size: 0.9em;">
+                        <strong>Unidad 1: Fundamentos de HCI</strong><br>
+                        <em>Semana 1 de 16 • Inicio de curso</em>
+                    </div>
+                    
+                    <div style="margin-top: 2em; font-size: 0.9em; font-style: italic; color: var(--uide-secondary);">
+                        Explorando los fundamentos de la interacción humano-computadora
+                    </div>
                 </div>
             </section>
 
@@ -874,13 +491,11 @@
                     <img src="../../Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 
-                <blockquote style="background: rgba(255,255,255,0.95); padding: 2em; border-radius: 15px; border-left: 5px solid var(--uide-primary);">
-                    <p style="font-size: 1.2em; color: var(--uide-secondary); margin: 0; line-height: 1.6; font-style: italic;">
-                        "La tecnología no cambia la naturaleza esencial del hombre. Solo amplifica lo que ya somos."
-                    </p>
-                    <cite style="display: block; margin-top: 1em; color: var(--uide-primary); font-weight: bold;">
+                <blockquote style="font-size: 1.2em; text-align: center;">
+                    <p><strong>"La tecnología no cambia la naturaleza esencial del hombre. Solo amplifica lo que ya somos."</strong></p>
+                    <footer style="margin-top: 1em; color: var(--uide-secondary);">
                         — Don Norman, Padre de la Experiencia del Usuario
-                    </cite>
+                    </footer>
                 </blockquote>
             </section>
 
@@ -892,18 +507,10 @@
                 <h2>¿Qué es HCI?</h2>
                 
                 <section data-auto-animate>
-                    <h3>Definición Inicial</h3>
-                    <p>La Interacción Persona-Ordenador (HCI) es un <mark>campo de investigación y práctica</mark> cuya emergencia se alinea con un cambio dramático en las prácticas informáticas.</p>
-                    <blockquote>
-                        <p><em>MacKenzie (2013):</em> "Aunque surgió formalmente en la década de 1980, el campo extiende sus raíces hasta hace más de 30 años."</p>
-                    </blockquote>
-                </section>
-
-                <section data-auto-animate>
-                    <h3>Definición Completa</h3>
+                    <h3>Definición Formal</h3>
                     <blockquote>
                         <p><strong>"La interacción humano-computadora es un campo interdisciplinario que se preocupa por el diseño, evaluación e implementación de sistemas computacionales interactivos para uso humano, así como por los fenómenos principales que rodean a estos sistemas."</strong></p>
-                        <cite>— MacKenzie (2013, p. 1)</cite>
+                        <footer>— MacKenzie (2013, p. 1)</footer>
                     </blockquote>
                 </section>
 
@@ -917,48 +524,13 @@
                     </div>
                     <p class="fragment"><em>(Shneiderman & Plaisant, 2010)</em></p>
                 </section>
-            </section>
 
-
-            <!-- Definition and Focus -->
-            <section>
-                <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
-                </div>
-                <h2>Enfoque y Definición</h2>
-                
                 <section data-auto-animate>
-                    <h3>Factores Humanos</h3>
-                    <div class="r-hstack">
-                        <div>
-                            <p><strong>MacKenzie (2013)</strong> define HCI esencialmente como:</p>
-                            <p><strong>Factores Humanos</strong> (o Ergonomía), enfocada específicamente en la interacción humana con tecnología informática.</p>
-                        </div>
-                        <div>
-                            <p>El campo se ocupa de:</p>
-                            <ul>
-                                <li>Capacidades humanas</li>
-                                <li>Limitaciones humanas</li>
-                                <li>Rendimiento humano</li>
-                            </ul>
-                        </div>
+                    <h3>Campo Emergente</h3>
+                    <p><mark>MacKenzie (2013):</mark> "Aunque surgió formalmente en la década de 1980, el campo extiende sus raíces hasta hace más de 30 años."</p>
+                    <div class="fragment">
+                        <p>El cambio dramático se alinea con las <strong>prácticas informáticas modernas</strong> y la necesidad de <mark>usabilidad</mark>.</p>
                     </div>
-                </section>
-
-                <section>
-                    <h3>Disciplinas que Nutren HCI</h3>
-                    <div class="r-vstack">
-                        <div class="fragment">
-                            <strong>Psicología</strong> (particularmente cognitiva y experimental)
-                        </div>
-                        <div class="fragment">
-                            <strong>Sociología y Antropología</strong>
-                        </div>
-                        <div class="fragment">
-                            <strong>Ciencia Cognitiva, Informática y Lingüística</strong>
-                        </div>
-                    </div>
-                    <p class="fragment"><em>(MacKenzie, 2013)</em></p>
                 </section>
             </section>
 
@@ -971,35 +543,41 @@
                 
                 <section>
                     <h3>Elementos Básicos de HCI</h3>
-                    <p class="fragment"><strong>Poslad (2009):</strong> <em>"Los conceptos básicos de HCI se centran en tres elementos"</em></p>
+                    <p><strong>Poslad (2009):</strong> <em>"Los conceptos básicos de HCI se centran en tres elementos"</em></p>
                 </section>
 
                 <section data-auto-animate>
                     <h3>1. Humanos</h3>
-                    <div data-id="humans" class="r-fit-text">USUARIOS</div>
-                    <p>Usuarios únicos o múltiples, con habilidades físicas y mentales diversas, interactuando cooperativamente o competitivamente.</p>
+                    <div class="concept-box">
+                        <p><strong>USUARIOS</strong></p>
+                        <p>Usuarios únicos o múltiples, con habilidades físicas y mentales diversas, interactuando cooperativamente o competitivamente.</p>
+                    </div>
                 </section>
 
                 <section data-auto-animate>
                     <h3>2. Ordenadores</h3>
-                    <div data-id="computers" class="r-fit-text">DISPOSITIVOS</div>
-                    <p>No solo PC, sino una gama de dispositivos con chips programables:</p>
-                    <ul>
-                        <li>Pads y tabs</li>
-                        <li>Dispositivos incrustados</li>
-                        <li>Sistemas IoT</li>
-                    </ul>
+                    <div class="concept-box">
+                        <p><strong>DISPOSITIVOS</strong></p>
+                        <p>No solo PC, sino una gama de dispositivos con chips programables:</p>
+                        <ul>
+                            <li>Pads y tabs</li>
+                            <li>Dispositivos incrustados</li>
+                            <li>Sistemas IoT</li>
+                        </ul>
+                    </div>
                 </section>
 
                 <section data-auto-animate>
                     <h3>3. Interacción</h3>
-                    <div data-id="interaction" class="r-fit-text">COMUNICACIÓN</div>
-                    <p>Puede ser dirigida mediante:</p>
-                    <ul>
-                        <li class="fragment">Comandos</li>
-                        <li class="fragment">Manipulación de objetos virtuales</li>
-                        <li class="fragment">Interacción natural (voz, gestos)</li>
-                    </ul>
+                    <div class="concept-box">
+                        <p><strong>COMUNICACIÓN</strong></p>
+                        <p>Puede ser dirigida mediante:</p>
+                        <ul>
+                            <li class="fragment">Comandos</li>
+                            <li class="fragment">Manipulación de objetos virtuales</li>
+                            <li class="fragment">Interacción natural (voz, gestos)</li>
+                        </ul>
+                    </div>
                 </section>
             </section>
 
@@ -1012,15 +590,13 @@
                 
                 <section>
                     <h3>Objetivo Principal</h3>
-                    <div class="r-stack">
-                        <div class="fragment fade-in-then-out">
-                            <strong>La motivación para HCI es clara:</strong>
-                        </div>
-                        <div class="fragment fade-in-then-out">
-                            <strong>Apoyar un uso más efectivo de los sistemas interactivos</strong>
+                    <div class="concept-box">
+                        <p><strong>La motivación para HCI es clara:</strong></p>
+                        <div class="fragment">
+                            <p><mark>Apoyar un uso más efectivo de los sistemas interactivos</mark></p>
                         </div>
                         <div class="fragment">
-                            <strong>El éxito depende de la experiencia del usuario</strong>
+                            <p><strong>El éxito depende de la experiencia del usuario</strong></p>
                         </div>
                     </div>
                     <p class="fragment"><em>(Poslad, 2009)</em></p>
@@ -1030,24 +606,28 @@
                     <h3>Las Tres "U" del Diseño</h3>
                     <p>Para que un sistema sea efectivo, debe ser:</p>
                     <div class="r-hstack">
-                        <div class="fragment">
-                            <strong>Útil</strong><br>
-                            <small>Lograr una tarea que el usuario requiere</small>
+                        <div class="column fragment">
+                            <div class="concept-box">
+                                <strong>Útil</strong><br>
+                                <small>Lograr una tarea que el usuario requiere</small>
+                            </div>
                         </div>
-                        <div class="fragment">
-                            <strong>Utilizable</strong><br>
-                            <small>Realizar la tarea de forma fácil y segura</small>
+                        <div class="column fragment">
+                            <div class="concept-box">
+                                <strong>Utilizable</strong><br>
+                                <small>Realizar la tarea de forma fácil y segura</small>
+                            </div>
                         </div>
-                        <div class="fragment">
-                            <strong>Usado</strong><br>
-                            <small>Experiencia atractiva y divertida</small>
+                        <div class="column fragment">
+                            <div class="concept-box">
+                                <strong>Usado</strong><br>
+                                <small>Experiencia atractiva y divertida</small>
+                            </div>
                         </div>
                     </div>
                     <p class="fragment"><em>(Poslad, 2009)</em></p>
                 </section>
             </section>
-
-
 
             <!-- Evolution Historical HCI -->
             <section>
@@ -1058,131 +638,54 @@
                 
                 <section>
                     <h3>Hitos Tempranos (1940s-1960s)</h3>
-                    <div class="r-vstack">
-                        <div class="fragment">
-                            <strong>1945:</strong> Bush - "As We May Think" (Memex, hipertexto)
-                            <blockquote style="font-size: 0.8em; margin: 0.5em 0;">
-                                "Ensayo profético que planteó la necesidad de gestionar el conocimiento en expansión. Previó el concepto de hipertexto y la World Wide Web."
-                            </blockquote>
+                    <div class="concept-box timeline">
+                        <div class="timeline-item">
+                            <h4><strong>1945:</strong> Bush - "As We May Think"</h4>
+                            <p>Concepto de Memex e hipertexto. Ensayo profético que planteó la necesidad de gestionar el conocimiento en expansión y previó la World Wide Web.</p>
                         </div>
-                        <div class="fragment">
-                            <strong>1962:</strong> Sutherland - Sketchpad (manipulación directa)
-                            <blockquote style="font-size: 0.8em; margin: 0.5em 0;">
-                                "Desarrolló un sistema gráfico que permitía la manipulación de formas geométricas con un lápiz óptico."
-                            </blockquote>
+                        <div class="timeline-item">
+                            <h4><strong>1962:</strong> Sutherland - Sketchpad</h4>
+                            <p>Desarrolló un sistema gráfico que permitía la manipulación directa de formas geométricas con un lápiz óptico.</p>
                         </div>
-                        <div class="fragment">
-                            <strong>1963:</strong> Engelbart - Invención del ratón
-                            <blockquote style="font-size: 0.8em; margin: 0.5em 0;">
-                                "Este dispositivo simbolizó la HCI, cambiando la interacción de la mecanografía de comandos al control de un cursor en pantalla."
-                            </blockquote>
+                        <div class="timeline-item">
+                            <h4><strong>1963:</strong> Engelbart - Invención del ratón</h4>
+                            <p>Este dispositivo simbolizó la HCI, cambiando la interacción de la mecanografía de comandos al control de un cursor en pantalla.</p>
                         </div>
                     </div>
                 </section>
 
                 <section>
                     <h3>Era de la GUI (1970s-1980s)</h3>
-                    <div class="r-vstack">
-                        <div class="fragment">
-                            <strong>1970s:</strong> Xerox PARC - Alto (GUI + ratón)
-                            <blockquote style="font-size: 0.8em; margin: 0.5em 0;">
-                                "Desarrolló el Alto (predecesor del Star), que incluyó una GUI y un ratón, aunque nunca fue comercializado. Alan Kay desarrolló el concepto Dynabook."
-                            </blockquote>
+                    <div class="concept-box timeline">
+                        <div class="timeline-item">
+                            <h4><strong>1970s:</strong> Xerox PARC - Alto</h4>
+                            <p>Desarrolló el Alto (predecesor del Star), que incluyó una GUI y un ratón, aunque nunca fue comercializado. Alan Kay desarrolló el concepto Dynabook.</p>
                         </div>
-                        <div class="fragment">
-                            <strong>1981:</strong> Xerox Star - Primera GUI comercial
-                            <blockquote style="font-size: 0.8em; margin: 0.5em 0;">
-                                "Primer sistema informático disponible comercialmente que utilizó una Interfaz Gráfica de Usuario (GUI) y un ratón. Introdujo la metáfora de escritorio, íconos y la manipulación directa."
-                            </blockquote>
+                        <div class="timeline-item">
+                            <h4><strong>1981:</strong> Xerox Star - Primera GUI comercial</h4>
+                            <p>Primer sistema informático disponible comercialmente que utilizó una GUI y un ratón. Introdujo la metáfora de escritorio, íconos y la manipulación directa.</p>
                         </div>
-                        <div class="fragment">
-                            <strong>1983:</strong> Nacimiento formal de HCI (ACM SIGCHI)
-                            <blockquote style="font-size: 0.8em; margin: 0.5em 0;">
-                                "Se celebró la primera Conferencia ACM SIGCHI (Special Interest Group on Computer-Human Interaction), el evento insignia del campo."
-                            </blockquote>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Era de la GUI (continuación)</h3>
-                    <div class="r-vstack">
-                        <div class="fragment">
-                            <strong>1983:</strong> "The Psychology of Human-Computer Interaction"
-                            <blockquote style="font-size: 0.8em; margin: 0.5em 0;">
-                                "Publicación del libro seminal de Card, Moran y Newell. Proporcionó la primera exposición formalizada de los sistemas sensoriales, cognitivos y motores humanos, utilizando el Modelo del Procesador Humano (MHP)."
-                            </blockquote>
-                        </div>
-                        <div class="fragment">
-                            <strong>1984:</strong> Apple Macintosh - GUI al mainstream
-                            <blockquote style="font-size: 0.8em; margin: 0.5em 0;">
-                                "Su éxito llevó las GUI al mainstream, exponiendo a una comunidad mucho más amplia a este nuevo género de interacción."
-                            </blockquote>
+                        <div class="timeline-item">
+                            <h4><strong>1983:</strong> Nacimiento formal de HCI</h4>
+                            <p>Se celebró la primera Conferencia ACM SIGCHI y se publicó "The Psychology of Human-Computer Interaction" de Card, Moran y Newell.</p>
                         </div>
                     </div>
                 </section>
 
                 <section>
                     <h3>Era Moderna (1990s-2000s)</h3>
-                    <div class="r-vstack">
-                        <div class="fragment">
-                            <strong>1990s:</strong> Computación Ubicua (UbiCom)
-                            <blockquote style="font-size: 0.8em; margin: 0.5em 0;">
-                                "Mark Weiser articuló la visión de que las tecnologías más profundas son las que desaparecen e infunden el mundo físico y social. El psicólogo cognitivo Donald Norman acuñó el término Experiencia del Usuario (UX)."
-                            </blockquote>
+                    <div class="concept-box timeline">
+                        <div class="timeline-item">
+                            <h4><strong>1984:</strong> Apple Macintosh</h4>
+                            <p>Su éxito llevó las GUI al mainstream, exponiendo a una comunidad mucho más amplia a este nuevo género de interacción.</p>
                         </div>
-                        <div class="fragment">
-                            <strong>2007:</strong> iPhone - Revolución táctil
-                            <blockquote style="font-size: 0.8em; margin: 0.5em 0;">
-                                "Junto con las tabletas táctiles, supuso un cambio dramático en el panorama de la HCI, enfocándose en gestos con los dedos como swiping, pinching y tapping."
-                            </blockquote>
+                        <div class="timeline-item">
+                            <h4><strong>1990s:</strong> Computación Ubicua</h4>
+                            <p>Mark Weiser articuló la visión de que las tecnologías más profundas son las que desaparecen. Donald Norman acuñó el término "Experiencia del Usuario (UX)".</p>
                         </div>
-                    </div>
-                </section>
-            </section>
-
-            <!-- Computing History -->
-            <section>
-                <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
-                </div>
-                <h2>Historia de la Computación</h2>
-                
-                <section>
-                    <h3>Contexto Histórico</h3>
-                    <div class="r-hstack">
-                        <div>
-                            <strong>Década de 1940</strong>
-                            <p>Las computadoras eran máquinas:</p>
-                            <ul>
-                                <li>Demasiado complicadas</li>
-                                <li>Muy preciosas</li>
-                                <li>Solo para expertos</li>
-                            </ul>
-                        </div>
-                        <div class="fragment">
-                            <blockquote>
-                                <p><em>"Vivían una vida recluida en grandes salas con aire acondicionado, y solo ingenieros y científicos tenían acceso a ellas"</em></p>
-                                <cite><strong>Bush (1945)</strong></cite>
-                            </blockquote>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>El Cambio de los 80s</h3>
-                    <div class="fragment">
-                        <p><strong>Década de 1980:</strong> Las computadoras se volvieron:</p>
-                    </div>
-                    <div class="r-vstack">
-                        <div class="fragment fade-in-then-semi-out">
-                            <strong>Potentes</strong>
-                        </div>
-                        <div class="fragment fade-in-then-semi-out">
-                            <strong>Utilizables por cualquiera</strong>
-                        </div>
-                        <div class="fragment">
-                            <strong>El cambio fue impulsado por la adición de la USABILIDAD</strong>
+                        <div class="timeline-item">
+                            <h4><strong>2007:</strong> iPhone - Revolución táctil</h4>
+                            <p>Junto con las tabletas táctiles, supuso un cambio dramático en el panorama de la HCI, enfocándose en gestos con los dedos.</p>
                         </div>
                     </div>
                 </section>
@@ -1193,46 +696,41 @@
                 <div class="logo-container">
                     <img src="../../Logo UIDE.png" alt="Logo UIDE">
                 </div>
-                <h2>Ley de Moore</h2>
+                <h2>Ley de Moore e Impacto en HCI</h2>
                 
                 <section data-auto-animate>
                     <h3>La Ley (1965)</h3>
-                    <div data-id="moore-title">
+                    <div class="concept-box">
                         <p><strong>Gordon Moore</strong> (cofundador de Intel) postuló:</p>
+                        <blockquote class="fragment">
+                            <p><em>"El número de transistores contenidos en un microprocesador se duplicará aproximadamente cada 24 meses."</em></p>
+                        </blockquote>
                     </div>
-                    <blockquote class="fragment">
-                        <p><em>"El número de transistores contenidos en un microprocesador se duplicará aproximadamente cada 24 meses."</em></p>
-                    </blockquote>
                 </section>
 
                 <section data-auto-animate>
-                    <h3>Expresión Matemática</h3>
-                    <div data-id="moore-title" style="font-size: 0.8em;">
-                        <p><strong>Ley de Moore - Fórmula Matemática:</strong></p>
-                    </div>
-                    <div style="text-align: center; font-size: 1.2em; background: rgba(255,255,255,0.9); padding: 1em; border-radius: 5px; margin: 1em 0;">
-                        \[ \lim_{t \to \infty} \frac{\text{Transistores}(t)}{\text{Transistores}(t-24\text{ meses})} = 2 \]
-                    </div>
-                    <p class="fragment"><strong>Nota:</strong> Es una predicción, no una ley física.</p>
-                </section>
-
-                <section>
                     <h3>Impacto en HCI</h3>
-                    <div class="r-vstack">
-                        <div class="fragment">
-                            <strong>Menor tiempo de latencia</strong> en operaciones
+                    <div class="r-hstack">
+                        <div class="column">
+                            <div class="concept-box">
+                                <h4>Beneficios</h4>
+                                <ul>
+                                    <li><strong>Menor tiempo de latencia</strong> en operaciones</li>
+                                    <li><strong>Usuarios esperan menos tiempo</strong> de respuesta</li>
+                                    <li><strong>Interfaces más sofisticadas</strong></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="fragment">
-                            <strong>Usuarios esperan menos tiempo</strong> de respuesta
-                        </div>
-                        <div class="fragment">
-                            <strong>Umbral de Doherty:</strong> 396ms máximo para mantener atención
+                        <div class="column fragment">
+                            <div class="concept-box">
+                                <h4>Desafíos</h4>
+                                <p><strong>Umbral de Doherty:</strong> 396ms máximo para mantener atención del usuario</p>
+                                <p><mark>Los usuarios se acostumbran a esperar menos tiempo</mark></p>
+                            </div>
                         </div>
                     </div>
                 </section>
             </section>
-
-
 
             <!-- Usability Principles -->
             <section>
@@ -1245,30 +743,20 @@
                     <h3>Definición de Usabilidad</h3>
                     <blockquote>
                         <p><strong>"La medida en que un producto puede ser utilizado por usuarios específicos para lograr metas específicas con eficacia, eficiencia y satisfacción en un contexto de uso determinado"</strong></p>
-                        <cite>— Shneiderman & Plaisant (2010, p. 51)</cite>
+                        <footer>— Shneiderman & Plaisant (2010, p. 51)</footer>
                     </blockquote>
                 </section>
 
                 <section>
                     <h3>Primera Norma de Krug</h3>
-                    <div class="r-fit-text fragment" style="color: var(--uide-primary);">
-                        <strong>¡No me hagas pensar!</strong>
+                    <div class="concept-box" style="font-size: 1.5em;">
+                        <strong style="color: var(--uide-primary);">¡No me hagas pensar!</strong>
                     </div>
-                    <p class="fragment"><strong>Objetivo:</strong> El usuario medio solo tenga que <mark>mirar una página</mark> para que le sea evidente de qué se trata y cómo usarla.</p>
+                    <p><strong>Objetivo:</strong> El usuario medio solo tenga que <mark>mirar una página</mark> para que le sea evidente de qué se trata y cómo usarla.</p>
+                    <div class="fragment">
+                        <p>Si algo no puede ser <mark>fácilmente entendido</mark>, al menos debe ser <mark>autoexplicativo</mark>.</p>
+                    </div>
                     <p class="fragment"><em>(Krug, 2014)</em></p>
-                </section>
-
-                <section>
-                    <h3>Principios Cognitivos</h3>
-                    <div class="r-hstack">
-                        <div>
-                            <strong>Las preguntas aumentan la carga cognitiva</strong>
-                        </div>
-                        <div class="fragment">
-                            <strong>La claridad es fundamental</strong>
-                        </div>
-                    </div>
-                    <p class="fragment">Si algo no puede ser <mark>fácilmente entendido</mark>, al menos debe ser <mark>autoexplicativo</mark>.</p>
                 </section>
             </section>
 
@@ -1277,83 +765,101 @@
                 <div class="logo-container">
                     <img src="../../Logo UIDE.png" alt="Logo UIDE">
                 </div>
-                <h2>Metas de Usabilidad</h2>
+                <h2>Cinco Métricas de Usabilidad</h2>
                 
                 <section>
                     <h3>Medidas Cuantificables</h3>
-                    <p>Para medir usabilidad, Shneiderman & Plaisant (2010) proponen <strong>cinco medidas</strong>:</p>
+                    <p>Shneiderman & Plaisant (2010) proponen <strong>cinco medidas</strong> para evaluar usabilidad:</p>
                 </section>
 
-                <section data-auto-animate>
-                    <div data-id="metrics">
-                        <h3>1. Tiempo de Aprendizaje</h3>
-                        <p>Cuánto tarda un usuario típico en aprender las acciones relevantes para un conjunto de tareas.</p>
+                <section>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <div class="metric-card">
+                                <div class="metric-number">1</div>
+                                <h4>Tiempo de Aprendizaje</h4>
+                                <p>Cuánto tarda un usuario típico en aprender las acciones relevantes para un conjunto de tareas.</p>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-number">2</div>
+                                <h4>Velocidad de Rendimiento</h4>
+                                <p>Cuánto tiempo se tarda en llevar a cabo tareas de referencia (<strong>eficiencia</strong>).</p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="metric-card">
+                                <div class="metric-number">3</div>
+                                <h4>Tasa de Errores</h4>
+                                <p>Cuántos y qué tipos de errores se cometen durante el uso.</p>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-number">4</div>
+                                <h4>Retención</h4>
+                                <p>Qué tan bien mantienen el conocimiento después de un período de tiempo.</p>
+                            </div>
+                        </div>
                     </div>
-                </section>
-
-                <section data-auto-animate>
-                    <div data-id="metrics">
-                        <h3>2. Velocidad de Rendimiento</h3>
-                        <p>Cuánto tiempo se tarda en llevar a cabo tareas de referencia (<strong>eficiencia</strong>).</p>
-                    </div>
-                </section>
-
-                <section data-auto-animate>
-                    <div data-id="metrics">
-                        <h3>3. Tasa de Errores</h3>
-                        <p>Cuántos y qué tipos de errores se cometen durante el uso.</p>
-                    </div>
-                </section>
-
-                <section data-auto-animate>
-                    <div data-id="metrics">
-                        <h3>4. Retención</h3>
-                        <p>Qué tan bien mantienen el conocimiento después de un período de tiempo.</p>
-                    </div>
-                </section>
-
-                <section data-auto-animate>
-                    <div data-id="metrics">
-                        <h3>5. Satisfacción Subjetiva</h3>
+                    <div class="metric-card">
+                        <div class="metric-number">5</div>
+                        <h4>Satisfacción Subjetiva</h4>
                         <p>Cuánto gustó el uso de varios aspectos de la interfaz (encuestas/entrevistas).</p>
                     </div>
                 </section>
             </section>
 
             <!-- Shneiderman's Golden Rules -->
-            <section data-background-color="var(--uide-light)">
+            <section>
                 <div class="logo-container">
                     <img src="../../Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 <h2>Reglas de Oro de Shneiderman</h2>
-                <p>Ben Shneiderman propuso ocho principios aplicables en la mayoría de los sistemas interactivos (Shneiderman & Plaisant, 2010, p. 61):</p>
-                <div class="two-column">
-                    <div class="column">
-                        <ol>
-                            <li><strong>Consistencia:</strong> "Esfuérzate por la consistencia. Se requiere consistencia en secuencias, terminología, color, layout, etc." (Shneiderman & Plaisant, 2010, p. 62).</li>
-                            <li><strong>Usabilidad universal:</strong> Adáptate a la usabilidad universal. Reconocer las necesidades de usuarios diversos (novatos/expertos, diferentes edades y discapacidades) (Shneiderman & Plaisant, 2010, p. 63).</li>
-                            <li><strong>Feedback informativo:</strong> Ofrece feedback informativo. El sistema debe proporcionar retroalimentación continua para cada acción del usuario (Shneiderman & Plaisant, 2010; Norman, 1988).</li>
-                            <li><strong>Diálogos con cierre:</strong> Diseña diálogos que conduzcan al cierre. Las secuencias de acciones deben organizarse en grupos con un principio, desarrollo y final, proporcionando satisfacción y preparación para la siguiente tarea (Shneiderman & Plaisant, 2010, p. 62).</li>
-                        </ol>
-                    </div>
-                    <div class="column">
-                        <ol start="5">
-                            <li><strong>Prevención de errores:</strong> Previene errores. El sistema debe diseñarse de modo que los usuarios no puedan cometer errores graves (Shneiderman & Plaisant, 2010, p. 66).</li>
-                            <li><strong>Reversibilidad:</strong> Permite la fácil reversibilidad de las acciones. Esta característica alivia la ansiedad y permite la exploración del sistema, sabiendo que los errores pueden ser deshechos (undo) (Shneiderman & Plaisant, 2010, p. 66).</li>
-                            <li><strong>Locus de control interno:</strong> Apoya el locus de control interno. Los usuarios deben sentirse dueños de la interfaz (Shneiderman & Plaisant, 2010, p. 67).</li>
-                            <li><strong>Reducción de carga:</strong> Reduce la carga de la memoria a corto plazo. Mantener las pantallas simples y evitar que los usuarios tengan que recordar información de una pantalla a otra (Shneiderman & Plaisant, 2010, p. 68).</li>
-                        </ol>
-                        <div class="media-placeholder">
-                            <p><em>[Diagrama: Las 8 Reglas de Oro]</em></p>
+                
+                <section>
+                    <h3>Ocho Principios Fundamentales</h3>
+                    <p>Ben Shneiderman propuso ocho principios aplicables en la mayoría de los sistemas interactivos:</p>
+                </section>
+
+                <section>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <div class="concept-box">
+                                <h4>1. Consistencia</h4>
+                                <p>Consistencia en secuencias, terminología, color, layout, etc.</p>
+                            </div>
+                            <div class="concept-box">
+                                <h4>2. Usabilidad Universal</h4>
+                                <p>Reconocer necesidades de usuarios diversos (novatos/expertos, discapacidades).</p>
+                            </div>
+                            <div class="concept-box">
+                                <h4>3. Feedback Informativo</h4>
+                                <p>Retroalimentación continua para cada acción del usuario.</p>
+                            </div>
+                            <div class="concept-box">
+                                <h4>4. Diálogos con Cierre</h4>
+                                <p>Secuencias con principio, desarrollo y final.</p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="concept-box">
+                                <h4>5. Prevención de Errores</h4>
+                                <p>Diseñar para que los usuarios no cometan errores graves.</p>
+                            </div>
+                            <div class="concept-box">
+                                <h4>6. Reversibilidad</h4>
+                                <p>Permitir fácil reversión de acciones (Undo).</p>
+                            </div>
+                            <div class="concept-box">
+                                <h4>7. Locus de Control Interno</h4>
+                                <p>Los usuarios deben sentirse dueños de la interfaz.</p>
+                            </div>
+                            <div class="concept-box">
+                                <h4>8. Reducción de Carga</h4>
+                                <p>Reducir la carga de memoria a corto plazo.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="slide-footer" style="font-size: min(1.8vw, 0.9em);">
-                    <em>Las Ocho Reglas de Oro</em>
-                </div>
-                <div class="page-number"></div>
+                </section>
             </section>
-
 
             <!-- Norman's Design Principles -->
             <section>
@@ -1367,46 +873,27 @@
                     <p>Basado en el <strong>Modelo de Etapas de Acción</strong> (Norman, 1988), se derivan <strong>cuatro principios</strong> de buen diseño:</p>
                 </section>
 
-                <section data-auto-animate>
-                    <div data-id="norman" class="r-vstack">
-                        <div>
-                            <h3>1. Visibilidad</h3>
+                <section>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <div class="concept-box">
+                                <h4>1. Visibilidad</h4>
+                                <p><strong>"El estado y las alternativas de acción deben ser visibles"</strong></p>
+                            </div>
+                            <div class="concept-box">
+                                <h4>2. Modelo Conceptual</h4>
+                                <p>Debe haber un <mark>buen modelo conceptual</mark> con una imagen de sistema consistente.</p>
+                            </div>
                         </div>
-                        <div class="fragment">
-                            <p><strong>"El estado y las alternativas de acción deben ser visibles"</strong></p>
-                        </div>
-                    </div>
-                </section>
-
-                <section data-auto-animate>
-                    <div data-id="norman" class="r-vstack">
-                        <div>
-                            <h3>2. Modelo Conceptual</h3>
-                        </div>
-                        <div class="fragment">
-                            <p>Debe haber un <mark>buen modelo conceptual</mark> con una imagen de sistema consistente.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section data-auto-animate>
-                    <div data-id="norman" class="r-vstack">
-                        <div>
-                            <h3>3. Mapeos</h3>
-                        </div>
-                        <div class="fragment">
-                            <p>La interfaz debe incluir <mark>buenos mapeos</mark> que revelen las relaciones entre las etapas.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section data-auto-animate>
-                    <div data-id="norman" class="r-vstack">
-                        <div>
-                            <h3>4. Feedback</h3>
-                        </div>
-                        <div class="fragment">
-                            <p>Los usuarios deben recibir <mark>retroalimentación continua</mark>.</p>
+                        <div class="column">
+                            <div class="concept-box">
+                                <h4>3. Mapeos</h4>
+                                <p>La interfaz debe incluir <mark>buenos mapeos</mark> que revelen las relaciones entre las etapas.</p>
+                            </div>
+                            <div class="concept-box">
+                                <h4>4. Feedback</h4>
+                                <p>Los usuarios deben recibir <mark>retroalimentación continua</mark>.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -1417,74 +904,119 @@
                 <div class="logo-container">
                     <img src="../../Logo UIDE.png" alt="Logo UIDE">
                 </div>
-                <h2>Recapitulación Rápida</h2>
+                <h2>Recapitulación - Conceptos Clave</h2>
                 
-                <p style="text-align: center; font-style: italic; color: var(--uide-secondary);">
-                    Tarjetas para repasar los conceptos clave de esta semana
+                <p style="text-align: center; font-style: italic; color: var(--uide-secondary); margin-bottom: 2em;">
+                    Tarjetas interactivas para repasar los conceptos fundamentales
                 </p>
                 
-                
                 <section>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin: 1.5em 0;">
-                    <!-- Card 1 -->
-                    <div class="flashcard" onclick="flipCard(this)">
-                        <div class="flashcard-inner">
-                            <div class="flashcard-front">
-                                <h4>Historia de HCI</h4>
-                                <p>¿En qué década surgió formalmente la disciplina de Human-Computer Interaction?</p>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <!-- Card 1 -->
+                            <div class="flashcard" onclick="flipCard(this)">
+                                <div class="flashcard-inner">
+                                    <div class="flashcard-front">
+                                        <h4>Definición de HCI</h4>
+                                        <p>¿Qué es la Interacción Humano-Computadora según MacKenzie?</p>
+                                        <small>Clic para ver respuesta</small>
+                                    </div>
+                                    <div class="flashcard-back">
+                                        <h4>Campo Interdisciplinario</h4>
+                                        <p>Se preocupa por el <strong>diseño, evaluación e implementación</strong> de sistemas computacionales interactivos para uso humano.</p>
+                                        <p>Combina <strong>psicología</strong>, <strong>informática</strong> y <strong>ciencias cognitivas</strong>.</p>
+                                        <small>Clic para regresar</small>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="flashcard-back">
-                                <h4>Década de 1980</h4>
-                                <p>HCI surgió formalmente en la <strong>década de 1980</strong>, aunque sus raíces se extienden más de 30 años atrás.</p>
-                                <small>Clic para regresar</small>
+                            
+                            <!-- Card 2 -->
+                            <div class="flashcard" onclick="flipCard(this)">
+                                <div class="flashcard-inner">
+                                    <div class="flashcard-front">
+                                        <h4>Tres Elementos de HCI</h4>
+                                        <p>¿Cuáles son los tres elementos fundamentales de HCI según Poslad?</p>
+                                        <small>Clic para ver respuesta</small>
+                                    </div>
+                                    <div class="flashcard-back">
+                                        <h4>Los Tres Elementos</h4>
+                                        <p><strong>1. Humanos:</strong> Usuarios diversos</p>
+                                        <p><strong>2. Ordenadores:</strong> Dispositivos programables</p>
+                                        <p><strong>3. Interacción:</strong> Comunicación bidireccional</p>
+                                        <small>Forman el triángulo fundamental de HCI</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 3 -->
+                            <div class="flashcard" onclick="flipCard(this)">
+                                <div class="flashcard-inner">
+                                    <div class="flashcard-front">
+                                        <h4>Reglas de Oro</h4>
+                                        <p>¿Cuántas reglas de oro propuso Shneiderman para el diseño de interfaces?</p>
+                                        <small>Clic para ver respuesta</small>
+                                    </div>
+                                    <div class="flashcard-back">
+                                        <h4>8 Reglas de Oro</h4>
+                                        <p>Incluyen <strong>consistencia</strong>, <strong>feedback informativo</strong>, <strong>prevención de errores</strong> y <strong>reversibilidad</strong>.</p>
+                                        <p>Base del diseño de interfaces usables.</p>
+                                        <small>Fundamentos del buen diseño</small>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Card 2 -->
-                    <div class="flashcard" onclick="flipCard(this)">
-                        <div class="flashcard-inner">
-                            <div class="flashcard-front">
-                                <h4>Elementos de HCI</h4>
-                                <p>¿Cuáles son los tres elementos fundamentales de HCI según Poslad?</p>
+                        
+                        <div class="column">
+                            <!-- Card 4 -->
+                            <div class="flashcard" onclick="flipCard(this)">
+                                <div class="flashcard-inner">
+                                    <div class="flashcard-front">
+                                        <h4>Primera Regla de Usabilidad</h4>
+                                        <p>¿Cuál es la primera y más importante regla de usabilidad según Steve Krug?</p>
+                                        <small>Clic para ver respuesta</small>
+                                    </div>
+                                    <div class="flashcard-back">
+                                        <h4>"¡No me hagas pensar!"</h4>
+                                        <p>Una interfaz debe ser <strong>evidente</strong> al mirarla. El usuario no debe tener que detenerse a pensar cómo funciona.</p>
+                                        <small>Fundamento de la usabilidad web</small>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="flashcard-back">
-                                <h4>Los Tres Elementos</h4>
-                                <p><strong>Humanos</strong> • <strong>Ordenadores</strong> • <strong>Interacción</strong></p>
-                                <small>Estos forman el triángulo fundamental de HCI</small>
+                            
+                            <!-- Card 5 -->
+                            <div class="flashcard" onclick="flipCard(this)">
+                                <div class="flashcard-inner">
+                                    <div class="flashcard-front">
+                                        <h4>Cinco Métricas</h4>
+                                        <p>¿Cuáles son las cinco métricas de usabilidad de Shneiderman?</p>
+                                        <small>Clic para ver respuesta</small>
+                                    </div>
+                                    <div class="flashcard-back">
+                                        <h4>Métricas Cuantificables</h4>
+                                        <p><strong>1.</strong> Tiempo de aprendizaje</p>
+                                        <p><strong>2.</strong> Velocidad de rendimiento</p>
+                                        <p><strong>3.</strong> Tasa de errores</p>
+                                        <p><strong>4.</strong> Retención | <strong>5.</strong> Satisfacción</p>
+                                        <small>Para evaluar sistemas objetivamente</small>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </section>
-                
-                <section>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin: 1.5em 0;">
-                    <!-- Card 3 -->
-                    <div class="flashcard" onclick="flipCard(this)">
-                        <div class="flashcard-inner">
-                            <div class="flashcard-front">
-                                <h4>Reglas de Oro de Shneiderman</h4>
-                                <p>¿Cuántas reglas de oro para el diseño de interfaces propuso Ben Shneiderman?</p>
-                            </div>
-                            <div class="flashcard-back">
-                                <h4>8 Reglas de Oro</h4>
-                                <p><strong>Ocho reglas fundamentales</strong> que incluyen consistencia, feedback informativo, prevención de errores, y permitir reversión de acciones.</p>
-                                <small>Base del diseño de interfaces usables</small>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Card 4 -->
-                    <div class="flashcard" onclick="flipCard(this)">
-                        <div class="flashcard-inner">
-                            <div class="flashcard-front">
-                                <h4>Primera Regla de Usabilidad</h4>
-                                <p>¿Cuál es la primera y más importante regla de usabilidad según Steve Krug?</p>
-                            </div>
-                            <div class="flashcard-back">
-                                <h4>"¡No me hagas pensar!"</h4>
-                                <p>Una interfaz debe ser <strong>evidente</strong> al mirarla. El usuario no debe tener que detenerse a pensar cómo funciona.</p>
-                                <small>Fundamento de la usabilidad web</small>
+                            
+                            <!-- Card 6 -->
+                            <div class="flashcard" onclick="flipCard(this)">
+                                <div class="flashcard-inner">
+                                    <div class="flashcard-front">
+                                        <h4>Historia de HCI</h4>
+                                        <p>¿En qué década surgió formalmente HCI como disciplina?</p>
+                                        <small>Clic para ver respuesta</small>
+                                    </div>
+                                    <div class="flashcard-back">
+                                        <h4>Década de 1980</h4>
+                                        <p>Con la primera conferencia <strong>ACM SIGCHI</strong> en 1983 y la GUI del Xerox Star (1981).</p>
+                                        <p>Raíces desde 1940s con Bush, Sutherland y Engelbart.</p>
+                                        <small>Era del cambio hacia la usabilidad</small>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1498,35 +1030,15 @@
                 </div>
                 <h2>Referencias Bibliográficas</h2>
                 
-                <section>
-                    <h3>Fuentes Principales</h3>
-                    <div style="font-size: 0.7em; text-align: left;">
-                        <p><strong>Baecker, R., Grudin, J. T., Buxton, W., & Greenberg, S.</strong> (1995). <em>Readings in Human-Computer Interaction: Toward the year 2000</em>. Morgan Kaufmann.</p>
-                        <p><strong>Bush, V.</strong> (1945, Julio). As we may think. <em>The Atlantic Monthly</em>, 101–108.</p>
-                        <p><strong>Card, S. K., Moran, T. P., & Newell, A.</strong> (1983). <em>The Psychology of Human-Computer Interaction</em>. Erlbaum.</p>
-                        <p><strong>Krug, S.</strong> (2014). <em>Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability</em> (3ª ed.). New Riders.</p>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Fuentes Principales (cont.)</h3>
-                    <div style="font-size: 0.7em; text-align: left;">
-                        <p><strong>MacKenzie, I. S.</strong> (2013). <em>Human-Computer Interaction: An Empirical Research Perspective</em>. Elsevier Inc.</p>
-                        <p><strong>Norman, D. A.</strong> (1988). <em>The Design of Everyday Things</em>. Basic Books.</p>
-                        <p><strong>Poslad, S.</strong> (2009). <em>Ubiquitous Computing: Smart Devices, Environments and Interactions</em>. John Wiley & Sons.</p>
-                        <p><strong>Shneiderman, B., & Plaisant, C.</strong> (2010). <em>Designing the User Interface: Strategies for Effective Human-Computer Interaction</em> (5ª ed.). Addison-Wesley.</p>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Material de Enseñanza</h3>
-                    <div style="font-size: 0.7em; text-align: left;">
-                        <p><strong>Díaz, S.</strong> (s.f.). <em>UX Design: Hazlo fácil pensando en el usuario</em> (Capítulo 2). [Material de enseñanza].</p>
-                        <p><strong>Díaz, S.</strong> (2025). <em>Todas las notas</em> [Apuntes de clase no publicados]. Universidad Internacional del Ecuador.</p>
-                        <p><strong>English, W. K., Engelbart, D. C., & Berman, M. L.</strong> (1967). Display-selection techniques for text manipulation. <em>IEEE Transactions on Human Factors in Electronics</em>, HFE-8(1), 5-15.</p>
-                        <p><strong>Weiser, M.</strong> (1991). The computer for the 21st century. <em>Scientific American</em>, 265(3), 94-104.</p>
-                    </div>
-                </section>
+                <div class="references-container" style="font-size: 0.85em;">
+                    <p><strong>Bush, V.</strong> (1945). As we may think. <em>The Atlantic Monthly</em>, 101–108.</p>
+                    <p><strong>Card, S. K., Moran, T. P., & Newell, A.</strong> (1983). <em>The Psychology of Human-Computer Interaction</em>. Erlbaum.</p>
+                    <p><strong>Krug, S.</strong> (2014). <em>Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability</em> (3ª ed.). New Riders.</p>
+                    <p><strong>MacKenzie, I. S.</strong> (2013). <em>Human-Computer Interaction: An Empirical Research Perspective</em>. Elsevier Inc.</p>
+                    <p><strong>Norman, D. A.</strong> (1988). <em>The Design of Everyday Things</em>. Basic Books.</p>
+                    <p><strong>Poslad, S.</strong> (2009). <em>Ubiquitous Computing: Smart Devices, Environments and Interactions</em>. John Wiley & Sons.</p>
+                    <p><strong>Shneiderman, B., & Plaisant, C.</strong> (2010). <em>Designing the User Interface: Strategies for Effective Human-Computer Interaction</em> (5ª ed.). Addison-Wesley.</p>
+                </div>
             </section>
 
             <!-- Thank You Slide -->
@@ -1535,15 +1047,14 @@
                     <img src="../../Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 
-                <div class="r-fit-text" style="color: var(--uide-primary);">
-                    ¡Gracias!
-                </div>
-                
-                <h3>¿Preguntas?</h3>
-                
-                <div style="margin-top: 2em;">
-                    <small>Universidad Internacional del Ecuador<br>
-                    Semana 1 - Introducción a HCI</small>
+                <div class="title-slide">
+                    <h1 style="color: var(--uide-primary);">¡Gracias!</h1>
+                    <h3>¿Preguntas?</h3>
+                    
+                    <div style="margin-top: 2em; font-size: 0.9em;">
+                        <strong>Universidad Internacional del Ecuador</strong><br>
+                        <em>Semana 1 - Introducción a HCI</em>
+                    </div>
                 </div>
             </section>
 
@@ -1556,7 +1067,6 @@
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/markdown/markdown.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/highlight.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/math/math.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/zoom/zoom.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/search/search.js"></script>
 
@@ -1578,11 +1088,10 @@
             autoAnimateDuration: 1.0,
             autoAnimateUnmatched: true,
 
-            // Math rendering with KaTeX
+            // Math rendering
             math: {
                 mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
                 config: 'TeX-AMS_HTML-full',
-                // local: 'node_modules/reveal.js-math',
             },
 
             // Zoom functionality
@@ -1611,65 +1120,10 @@
             plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX, RevealZoom, RevealSearch ]
         });
 
-        // Add page numbers
-        Reveal.on('slidechanged', function(event) {
-            const currentSlide = event.indexh + 1;
-            const totalSlides = Reveal.getTotalSlides();
-            document.querySelectorAll('.page-number').forEach(el => {
-                el.textContent = `${currentSlide} / ${totalSlides}`;
-            });
-        });
-
-        // Simple Flashcard System for Recapitulation
+        // Simple Flashcard System
         function flipCard(card) {
             card.classList.toggle('flipped');
-            
-            // Optional: Add a subtle learning encouragement
-            if (card.classList.contains('flipped')) {
-                setTimeout(() => {
-                    // No scoring, just gentle encouragement for reflection
-                    const randomMessages = [
-                        "💡 ¡Reflexiona sobre este concepto!",
-                        "🤔 ¿Cómo se aplica esto en la práctica?",
-                        "🔄 ¿Puedes conectar esto con otros conceptos?",
-                        "📚 ¡Excelente repaso de conceptos!"
-                    ];
-                    
-                    const randomMessage = randomMessages[Math.floor(Math.random() * randomMessages.length)];
-                    
-                    // Show a gentle learning reminder (non-intrusive)
-                    const reminder = document.createElement('div');
-                    reminder.innerHTML = `
-                        <div style="position: fixed; bottom: 20px; right: 20px; 
-                                   background: rgba(145, 0, 72, 0.9); color: white;
-                                   padding: 0.5em 1em; border-radius: 25px; 
-                                   font-size: 0.8em; z-index: 1000;
-                                   animation: fadeInOut 3s ease-in-out;">
-                            ${randomMessage}
-                        </div>
-                    `;
-                    
-                    document.body.appendChild(reminder);
-                    
-                    // Remove after 3 seconds
-                    setTimeout(() => {
-                        reminder.remove();
-                    }, 3000);
-                }, 500);
-            }
         }
-
-        // CSS for gentle animations
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fadeInOut {
-                0% { opacity: 0; transform: translateY(20px); }
-                20% { opacity: 1; transform: translateY(0); }
-                80% { opacity: 1; transform: translateY(0); }
-                100% { opacity: 0; transform: translateY(-20px); }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 
 </body>

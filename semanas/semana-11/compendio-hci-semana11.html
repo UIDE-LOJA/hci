@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 11: Experiencia de Usuario Avanzada (UX) - HCI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.min.css">
+    <style>
+        :root {
+            --university-primary: #910048;
+            --university-secondary: #23356E;
+            --university-accent: #E9AB21;
+            --university-light: #f8f8f8;
+            --text-dark: #2c3e50;
+            --text-light: #34495e;
+        }
+
+        .reveal {
+            font-family: 'Times New Roman', serif;
+        }
+
+        .reveal .slides section {
+            text-align: left;
+            color: var(--text-dark);
+        }
+
+        .reveal h1, .reveal h2, .reveal h3 {
+            color: var(--university-primary);
+            font-family: 'Georgia', serif;
+            text-align: center;
+            text-transform: none;
+            margin-bottom: 1em;
+        }
+
+        .reveal h1 {
+            font-size: 2.5em;
+            border-bottom: 3px solid var(--university-accent);
+            padding-bottom: 0.3em;
+        }
+
+        .reveal h2 {
+            font-size: 2em;
+            color: var(--university-secondary);
+            border-left: 5px solid var(--university-accent);
+            padding-left: 0.5em;
+            text-align: left;
+        }
+
+        .reveal h3 {
+            font-size: 1.5em;
+            color: var(--university-primary);
+            margin-top: 1.5em;
+        }
+
+        .reveal p, .reveal li {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 0.8em;
+        }
+
+        .reveal ul {
+            margin-left: 1em;
+        }
+
+        .reveal li {
+            margin-bottom: 0.5em;
+        }
+
+        .university-header {
+            background: linear-gradient(135deg, var(--university-primary), var(--university-secondary));
+            color: white;
+            padding: 2em;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 1em;
+        }
+
+        .unit-context {
+            background: rgba(233, 171, 33, 0.1);
+            border-left: 4px solid var(--university-accent);
+            padding: 1em;
+            margin: 1em 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .concept-box {
+            background: rgba(145, 0, 72, 0.1);
+            border: 2px solid var(--university-primary);
+            padding: 1em;
+            margin: 1em 0;
+            border-radius: 8px;
+        }
+
+        .example-box {
+            background: rgba(35, 53, 110, 0.1);
+            border: 2px solid var(--university-secondary);
+            padding: 1em;
+            margin: 1em 0;
+            border-radius: 8px;
+        }
+
+        .warning-box {
+            background: rgba(220, 53, 69, 0.1);
+            border: 2px solid #dc3545;
+            padding: 1em;
+            margin: 1em 0;
+            border-radius: 8px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(233, 171, 33, 0.3) 0%, rgba(233, 171, 33, 0.1) 100%);
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .norman-levels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1em;
+            margin: 1em 0;
+        }
+
+        .level-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid var(--university-accent);
+            padding: 1.5em;
+            margin: 0.5em 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .level-visceral {
+            border-color: #e74c3c;
+            background: rgba(231, 76, 60, 0.1);
+        }
+
+        .level-behavioral {
+            border-color: #f39c12;
+            background: rgba(243, 156, 18, 0.1);
+        }
+
+        .level-reflective {
+            border-color: #27ae60;
+            background: rgba(39, 174, 96, 0.1);
+        }
+
+        .gamification-structure {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5em;
+            border-radius: 8px;
+            margin: 1em 0;
+        }
+
+        .ethical-warning {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 1.5em;
+            border-radius: 8px;
+            margin: 1em 0;
+            text-align: center;
+        }
+
+        .flashcard {
+            background: white;
+            border: 2px solid var(--university-primary);
+            border-radius: 10px;
+            padding: 1.5em;
+            margin: 1em;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            perspective: 1000px;
+            height: 300px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .flashcard:hover {
+            transform: scale(1.05);
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1em;
+            border-radius: 8px;
+        }
+
+        .flashcard-front {
+            background: linear-gradient(135deg, var(--university-primary), var(--university-secondary));
+            color: white;
+        }
+
+        .flashcard-back {
+            background: linear-gradient(135deg, var(--university-accent), #f39c12);
+            color: var(--text-dark);
+            transform: rotateY(180deg);
+        }
+
+        .references {
+            font-size: 0.9em;
+            background: rgba(248, 248, 248, 0.8);
+            padding: 1em;
+            border-radius: 8px;
+            margin-top: 2em;
+        }
+
+        @media (max-width: 768px) {
+            .reveal h1 {
+                font-size: 2em;
+            }
+            
+            .reveal h2 {
+                font-size: 1.6em;
+            }
+            
+            .reveal p, .reveal li {
+                font-size: 1em;
+            }
+            
+            .flashcard {
+                height: 250px;
+                margin: 0.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Slide 1: Título -->
+            <section>
+                <div class="university-header">
+                    <h1>Experiencia de Usuario Avanzada (UX)</h1>
+                    <p><strong>Semana 11</strong></p>
+                    <p>Human Computer Interaction</p>
+                    <p><em>Prof. Charlie Cárdenas Toledo, M.Sc.</em></p>
+                </div>
+                <div class="unit-context">
+                    <h3>Contexto Curricular</h3>
+                    <p><strong>Tema:</strong> UX en ecosistemas digitales, diseño emocional y persuasivo, gamificación, efecto estético-usabilidad</p>
+                </div>
+            </section>
+
+            <!-- Slide 2: Objetivos de Aprendizaje -->
+            <section>
+                <h2>Objetivos de Aprendizaje</h2>
+                <ul>
+                    <li>Analizar la <span class="highlight">UX en ecosistemas digitales</span> y la transición multicanal</li>
+                    <li>Comprender los <span class="highlight">tres niveles de diseño emocional</span> de Norman</li>
+                    <li>Examinar las técnicas de <span class="highlight">diseño persuasivo</span> y manipulación conductual</li>
+                    <li>Evaluar críticamente la <span class="highlight">gamificación</span> y sus implicaciones éticas</li>
+                    <li>Aplicar el <span class="highlight">efecto estético-usabilidad</span> en el diseño de interfaces</li>
+                </ul>
+            </section>
+
+            <!-- Slide 3: UX en Ecosistemas Digitales -->
+            <section>
+                <h2>UX en Ecosistemas Digitales</h2>
+                <div class="concept-box">
+                    <h3>La Transición al Ecosistema Multicanal</h3>
+                    <ul>
+                        <li><strong>Experiencia sin Interrupciones:</strong> Productos digitales como experiencia multicanal completa</li>
+                        <li><strong>Objetivo del Diseño:</strong> Experiencia fluida (seamless) entre PC, móvil y tableta</li>
+                        <li><strong>Interoperabilidad:</strong> APIs abiertas crean ecosistemas interconectados</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <h3>Diversidad de Dispositivos UbiCom</h3>
+                    <p>El término "ordenador" incluye cualquier dispositivo con chip IC programable:</p>
+                    <ul>
+                        <li><strong>Dust:</strong> Polvo inteligente</li>
+                        <li><strong>Skins:</strong> Telas conductoras</li>
+                        <li><strong>Clay:</strong> Materia programable</li>
+                        <li><strong>Tabs, Pads, Boards:</strong> Dispositivos tradicionales</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Slide 4: Arquitectura de Sistemas y UbiCom -->
+            <section>
+                <h2>Arquitectura de Sistemas y UbiCom</h2>
+                <div class="concept-box">
+                    <h3>Visión de Computación Ubicua</h3>
+                    <p>Mundo donde las personas están rodeadas de dispositivos e infraestructura informática que las apoya en todo lo que hacen</p>
+                    <p><strong>Objetivo:</strong> Tecnología invisible para el usuario</p>
+                </div>
+                <div class="example-box">
+                    <h3>Conceptos Clave</h3>
+                    <ul>
+                        <li><strong>Diseño Satélite:</strong> Dispositivos móviles como satélites del escritorio</li>
+                        <li><strong>Interacción Inteligente:</strong> Centrada en contextos del usuario</li>
+                        <li><strong>Eficiencia Energética:</strong> Reducir consumo total en todos los dispositivos</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Slide 5: Capitalismo de Vigilancia -->
+            <section>
+                <h2>Ecosistemas y el Capitalismo de Vigilancia</h2>
+                <div class="warning-box">
+                    <h3>El "Aparato" Digital Ubicuo</h3>
+                    <p>El aparato digital ubicuo (computación ambiental + IoT) es la herramienta del <strong>Capitalismo de Vigilancia</strong></p>
+                </div>
+                <div class="ethical-warning">
+                    <h3>⚠️ Flujo de Datos Continuo</h3>
+                    <p>Instrumentación, conexión, comunicación y computación siempre activa</p>
+                    <p><strong>Transformación:</strong> Actividad del mundo real → Datos → Predicciones</p>
+                    <p>Desde teléfonos, automóviles y cuerpos humanos</p>
+                </div>
+            </section>
+
+            <!-- Slide 6: Diseño Emocional - Niveles de Norman -->
+            <section>
+                <h2>Diseño Emocional: Los Tres Niveles de Norman</h2>
+                <div class="norman-levels">
+                    <div class="level-card level-visceral">
+                        <h3>1. Nivel Visceral</h3>
+                        <p><strong>Metas de Experiencia</strong></p>
+                        <ul>
+                            <li>Reacción inmediata a aspectos sensoriales</li>
+                            <li>Busca <strong>afecto</strong> más que estética</li>
+                            <li>Cómo quiere <strong>sentirse</strong> el usuario</li>
+                            <li><em>Ejemplo: sin esfuerzo, seguro</em></li>
+                        </ul>
+                    </div>
+                    <div class="level-card level-behavioral">
+                        <h3>2. Nivel Conductual</h3>
+                        <p><strong>Metas Finales</strong></p>
+                        <ul>
+                            <li>Gestiona comportamientos cotidianos</li>
+                            <li>Nivel tradicional de usabilidad</li>
+                            <li>Lo que el usuario quiere <strong>hacer</strong></li>
+                            <li><em>Complementa modelos mentales</em></li>
+                        </ul>
+                    </div>
+                    <div class="level-card level-reflective">
+                        <h3>3. Nivel Reflexivo</h3>
+                        <p><strong>Metas de Vida</strong></p>
+                        <ul>
+                            <li>Consideración consciente de experiencias</li>
+                            <li>Asocia significado y valor</li>
+                            <li>Quién quiere <strong>ser</strong> el usuario</li>
+                            <li><em>Relaciones a largo plazo</em></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 7: Diseño Persuasivo -->
+            <section>
+                <h2>Diseño Persuasivo y Manipulación Conductual</h2>
+                <div class="concept-box">
+                    <h3>Técnicas de Modificación de Comportamiento</h3>
+                    <ul>
+                        <li><strong>Acondicionamiento Operante:</strong> Asociar conducta con condiciones positivas/negativas</li>
+                        <li><strong>Refuerzo Positivo:</strong> Aumenta probabilidad de conducta (feedback visual, recompensas)</li>
+                        <li><strong>La Nudge (Empujón):</strong> Arquitectura de elección que altera comportamiento</li>
+                    </ul>
+                </div>
+                <div class="warning-box">
+                    <h3>Conocimiento Inconsciente</h3>
+                    <p>Para persuadir es necesario conocer las <strong>motivaciones inconscientes</strong> del público objetivo</p>
+                    <p><strong>Paradoja:</strong> Las personas toman decisiones basándose en factores inconscientes, pero siempre buscan una razón racional</p>
+                </div>
+            </section>
+
+            <!-- Slide 8: Computación Afectiva -->
+            <section>
+                <h2>Computación Afectiva y Persuasión</h2>
+                <div class="example-box">
+                    <h3>Análisis de Emociones y Sentimientos</h3>
+                    <p>Busca el <strong>excedente conductual</strong> de la vida emocional del usuario</p>
+                </div>
+                <div class="ethical-warning">
+                    <h3>💰 Monetización Emocional</h3>
+                    <p>Los ejecutivos consideran que conocer el <strong>estado emocional en tiempo real</strong> puede:</p>
+                    <ul>
+                        <li>Ayudar a las empresas a vender productos</li>
+                        <li>Aumentar los ingresos</li>
+                        <li>Optimizar estrategias de manipulación</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Slide 9: Gamificación -->
+            <section>
+                <h2>Gamificación</h2>
+                <div class="concept-box">
+                    <h3>Definición y Objetivo</h3>
+                    <p>Aplicación instrumental de <strong>ingeniería conductual</strong> para modificar comportamiento en contextos no lúdicos</p>
+                    <ul>
+                        <li><strong>Metodología:</strong> Cambiar comportamiento individual usando estructura de juego</li>
+                        <li><strong>Instrumentalización:</strong> Sin vergüenza por empresas</li>
+                        <li><strong>Objetivo:</strong> Afinar, arrear y condicionar comportamiento</li>
+                    </ul>
+                </div>
+                <div class="warning-box">
+                    <h3>"Exploitationware"</h3>
+                    <p>Algunos observadores sugieren este término porque el único objetivo es la <strong>manipulación y modificación del comportamiento</strong></p>
+                </div>
+            </section>
+
+            <!-- Slide 10: Estructura del Juego -->
+            <section>
+                <h2>Estructura del Juego (Werbach)</h2>
+                <div class="gamification-structure">
+                    <h3>Tres Niveles de Acción</h3>
+                    <div class="norman-levels">
+                        <div style="background: rgba(255,255,255,0.1); padding: 1em; border-radius: 5px;">
+                            <h4>1. Dinámicas</h4>
+                            <p>Impulsan energía motivacional</p>
+                            <ul>
+                                <li>Narrativa</li>
+                                <li>Emoción</li>
+                                <li>Progresión</li>
+                            </ul>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1em; border-radius: 5px;">
+                            <h4>2. Mecánicas</h4>
+                            <p>Bloques procedimentales que impulsan acción</p>
+                            <ul>
+                                <li>Competición</li>
+                                <li>Tomas de turno</li>
+                                <li>Engagement</li>
+                            </ul>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1em; border-radius: 5px;">
+                            <h4>3. Componentes</h4>
+                            <p>Aspectos más visibles</p>
+                            <ul>
+                                <li>Puntos</li>
+                                <li>Misiones</li>
+                                <li>Insignias (badges)</li>
+                                <li>Tablas de clasificación</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 11: Acondicionamiento y Modelado -->
+            <section>
+                <h2>Acondicionamiento y Modelado (Shaping)</h2>
+                <div class="concept-box">
+                    <h3>Naturaleza Adictiva</h3>
+                    <p>La naturaleza adictiva de videojuegos y máquinas tragamonedas es resultado directo del <strong>condicionamiento operante</strong></p>
+                </div>
+                <div class="example-box">
+                    <h3>Técnica de Modelado (Shaping)</h3>
+                    <ul>
+                        <li><strong>Objetivo:</strong> Enseñar comportamiento deseado</li>
+                        <li><strong>Método:</strong> Reforzar aproximaciones cada vez más precisas</li>
+                        <li><strong>Ejemplo:</strong> Niveles iniciales de videojuegos requieren entradas simples</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Slide 12: Gamificación y Vigilancia -->
+            <section>
+                <h2>Gamificación y Vigilancia: Caso Pokémon Go</h2>
+                <div class="ethical-warning">
+                    <h3>🎮 "Economía de Acción" Global</h3>
+                    <p><strong>Pokémon Go</strong> demostró el concepto a escala mundial</p>
+                </div>
+                <div class="warning-box">
+                    <h3>Juego de Orden Superior</h3>
+                    <p>Transformó el juego que los usuarios ven en un <strong>juego de orden superior del capitalismo de vigilancia</strong></p>
+                    <ul>
+                        <li><strong>Niantic utilizó gamificación</strong> para garantizar resultados</li>
+                        <li><strong>Clientes:</strong> Empresas en mercados de futuros conductuales</li>
+                        <li><strong>Objetivo:</strong> Moldear comportamiento en el mundo real</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Slide 13: Efecto Estético-Usabilidad -->
+            <section>
+                <h2>El Efecto Estético-Usabilidad</h2>
+                <div class="concept-box">
+                    <h3>Principio Psicológico</h3>
+                    <p>Correlación entre el <strong>atractivo de un diseño</strong> y la <strong>percepción de su facilidad de uso</strong></p>
+                </div>
+                <div class="example-box">
+                    <h3>Características del Efecto</h3>
+                    <ul>
+                        <li><strong>Percepción sobre Realidad:</strong> Diseños estéticos parecen más fáciles de usar</li>
+                        <li><strong>Independencia:</strong> Del funcionamiento real del sistema</li>
+                        <li><strong>Resistencia:</strong> El sesgo es resistente al cambio</li>
+                        <li><strong>Aceptación:</strong> Mayor probabilidad de uso</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Slide 14: Impactos del Efecto Estético-Usabilidad -->
+            <section>
+                <h2>Impactos del Efecto Estético-Usabilidad</h2>
+                <div class="norman-levels">
+                    <div class="level-card">
+                        <h3>Tolerancia a Problemas</h3>
+                        <p>Diseños estéticos fomentan actitudes positivas</p>
+                        <ul>
+                            <li>Mayor tolerancia a problemas de diseño</li>
+                            <li>Sentimientos de afecto y lealtad</li>
+                            <li>Mayor paciencia del usuario</li>
+                        </ul>
+                    </div>
+                    <div class="level-card">
+                        <h3>Creatividad</h3>
+                        <p>Relaciones positivas catalizan:</p>
+                        <ul>
+                            <li>Pensamiento creativo</li>
+                            <li>Resolución de problemas</li>
+                            <li>Exploración de funcionalidades</li>
+                        </ul>
+                    </div>
+                    <div class="level-card">
+                        <h3>Ejemplo Histórico</h3>
+                        <p><strong>Primeros móviles:</strong></p>
+                        <ul>
+                            <li>Elementos estéticos hicieron tolerables:</li>
+                            <li>Pérdida de señal</li>
+                            <li>Recarga frecuente</li>
+                            <li>Limitaciones técnicas</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 15: Recapitulación - Flashcards -->
+            <section>
+                <h2>Recapitulación - Conceptos Clave</h2>
+                <div class="norman-levels">
+                    <div class="flashcard" onclick="flipCard(this)">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <h3>Niveles de Norman</h3>
+                                <p>¿Cuáles son los tres niveles del diseño emocional de Norman?</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h3>Tres Niveles</h3>
+                                <ol>
+                                    <li><strong>Visceral:</strong> Metas de experiencia (cómo sentirse)</li>
+                                    <li><strong>Conductual:</strong> Metas finales (qué hacer)</li>
+                                    <li><strong>Reflexivo:</strong> Metas de vida (quién ser)</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="flipCard(this)">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <h3>Gamificación</h3>
+                                <p>¿Cuáles son los tres niveles de acción en la estructura del juego según Werbach?</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h3>Estructura del Juego</h3>
+                                <ol>
+                                    <li><strong>Dinámicas:</strong> Energía motivacional</li>
+                                    <li><strong>Mecánicas:</strong> Bloques procedimentales</li>
+                                    <li><strong>Componentes:</strong> Elementos visibles</li>
+                                </ol>
+                                <p>Aplicación instrumental para modificar comportamiento</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="flipCard(this)">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <h3>UbiCom</h3>
+                                <p>¿Cuáles son los nuevos tipos de dispositivos en el ecosistema UbiCom?</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h3>Dispositivos UbiCom</h3>
+                                <ul>
+                                    <li><strong>Dust:</strong> Polvo inteligente</li>
+                                    <li><strong>Skins:</strong> Telas conductoras</li>
+                                    <li><strong>Clay:</strong> Materia programable</li>
+                                    <li><strong>Tabs, Pads, Boards:</strong> Tradicionales</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="flipCard(this)">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <h3>Efecto Estético-Usabilidad</h3>
+                                <p>¿Qué establece el efecto estético-usabilidad?</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h3>Correlación Estética</h3>
+                                <p>Correlación entre <strong>atractivo del diseño</strong> y <strong>percepción de facilidad de uso</strong></p>
+                                <ul>
+                                    <li>Independiente del funcionamiento real</li>
+                                    <li>Mayor tolerancia a problemas</li>
+                                    <li>Estimula creatividad</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 16: Referencias -->
+            <section>
+                <h2>Referencias Bibliográficas</h2>
+                <div class="references">
+                    <p><strong>Brown, T.</strong> (2008). Design thinking. <em>Harvard Business Review</em>, 1-9.</p>
+                    <p><strong>Cooper, A., Reimann, R., Cronin, D., & Verplank, B.</strong> (2014). <em>About Face: The Essentials of Interaction Design</em>. Wiley.</p>
+                    <p><strong>Díaz, S.</strong> (s.f.). <em>UX Design hazlo fácil pensando en el usuario</em>. Ediciones de la U / Editorial Ra-ma.</p>
+                    <p><strong>Fernández Casado, P. E.</strong> (2021). <em>UX Design: Hazlo fácil pensando en el usuario</em>. Ediciones de la U / Editorial Ra-ma.</p>
+                    <p><strong>Norman, D. A.</strong> (2005). <em>Emotional Design: Why We Love (or Hate) Everyday Things</em>. Basic Books.</p>
+                    <p><strong>Zuboff, S.</strong> (2019). <em>The Age of Surveillance Capitalism</em>. PublicAffairs.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade'
+        });
+
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+    </script>
+</body>
+</html>
