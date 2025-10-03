@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 9: Múltiples Dispositivos y Arquitectura de Información - HCI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.min.css">
+    <style>
+        :root {
+            --university-primary: #910048;
+            --university-secondary: #23356E;
+            --university-accent: #E9AB21;
+            --university-light: #f8f8f8;
+            --text-dark: #2c3e50;
+            --text-light: #34495e;
+        }
+
+        .reveal {
+            font-family: 'Times New Roman', serif;
+        }
+
+        .reveal .slides section {
+            text-align: left;
+            color: var(--text-dark);
+        }
+
+        .reveal h1, .reveal h2, .reveal h3 {
+            color: var(--university-primary);
+            font-family: 'Georgia', serif;
+            text-align: center;
+            text-transform: none;
+            margin-bottom: 1em;
+        }
+
+        .reveal h1 {
+            font-size: 2.5em;
+            border-bottom: 3px solid var(--university-accent);
+            padding-bottom: 0.3em;
+        }
+
+        .reveal h2 {
+            font-size: 2em;
+            color: var(--university-secondary);
+            border-left: 5px solid var(--university-accent);
+            padding-left: 0.5em;
+            text-align: left;
+        }
+
+        .reveal h3 {
+            font-size: 1.5em;
+            color: var(--university-primary);
+            margin-top: 1.5em;
+        }
+
+        .reveal p, .reveal li {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 0.8em;
+        }
+
+        .reveal ul {
+            margin-left: 1em;
+        }
+
+        .reveal li {
+            margin-bottom: 0.5em;
+        }
+
+        .university-header {
+            background: linear-gradient(135deg, var(--university-primary), var(--university-secondary));
+            color: white;
+            padding: 2em;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 1em;
+        }
+
+        .unit-context {
+            background: rgba(233, 171, 33, 0.1);
+            border-left: 4px solid var(--university-accent);
+            padding: 1em;
+            margin: 1em 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .concept-box {
+            background: rgba(145, 0, 72, 0.1);
+            border: 2px solid var(--university-primary);
+            padding: 1em;
+            margin: 1em 0;
+            border-radius: 8px;
+        }
+
+        .example-box {
+            background: rgba(35, 53, 110, 0.1);
+            border: 2px solid var(--university-secondary);
+            padding: 1em;
+            margin: 1em 0;
+            border-radius: 8px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(233, 171, 33, 0.3) 0%, rgba(233, 171, 33, 0.1) 100%);
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .device-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1em;
+            margin: 1em 0;
+        }
+
+        .device-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid var(--university-accent);
+            padding: 1em;
+            margin: 0.5em 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .pattern-box {
+            background: rgba(233, 171, 33, 0.1);
+            border: 2px solid var(--university-accent);
+            padding: 1em;
+            margin: 1em 0;
+            border-radius: 8px;
+        }
+
+        .responsive-demo {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border: 2px solid var(--university-secondary);
+            padding: 1.5em;
+            margin: 1em 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .flashcard {
+            background: white;
+            border: 2px solid var(--university-primary);
+            border-radius: 10px;
+            padding: 1.5em;
+            margin: 1em;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            perspective: 1000px;
+            height: 300px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .flashcard:hover {
+            transform: scale(1.05);
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1em;
+            border-radius: 8px;
+        }
+
+        .flashcard-front {
+            background: linear-gradient(135deg, var(--university-primary), var(--university-secondary));
+            color: white;
+        }
+
+        .flashcard-back {
+            background: linear-gradient(135deg, var(--university-accent), #f39c12);
+            color: var(--text-dark);
+            transform: rotateY(180deg);
+        }
+
+        .references {
+            font-size: 0.9em;
+            background: rgba(248, 248, 248, 0.8);
+            padding: 1em;
+            border-radius: 8px;
+            margin-top: 2em;
+        }
+
+        @media (max-width: 768px) {
+            .reveal h1 {
+                font-size: 2em;
+            }
+            
+            .reveal h2 {
+                font-size: 1.6em;
+            }
+            
+            .reveal p, .reveal li {
+                font-size: 1em;
+            }
+            
+            .flashcard {
+                height: 250px;
+                margin: 0.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Slide 1: Título -->
+            <section>
+                <div class="university-header">
+                    <h1>Múltiples Dispositivos y Arquitectura de Información</h1>
+                    <p><strong>Semana 9 - Unidad 4</strong></p>
+                    <p>Human Computer Interaction</p>
+                    <p><em>Prof. Charlie Cárdenas Toledo, M.Sc.</em></p>
+                </div>
+                <div class="unit-context">
+                    <h3>Contexto Curricular</h3>
+                    <p><strong>Unidad 4:</strong> Proceso de Diseño Centrado en el Usuario</p>
+                    <p><strong>Tema:</strong> Múltiples dispositivos y plataformas, diseño responsivo y adaptativo, arquitectura de información y patrones de diseño</p>
+                </div>
+            </section>
+
+            <!-- Slide 2: Objetivos de Aprendizaje -->
+            <section>
+                <h2>Objetivos de Aprendizaje</h2>
+                <ul>
+                    <li>Analizar la evolución del ecosistema de <span class="highlight">múltiples dispositivos y plataformas</span></li>
+                    <li>Comprender los principios del <span class="highlight">diseño responsivo y adaptativo</span></li>
+                    <li>Aplicar conceptos de <span class="highlight">arquitectura de información</span> en sistemas complejos</li>
+                    <li>Implementar <span class="highlight">patrones de diseño</span> en interfaces digitales</li>
+                    <li>Desarrollar estrategias para la <span class="highlight">usabilidad universal</span> y plasticidad</li>
+                </ul>
+            </section>
+
+            <!-- Slide 3: Evolución del Ecosistema -->
+            <section>
+                <h2>Evolución del Ecosistema de Dispositivos</h2>
+                <div class="concept-box">
+                    <h3>Definición Ampliada de "Ordenador"</h3>
+                    <p>Cualquier dispositivo con un <strong>chip IC programable</strong></p>
+                    <p>Dispositivos con sistemas operativos multitarea (MTOS): PC, portátiles, móviles, consolas, reproductores AV</p>
+                </div>
+                <div class="example-box">
+                    <h3>Visión de Computación Ubicua (UbiCom)</h3>
+                    <ul>
+                        <li><strong>Ubicuidad:</strong> Tecnología invisible e incrustada en el entorno</li>
+                        <li><strong>Experiencia fluida:</strong> Sin interrupciones (seamless) entre dispositivos</li>
+                        <li><strong>Clasificación por tamaño:</strong> Macro, micro y nano</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Slide 4: Clasificación de Dispositivos UbiCom -->
+            <section>
+                <h2>Clasificación de Dispositivos UbiCom</h2>
+                <div class="device-grid">
+                    <div class="device-card">
+                        <h3>Tabs (Pestañas)</h3>
+                        <p>Dispositivos pequeños y portátiles</p>
+                    </div>
+                    <div class="device-card">
+                        <h3>Pads (Blocs)</h3>
+                        <p>Tabletas y dispositivos medianos</p>
+                    </div>
+                    <div class="device-card">
+                        <h3>Boards (Tableros)</h3>
+                        <p>Pantallas grandes e interactivas</p>
+                    </div>
+                    <div class="device-card">
+                        <h3>Dust (Polvo Inteligente)</h3>
+                        <p>Sensores microscópicos distribuidos</p>
+                    </div>
+                    <div class="device-card">
+                        <h3>Skins (Telas Conductoras)</h3>
+                        <p>Interfaces textiles y flexibles</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 5: Desafíos en Diseño Multiplataforma -->
+            <section>
+                <h2>Desafíos en el Diseño Multiplataforma</h2>
+                <div class="concept-box">
+                    <h3>Desafíos Principales</h3>
+                    <ul>
+                        <li><strong>Diseño No Universal:</strong> Un modelo de interfaz no funciona eficazmente en todos los dispositivos</li>
+                        <li><strong>Postura Transitoria:</strong> Uso breve, intermitente y enfocado en tareas específicas</li>
+                        <li><strong>Móviles como Satélites:</strong> Extensiones del escritorio principal</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <h3>Limitaciones Físicas y de Entrada</h3>
+                    <p>Dispositivos de mano: pequeños, ligeros, bajo consumo, robustos</p>
+                    <p><strong>Densidad de información:</strong> Similar a cuadros de diálogo de escritorio</p>
+                    <p><strong>Optimización:</strong> Para exploración (browsing) por limitaciones de entrada</p>
+                </div>
+            </section>
+
+            <!-- Slide 6: Plasticidad y Usabilidad Universal -->
+            <section>
+                <h2>Plasticidad y Usabilidad Universal</h2>
+                <div class="concept-box">
+                    <h3>Plasticidad (Plasticity)</h3>
+                    <p>Capacidad de un sistema para <strong>transformar su contenido</strong> y adaptarse a diversas plataformas, usuarios y contextos</p>
+                </div>
+                <div class="responsive-demo">
+                    <h3>Conversión Fluida</h3>
+                    <ul>
+                        <li>Variaciones de tamaño de pantalla</li>
+                        <li>Traducción a múltiples idiomas</li>
+                        <li>Compatibilidad con dispositivos de accesibilidad</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <h3>Usabilidad Universal</h3>
+                    <p>Reconocer necesidades de usuarios diversos (novatos/expertos, discapacidades) y facilitar la transformación del contenido</p>
+                </div>
+            </section>
+
+            <!-- Slide 7: Enfoques de Adaptación -->
+            <section>
+                <h2>Enfoques de Adaptación de Contenido</h2>
+                <div class="device-grid">
+                    <div class="pattern-box">
+                        <h3>Adaptación de Presentación</h3>
+                        <p>Adherirse al estilo de presentación del dispositivo</p>
+                        <p><strong>Ejemplo:</strong> Menú a la derecha (horizontal) vs. superior (vertical)</p>
+                    </div>
+                    <div class="pattern-box">
+                        <h3>Denominador Común Más Bajo (LCD)</h3>
+                        <p>Contenido limitado para funcionar en todos los dispositivos</p>
+                        <p><strong>Desventaja:</strong> Sacrifica riqueza por compatibilidad</p>
+                    </div>
+                    <div class="pattern-box">
+                        <h3>Transcodificación (Transcoding)</h3>
+                        <p>Transforma contenido mediante funciones de mapeo</p>
+                        <p><strong>Distribución:</strong> Capacidades según servicios que las necesiten</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 8: Diseño Responsivo -->
+            <section>
+                <h2>Diseño Responsivo y Patrones Adaptables</h2>
+                <div class="concept-box">
+                    <h3>Responsive Design</h3>
+                    <p>Enfoque contemporáneo usando un <strong>mismo sitio web</strong> que se adapta dinámicamente a la pantalla</p>
+                    <ul>
+                        <li><strong>Sistema de cuadrícula modular</strong> que se redimensiona flexiblemente</li>
+                        <li><strong>Breakpoints:</strong> Puntos donde se realizan cambios sustanciales</li>
+                    </ul>
+                </div>
+                <div class="responsive-demo">
+                    <h3>Patrones de Diseño Web Adaptable</h3>
+                    <div class="device-grid">
+                        <div style="background: var(--university-primary); color: white; padding: 1em; border-radius: 5px;">
+                            <strong>Layout Shifter</strong><br>
+                            Elementos se desplazan en lugar de apilarse
+                        </div>
+                        <div style="background: var(--university-secondary); color: white; padding: 1em; border-radius: 5px;">
+                            <strong>Tiny Tweaks</strong><br>
+                            Cambios sutiles sin afectar resolución principal
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 9: Patrones Ajustables -->
+            <section>
+                <h2>Patrones Ajustables (Adjustable Patterns)</h2>
+                <div class="device-grid">
+                    <div class="pattern-box">
+                        <h3>Grid Layout</h3>
+                        <p>Información en filas y columnas</p>
+                        <ul>
+                            <li><strong>Ancho:</strong> Idéntico</li>
+                            <li><strong>Altura:</strong> Diferente</li>
+                            <li><strong>Objetivo:</strong> Equilibrio visual</li>
+                        </ul>
+                    </div>
+                    <div class="pattern-box">
+                        <h3>Full Page Image</h3>
+                        <p>Imagen a pantalla completa</p>
+                        <ul>
+                            <li><strong>Percepción:</strong> Impacto, potencia e innovación</li>
+                            <li><strong>Garantía:</strong> Buena experiencia visual</li>
+                            <li><strong>Independencia:</strong> Del dispositivo</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 10: Arquitectura de Información -->
+            <section>
+                <h2>Arquitectura de Información (Macro)</h2>
+                <div class="concept-box">
+                    <h3>Función y Componentes de la AI</h3>
+                    <ul>
+                        <li><strong>Estructuración de Datos:</strong> Organizar volumen masivo de datos</li>
+                        <li><strong>Jerarquía de Contenido:</strong> Establecer jerarquía apropiada y encabezados</li>
+                        <li><strong>Artefactos de AI:</strong> Agrupaciones, categorías, taxonomías, metadatos</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <h3>Marco de AI: Por qué, Qué y Cómo</h3>
+                    <ul>
+                        <li><strong>Por qué:</strong> Razones</li>
+                        <li><strong>Qué:</strong> Especificación</li>
+                        <li><strong>Cómo:</strong> Ejecución</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Slide 11: AI y Cognición del Usuario -->
+            <section>
+                <h2>AI y Cognición del Usuario</h2>
+                <div class="concept-box">
+                    <h3>Categorización por el Usuario</h3>
+                    <p>Las personas utilizan la <strong>categorización</strong> para darle sentido a grandes cantidades de información cuando se sienten abrumadas</p>
+                    <p><strong>Importante:</strong> Si el diseñador no proporciona categorías, los usuarios impondrán sus propias categorías (modelos mentales)</p>
+                </div>
+                <div class="example-box">
+                    <h3>Modelo de Interfaz Objeto-Acción (OAI)</h3>
+                    <p>Útil para arquitectos de información al separar:</p>
+                    <ul>
+                        <li><strong>Conceptos de tarea:</strong> Organización jerárquica o matricial</li>
+                        <li><strong>Conceptos de interfaz:</strong> Representación como esquema o diagrama</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Slide 12: Patrones de Diseño en Interfaces -->
+            <section>
+                <h2>Patrones de Diseño en Interfaces</h2>
+                <div class="concept-box">
+                    <h3>Concepto Fundamental</h3>
+                    <ul>
+                        <li><strong>Origen:</strong> Patrones arquitectónicos de Christopher Alexander (1977)</li>
+                        <li><strong>Enfoque:</strong> Aspectos humanos, no reutilización de código</li>
+                        <li><strong>Naturaleza:</strong> Idiomática - aprender cómo lograr las cosas</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <h3>Superioridad de Interfaces Idiomáticas</h3>
+                    <p><strong>Idiomáticas > Metáfora > Implementación</strong></p>
+                    <ul>
+                        <li><strong>Idiomática:</strong> Proceso natural y humano (superior)</li>
+                        <li><strong>Metáfora:</strong> Intuición (arriesgado)</li>
+                        <li><strong>Implementación:</strong> Comprensión interna (difícil)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Slide 13: Clasificación de Patrones -->
+            <section>
+                <h2>Clasificación de Patrones</h2>
+                <div class="device-grid">
+                    <div class="pattern-box">
+                        <h3>Patrones Estructurales</h3>
+                        <p>Disposición y organización de información y elementos funcionales</p>
+                        <p><strong>Ejemplos:</strong> Vistas y paneles</p>
+                    </div>
+                    <div class="pattern-box">
+                        <h3>Patrones de Comportamiento</h3>
+                        <p>Interacciones específicas con elementos funcionales o de datos</p>
+                        <p><strong>Ejemplos:</strong> Comportamiento de widgets</p>
+                    </div>
+                    <div class="pattern-box">
+                        <h3>Idiomas (Idioms)</h3>
+                        <p>Capa superior que combina compuestos</p>
+                        <p><strong>Incluye:</strong> Conocimiento del dominio, patrones de trabajo y metas del usuario</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 14: Posturas (Patrones Estructurales) -->
+            <section>
+                <h2>Posturas (Patrones Estructurales de Alto Nivel)</h2>
+                <div class="device-grid">
+                    <div class="pattern-box" style="background: rgba(145, 0, 72, 0.1);">
+                        <h3>Postura Soberana</h3>
+                        <p>Domina la sesión del usuario</p>
+                        <ul>
+                            <li>Ocupa mayor parte de la pantalla</li>
+                            <li>Períodos prolongados</li>
+                            <li><strong>Ejemplos:</strong> Suites de oficina</li>
+                        </ul>
+                    </div>
+                    <div class="pattern-box" style="background: rgba(35, 53, 110, 0.1);">
+                        <h3>Postura Transitoria</h3>
+                        <p>Aparece y desaparece rápidamente</p>
+                        <ul>
+                            <li>Función única</li>
+                            <li>Controles limitados</li>
+                            <li><strong>Ejemplos:</strong> Apps móviles</li>
+                        </ul>
+                    </div>
+                    <div class="pattern-box" style="background: rgba(233, 171, 33, 0.1);">
+                        <h3>Postura Demónica</h3>
+                        <p>Opera invisiblemente en segundo plano</p>
+                        <ul>
+                            <li>Sin intervención humana directa</li>
+                            <li><strong>Ejemplos:</strong> Servicios de alerta</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 15: Patrones de Soporte -->
+            <section>
+                <h2>Patrones de Soporte</h2>
+                <div class="concept-box">
+                    <h3>Patrones WIMP</h3>
+                    <p>Interfaces de escritorio tradicionales: <strong>Ventanas, Iconos, Menús y Puntero</strong></p>
+                </div>
+                <div class="example-box">
+                    <h3>Consistencia y Estándares</h3>
+                    <p><strong>Regla fundamental:</strong> La consistencia es la regla más frecuentemente violada</p>
+                    <p>Obedecer estándares a menos que exista una alternativa verdaderamente superior</p>
+                    <p><strong>Enemigo:</strong> La variación innecesaria</p>
+                </div>
+                <div class="pattern-box">
+                    <h3>Patrones de Bajo Nivel</h3>
+                    <ul>
+                        <li><strong>Input Prompt:</strong> Pistas en campos de texto</li>
+                        <li><strong>Auto completion:</strong> Autocompletar</li>
+                        <li><strong>Dropdown Chooser:</strong> Menú desplegable complejo</li>
+                        <li><strong>MVC:</strong> Modelo, Vista, Controlador</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Slide 16: Recapitulación - Flashcards -->
+            <section>
+                <h2>Recapitulación - Conceptos Clave</h2>
+                <div class="device-grid">
+                    <div class="flashcard" onclick="flipCard(this)">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <h3>UbiCom</h3>
+                                <p>¿Cuáles son las cinco formas de dispositivos UbiCom clasificados por tamaño?</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h3>Clasificación UbiCom</h3>
+                                <ol>
+                                    <li>Tabs (pestañas)</li>
+                                    <li>Pads (blocs)</li>
+                                    <li>Boards (tableros)</li>
+                                    <li>Dust (polvo inteligente)</li>
+                                    <li>Skins (telas conductoras)</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="flipCard(this)">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <h3>Posturas</h3>
+                                <p>¿Cuáles son los tres tipos de posturas en patrones estructurales?</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h3>Tipos de Posturas</h3>
+                                <ul>
+                                    <li><strong>Soberana:</strong> Domina sesión del usuario</li>
+                                    <li><strong>Transitoria:</strong> Aparece/desaparece rápidamente</li>
+                                    <li><strong>Demónica:</strong> Opera invisiblemente en segundo plano</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="flipCard(this)">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <h3>Arquitectura de Información</h3>
+                                <p>¿Cuál es el marco de clasificación de AI según "Por qué, Qué y Cómo"?</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h3>Marco de AI</h3>
+                                <ul>
+                                    <li><strong>Por qué:</strong> Razones</li>
+                                    <li><strong>Qué:</strong> Especificación</li>
+                                    <li><strong>Cómo:</strong> Ejecución</li>
+                                </ul>
+                                <p>Separación clara de conceptos organizacionales</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="flipCard(this)">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <h3>Plasticidad</h3>
+                                <p>¿Qué es la plasticidad en el diseño de interfaces?</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h3>Definición de Plasticidad</h3>
+                                <p>Capacidad de un sistema para <strong>transformar su contenido</strong> y adaptarse a:</p>
+                                <ul>
+                                    <li>Diversas plataformas</li>
+                                    <li>Diferentes usuarios</li>
+                                    <li>Múltiples contextos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 17: Referencias -->
+            <section>
+                <h2>Referencias Bibliográficas</h2>
+                <div class="references">
+                    <p><strong>Cooper, A., Reimann, R., Cronin, D., & Verplank, B.</strong> (2014). <em>About Face: The Essentials of Interaction Design</em>. Wiley.</p>
+                    <p><strong>Gilbert, R. M.</strong> (2019). <em>Inclusive Design for a Digital World: Designing with Accessibility in Mind</em>. Apress.</p>
+                    <p><strong>MacKenzie, I. S.</strong> (2013). <em>Human-Computer Interaction: An Empirical Research Perspective</em>. Elsevier Inc.</p>
+                    <p><strong>Nielsen, J.</strong> (1993). <em>Usability Engineering</em>. Academic Press.</p>
+                    <p><strong>Norman, D. A.</strong> (1988). <em>The Psychology of Everyday Things</em>. Basic Books.</p>
+                    <p><strong>Poslad, S.</strong> (2009). <em>Ubiquitous Computing: Smart Devices, Environments and Interactions</em>. John Wiley & Sons, Ltd.</p>
+                    <p><strong>Shneiderman, B., & Plaisant, C.</strong> (2004). <em>Designing the User Interface: Strategies for Effective Human Computer Interaction</em> (4th ed.). Pearson Education, Inc.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade'
+        });
+
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+    </script>
+</body>
+</html>

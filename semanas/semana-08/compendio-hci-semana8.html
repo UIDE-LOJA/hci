@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 8: Diseño de Interacción en Equipos Ágiles - HCI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.min.css">
+    <style>
+        :root {
+            --university-primary: #910048;
+            --university-secondary: #23356E;
+            --university-accent: #E9AB21;
+            --university-light: #f8f8f8;
+            --text-dark: #2c3e50;
+            --text-light: #34495e;
+        }
+
+        .reveal {
+            font-family: 'Times New Roman', serif;
+        }
+
+        .reveal .slides section {
+            text-align: left;
+            color: var(--text-dark);
+        }
+
+        .reveal h1, .reveal h2, .reveal h3 {
+            color: var(--university-primary);
+            font-family: 'Georgia', serif;
+            text-align: center;
+            text-transform: none;
+            margin-bottom: 1em;
+        }
+
+        .reveal h1 {
+            font-size: 2.5em;
+            border-bottom: 3px solid var(--university-accent);
+            padding-bottom: 0.3em;
+        }
+
+        .reveal h2 {
+            font-size: 2em;
+            color: var(--university-secondary);
+            border-left: 5px solid var(--university-accent);
+            padding-left: 0.5em;
+            text-align: left;
+        }
+
+        .reveal h3 {
+            font-size: 1.5em;
+            color: var(--university-primary);
+            margin-top: 1.5em;
+        }
+
+        .reveal p, .reveal li {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 0.8em;
+        }
+
+        .reveal ul {
+            margin-left: 1em;
+        }
+
+        .reveal li {
+            margin-bottom: 0.5em;
+        }
+
+        .university-header {
+            background: linear-gradient(135deg, var(--university-primary), var(--university-secondary));
+            color: white;
+            padding: 2em;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 1em;
+        }
+
+        .unit-context {
+            background: rgba(233, 171, 33, 0.1);
+            border-left: 4px solid var(--university-accent);
+            padding: 1em;
+            margin: 1em 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .concept-box {
+            background: rgba(145, 0, 72, 0.1);
+            border: 2px solid var(--university-primary);
+            padding: 1em;
+            margin: 1em 0;
+            border-radius: 8px;
+        }
+
+        .example-box {
+            background: rgba(35, 53, 110, 0.1);
+            border: 2px solid var(--university-secondary);
+            padding: 1em;
+            margin: 1em 0;
+            border-radius: 8px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(233, 171, 33, 0.3) 0%, rgba(233, 171, 33, 0.1) 100%);
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .process-step {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid var(--university-accent);
+            padding: 1em;
+            margin: 0.5em 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1em;
+            margin: 1em 0;
+        }
+
+        .flashcard {
+            background: white;
+            border: 2px solid var(--university-primary);
+            border-radius: 10px;
+            padding: 1.5em;
+            margin: 1em;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            perspective: 1000px;
+            height: 300px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .flashcard:hover {
+            transform: scale(1.05);
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1em;
+            border-radius: 8px;
+        }
+
+        .flashcard-front {
+            background: linear-gradient(135deg, var(--university-primary), var(--university-secondary));
+            color: white;
+        }
+
+        .flashcard-back {
+            background: linear-gradient(135deg, var(--university-accent), #f39c12);
+            color: var(--text-dark);
+            transform: rotateY(180deg);
+        }
+
+        .references {
+            font-size: 0.9em;
+            background: rgba(248, 248, 248, 0.8);
+            padding: 1em;
+            border-radius: 8px;
+            margin-top: 2em;
+        }
+
+        @media (max-width: 768px) {
+            .reveal h1 {
+                font-size: 2em;
+            }
+            
+            .reveal h2 {
+                font-size: 1.6em;
+            }
+            
+            .reveal p, .reveal li {
+                font-size: 1em;
+            }
+            
+            .flashcard {
+                height: 250px;
+                margin: 0.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Slide 1: Título -->
+            <section>
+                <div class="university-header">
+                    <h1>Diseño de Interacción en Equipos Ágiles</h1>
+                    <p><strong>Semana 8 - Unidad 3</strong></p>
+                    <p>Human Computer Interaction</p>
+                    <p><em>Prof. Charlie Cárdenas Toledo, M.Sc.</em></p>
+                </div>
+                <div class="unit-context">
+                    <h3>Contexto Curricular</h3>
+                    <p><strong>Unidad 3:</strong> Diseño de Interacción Moderna</p>
+                    <p><strong>Tema:</strong> Integración de Lean UX, metodologías ágiles, Design Thinking y evaluación iterativa</p>
+                </div>
+            </section>
+
+            <!-- Slide 2: Objetivos de Aprendizaje -->
+            <section>
+                <h2>Objetivos de Aprendizaje</h2>
+                <ul>
+                    <li>Comprender la integración de <span class="highlight">Lean UX y metodologías ágiles</span> en el diseño de interacción</li>
+                    <li>Analizar el <span class="highlight">Design Thinking</span> como fundamento del diseño centrado en el usuario</li>
+                    <li>Aplicar herramientas de <span class="highlight">personas, historias y customer journeys</span></li>
+                    <li>Implementar estrategias de <span class="highlight">prototipado rápido y evaluación iterativa</span></li>
+                    <li>Desarrollar habilidades para trabajar en equipos de desarrollo ágil</li>
+                </ul>
+            </section>
+
+            <!-- Slide 3: Integración de Lean UX y Agile -->
+            <section>
+                <h2>Integración de Lean UX y Agile</h2>
+                <div class="concept-box">
+                    <h3>Filosofía y Principios</h3>
+                    <ul>
+                        <li><strong>Lean UX:</strong> Evolución del diseño de productos</li>
+                        <li><strong>Principios Ágiles:</strong> Individuos e interacciones sobre procesos y herramientas</li>
+                        <li><strong>Software funcionando</strong> sobre documentación exhaustiva</li>
+                        <li><strong>Conversación priorizada</strong> sobre limitaciones de procesos</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <p><strong>Tres Fundamentos del Lean UX:</strong></p>
+                    <ol>
+                        <li>Design Thinking</li>
+                        <li>Desarrollo Ágil</li>
+                        <li>Lean Startup</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Slide 4: Proceso Colaborativo -->
+            <section>
+                <h2>El Proceso Colaborativo</h2>
+                <div class="process-step">
+                    <h3>Características del Trabajo Colaborativo</h3>
+                    <ul>
+                        <li><strong>Ritmo:</strong> Colaborativo, iterativo y en paralelo</li>
+                        <li><strong>Transferencias:</strong> Pocas transferencias (handoffs) y entregables mínimos</li>
+                        <li><strong>Equipo:</strong> Transversal (cross-functional) con participación continua</li>
+                        <li><strong>Diseño vs. Desarrollo:</strong> Trabajo simultáneo, no secuencial</li>
+                    </ul>
+                </div>
+                <div class="concept-box">
+                    <h3>Rol del Diseñador</h3>
+                    <p>El diseñador evoluciona hacia la <strong>facilitación del diseño</strong>, determinando rápidamente los mayores desafíos de UX y definiendo flujos antes del desarrollo.</p>
+                </div>
+            </section>
+
+            <!-- Slide 5: Integración en Scrum -->
+            <section>
+                <h2>Integración en Scrum</h2>
+                <div class="methodology-grid">
+                    <div class="process-step">
+                        <h3>Iteración de Planificación (IPM)</h3>
+                        <p>Reunión donde se determina la priorización inicial del backlog</p>
+                    </div>
+                    <div class="process-step">
+                        <h3>Sprints Escalonados</h3>
+                        <p>Diseño una sprint por delante del desarrollo (modelo de transición)</p>
+                    </div>
+                </div>
+                <div class="example-box">
+                    <h3>Artefactos Ágiles</h3>
+                    <ul>
+                        <li><strong>Historias de Usuario:</strong> Oraciones cortas ("Como usuario, me gustaría...")</li>
+                        <li><strong>Épicas:</strong> Grupos de interacciones más amplios, similares a escenarios</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Slide 6: Design Thinking -->
+            <section>
+                <h2>Design Thinking</h2>
+                <div class="concept-box">
+                    <h3>Definición y Propósito</h3>
+                    <p>Filosofía y proceso que sitúa la <strong>resolución de problemas centrada en el ser humano</strong> en el núcleo de la innovación.</p>
+                    <ul>
+                        <li>Proceso iterativo para comprender al usuario</li>
+                        <li>Desafía suposiciones y redefine problemas</li>
+                        <li>Enfoque basado en soluciones</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <h3>Innovación Impulsada por Observación</h3>
+                    <p>Hace coincidir las <strong>necesidades de las personas</strong> con lo que es <strong>tecnológicamente factible</strong> y lo que una <strong>estrategia comercial viable</strong> puede convertir en valor.</p>
+                </div>
+            </section>
+
+            <!-- Slide 7: Fases del Design Thinking -->
+            <section>
+                <h2>Fases del Proceso de Design Thinking</h2>
+                <div class="methodology-grid">
+                    <div class="process-step">
+                        <h3>1. Empatizar</h3>
+                        <p>Aprender sobre la audiencia: ¿quién es el usuario y qué le importa?</p>
+                    </div>
+                    <div class="process-step">
+                        <h3>2. Definir</h3>
+                        <p>Crear un punto de vista y establecer las necesidades del usuario</p>
+                    </div>
+                    <div class="process-step">
+                        <h3>3. Idear</h3>
+                        <p>Generar soluciones creativas, fomentando ideas audaces</p>
+                    </div>
+                    <div class="process-step">
+                        <h3>4. Prototipar y Probar</h3>
+                        <p>Implementar y evaluar las soluciones</p>
+                    </div>
+                </div>
+                <div class="concept-box">
+                    <p><strong>Herramienta útil:</strong> El mapa de empatía en la fase de empatía</p>
+                </div>
+            </section>
+
+            <!-- Slide 8: Personas -->
+            <section>
+                <h2>Personas (Modelos de Usuario)</h2>
+                <div class="concept-box">
+                    <h3>Definición y Rol</h3>
+                    <ul>
+                        <li><strong>Arquetipos de usuario</strong> basados en patrones de comportamiento observados</li>
+                        <li>Modelos descriptivos como personajes principales en diseño basado en escenarios</li>
+                        <li><strong>Proto-personas en Lean UX:</strong> Basadas en supuestos y datos disponibles</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <h3>Tipos de Metas</h3>
+                    <ul>
+                        <li><strong>Metas de Experiencia:</strong> Cómo quiere sentirse (sin esfuerzo, cómodo, seguro)</li>
+                        <li><strong>Metas Finales:</strong> Lo que quiere lograr (realizar tarea, obtener información)</li>
+                        <li><strong>Metas de Vida:</strong> Quién quiere ser (experto, eficiente)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Slide 9: Tipos de Personas -->
+            <section>
+                <h2>Tipos y Priorización de Personas</h2>
+                <div class="methodology-grid">
+                    <div class="process-step">
+                        <h3>Primaria</h3>
+                        <p>Objetivo principal de la interfaz. Solo puede haber una persona primaria.</p>
+                    </div>
+                    <div class="process-step">
+                        <h3>Secundaria</h3>
+                        <p>Necesidades satisfechas con el diseño primario, con necesidades adicionales específicas.</p>
+                    </div>
+                    <div class="process-step">
+                        <h3>Servida</h3>
+                        <p>No usan el producto pero son directamente afectadas (ej. paciente).</p>
+                    </div>
+                    <div class="process-step">
+                        <h3>Negativa</h3>
+                        <p>Usuarios que el producto NO debe servir (uso retórico para enfocar al equipo).</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 10: Historias y Journeys -->
+            <section>
+                <h2>Historias y Customer Journeys</h2>
+                <div class="concept-box">
+                    <h3>Scenarios (Narrativas de Diseño)</h3>
+                    <ul>
+                        <li><strong>Context Scenario:</strong> Contexto amplio antes de bocetos de diseño</li>
+                        <li><strong>Key Path Scenario:</strong> Interacción en el flujo principal</li>
+                        <li><strong>Validation Scenario:</strong> Prueba la validez del diseño con "qué pasaría si"</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <h3>Customer Journeys</h3>
+                    <p>Narrativas que describen el uso de un servicio desde la <strong>primera exposición hasta la transacción final</strong>, elemento central en el Marco de Diseño de Servicios.</p>
+                </div>
+            </section>
+
+            <!-- Slide 11: Prototipado Rápido -->
+            <section>
+                <h2>Prototipado Rápido</h2>
+                <div class="concept-box">
+                    <h3>Filosofía y Objetivos</h3>
+                    <ul>
+                        <li><strong>Objetivo:</strong> No terminar, sino aprender sobre fortalezas y debilidades</li>
+                        <li><strong>Inversión mínima:</strong> Solo el tiempo necesario para generar retroalimentación útil</li>
+                        <li><strong>Apariencia:</strong> Un prototipo que parece "terminado" recibe menos crítica</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <h3>MVP en Lean UX</h3>
+                    <p><strong>Producto Mínimo Viable:</strong> El producto más pequeño que se puede construir para determinar la validez de una hipótesis.</p>
+                </div>
+            </section>
+
+            <!-- Slide 12: Tipos de Prototipos -->
+            <section>
+                <h2>Tipos de Prototipos</h2>
+                <div class="methodology-grid">
+                    <div class="process-step">
+                        <h3>Prototipo de Concepto</h3>
+                        <p>Explora ideas preliminares de forma rápida y económica (bocetos, storyboards)</p>
+                    </div>
+                    <div class="process-step">
+                        <h3>Prototipo Desechable</h3>
+                        <p>Recopila información sobre funcionalidad específica y luego se desecha</p>
+                    </div>
+                    <div class="process-step">
+                        <h3>Prototipo Evolutivo</h3>
+                        <p>Se desarrolla, evalúa y refina hasta evolucionar hacia el sistema final</p>
+                    </div>
+                </div>
+                <div class="concept-box">
+                    <p><strong>Herramientas de baja fidelidad</strong> (Balsamiq, bocetos) se prefieren para Framework Definition.</p>
+                </div>
+            </section>
+
+            <!-- Slide 13: Evaluación Iterativa -->
+            <section>
+                <h2>Evaluación Iterativa y Pruebas de Usabilidad</h2>
+                <div class="concept-box">
+                    <h3>Iteración Continua</h3>
+                    <ul>
+                        <li><strong>Calidad del diseño:</strong> No se logra sin iteración</li>
+                        <li><strong>Modelo iterativo:</strong> Repite etapas del ciclo de desarrollo</li>
+                        <li><strong>Planificación:</strong> La iteración de diseño debe planificarse</li>
+                    </ul>
+                </div>
+                <div class="example-box">
+                    <h3>Regla de los Cinco Usuarios</h3>
+                    <p>Con solo <strong>cinco usuarios</strong> se puede descubrir el <strong>80% de los problemas de usabilidad</strong> en una interfaz.</p>
+                </div>
+            </section>
+
+            <!-- Slide 14: Tipos de Evaluación -->
+            <section>
+                <h2>Tipos de Evaluación</h2>
+                <div class="methodology-grid">
+                    <div class="process-step">
+                        <h3>Evaluación Formativa</h3>
+                        <p>Pruebas cualitativas durante el diseño para guiar el rediseño</p>
+                    </div>
+                    <div class="process-step">
+                        <h3>Evaluación Sumativa</h3>
+                        <p>Al final del proceso para evidenciar cumplimiento de objetivos</p>
+                    </div>
+                    <div class="process-step">
+                        <h3>Quick-and-Dirty</h3>
+                        <p>Sacrifica rigor para obtener retroalimentación rápida</p>
+                    </div>
+                    <div class="process-step">
+                        <h3>Five-Second Test</h3>
+                        <p>Evalúa impresión de pantalla específica</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 15: Recapitulación - Flashcards -->
+            <section>
+                <h2>Recapitulación - Conceptos Clave</h2>
+                <div class="methodology-grid">
+                    <div class="flashcard" onclick="flipCard(this)">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <h3>Lean UX</h3>
+                                <p>¿Cuáles son los tres fundamentos del Lean UX?</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h3>Tres Fundamentos</h3>
+                                <ol>
+                                    <li>Design Thinking</li>
+                                    <li>Desarrollo Ágil</li>
+                                    <li>Lean Startup</li>
+                                </ol>
+                                <p>Integración para diseño colaborativo e iterativo</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="flipCard(this)">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <h3>Design Thinking</h3>
+                                <p>¿Cuáles son las 4 fases del proceso de Design Thinking?</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h3>Fases del Proceso</h3>
+                                <ol>
+                                    <li>Empatizar</li>
+                                    <li>Definir</li>
+                                    <li>Idear</li>
+                                    <li>Prototipar y Probar</li>
+                                </ol>
+                                <p>Proceso iterativo centrado en el usuario</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="flipCard(this)">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <h3>Tipos de Personas</h3>
+                                <p>¿Cuáles son los cuatro tipos de personas en el diseño?</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h3>Clasificación</h3>
+                                <ul>
+                                    <li><strong>Primaria:</strong> Objetivo principal</li>
+                                    <li><strong>Secundaria:</strong> Necesidades adicionales</li>
+                                    <li><strong>Servida:</strong> Afectada indirectamente</li>
+                                    <li><strong>Negativa:</strong> No debe servir</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="flipCard(this)">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <h3>Evaluación de Usabilidad</h3>
+                                <p>¿Cuántos usuarios se necesitan para descubrir el 80% de problemas de usabilidad?</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h3>Regla de Nielsen</h3>
+                                <p><strong>5 usuarios</strong></p>
+                                <p>Descubren el 80% de los problemas de usabilidad en una interfaz</p>
+                                <p>Número óptimo para estudios cualitativos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 16: Referencias -->
+            <section>
+                <h2>Referencias Bibliográficas</h2>
+                <div class="references">
+                    <p><strong>Brown, T.</strong> (2008). Design thinking. <em>Harvard Business Review</em>, 1-9.</p>
+                    <p><strong>Cooper, A., Reimann, R., Cronin, D., & Verplank, B.</strong> (2014). <em>About Face: The Essentials of Interaction Design</em>. Wiley.</p>
+                    <p><strong>Dumas, J. S., & Redish, J. C.</strong> (1999). <em>A Practical Guide to Usability Testing</em>. Intellect Books.</p>
+                    <p><strong>Krug, S.</strong> (2006). <em>Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability</em>. New Riders.</p>
+                    <p><strong>Nielsen, J.</strong> (1993). <em>Usability Engineering</em>. Academic Press.</p>
+                    <p><strong>Ries, E.</strong> (2011). <em>The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses</em>. Crown Business.</p>
+                    <p><strong>Snyder, C.</strong> (2003). <em>Paper Prototyping: The Fast and Easy Way to Design and Test User Interfaces</em>. Morgan Kaufmann.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade'
+        });
+
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+    </script>
+</body>
+</html>
