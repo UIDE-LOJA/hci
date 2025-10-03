@@ -1,0 +1,1497 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Semana 6 - Interfaces Naturales y Multimodalidad</title>
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css" id="theme">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/monokai.css">
+
+    <!-- Custom CSS for A4 format and UIDE colors - Book-like design -->
+    <style>
+        :root {
+            --uide-primary: #910048;    /* UIDE Burgundy */
+            --uide-secondary: #23356E;  /* UIDE Navy */
+            --uide-accent: #E9AB21;     /* UIDE Gold */
+            --uide-light: #f8f8f8;      /* Light background for contrast */
+        }
+
+        /* Book-like typography - Responsive */
+        .reveal {
+            font-family: 'Times New Roman', serif;
+            font-size: min(2.5vw, 22px);
+            line-height: 1.6;
+        }
+
+        .reveal h1, .reveal h2, .reveal h3 {
+            font-family: 'Georgia', serif;
+            font-weight: normal;
+            text-align: center;
+            color: var(--uide-primary) !important;
+            margin-bottom: 1em;
+        }
+
+        .reveal h1 {
+            font-size: min(4vw, 3em);
+        }
+
+        .reveal h2 {
+            font-size: min(3vw, 2.5em);
+        }
+
+        .reveal h3 {
+            font-size: min(2.5vw, 2em);
+        }
+
+        .reveal p, .reveal li {
+            text-align: justify;
+            color: #333;
+            margin-bottom: 1em;
+            font-size: min(2.2vw, 1.1em);
+        }
+
+        .reveal ul, .reveal ol {
+            text-align: left;
+        }
+
+        /* Clean slide format */
+        .reveal .slides section {
+            background: var(--uide-light);
+        }
+
+        /* Layout helpers */
+        .r-hstack {
+            display: flex;
+            gap: 2em;
+            align-items: flex-start;
+        }
+        
+        .r-vstack {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+        
+        .r-stack {
+            position: relative;
+        }
+        
+        .r-stack > * {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* UIDE color scheme */
+        .reveal .slide-background {
+            background: var(--uide-light);
+        }
+        
+        mark {
+            background-color: var(--uide-accent);
+            color: var(--uide-secondary);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+
+        /* Logo positioning */
+        .logo-container {
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            z-index: 100;
+        }
+
+        .logo-container img {
+            width: min(10vw, 80px);
+            height: auto;
+            opacity: 0.9;
+        }
+
+        /* Blockquotes */
+        .reveal blockquote {
+            background: rgba(255,255,255,0.8);
+            border-left: 4px solid var(--uide-primary);
+            margin: 1em 0;
+            padding: 1em 2em;
+            font-style: italic;
+            color: var(--uide-secondary);
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Title slide styling */
+        .title-slide {
+            background: rgba(255,255,255,0.95);
+            padding: 2em;
+            border-radius: 15px;
+            border: 3px double var(--uide-primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .title-slide h1 {
+            color: var(--uide-primary);
+            margin-bottom: 0.5em;
+        }
+
+        .title-slide h2 {
+            color: var(--uide-secondary);
+            font-size: min(3vw, 2em);
+            margin-bottom: 1em;
+        }
+
+        .course-info {
+            background: rgba(255,255,255,0.9);
+            border-radius: 10px;
+            padding: 1em;
+            margin: 1em 0;
+            border: 2px solid var(--uide-accent);
+            font-size: min(2vw, 1em);
+        }
+
+        /* Cross-references */
+        .cross-reference {
+            background: rgba(233, 171, 33, 0.1);
+            border: 1px solid var(--uide-accent);
+            border-radius: 8px;
+            padding: 1em;
+            margin: 1em 0;
+            font-style: italic;
+            color: var(--uide-secondary);
+        }
+
+        /* Media placeholders */
+        .media-placeholder {
+            background: rgba(145, 0, 72, 0.1);
+            border: 2px dashed var(--uide-primary);
+            border-radius: 10px;
+            padding: 3vh 2vw;
+            text-align: center;
+            color: var(--uide-primary);
+            margin: 1em 0;
+            font-style: italic;
+        }
+
+        /* Two column layout */
+        .column {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .column h4 {
+            color: var(--uide-primary);
+            border-bottom: 2px solid var(--uide-accent);
+            padding-bottom: 0.3em;
+            margin-bottom: 0.8em;
+        }
+
+        /* References section - optimized for readability */
+        .references-container {
+            column-count: 2;
+            column-gap: 2em;
+            column-rule: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .references-container p {
+            break-inside: avoid;
+            margin-bottom: 0.8em;
+            text-align: left;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .reveal {
+                font-size: min(4vw, 18px);
+            }
+
+            .r-hstack {
+                flex-direction: column;
+                gap: 1em;
+            }
+
+            .logo-container img {
+                width: 12vw;
+                max-width: 60px;
+            }
+
+            /* Title slide adjustments */
+            .title-slide h1 {
+                font-size: min(10vw, 3em);
+            }
+
+            .title-slide h2 {
+                font-size: min(7vw, 2em);
+            }
+
+            /* References section */
+            .references-container {
+                column-count: 1 !important;
+                font-size: min(3.5vw, 0.7em);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .reveal {
+                font-size: min(5vw, 16px);
+            }
+
+            .reveal section {
+                padding: 3vh 3vw;
+            }
+
+            .logo-container img {
+                width: 15vw;
+                max-width: 60px;
+            }
+
+            .title-slide h1 {
+                font-size: min(12vw, 2.5em);
+            }
+
+            .title-slide h2 {
+                font-size: min(8vw, 1.8em);
+            }
+        }
+
+        /* Touch-friendly interactions for mobile */
+        @media (max-width: 768px) and (pointer: coarse) {
+            .reveal .controls {
+                font-size: 1.5em;
+            }
+
+            .fragment {
+                transition-duration: 0.6s;
+            }
+        }
+
+        /* Vertical slide indicators */
+        .reveal .controls .navigate-up, .reveal .controls .navigate-down {
+            opacity: 0.8;
+        }
+
+        .reveal .controls .navigate-up.enabled, .reveal .controls .navigate-down.enabled {
+            opacity: 1;
+        }
+
+        /* Transition effects - no gradients */
+        .reveal section[data-transition="fade"],
+        .reveal section[data-transition="slide"],
+        .reveal section[data-transition="convex"] {
+            background: var(--uide-light);
+        }
+
+        /* High DPI displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .logo-container img {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
+            }
+        }
+
+        /* Flashcard styles */
+        .flashcard {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 0;
+            margin: 0.8em 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            min-height: 140px;
+            perspective: 1000px;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .flashcard:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            border-color: var(--uide-primary);
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            min-height: 140px;
+            text-align: left;
+            transition: transform 0.4s ease-in-out;
+            transform-style: preserve-3d;
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            min-height: 140px;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 1.2em;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .flashcard-front {
+            background: #ffffff;
+            border-left: 4px solid var(--uide-primary);
+        }
+
+        .flashcard-back {
+            transform: rotateY(180deg);
+            background: #fafafa;
+            border-left: 4px solid var(--uide-accent);
+        }
+
+        .flashcard h4 {
+            margin: 0 0 0.8em 0;
+            color: var(--uide-primary);
+            font-size: 0.95em;
+            font-weight: 600;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.4em;
+        }
+
+        .flashcard-back h4 {
+            color: var(--uide-secondary);
+        }
+
+        .flashcard p {
+            margin: 0.4em 0;
+            line-height: 1.4;
+            color: #444;
+            font-size: 0.85em;
+        }
+
+        .flashcard small {
+            font-style: italic;
+            color: #666;
+            margin-top: auto;
+            font-size: 0.75em;
+        }
+
+        .flashcard strong {
+            color: var(--uide-primary);
+            font-weight: 600;
+        }
+
+        .flashcard-back strong {
+            color: var(--uide-secondary);
+        }
+
+        /* Mobile responsive for flashcards */
+        @media (max-width: 768px) {
+            .flashcard {
+                min-height: 120px;
+            }
+            
+            .flashcard-front, .flashcard-back {
+                padding: 1em;
+            }
+            
+            .flashcard h4 {
+                font-size: 0.9em;
+            }
+            
+            .flashcard p {
+                font-size: 0.8em;
+            }
+            
+            .flashcard small {
+                font-size: 0.7em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Title Slide -->
+            <section data-background-color="#f8f8f8" data-transition="convex">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                
+                <div class="title-slide">
+                    <h1>Interfaces Naturales y Multimodalidad</h1>
+                    <h2>Semana 6</h2>
+                    
+                    <div class="course-info">
+                        <strong>PP-07-HCI</strong> • Séptimo Nivel<br>
+                        <strong>Human-Computer Interaction</strong><br>
+                        <em>Prof. Charlie Cárdenas Toledo, M.Sc.</em><br>
+                        Universidad Internacional del Ecuador • Octubre 2025
+                    </div>
+                    
+                    <div style="background: rgba(233, 171, 33, 0.1); border-radius: 8px; padding: 1em; margin: 1em 0; font-size: 0.9em;">
+                        <strong>Unidad 3: Diseño de Interacción Moderna</strong><br>
+                        <em>Semana 6 de 16 • Post-Evaluación Diagnóstica</em>
+                    </div>
+                    
+                    <div style="margin-top: 2em; font-size: 0.9em; font-style: italic; color: var(--uide-secondary);">
+                        De la interacción explícita hacia la naturalidad computacional
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quote Slide -->
+            <section data-background-color="#f8f8f8">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                
+                <blockquote style="font-size: 1.2em; text-align: center;">
+                    <p><strong>"Las tecnologías más profundas son aquellas que desaparecen. Se entrelazan en el tejido de la vida cotidiana hasta que son indistinguibles de ella."</strong></p>
+                    <footer style="margin-top: 1em; color: var(--uide-secondary);">
+                        — Mark Weiser, Padre de la Computación Ubicua
+                    </footer>
+                </blockquote>
+            </section>
+
+            <!-- Curriculum Context -->
+            <section data-background-color="#f8f8f8">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Contexto Curricular</h2>
+                
+                <section>
+                    <h3>Ubicación en el Programa</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Unidades Anteriores</h4>
+                            <div style="background: rgba(145, 0, 72, 0.1); padding: 1em; border-radius: 8px; margin: 0.5em 0;">
+                                <strong>Unidad 1:</strong> Fundamentos e Historia de HCI<br>
+                                <small>Semanas 1-2</small>
+                            </div>
+                            <div style="background: rgba(35, 53, 110, 0.1); padding: 1em; border-radius: 8px; margin: 0.5em 0;">
+                                <strong>Unidad 2:</strong> Principios de Diseño y Percepción<br>
+                                <small>Semanas 3-4</small>
+                            </div>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Unidad Actual</h4>
+                            <div style="background: rgba(233, 171, 33, 0.2); padding: 1em; border-radius: 8px; margin: 0.5em 0; border: 2px solid var(--uide-accent);">
+                                <strong>Unidad 3:</strong> Diseño de Interacción Moderna<br>
+                                <small>Semanas 6-8</small>
+                            </div>
+                            <div style="background: rgba(180, 180, 180, 0.1); padding: 1em; border-radius: 8px; margin: 0.5em 0;">
+                                <strong>Semana 5:</strong> Evaluación Diagnóstica<br>
+                                <small>Completada</small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Contenidos de la Semana 6</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Temas Principales</h4>
+                            <ul>
+                                <li><mark>Interfaces naturales (NUI)</mark></li>
+                                <li><mark>Gestos y háptica</mark></li>
+                                <li><mark>Voz y asistentes</mark></li>
+                                <li><mark>Multitáctil y smartphones</mark></li>
+                            </ul>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Objetivos de Aprendizaje</h4>
+                            <ul>
+                                <li>Comprender la evolución hacia interfaces naturales</li>
+                                <li>Analizar modalidades de interacción moderna</li>
+                                <li>Evaluar ventajas y limitaciones de cada modalidad</li>
+                                <li>Aplicar principios de diseño multimodal</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Conexiones Interdisciplinarias</h3>
+                    <div class="cross-reference">
+                        <strong>Basándose en conocimientos previos:</strong>
+                        <ul style="text-align: left; margin: 0.5em 0;">
+                            <li><strong>Semana 2:</strong> Computación ubicua y factores humanos</li>
+                            <li><strong>Semana 3:</strong> Affordances y diseño centrado en el usuario</li>
+                            <li><strong>Semana 4:</strong> Limitaciones cognitivas y carga mental</li>
+                        </ul>
+                        <strong>Preparando para:</strong> Realidad virtual/aumentada, IA conversacional, y diseño de experiencias inmersivas.
+                    </div>
+                </section>
+            </section>
+
+            <!-- Introduction -->
+            <section data-transition="convex">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Interfaces Naturales: El Paradigma NUI</h2>
+                
+                <section data-auto-animate>
+                    <h3>¿Qué son las Interfaces Naturales?</h3>
+                    <div data-id="nui-def">
+                        <p>Las <mark>Interfaces Naturales de Usuario (NUI)</mark> buscan que los artefactos digitales imiten la interacción física y la interacción natural humana.</p>
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>Conexión con UbiCom</h3>
+                    <div data-id="ubicom-link">
+                        <p>El concepto de NUI está intrínsecamente ligado a la visión de la <mark>Computación Ubicua</mark> y la migración de la interacción explícita a la <mark>interacción implícita</mark>.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Meta:</strong> Que la tecnología sea altamente accesible y utilizable, pareciendo invisible para el usuario.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>El Desafío de la Naturalidad</h3>
+                    <blockquote>
+                        <p>A pesar de que UbiCom busca hacer las actividades más naturales, inherentemente las convierte en más artificiales.</p>
+                    </blockquote>
+                    <div class="fragment">
+                        <p><strong>Problema clave:</strong> Los gestos y acciones naturales pueden ser <mark>ambiguos</mark> si el contexto no está definido y compartido.</p>
+                        <p class="fragment"><em>Ejemplo:</em> Un aplauso puede ser una emoción o un comando.</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Implicit Interaction -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Interacción Implícita (iHCI)</h2>
+                
+                <section data-auto-animate>
+                    <h3>Fundamentos de iHCI</h3>
+                    <div data-id="ihci-foundation">
+                        <p>La <mark>Interacción Persona-Ordenador Implícita</mark> es uno de los pilares que distingue a los sistemas UbiCom.</p>
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>¿Por qué la Implicitud?</h3>
+                    <div data-id="why-implicit">
+                        <p>La gran cantidad de interacción explícita (basada en sintaxis de bajo nivel) puede:</p>
+                        <ul class="fragment">
+                            <li><strong>Distraer</strong> al usuario de su tarea principal</li>
+                            <li><strong>Interrumpir</strong> el flujo de trabajo natural</li>
+                            <li><strong>Abrumar</strong> con demasiados comandos explícitos</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Definición de iHCI</h3>
+                    <div class="media-placeholder">
+                        [Diagrama: Usuario → Acción Natural → Sistema → Interpretación Contextual]
+                    </div>
+                    <blockquote class="fragment">
+                        <p>iHCI es una <strong>acción realizada por el usuario</strong> que no está primariamente dirigida a interactuar con un sistema, pero que este <strong>interpreta como input</strong>.</p>
+                    </blockquote>
+                </section>
+
+                <section>
+                    <h3>Mecanismo de iHCI</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Suposición Base</h4>
+                            <p>El sistema tiene una cierta <mark>comprensión del comportamiento</mark> del usuario en una situación dada.</p>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Adaptación Contextual</h4>
+                            <p>El sistema se adapta porque es <mark>consciente del contexto</mark> del usuario.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cross-reference fragment">
+                        <strong>Conexión con Semana 2:</strong> Recordemos las propiedades de UbiCom, especialmente la "conciencia del contexto" (context-awareness).
+                    </div>
+                </section>
+            </section>
+
+            <!-- Gestures and Haptics -->
+            <section data-transition="slide">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Gestos y Retroalimentación Háptica</h2>
+                
+                <section data-auto-animate>
+                    <h3>¿Qué son los Gestos?</h3>
+                    <div data-id="gesture-def">
+                        <p>Los gestos son <mark>movimientos corporales significativos</mark> que involucran el movimiento físico de dedos, manos, brazos, cabeza, cara o cuerpo con la intención de transmitir información.</p>
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>Clasificación de Gestos</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Por Ubicación Corporal</h4>
+                            <ul>
+                                <li>Gestos de mano/brazo</li>
+                                <li>Gestos de cabeza/cara</li>
+                                <li>Movimiento corporal completo</li>
+                            </ul>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Por Tipo de Contacto</h4>
+                            <ul>
+                                <li><strong>Contactuales:</strong> Entrada táctil, apretón de manos</li>
+                                <li><strong>Sin contacto:</strong> Saludar a una cámara, gestos en el aire</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Tecnologías de Detección</h3>
+                    <div class="media-placeholder">
+                        [Infografía: Dispositivos vestibles → Sensores adheridos → Cámaras y visión computacional]
+                    </div>
+                    <div class="r-hstack fragment">
+                        <div class="column">
+                            <h4>Dispositivos Vestibles</h4>
+                            <p>Guantes especializados con sensores integrados</p>
+                        </div>
+                        <div class="column">
+                            <h4>Sensores Adheridos</h4>
+                            <p>Acelerómetros y giroscopios portables</p>
+                        </div>
+                        <div class="column">
+                            <h4>Visión por Computadora</h4>
+                            <p>Cámaras con procesamiento de imagen en tiempo real</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Gestos en Dispositivos Móviles</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Gestos Básicos</h4>
+                            <ul>
+                                <li><strong>Inclinación (tilt):</strong> Desplazarse en listas</li>
+                                <li><strong>Volteo (flipping):</strong> Rotar vista 90°</li>
+                                <li><strong>Sacudida:</strong> Activar funciones especiales</li>
+                            </ul>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Gestos de Pantalla</h4>
+                            <ul>
+                                <li><strong>Rotar:</strong> Control de orientación</li>
+                                <li><strong>Inclinar:</strong> Navegación direccional</li>
+                                <li><strong>Estirar:</strong> Zoom y escalado</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Desafíos de los Gestos</h3>
+                    <div class="r-vstack">
+                        <div class="fragment">
+                            <p><strong>Ambigüedad:</strong> Los gestos son incompletamente especificados y varían entre individuos y culturas</p>
+                        </div>
+                        <div class="fragment">
+                            <p><strong>Mapeo complejo:</strong> Relaciones de muchos a uno con los conceptos</p>
+                        </div>
+                        <div class="fragment">
+                            <p><strong>Velocidad limitada:</strong> Más lenta que entrada directa de texto para tareas repetitivas</p>
+                        </div>
+                        <div class="fragment">
+                            <p><strong>Precisión:</strong> Requiere buenas habilidades motoras y puede carecer de exactitud</p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Haptics -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Retroalimentación Háptica</h2>
+                
+                <section data-auto-animate>
+                    <h3>¿Qué es la Háptica?</h3>
+                    <div data-id="haptics-def">
+                        <p>La háptica es la <mark>modalidad sensorial humana del tacto</mark>. La retroalimentación táctil proporciona información a través del sistema somatosensorial.</p>
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>Tipos de Información Táctil</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Propiedades Físicas</h4>
+                            <ul>
+                                <li>Temperatura</li>
+                                <li>Forma</li>
+                                <li>Textura</li>
+                                <li>Posición</li>
+                            </ul>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Retroalimentación Activa</h4>
+                            <p>Un pin accionado por solenoide en un ratón puede <mark>informar y guiar la interacción</mark>, reduciendo la demanda en el canal visual.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Aplicaciones Comunes</h3>
+                    <div class="media-placeholder">
+                        [Demostración: Vibración móvil → Controladores de juego → Interfaces tangibles]
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Uso más común:</strong> La <mark>vibración en teléfonos móviles</mark> para señalar llamadas o mensajes entrantes.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Dispositivos modernos:</strong> Incluyen actuadores vibrotáctiles para mejorar la experiencia de usuario.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Interfaces Tangibles (TUI)</h3>
+                    <blockquote>
+                        <p>Los objetos físicos utilizados en interfaces tangibles ofrecen <mark>affordances más fuertes</mark> que los virtuales.</p>
+                    </blockquote>
+                    <div class="fragment">
+                        <p><strong>Ventaja clave:</strong> Permiten usar habilidades hápticas adicionales para manipular objetos (rotar, agarrar) más allá de señalar y hacer clic.</p>
+                    </div>
+                    <div class="cross-reference fragment">
+                        <strong>Conexión con Semana 3:</strong> Los affordances físicos son más evidentes que los affordances virtuales en pantalla.
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Tecnología Avanzada</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Investigación Actual</h4>
+                            <p>Dispositivos de puntero con retroalimentación háptica (como la resistencia sentida al cruzar una frontera de ventana)</p>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Implementación Mainstream</h4>
+                            <p>Dispositivos que usan vibraciones simples se han vuelto principales en controladores de juegos</p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Voice and Speech -->
+            <section data-transition="fade">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Interfaces de Voz y Asistentes</h2>
+                
+                <section data-auto-animate>
+                    <h3>Beneficios de las Interfaces de Voz</h3>
+                    <div data-id="voice-benefits">
+                        <p>Los interfaces de voz soportan <mark>entrada y salida con manos libres</mark>.</p>
+                    </div>
+                    <div class="r-hstack fragment">
+                        <div class="column">
+                            <h4>Casos de Uso Óptimos</h4>
+                            <ul>
+                                <li>Cuando los sentidos visuales están ocupados</li>
+                                <li>Al conducir un automóvil</li>
+                                <li>Para usuarios con discapacidades visuales</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>Ventajas Técnicas</h4>
+                            <ul>
+                                <li>Liberación de las manos</li>
+                                <li>Interacción natural</li>
+                                <li>Accesibilidad mejorada</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Tecnología de Reconocimiento</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Interpretación Básica</h4>
+                            <p>El sistema interpreta <mark>palabras habladas</mark> como si fueran tipeadas en un teclado.</p>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Sistemas Especializados</h4>
+                            <p><strong>Reconocimiento de palabra discreta</strong> funciona bien para aplicaciones de propósito especial.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="fragment" style="margin-top: 2em;">
+                        <h4>Sistemas IVR Avanzados</h4>
+                        <p>Los sistemas de <mark>Voz Interactiva (IVR)</mark> pueden ofrecer <strong>barge-in</strong> (interrumpir la instrucción para hablar) para usuarios recurrentes.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Desafíos Cognitivos de la Voz</h3>
+                    <blockquote>
+                        <p>El mayor obstáculo para la aceptación de las interfaces de voz es la <mark>carga cognitiva</mark> que imponen.</p>
+                    </blockquote>
+                    <div class="fragment">
+                        <p><strong>Carga en memoria de trabajo:</strong> La voz es más exigente para la memoria del usuario que la coordinación ojo-mano.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Interrupción cognitiva:</strong> Hablar comandos o escuchar interrumpe la planificación y resolución de problemas más que seleccionar con ratón.</p>
+                    </div>
+                    
+                    <div class="cross-reference fragment">
+                        <strong>Conexión con Semana 4:</strong> Recordemos la Ley de Miller y los límites de la memoria de trabajo humana.
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Obstáculos de la Salida de Voz</h3>
+                    <div class="r-vstack">
+                        <div class="fragment">
+                            <h4>1. Ritmo Lento</h4>
+                            <p>Comparado con las pantallas visuales, la información auditiva se procesa más lentamente</p>
+                        </div>
+                        <div class="fragment">
+                            <h4>2. Naturaleza Efímera</h4>
+                            <p>El habla desaparece inmediatamente, a diferencia del texto visual permanente</p>
+                        </div>
+                        <div class="fragment">
+                            <h4>3. Dificultad para Escanear</h4>
+                            <p>No es posible "ojear" o buscar rápidamente en contenido auditivo secuencial</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Voz No Verbal (NVVI)</h3>
+                    <div class="media-placeholder">
+                        [Demostración: Joystick Vocal - Control de cursor mediante parámetros acústicos]
+                    </div>
+                    <div class="fragment">
+                        <p>Es posible el input mediante <mark>sonidos vocalizados no verbales</mark>.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Mecanismo:</strong> Esta modalidad mide parámetros acústicos (tono, volumen) para especificar parámetros análogos.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Ejemplo:</strong> El "joystick vocal" para controlar un cursor mediante variaciones en el tono y volumen de la voz.</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Natural Language Processing -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Lenguaje Natural y Asistentes Inteligentes</h2>
+                
+                <section data-auto-animate>
+                    <h3>Interacción de Lenguaje Natural (NLI)</h3>
+                    <div data-id="nli-def">
+                        <p>Permite a los usuarios <mark>conversar con la máquina</mark> utilizando su lenguaje familiar.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Ventaja principal:</strong> Evita que los usuarios tengan que aprender una sintaxis de comandos específica.</p>
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>El Problema de Habitabilidad</h3>
+                    <div data-id="habitability">
+                        <p>El problema clave del NLI es la <mark>habitabilidad de la interfaz</mark> (saber qué objetos y acciones son apropiados).</p>
+                    </div>
+                    <div class="r-hstack fragment">
+                        <div class="column">
+                            <h4>Interfaces Visuales</h4>
+                            <p>Proporcionan pistas semánticas claras sobre las acciones disponibles</p>
+                        </div>
+                        <div class="column">
+                            <h4>NLI</h4>
+                            <p>Generalmente depende de un <mark>modelo mental asumido</mark> del usuario</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Asistentes y Capitalismo de Vigilancia</h3>
+                    <div class="media-placeholder">
+                        [Diagrama: Dispositivo Doméstico → Conversación → Datos → Predicciones Comerciales]
+                    </div>
+                    <blockquote class="fragment">
+                        <p>Los dispositivos de hogar inteligente convierten la charla casual en <mark>"excedente conductual"</mark> para generar predicciones.</p>
+                    </blockquote>
+                </section>
+
+                <section>
+                    <h3>Mecánica del Capitalismo de Vigilancia</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Materia Prima</h4>
+                            <p>La conversación es una fuente de <mark>materia prima</mark> para el mercado de datos</p>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Facilitación sin Fricciones</h4>
+                            <p>La facilidad de una expresión para desencadenar una acción (ej., una compra) es altamente valorada</p>
+                        </div>
+                    </div>
+                    
+                    <div class="fragment" style="margin-top: 2em;">
+                        <h4>Ejemplo: Google Assistant</h4>
+                        <p>Integrado en todos los dispositivos y servicios, busca entender el <mark>contexto del usuario</mark> (ej., geolocalización) para responder preguntas y sugerir acciones comerciales.</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Touch and Mobile -->
+            <section data-transition="slide">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Pantallas Táctiles y Revolución Móvil</h2>
+                
+                <section data-auto-animate>
+                    <h3>El Cambio de Paradigma Móvil</h3>
+                    <div data-id="mobile-shift">
+                        <p>El lanzamiento del <mark>iPhone en 2007</mark> generó un cambio dramático en HCI.</p>
+                    </div>
+                    <div class="r-hstack fragment">
+                        <div class="column">
+                            <h4>Paradigma Anterior</h4>
+                            <ul>
+                                <li>Estiletes</li>
+                                <li>Teclados físicos</li>
+                                <li>Interfaces complejas</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>Nuevo Paradigma</h4>
+                            <ul>
+                                <li><strong>Deslizar</strong> (swiping)</li>
+                                <li><strong>Pellizcar</strong> (pinching)</li>
+                                <li><strong>Tocar</strong> (tapping)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Postura Transitoria</h3>
+                    <blockquote>
+                        <p>Las aplicaciones móviles tienen una <mark>postura transitoria</mark> (transient posture).</p>
+                    </blockquote>
+                    <div class="fragment">
+                        <p><strong>Características:</strong></p>
+                        <ul>
+                            <li>Aparecen rápidamente para una función única</li>
+                            <li>Desaparecen después del uso</li>
+                            <li>Uso intermitente y breve</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Diseño del Factor de Forma</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Restricciones Físicas</h4>
+                            <ul>
+                                <li>Pequeños</li>
+                                <li>Ligeros</li>
+                                <li>Robustos</li>
+                                <li>Fáciles de manipular en distracciones</li>
+                            </ul>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Implicaciones de Diseño</h4>
+                            <ul>
+                                <li>Densidad de información similar a diálogos de escritorio</li>
+                                <li>Controles grandes (tamaño de dedo)</li>
+                                <li>Optimización para exploración</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Tecnología Táctil</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Ventajas</h4>
+                            <ul>
+                                <li>Duraderas</li>
+                                <li>Fáciles de aprender</li>
+                                <li>Sin partes móviles</li>
+                                <li>Populares en quioscos y POS</li>
+                            </ul>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Estrategia de Precisión</h4>
+                            <p><strong>Lift-off Strategy:</strong></p>
+                            <ol>
+                                <li>Usuario toca</li>
+                                <li>Ajusta posición del cursor</li>
+                                <li>Selecciona al levantar el dedo</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Multitouch -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Multitáctil y Affordances Táctiles</h2>
+                
+                <section data-auto-animate>
+                    <h3>¿Qué es Multitáctil?</h3>
+                    <div data-id="multitouch-def">
+                        <p>Las pantallas multitáctiles permiten que <mark>múltiples dedos o usuarios</mark> interactúen simultáneamente.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Gestos clave:</strong> Pellizcar y deslizar son el corazón de la experiencia móvil.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Recomendación de diseño:</strong> Un <mark>vocabulario de gestos pequeño</mark> para que sean fáciles de aprender.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Limitación: Ausencia de Hover</h3>
+                    <div class="media-placeholder">
+                        [Comparación: Ratón con hover ↔ Pantalla táctil sin hover]
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Problema:</strong> Las pantallas táctiles no soportan el <mark>estado de hover</mark> (pasar el dedo sin tocar).</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Pérdida de funcionalidad:</strong></p>
+                        <ul>
+                            <li>Tool tips informativos</li>
+                            <li>Cambios de forma/color de botones</li>
+                            <li>Indicadores de elementos pulsables</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Diseño Plano vs. Affordances</h3>
+                    <blockquote>
+                        <p>La tendencia hacia el <mark>diseño plano</mark> puede reducir las affordances virtuales.</p>
+                    </blockquote>
+                    <div class="r-hstack fragment">
+                        <div class="column">
+                            <h4>Diseño Plano Elimina</h4>
+                            <ul>
+                                <li>Sombras indicativas</li>
+                                <li>Contornos de profundidad</li>
+                                <li>Texturas táctiles</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>Consecuencia</h4>
+                            <p>Amenaza la <mark>facilidad de uso</mark> en favor de la simplificación visual</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cross-reference fragment">
+                        <strong>Conexión con Semana 3:</strong> Los affordances son fundamentales para la usabilidad según la teoría de Gibson y Norman.
+                    </div>
+                </section>
+            </section>
+
+            <!-- Animation and Parallax -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Animación y Efecto Parallax</h2>
+                
+                <section data-auto-animate>
+                    <h3>Importancia del Movimiento</h3>
+                    <div data-id="movement-importance">
+                        <p>El movimiento y las transiciones animadas son <mark>fundamentales</mark> para las interfaces móviles.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Función cognitiva:</strong> Ayudan a los usuarios a crear un fuerte <mark>modelo mental</mark> de cómo se relacionan las vistas.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Ejemplo:</strong> Transición al pasar de un listado a un elemento individual.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Uso Judicioso del Movimiento</h3>
+                    <div class="media-placeholder">
+                        [Demostración: Animación Equilibrada vs. Sobreanimación]
+                    </div>
+                    <blockquote class="fragment">
+                        <p>El movimiento debe usarse con <mark>moderación y de manera juiciosa</mark>.</p>
+                    </blockquote>
+                    <div class="fragment">
+                        <p><strong>Riesgos de la sobreanimación:</strong></p>
+                        <ul>
+                            <li>Confusión en la navegación</li>
+                            <li>Irritación del usuario</li>
+                            <li>Malestar físico en algunas personas</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Efecto Parallax</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Definición</h4>
+                            <p>Diferentes elementos responden al <mark>desplazamiento</mark> (scrolling) a distintas velocidades</p>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Patrón Común</h4>
+                            <p>Ampliamente utilizado en diseño web y móvil para crear sensación de profundidad</p>
+                        </div>
+                    </div>
+                    
+                    <div class="fragment" style="margin-top: 2em;">
+                        <h4>Caso de Estudio: iOS 7</h4>
+                        <blockquote>
+                            <p>Se informó que la versión iOS 7 de Apple causó malestar debido a sus <mark>"animaciones de parallax y zoom-in/zoom-out un tanto excesivas"</mark>.</p>
+                        </blockquote>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Principios de Animación Efectiva</h3>
+                    <div class="r-vstack">
+                        <div class="fragment">
+                            <h4>1. Propósito Claro</h4>
+                            <p>Cada animación debe tener una razón funcional específica</p>
+                        </div>
+                        <div class="fragment">
+                            <h4>2. Duración Apropiada</h4>
+                            <p>Ni demasiado rápida (desorientadora) ni demasiado lenta (frustrante)</p>
+                        </div>
+                        <div class="fragment">
+                            <h4>3. Consistencia</h4>
+                            <p>Mantener patrones de movimiento coherentes en toda la interfaz</p>
+                        </div>
+                        <div class="fragment">
+                            <h4>4. Accesibilidad</h4>
+                            <p>Considerar usuarios sensibles al movimiento y proporcionar opciones de reducción</p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Synthesis and Future -->
+            <section data-transition="convex">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Síntesis: Hacia la Naturalidad Computacional</h2>
+                
+                <section data-auto-animate>
+                    <h3>Convergencia de Modalidades</h3>
+                    <div data-id="convergence">
+                        <p>Las interfaces naturales representan la <mark>convergencia</mark> de múltiples modalidades de interacción.</p>
+                    </div>
+                    <div class="media-placeholder fragment">
+                        [Diagrama: Gestos + Voz + Tacto + Contexto = Interacción Natural]
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>Desafíos Persistentes</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Técnicos</h4>
+                            <ul>
+                                <li>Precisión en reconocimiento</li>
+                                <li>Latencia en respuesta</li>
+                                <li>Robustez contextual</li>
+                            </ul>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Humanos</h4>
+                            <ul>
+                                <li>Curva de aprendizaje</li>
+                                <li>Expectativas culturales</li>
+                                <li>Fatiga gestual</li>
+                            </ul>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Éticos</h4>
+                            <ul>
+                                <li>Privacidad de datos</li>
+                                <li>Vigilancia contextual</li>
+                                <li>Autonomía del usuario</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Principios de Diseño para NUI</h3>
+                    <div class="r-vstack">
+                        <div class="fragment">
+                            <p><strong>1. Aprovechamiento de habilidades naturales:</strong> Usar gestos y movimientos ya familiares</p>
+                        </div>
+                        <div class="fragment">
+                            <p><strong>2. Retroalimentación inmediata:</strong> Confirmar acciones de manera clara y rápida</p>
+                        </div>
+                        <div class="fragment">
+                            <p><strong>3. Degradación elegante:</strong> Funcionar incluso cuando el reconocimiento falla</p>
+                        </div>
+                        <div class="fragment">
+                            <p><strong>4. Conciencia contextual:</strong> Adaptar respuestas según la situación del usuario</p>
+                        </div>
+                        <div class="fragment">
+                            <p><strong>5. Respeto por la privacidad:</strong> Minimizar la recolección de datos no esenciales</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Reflexión: ¿Verdaderamente Natural?</h3>
+                    <blockquote>
+                        <p>La paradoja de las interfaces naturales: <mark>¿Pueden las interacciones mediadas por tecnología ser verdaderamente naturales?</mark></p>
+                    </blockquote>
+                    <div class="fragment">
+                        <p><strong>Consideración crítica:</strong> Quizás el objetivo no es la naturalidad perfecta, sino la <mark>reducción de la fricción cognitiva</mark> entre intención y acción.</p>
+                    </div>
+                    
+                    <div class="cross-reference fragment">
+                        <strong>Preparación para semanas futuras:</strong> Estos conceptos nos preparan para explorar inteligencia artificial conversacional y realidad aumentada.
+                    </div>
+                </section>
+            </section>
+
+            <!-- Recapitulación Rápida -->
+            <section data-background-color="#f9f9f9">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Recapitulación Rápida</h2>
+                
+                <p style="text-align: center; font-style: italic; color: var(--uide-secondary);">
+                    Tarjetas para repasar los conceptos clave de esta semana
+                </p>
+                
+                <section>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin: 1.5em 0;">
+                        <!-- Card 1 -->
+                        <div class="flashcard" onclick="flipCard(this)">
+                            <div class="flashcard-inner">
+                                <div class="flashcard-front">
+                                    <h4>Interacción Implícita (iHCI)</h4>
+                                    <p>¿Qué caracteriza a la interacción persona-ordenador implícita?</p>
+                                </div>
+                                <div class="flashcard-back">
+                                    <h4>Acción No Dirigida</h4>
+                                    <p>Una <strong>acción realizada por el usuario</strong> que no está primariamente dirigida a interactuar con un sistema, pero que este interpreta como input.</p>
+                                    <small>Base de la computación ubicua</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 2 -->
+                        <div class="flashcard" onclick="flipCard(this)">
+                            <div class="flashcard-inner">
+                                <div class="flashcard-front">
+                                    <h4>Desafíos de los Gestos</h4>
+                                    <p>¿Por qué los gestos son problemáticos en interfaces naturales?</p>
+                                </div>
+                                <div class="flashcard-back">
+                                    <h4>Ambigüedad Contextual</h4>
+                                    <p>Son <strong>ambiguos, varían culturalmente</strong> y pueden tener mapeos de muchos a uno con conceptos. Requieren contexto compartido.</p>
+                                    <small>El aplauso: ¿emoción o comando?</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin: 1.5em 0;">
+                        <!-- Card 3 -->
+                        <div class="flashcard" onclick="flipCard(this)">
+                            <div class="flashcard-inner">
+                                <div class="flashcard-front">
+                                    <h4>Obstáculos de Interfaces de Voz</h4>
+                                    <p>¿Cuáles son los tres obstáculos principales de la salida de voz?</p>
+                                </div>
+                                <div class="flashcard-back">
+                                    <h4>Tres Limitaciones</h4>
+                                    <p><strong>Ritmo lento</strong> comparado con pantallas, <strong>naturaleza efímera</strong> del habla, y <strong>dificultad para escanear</strong>/buscar.</p>
+                                    <small>Por eso necesitamos interfaces multimodales</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 4 -->
+                        <div class="flashcard" onclick="flipCard(this)">
+                            <div class="flashcard-inner">
+                                <div class="flashcard-front">
+                                    <h4>Postura Transitoria</h4>
+                                    <p>¿Qué caracteriza la "postura transitoria" de las aplicaciones móviles?</p>
+                                </div>
+                                <div class="flashcard-back">
+                                    <h4>Aparición-Función-Desaparición</h4>
+                                    <p><strong>Aparecen rápidamente</strong> para una función única y luego desaparecen. El uso es <strong>intermitente y breve</strong>.</p>
+                                    <small>Paradigma del diseño móvil moderno</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- References -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Referencias Bibliográficas</h2>
+                
+                <section>
+                    <h3>Fuentes Primarias</h3>
+                    <div style="font-size: 0.7em; text-align: left;">
+                        <p><strong>Weiser, M.</strong> (1991, Septiembre). The computer for the twenty first century. <em>Scientific American</em>, 265(3), 94–104.</p>
+                        <p><strong>Jacob, R. J. K., Girouard, A., Hirshfield, L. M., Horn, M. S., Shaer, O., & Solovey, E. T., et al.</strong> (2008). Reality-based interaction: A framework for post-WIMP interfaces. <em>Proceedings of the ACM SIGCHI Conference on Human Factors in Computing—CHI 2008</em>. New York: ACM. 201–210.</p>
+                        <p><strong>Poslad, S.</strong> (2009). <em>Ubiquitous Computing: Smart Devices, Environments and Interactions</em>. John Wiley & Sons, Ltd.</p>
+                        <p><strong>Oviatt, S.</strong> (2000). Taming speech recognition errors within a multimodal interface. <em>Communications of the ACM</em>, 43(9), 45-51.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Tecnología Móvil y Táctil</h3>
+                    <div style="font-size: 0.7em; text-align: left;">
+                        <p><strong>Shneiderman, B.</strong> (1991). High precision touchscreens: Design strategies and comparison with a mouse. <em>International Journal of Man-Machine Studies</em>, 34, 593–613.</p>
+                        <p><strong>Pickering, J. A.</strong> (1986). Touch sensitive screens: the technologies and their applications. <em>International Journal of Man Machine Studies</em>, 25, 249–269.</p>
+                        <p><strong>Lindholm, C., Keinonen, T., & Kiljander, H.</strong> (2003). <em>Mobile Usability: How Nokia Changed the Face of the Mobile Phone</em>. New York: McGraw Hill.</p>
+                        <p><strong>Villar, N., Izadi, S., Rosenfeld, D., Benko, H., Helmes, J., & Westhues, J., et al.</strong> (2009). Mouse 2.0: Multi-touch meets the mouse. <em>Proceedings of the ACM Symposium on User Interface Software and Technology—UIST 2009</em>. New York: ACM. 33–42.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Gestos y Háptica</h3>
+                    <div style="font-size: 0.7em; text-align: left;">
+                        <p><strong>Goldberg, D. & Richardson, C.</strong> (1993). Unistrokes: A stroke alphabet for pen-based input. <em>Proceedings of the ACM SIGCHI Conference on Human Factors in Computing Systems—CHI '93</em>. New York: ACM. 17–24.</p>
+                        <p><strong>Balakrishnan, R. & Patel, P.</strong> (1998). The PadMouse: Facilitating selection and spatial positioning for the non-dominant hand. <em>Proceedings of the ACM SIGCHI Conference on Human Factors in Computing Systems—CHI '98</em>. New York: ACM. 9–16.</p>
+                        <p><strong>Igarashi, T. & Hughes, J. F.</strong> (2001). Voice as sound: Using non-verbal voice input for interactive control. <em>Proceedings of the ACM Symposium on User Interface Software and Technology—UIST 2001</em>. New York: ACM. 155–156.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Referencias Adicionales</h3>
+                    <div style="font-size: 0.7em; text-align: left;">
+                        <p><strong>Norman, D. A.</strong> (1988). <em>The Psychology of Everyday Things</em>. Basic Books.</p>
+                        <p><strong>Norman, D. A.</strong> (2005). <em>Emotional Design</em>. New York: Basic Books.</p>
+                        <p><strong>Krug, S.</strong> (2006). <em>Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability</em>. New Riders.</p>
+                        <p><strong>MacKenzie, I. S.</strong> (2013). <em>Human-Computer Interaction: An Empirical Research Perspective</em>. Elsevier Inc.</p>
+                        <p><strong>Shneiderman, B., & Plaisant, C.</strong> (2004). <em>Designing the User Interface: Strategies for Effective Human Computer Interaction</em> (4th ed.). Pearson Education, Inc.</p>
+                        <p><strong>Zuboff, S.</strong> (2019). <em>The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power</em>. PublicAffairs.</p>
+                        <p><strong>Abowd, G. D. & Mynatt, E. D.</strong> (2000). Charting past, present, and future research in ubiquitous computing. <em>ACM Transactions on Computer Human Interaction (TOCHI)</em>, 7(1), 29–58.</p>
+                        <p><strong>Material de enseñanza:</strong> Excerpts from "UX Design: Hazlo fácil pensando en el usuario.pdf"</p>
+                    </div>
+                </section>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js JavaScript with all plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/math/math.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/zoom/zoom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/search/search.js"></script>
+
+    <script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: true,
+            transition: 'slide',
+            
+            // Responsive settings
+            width: '90%',
+            height: '90%',
+            margin: 0.04,
+            minScale: 0.2,
+            maxScale: 2.0,
+
+            // Plugin configuration
+            plugins: [
+                RevealMarkdown,
+                RevealHighlight,
+                RevealNotes,
+                RevealMath.KaTeX,
+                RevealZoom,
+                RevealSearch
+            ],
+
+            // Math plugin settings
+            math: {
+                mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+                config: 'TeX-AMS_HTML-full',
+                TeX: {
+                    Macros: {
+                        RR: "{\\bf R}",
+                        bold: ["{\\bf #1}", 1]
+                    }
+                }
+            },
+
+            // Keyboard navigation
+            keyboard: {
+                27: function() { // ESC
+                    if (Reveal.isOverview()) {
+                        Reveal.toggleOverview();
+                    }
+                }
+            }
+        });
+
+        // Add page numbers and update them
+        Reveal.on('slidechanged', event => {
+            const currentSlide = Reveal.getIndices().h + 1;
+            const totalSlides = Reveal.getTotalSlides();
+            document.querySelectorAll('.page-number').forEach(el => {
+                el.textContent = `${currentSlide} / ${totalSlides}`;
+            });
+        });
+
+        // Flashcard flip functionality
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+    </script>
+
+</body>
+</html>

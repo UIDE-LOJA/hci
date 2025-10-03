@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Semana 6 - Interfaces Naturales y Multimodalidad</title>
+    <title>Semana 6 - Arquitectura de Información y Organización de Contenidos</title>
 
     <!-- Reveal.js CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
@@ -190,6 +190,68 @@
             border-bottom: 2px solid var(--uide-accent);
             padding-bottom: 0.3em;
             margin-bottom: 0.8em;
+        }
+
+        /* Special styling for timing boxes */
+        .timing-box {
+            background: rgba(145, 0, 72, 0.1);
+            border: 2px solid var(--uide-primary);
+            border-radius: 10px;
+            padding: 1em;
+            margin: 0.5em 0;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .timing-box.critical {
+            background: rgba(244, 67, 54, 0.1);
+            border-color: #F44336;
+            color: #C62828;
+        }
+
+        .timing-box.good {
+            background: rgba(76, 175, 80, 0.1);
+            border-color: #4CAF50;
+            color: #2E7D32;
+        }
+
+        .timing-box.acceptable {
+            background: rgba(255, 193, 7, 0.1);
+            border-color: #FFC107;
+            color: #F57C00;
+        }
+
+        /* Error message examples */
+        .error-example {
+            background: rgba(244, 67, 54, 0.1);
+            border: 1px solid #F44336;
+            border-radius: 5px;
+            padding: 0.8em;
+            margin: 0.5em 0;
+            font-family: 'Courier New', monospace;
+            color: #C62828;
+        }
+
+        .error-example.good {
+            background: rgba(76, 175, 80, 0.1);
+            border-color: #4CAF50;
+            color: #2E7D32;
+        }
+
+        /* Metrics styling */
+        .metric-card {
+            background: rgba(255,255,255,0.9);
+            border: 1px solid var(--uide-accent);
+            border-radius: 8px;
+            padding: 1em;
+            margin: 0.5em 0;
+            text-align: center;
+        }
+
+        .metric-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: var(--uide-primary);
         }
 
         /* References section - optimized for readability */
@@ -426,7 +488,7 @@
                 </div>
                 
                 <div class="title-slide">
-                    <h1>Interfaces Naturales y Multimodalidad</h1>
+                    <h1>Arquitectura de Información y Organización de Contenidos</h1>
                     <h2>Semana 6</h2>
                     
                     <div class="course-info">
@@ -438,11 +500,11 @@
                     
                     <div style="background: rgba(233, 171, 33, 0.1); border-radius: 8px; padding: 1em; margin: 1em 0; font-size: 0.9em;">
                         <strong>Unidad 3: Diseño de Interacción Moderna</strong><br>
-                        <em>Semana 6 de 16 • Post-Evaluación Diagnóstica</em>
+                        <em>Semana 6 de 16 • Inicio Unidad 3</em>
                     </div>
                     
                     <div style="margin-top: 2em; font-size: 0.9em; font-style: italic; color: var(--uide-secondary);">
-                        De la interacción explícita hacia la naturalidad computacional
+                        Estructurando información para mejorar la usabilidad
                     </div>
                 </div>
             </section>
@@ -454,9 +516,9 @@
                 </div>
                 
                 <blockquote style="font-size: 1.2em; text-align: center;">
-                    <p><strong>"Las tecnologías más profundas son aquellas que desaparecen. Se entrelazan en el tejido de la vida cotidiana hasta que son indistinguibles de ella."</strong></p>
+                    <p><strong>"La arquitectura de información es la disciplina que organiza los componentes de algo para hacerlo comprensible y usable."</strong></p>
                     <footer style="margin-top: 1em; color: var(--uide-secondary);">
-                        — Mark Weiser, Padre de la Computación Ubicua
+                        — Richard Saul Wurman, Arquitecto de Información
                     </footer>
                 </blockquote>
             </section>
@@ -466,823 +528,615 @@
                 <div class="logo-container">
                     <img src="../../Logo UIDE.png" alt="Logo UIDE">
                 </div>
-                <h2>Contexto Curricular</h2>
+                <h2>Contexto en la Unidad 3</h2>
                 
                 <section>
-                    <h3>Ubicación en el Programa</h3>
+                    <h3>Progresión Temática</h3>
                     <div class="r-hstack">
                         <div class="column">
-                            <h4>Unidades Anteriores</h4>
-                            <div style="background: rgba(145, 0, 72, 0.1); padding: 1em; border-radius: 8px; margin: 0.5em 0;">
-                                <strong>Unidad 1:</strong> Fundamentos e Historia de HCI<br>
-                                <small>Semanas 1-2</small>
-                            </div>
-                            <div style="background: rgba(35, 53, 110, 0.1); padding: 1em; border-radius: 8px; margin: 0.5em 0;">
-                                <strong>Unidad 2:</strong> Principios de Diseño y Percepción<br>
-                                <small>Semanas 3-4</small>
+                            <h4>Semana 6</h4>
+                            <div style="background: rgba(145, 0, 72, 0.1); padding: 1em; border-radius: 8px;">
+                                <strong>Interfaces Naturales</strong><br>
+                                <small>NUI, gestos, voz, multitáctil</small>
                             </div>
                         </div>
                         <div class="column fragment">
-                            <h4>Unidad Actual</h4>
-                            <div style="background: rgba(233, 171, 33, 0.2); padding: 1em; border-radius: 8px; margin: 0.5em 0; border: 2px solid var(--uide-accent);">
-                                <strong>Unidad 3:</strong> Diseño de Interacción Moderna<br>
-                                <small>Semanas 6-8</small>
+                            <h4>Semana 7 (Actual)</h4>
+                            <div style="background: rgba(233, 171, 33, 0.2); padding: 1em; border-radius: 8px; border: 2px solid var(--uide-accent);">
+                                <strong>Estados y Rendimiento</strong><br>
+                                <small>Carga, errores, métricas UX</small>
                             </div>
-                            <div style="background: rgba(180, 180, 180, 0.1); padding: 1em; border-radius: 8px; margin: 0.5em 0;">
-                                <strong>Semana 5:</strong> Evaluación Diagnóstica<br>
-                                <small>Completada</small>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Semana 8</h4>
+                            <div style="background: rgba(35, 53, 110, 0.1); padding: 1em; border-radius: 8px;">
+                                <strong>Próximamente</strong><br>
+                                <small>Continuación Unidad 3</small>
                             </div>
                         </div>
                     </div>
                 </section>
 
                 <section>
-                    <h3>Contenidos de la Semana 6</h3>
+                    <h3>Temas de la Semana 7</h3>
                     <div class="r-hstack">
                         <div class="column">
-                            <h4>Temas Principales</h4>
+                            <h4>Contenidos Principales</h4>
                             <ul>
-                                <li><mark>Interfaces naturales (NUI)</mark></li>
-                                <li><mark>Gestos y háptica</mark></li>
-                                <li><mark>Voz y asistentes</mark></li>
-                                <li><mark>Multitáctil y smartphones</mark></li>
+                                <li><mark>Estados de carga, vacíos y error</mark></li>
+                                <li><mark>Rendimiento percibido</mark></li>
+                                <li><mark>Mensajería y recuperación de errores</mark></li>
+                                <li><mark>Métricas básicas de UX</mark></li>
                             </ul>
                         </div>
                         <div class="column fragment">
-                            <h4>Objetivos de Aprendizaje</h4>
+                            <h4>Conexiones Previas</h4>
                             <ul>
-                                <li>Comprender la evolución hacia interfaces naturales</li>
-                                <li>Analizar modalidades de interacción moderna</li>
-                                <li>Evaluar ventajas y limitaciones de cada modalidad</li>
-                                <li>Aplicar principios de diseño multimodal</li>
+                                <li><strong>Semana 4:</strong> Limitaciones cognitivas</li>
+                                <li><strong>Semana 1:</strong> Reglas de oro de Shneiderman</li>
+                                <li><strong>Semana 6:</strong> Transparencia en NUI</li>
                             </ul>
                         </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Conexiones Interdisciplinarias</h3>
-                    <div class="cross-reference">
-                        <strong>Basándose en conocimientos previos:</strong>
-                        <ul style="text-align: left; margin: 0.5em 0;">
-                            <li><strong>Semana 2:</strong> Computación ubicua y factores humanos</li>
-                            <li><strong>Semana 3:</strong> Affordances y diseño centrado en el usuario</li>
-                            <li><strong>Semana 4:</strong> Limitaciones cognitivas y carga mental</li>
-                        </ul>
-                        <strong>Preparando para:</strong> Realidad virtual/aumentada, IA conversacional, y diseño de experiencias inmersivas.
                     </div>
                 </section>
             </section>
 
-            <!-- Introduction -->
+            <!-- Latency and Doherty Threshold -->
             <section data-transition="convex">
                 <div class="logo-container">
                     <img src="../../Logo UIDE.png" alt="Logo UIDE">
                 </div>
-                <h2>Interfaces Naturales: El Paradigma NUI</h2>
+                <h2>Gestión de la Latencia</h2>
                 
                 <section data-auto-animate>
-                    <h3>¿Qué son las Interfaces Naturales?</h3>
-                    <div data-id="nui-def">
-                        <p>Las <mark>Interfaces Naturales de Usuario (NUI)</mark> buscan que los artefactos digitales imiten la interacción física y la interacción natural humana.</p>
+                    <h3>El Umbral de Doherty</h3>
+                    <div data-id="doherty-def">
+                        <p>El <mark>Umbral de Doherty</mark> establece que el tiempo de espera en una interacción Persona-Ordenador no debe superar los <strong>396 ms</strong>.</p>
                     </div>
                 </section>
 
                 <section data-auto-animate>
-                    <h3>Conexión con UbiCom</h3>
-                    <div data-id="ubicom-link">
-                        <p>El concepto de NUI está intrínsecamente ligado a la visión de la <mark>Computación Ubicua</mark> y la migración de la interacción explícita a la <mark>interacción implícita</mark>.</p>
+                    <h3>¿Por qué 396 ms?</h3>
+                    <div data-id="why-396">
+                        <p>Superado ese lapso, la <mark>capacidad de atención del usuario</mark> se va perdiendo.</p>
                     </div>
-                    <div class="fragment">
-                        <p><strong>Meta:</strong> Que la tecnología sea altamente accesible y utilizable, pareciendo invisible para el usuario.</p>
+                    <div class="timing-box critical fragment">
+                        <strong>Umbral Crítico: 396 ms</strong><br>
+                        Punto de quiebre de la atención humana
                     </div>
                 </section>
 
                 <section>
-                    <h3>El Desafío de la Naturalidad</h3>
+                    <h3>Impacto en la Productividad</h3>
                     <blockquote>
-                        <p>A pesar de que UbiCom busca hacer las actividades más naturales, inherentemente las convierte en más artificiales.</p>
+                        <p>Mantener los tiempos de respuesta por debajo de este umbral hace que la interacción sea fluida, lo que genera un <mark>clima óptimo</mark> para que aumente la productividad y el usuario no se frustre.</p>
                     </blockquote>
                     <div class="fragment">
-                        <p><strong>Problema clave:</strong> Los gestos y acciones naturales pueden ser <mark>ambiguos</mark> si el contexto no está definido y compartido.</p>
-                        <p class="fragment"><em>Ejemplo:</em> Un aplauso puede ser una emoción o un comando.</p>
-                    </div>
-                </section>
-            </section>
-
-            <!-- Implicit Interaction -->
-            <section>
-                <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
-                </div>
-                <h2>Interacción Implícita (iHCI)</h2>
-                
-                <section data-auto-animate>
-                    <h3>Fundamentos de iHCI</h3>
-                    <div data-id="ihci-foundation">
-                        <p>La <mark>Interacción Persona-Ordenador Implícita</mark> es uno de los pilares que distingue a los sistemas UbiCom.</p>
-                    </div>
-                </section>
-
-                <section data-auto-animate>
-                    <h3>¿Por qué la Implicitud?</h3>
-                    <div data-id="why-implicit">
-                        <p>La gran cantidad de interacción explícita (basada en sintaxis de bajo nivel) puede:</p>
-                        <ul class="fragment">
-                            <li><strong>Distraer</strong> al usuario de su tarea principal</li>
-                            <li><strong>Interrumpir</strong> el flujo de trabajo natural</li>
-                            <li><strong>Abrumar</strong> con demasiados comandos explícitos</li>
+                        <p><strong>Aplicación práctica:</strong></p>
+                        <ul>
+                            <li>Tiempo de carga de la página (primer renderizado)</li>
+                            <li>Lapso desde interacción hasta resultado en pantalla</li>
+                            <li>Respuesta a acciones del usuario</li>
                         </ul>
                     </div>
                 </section>
 
                 <section>
-                    <h3>Definición de iHCI</h3>
+                    <h3>Expectativas Elevadas y Ley de Moore</h3>
                     <div class="media-placeholder">
-                        [Diagrama: Usuario → Acción Natural → Sistema → Interpretación Contextual]
+                        [Gráfico: Evolución de las expectativas de velocidad vs. Capacidad tecnológica]
                     </div>
-                    <blockquote class="fragment">
-                        <p>iHCI es una <strong>acción realizada por el usuario</strong> que no está primariamente dirigida a interactuar con un sistema, pero que este <strong>interpreta como input</strong>.</p>
-                    </blockquote>
-                </section>
-
-                <section>
-                    <h3>Mecanismo de iHCI</h3>
-                    <div class="r-hstack">
-                        <div class="column">
-                            <h4>Suposición Base</h4>
-                            <p>El sistema tiene una cierta <mark>comprensión del comportamiento</mark> del usuario en una situación dada.</p>
-                        </div>
-                        <div class="column fragment">
-                            <h4>Adaptación Contextual</h4>
-                            <p>El sistema se adapta porque es <mark>consciente del contexto</mark> del usuario.</p>
-                        </div>
+                    <div class="fragment">
+                        <p>Los usuarios se acostumbran a esperar <mark>menos tiempo</mark> debido al aumento constante de potencia y velocidad.</p>
                     </div>
-                    
-                    <div class="cross-reference fragment">
-                        <strong>Conexión con Semana 2:</strong> Recordemos las propiedades de UbiCom, especialmente la "conciencia del contexto" (context-awareness).
-                    </div>
-                </section>
-            </section>
-
-            <!-- Gestures and Haptics -->
-            <section data-transition="slide">
-                <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
-                </div>
-                <h2>Gestos y Retroalimentación Háptica</h2>
-                
-                <section data-auto-animate>
-                    <h3>¿Qué son los Gestos?</h3>
-                    <div data-id="gesture-def">
-                        <p>Los gestos son <mark>movimientos corporales significativos</mark> que involucran el movimiento físico de dedos, manos, brazos, cabeza, cara o cuerpo con la intención de transmitir información.</p>
-                    </div>
-                </section>
-
-                <section data-auto-animate>
-                    <h3>Clasificación de Gestos</h3>
-                    <div class="r-hstack">
-                        <div class="column">
-                            <h4>Por Ubicación Corporal</h4>
-                            <ul>
-                                <li>Gestos de mano/brazo</li>
-                                <li>Gestos de cabeza/cara</li>
-                                <li>Movimiento corporal completo</li>
-                            </ul>
-                        </div>
-                        <div class="column fragment">
-                            <h4>Por Tipo de Contacto</h4>
-                            <ul>
-                                <li><strong>Contactuales:</strong> Entrada táctil, apretón de manos</li>
-                                <li><strong>Sin contacto:</strong> Saludar a una cámara, gestos en el aire</li>
-                            </ul>
-                        </div>
+                    <div class="fragment">
+                        <p><strong>Consecuencia:</strong> Si un sistema no evoluciona para reducir los tiempos, los usuarios dejarán de usar el producto porque no cumplirá sus expectativas de Usabilidad y UX.</p>
                     </div>
                 </section>
 
                 <section>
-                    <h3>Tecnologías de Detección</h3>
-                    <div class="media-placeholder">
-                        [Infografía: Dispositivos vestibles → Sensores adheridos → Cámaras y visión computacional]
-                    </div>
-                    <div class="r-hstack fragment">
-                        <div class="column">
-                            <h4>Dispositivos Vestibles</h4>
-                            <p>Guantes especializados con sensores integrados</p>
-                        </div>
-                        <div class="column">
-                            <h4>Sensores Adheridos</h4>
-                            <p>Acelerómetros y giroscopios portables</p>
-                        </div>
-                        <div class="column">
-                            <h4>Visión por Computadora</h4>
-                            <p>Cámaras con procesamiento de imagen en tiempo real</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Gestos en Dispositivos Móviles</h3>
-                    <div class="r-hstack">
-                        <div class="column">
-                            <h4>Gestos Básicos</h4>
-                            <ul>
-                                <li><strong>Inclinación (tilt):</strong> Desplazarse en listas</li>
-                                <li><strong>Volteo (flipping):</strong> Rotar vista 90°</li>
-                                <li><strong>Sacudida:</strong> Activar funciones especiales</li>
-                            </ul>
-                        </div>
-                        <div class="column fragment">
-                            <h4>Gestos de Pantalla</h4>
-                            <ul>
-                                <li><strong>Rotar:</strong> Control de orientación</li>
-                                <li><strong>Inclinar:</strong> Navegación direccional</li>
-                                <li><strong>Estirar:</strong> Zoom y escalado</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Desafíos de los Gestos</h3>
+                    <h3>Límites de Tiempo de Respuesta</h3>
                     <div class="r-vstack">
-                        <div class="fragment">
-                            <p><strong>Ambigüedad:</strong> Los gestos son incompletamente especificados y varían entre individuos y culturas</p>
+                        <div class="timing-box good fragment">
+                            <strong>≤ 0.1 segundos (100 ms)</strong><br>
+                            Respuesta percibida como instantánea. El usuario siente que manipula la interfaz directamente.
                         </div>
-                        <div class="fragment">
-                            <p><strong>Mapeo complejo:</strong> Relaciones de muchos a uno con los conceptos</p>
+                        <div class="timing-box acceptable fragment">
+                            <strong>≤ 1 segundo</strong><br>
+                            Los usuarios notan un retraso, pero sus procesos de pensamiento permanecen ininterrumpidos.
                         </div>
-                        <div class="fragment">
-                            <p><strong>Velocidad limitada:</strong> Más lenta que entrada directa de texto para tareas repetitivas</p>
-                        </div>
-                        <div class="fragment">
-                            <p><strong>Precisión:</strong> Requiere buenas habilidades motoras y puede carecer de exactitud</p>
+                        <div class="timing-box critical fragment">
+                            <strong>≤ 10 segundos</strong><br>
+                            El usuario nota que el sistema es lento. Requiere barra de progreso. Después de 10s se pierde la atención.
                         </div>
                     </div>
                 </section>
             </section>
 
-            <!-- Haptics -->
+            <!-- Blank States and Mode -->
             <section>
                 <div class="logo-container">
                     <img src="../../Logo UIDE.png" alt="Logo UIDE">
                 </div>
-                <h2>Retroalimentación Háptica</h2>
+                <h2>Estados Vacíos y Visibilidad del Modo</h2>
                 
                 <section data-auto-animate>
-                    <h3>¿Qué es la Háptica?</h3>
-                    <div data-id="haptics-def">
-                        <p>La háptica es la <mark>modalidad sensorial humana del tacto</mark>. La retroalimentación táctil proporciona información a través del sistema somatosensorial.</p>
+                    <h3>Diseño para la Iniciativa</h3>
+                    <div data-id="initiative">
+                        <p>En lugar de darle al usuario una <mark>pizarra en blanco</mark> (blank slate) y desafiarlo, la aplicación debe tomar un primer paso que tenga una probabilidad de ser correcto.</p>
                     </div>
                 </section>
 
                 <section data-auto-animate>
-                    <h3>Tipos de Información Táctil</h3>
+                    <h3>¿Por qué evitar las pizarras en blanco?</h3>
+                    <div data-id="why-avoid">
+                        <blockquote>Las pizarras en blanco <mark>intimidan</mark> a la mayoría de las personas.</blockquote>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Alternativas proactivas:</strong></p>
+                        <ul>
+                            <li>Contenido de ejemplo precargado</li>
+                            <li>Plantillas sugeridas</li>
+                            <li>Asistentes de configuración inicial</li>
+                            <li>Onboarding guiado</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Visibilidad del Estado (Modo)</h3>
                     <div class="r-hstack">
                         <div class="column">
-                            <h4>Propiedades Físicas</h4>
-                            <ul>
-                                <li>Temperatura</li>
-                                <li>Forma</li>
-                                <li>Textura</li>
-                                <li>Posición</li>
-                            </ul>
+                            <h4>Problema: Errores de Modo</h4>
+                            <p>La falta de retroalimentación sobre el <mark>modo o estado actual</mark> del sistema puede provocar errores de modo (mode errors).</p>
                         </div>
                         <div class="column fragment">
-                            <h4>Retroalimentación Activa</h4>
-                            <p>Un pin accionado por solenoide en un ratón puede <mark>informar y guiar la interacción</mark>, reduciendo la demanda en el canal visual.</p>
+                            <h4>Ejemplo: Foco de Botones</h4>
+                            <p>Los botones pueden tener foco (focus) y recibir eventos de teclado. Si el foco avanza de manera inconsistente, la atención del usuario debe cambiar, interrumpiendo la transparencia.</p>
                         </div>
                     </div>
-                </section>
-
-                <section>
-                    <h3>Aplicaciones Comunes</h3>
-                    <div class="media-placeholder">
-                        [Demostración: Vibración móvil → Controladores de juego → Interfaces tangibles]
-                    </div>
-                    <div class="fragment">
-                        <p><strong>Uso más común:</strong> La <mark>vibración en teléfonos móviles</mark> para señalar llamadas o mensajes entrantes.</p>
-                    </div>
-                    <div class="fragment">
-                        <p><strong>Dispositivos modernos:</strong> Incluyen actuadores vibrotáctiles para mejorar la experiencia de usuario.</p>
+                    
+                    <div class="cross-reference fragment">
+                        <strong>Conexión con Semana 1:</strong> Recordemos la regla de oro de Shneiderman sobre "feedback informativo" para cada acción del usuario.
                     </div>
                 </section>
 
                 <section>
-                    <h3>Interfaces Tangibles (TUI)</h3>
+                    <h3>Comunicación de Estado</h3>
                     <blockquote>
-                        <p>Los objetos físicos utilizados en interfaces tangibles ofrecen <mark>affordances más fuertes</mark> que los virtuales.</p>
+                        <p>Cuando un producto está <mark>inactivo</mark> (asleep), <mark>despierto</mark> (awake) o <mark>ocupado</mark> (busy), debe parecerlo.</p>
                     </blockquote>
                     <div class="fragment">
-                        <p><strong>Ventaja clave:</strong> Permiten usar habilidades hápticas adicionales para manipular objetos (rotar, agarrar) más allá de señalar y hacer clic.</p>
+                        <p><strong>Implementación práctica:</strong></p>
+                        <ul>
+                            <li><strong>Inactivo:</strong> Elementos atenuados, reducción de brillo</li>
+                            <li><strong>Activo:</strong> Colores vibrantes, elementos resaltados</li>
+                            <li><strong>Ocupado:</strong> Spinners, barras de progreso, indicadores de carga</li>
+                        </ul>
                     </div>
-                    <div class="cross-reference fragment">
-                        <strong>Conexión con Semana 3:</strong> Los affordances físicos son más evidentes que los affordances virtuales en pantalla.
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Tecnología Avanzada</h3>
-                    <div class="r-hstack">
-                        <div class="column">
-                            <h4>Investigación Actual</h4>
-                            <p>Dispositivos de puntero con retroalimentación háptica (como la resistencia sentida al cruzar una frontera de ventana)</p>
-                        </div>
-                        <div class="column fragment">
-                            <h4>Implementación Mainstream</h4>
-                            <p>Dispositivos que usan vibraciones simples se han vuelto principales en controladores de juegos</p>
-                        </div>
+                    <div class="fragment">
+                        <p><strong>Principio clave:</strong> Si está realizando una tarea compleja, debe ser obvio que la capacidad de respuesta será menor.</p>
                     </div>
                 </section>
             </section>
 
-            <!-- Voice and Speech -->
+            <!-- Perceived Performance -->
+            <section data-transition="slide">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Rendimiento Percibido</h2>
+                
+                <section data-auto-animate>
+                    <h3>Objetivo: Transparencia de la Interacción</h3>
+                    <div data-id="transparency">
+                        <p>El objetivo central del diseño es la <mark>transparencia de la interacción</mark>, donde la mecánica del software se vuelve invisible para que el usuario se concentre en sus objetivos.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Meta:</strong> Mantener el <mark>estado de flujo</mark> del usuario.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Feedback Continuo</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Principio Fundamental</h4>
+                            <p>Es fundamental proporcionar <mark>retroalimentación continua</mark> para cada acción del usuario.</p>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Graduación del Feedback</h4>
+                            <ul>
+                                <li><strong>Acciones frecuentes y menores:</strong> Feedback modesto</li>
+                                <li><strong>Acciones mayores e infrecuentes:</strong> Feedback más sustancial</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Indicadores de Progreso</h3>
+                    <div class="media-placeholder">
+                        [Demostración: Barras de progreso dinámicas vs. contadores estáticos]
+                    </div>
+                    <blockquote class="fragment">
+                        <p>Los usuarios responden mejor a <mark>indicadores de progreso dinámicos y gráficos</mark> que a mensajes estáticos o numéricos (como un contador de segundos).</p>
+                    </blockquote>
+                    <div class="fragment">
+                        <p><strong>Beneficios psicológicos:</strong></p>
+                        <ul>
+                            <li>Dan seguridad de que el proceso está en curso</li>
+                            <li>Las animaciones hacen que el tiempo pase más rápido</li>
+                            <li>Reducen la ansiedad del usuario</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Pre-visualización (Placeholders)</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Elementos Visuales</h4>
+                            <p>Los elementos visuales deben utilizarse para transmitir a los usuarios <mark>cuál será el resultado</mark> de una función, en lugar de depender únicamente de palabras.</p>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Hints y Pistas</h4>
+                            <p>Texto pequeño, a menudo grisáceo, que proporciona <mark>breves direcciones o ejemplos</mark> de uso dentro de los campos de entrada.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="fragment" style="margin-top: 2em;">
+                        <h4>Principio de Economía</h4>
+                        <p>El diseño debe evitar el reporte innecesario de eventos que no le importan al usuario (ej. "conexión realizada," "transacción registrada").</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Diseño Pliant (Plástico)</h3>
+                    <blockquote>
+                        <p>Los elementos plásticos (pliant), que <mark>reaccionan a la entrada</mark> y pueden ser manipulados, deben comunicar visualmente cómo pueden ser utilizados.</p>
+                    </blockquote>
+                    <div class="fragment">
+                        <p><strong>Implementación:</strong> Idealmente mediante affordances visuales estáticas o dinámicas.</p>
+                    </div>
+                    
+                    <div class="cross-reference fragment">
+                        <strong>Conexión con Semana 3:</strong> Los affordances de Gibson y Norman son fundamentales para la comunicación de funcionalidad.
+                    </div>
+                </section>
+            </section>
+
+            <!-- Error Handling -->
             <section data-transition="fade">
                 <div class="logo-container">
                     <img src="../../Logo UIDE.png" alt="Logo UIDE">
                 </div>
-                <h2>Interfaces de Voz y Asistentes</h2>
+                <h2>Mensajería y Recuperación de Errores</h2>
                 
                 <section data-auto-animate>
-                    <h3>Beneficios de las Interfaces de Voz</h3>
-                    <div data-id="voice-benefits">
-                        <p>Los interfaces de voz soportan <mark>entrada y salida con manos libres</mark>.</p>
-                    </div>
-                    <div class="r-hstack fragment">
-                        <div class="column">
-                            <h4>Casos de Uso Óptimos</h4>
-                            <ul>
-                                <li>Cuando los sentidos visuales están ocupados</li>
-                                <li>Al conducir un automóvil</li>
-                                <li>Para usuarios con discapacidades visuales</li>
-                            </ul>
-                        </div>
-                        <div class="column">
-                            <h4>Ventajas Técnicas</h4>
-                            <ul>
-                                <li>Liberación de las manos</li>
-                                <li>Interacción natural</li>
-                                <li>Accesibilidad mejorada</li>
-                            </ul>
-                        </div>
+                    <h3>Impacto Psicológico de los Errores</h3>
+                    <div data-id="psychological-impact">
+                        <p>El manejo de errores es una de las áreas más críticas de la interfaz, ya que los errores hacen que los usuarios se sientan <mark>confundidos, inadecuados y ansiosos</mark>.</p>
                     </div>
                 </section>
 
                 <section>
-                    <h3>Tecnología de Reconocimiento</h3>
+                    <h3>Principio Cero: Prevención</h3>
+                    <blockquote>
+                        <p>La mejor solución de error es que <mark>no haya error</mark>. Como principio, se debe diseñar el sistema de modo que los usuarios no puedan cometer errores graves.</p>
+                    </blockquote>
+                    <div class="fragment">
+                        <p><strong>Estrategias de prevención:</strong></p>
+                        <ul>
+                            <li><strong>Graying out:</strong> Desactivar opciones de menú inapropiadas</li>
+                            <li><strong>Validación de entrada:</strong> No permitir caracteres inválidos</li>
+                            <li><strong>Autocompletado:</strong> Si la aplicación sabe qué teclear, ¿por qué no lo hace?</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="fragment">
+                        <p><strong>Reflexión crítica:</strong> Muchos errores son, de hecho, <mark>errores inducidos por el diseño</mark> (design-induced errors).</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Responsabilidad y Tono</h3>
                     <div class="r-hstack">
                         <div class="column">
-                            <h4>Interpretación Básica</h4>
-                            <p>El sistema interpreta <mark>palabras habladas</mark> como si fueran tipeadas en un teclado.</p>
+                            <h4>Percepción del Usuario</h4>
+                            <p>Los usuarios ven los mensajes de error como si alguien les dijera que <mark>son estúpidos</mark>.</p>
                         </div>
                         <div class="column fragment">
-                            <h4>Sistemas Especializados</h4>
-                            <p><strong>Reconocimiento de palabra discreta</strong> funciona bien para aplicaciones de propósito especial.</p>
+                            <h4>Responsabilidad del Sistema</h4>
+                            <p>Un error no es culpa de la aplicación, pero <mark>es su responsabilidad</mark>.</p>
+                        </div>
+                    </div>
+                    
+                    <blockquote class="fragment">
+                        <p>La mayoría de los mensajes de error son una <mark>admisión de estupidez por parte de la aplicación</mark>, reportando su incapacidad para trabajar flexiblemente.</p>
+                    </blockquote>
+                </section>
+
+                <section>
+                    <h3>Reversibilidad y Perdón</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Principio de Perdón</h4>
+                            <p>El diseño debe incorporar el <mark>principio de perdón</mark> (forgiveness).</p>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Implementación: Undo</h4>
+                            <p>La fácil <mark>reversibilidad de las acciones</mark> alivia la ansiedad y permite la exploración.</p>
                         </div>
                     </div>
                     
                     <div class="fragment" style="margin-top: 2em;">
-                        <h4>Sistemas IVR Avanzados</h4>
-                        <p>Los sistemas de <mark>Voz Interactiva (IVR)</mark> pueden ofrecer <strong>barge-in</strong> (interrumpir la instrucción para hablar) para usuarios recurrentes.</p>
+                        <h4>Undo Robusto</h4>
+                        <p>El sistema de Deshacer debe ser robusto y capaz de revertir <mark>múltiples operaciones consecutivas</mark> (Múltiple Undo).</p>
                     </div>
                 </section>
 
                 <section>
-                    <h3>Desafíos Cognitivos de la Voz</h3>
-                    <blockquote>
-                        <p>El mayor obstáculo para la aceptación de las interfaces de voz es la <mark>carga cognitiva</mark> que imponen.</p>
-                    </blockquote>
-                    <div class="fragment">
-                        <p><strong>Carga en memoria de trabajo:</strong> La voz es más exigente para la memoria del usuario que la coordinación ojo-mano.</p>
-                    </div>
-                    <div class="fragment">
-                        <p><strong>Interrupción cognitiva:</strong> Hablar comandos o escuchar interrumpe la planificación y resolución de problemas más que seleccionar con ratón.</p>
-                    </div>
-                    
-                    <div class="cross-reference fragment">
-                        <strong>Conexión con Semana 4:</strong> Recordemos la Ley de Miller y los límites de la memoria de trabajo humana.
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Obstáculos de la Salida de Voz</h3>
+                    <h3>Directrices para Mensajes de Error</h3>
                     <div class="r-vstack">
                         <div class="fragment">
-                            <h4>1. Ritmo Lento</h4>
-                            <p>Comparado con las pantallas visuales, la información auditiva se procesa más lentamente</p>
+                            <h4>1. Evitar Interrupciones (Excise)</h4>
+                            <p>Los diálogos de boletín detienen el flujo y deben eliminarse o reemplazarse por <mark>feedback modeless</mark> siempre que sea posible.</p>
                         </div>
                         <div class="fragment">
-                            <h4>2. Naturaleza Efímera</h4>
-                            <p>El habla desaparece inmediatamente, a diferencia del texto visual permanente</p>
+                            <h4>2. Especificidad</h4>
+                            <p>El mensaje debe ser lo más <mark>específico y preciso</mark> posible. Los mensajes vagos ("SYNTAX ERROR") frustran al usuario.</p>
                         </div>
                         <div class="fragment">
-                            <h4>3. Dificultad para Escanear</h4>
-                            <p>No es posible "ojear" o buscar rápidamente en contenido auditivo secuencial</p>
+                            <h4>3. Tono Constructivo</h4>
+                            <p>Debe ser <mark>constructivo</mark> (indicando qué hacer) y <mark>positivo</mark> (evitando palabras hostiles como ILLEGAL, ERROR, INVALID).</p>
                         </div>
                     </div>
                 </section>
 
                 <section>
-                    <h3>Voz No Verbal (NVVI)</h3>
-                    <div class="media-placeholder">
-                        [Demostración: Joystick Vocal - Control de cursor mediante parámetros acústicos]
-                    </div>
-                    <div class="fragment">
-                        <p>Es posible el input mediante <mark>sonidos vocalizados no verbales</mark>.</p>
-                    </div>
-                    <div class="fragment">
-                        <p><strong>Mecanismo:</strong> Esta modalidad mide parámetros acústicos (tono, volumen) para especificar parámetros análogos.</p>
-                    </div>
-                    <div class="fragment">
-                        <p><strong>Ejemplo:</strong> El "joystick vocal" para controlar un cursor mediante variaciones en el tono y volumen de la voz.</p>
-                    </div>
-                </section>
-            </section>
-
-            <!-- Natural Language Processing -->
-            <section>
-                <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
-                </div>
-                <h2>Lenguaje Natural y Asistentes Inteligentes</h2>
-                
-                <section data-auto-animate>
-                    <h3>Interacción de Lenguaje Natural (NLI)</h3>
-                    <div data-id="nli-def">
-                        <p>Permite a los usuarios <mark>conversar con la máquina</mark> utilizando su lenguaje familiar.</p>
-                    </div>
-                    <div class="fragment">
-                        <p><strong>Ventaja principal:</strong> Evita que los usuarios tengan que aprender una sintaxis de comandos específica.</p>
-                    </div>
-                </section>
-
-                <section data-auto-animate>
-                    <h3>El Problema de Habitabilidad</h3>
-                    <div data-id="habitability">
-                        <p>El problema clave del NLI es la <mark>habitabilidad de la interfaz</mark> (saber qué objetos y acciones son apropiados).</p>
-                    </div>
-                    <div class="r-hstack fragment">
-                        <div class="column">
-                            <h4>Interfaces Visuales</h4>
-                            <p>Proporcionan pistas semánticas claras sobre las acciones disponibles</p>
-                        </div>
-                        <div class="column">
-                            <h4>NLI</h4>
-                            <p>Generalmente depende de un <mark>modelo mental asumido</mark> del usuario</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Asistentes y Capitalismo de Vigilancia</h3>
-                    <div class="media-placeholder">
-                        [Diagrama: Dispositivo Doméstico → Conversación → Datos → Predicciones Comerciales]
-                    </div>
-                    <blockquote class="fragment">
-                        <p>Los dispositivos de hogar inteligente convierten la charla casual en <mark>"excedente conductual"</mark> para generar predicciones.</p>
-                    </blockquote>
-                </section>
-
-                <section>
-                    <h3>Mecánica del Capitalismo de Vigilancia</h3>
+                    <h3>Ejemplos de Mensajería</h3>
                     <div class="r-hstack">
                         <div class="column">
-                            <h4>Materia Prima</h4>
-                            <p>La conversación es una fuente de <mark>materia prima</mark> para el mercado de datos</p>
+                            <h4>❌ Mensajes Problemáticos</h4>
+                            <div class="error-example">SYNTAX ERROR</div>
+                            <div class="error-example">ILLEGAL INPUT</div>
+                            <div class="error-example">INVALID CHARACTER</div>
+                            <div class="error-example">ERROR 404</div>
                         </div>
                         <div class="column fragment">
-                            <h4>Facilitación sin Fricciones</h4>
-                            <p>La facilidad de una expresión para desencadenar una acción (ej., una compra) es altamente valorada</p>
+                            <h4>✅ Mensajes Mejorados</h4>
+                            <div class="error-example good">Por favor ingrese una fecha en formato DD/MM/AAAA</div>
+                            <div class="error-example good">Solo se permiten números en este campo</div>
+                            <div class="error-example good">La página que busca no está disponible. ¿Quiere ir al inicio?</div>
                         </div>
                     </div>
                     
-                    <div class="fragment" style="margin-top: 2em;">
-                        <h4>Ejemplo: Google Assistant</h4>
-                        <p>Integrado en todos los dispositivos y servicios, busca entender el <mark>contexto del usuario</mark> (ej., geolocalización) para responder preguntas y sugerir acciones comerciales.</p>
-                    </div>
-                </section>
-            </section>
-
-            <!-- Touch and Mobile -->
-            <section data-transition="slide">
-                <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
-                </div>
-                <h2>Pantallas Táctiles y Revolución Móvil</h2>
-                
-                <section data-auto-animate>
-                    <h3>El Cambio de Paradigma Móvil</h3>
-                    <div data-id="mobile-shift">
-                        <p>El lanzamiento del <mark>iPhone en 2007</mark> generó un cambio dramático en HCI.</p>
-                    </div>
-                    <div class="r-hstack fragment">
-                        <div class="column">
-                            <h4>Paradigma Anterior</h4>
-                            <ul>
-                                <li>Estiletes</li>
-                                <li>Teclados físicos</li>
-                                <li>Interfaces complejas</li>
-                            </ul>
-                        </div>
-                        <div class="column">
-                            <h4>Nuevo Paradigma</h4>
-                            <ul>
-                                <li><strong>Deslizar</strong> (swiping)</li>
-                                <li><strong>Pellizcar</strong> (pinching)</li>
-                                <li><strong>Tocar</strong> (tapping)</li>
-                            </ul>
-                        </div>
+                    <div class="fragment" style="margin-top: 1em;">
+                        <h4>Formato Físico</h4>
+                        <p>El mensaje debe estar escrito en <mark>lenguaje sencillo</mark> y usar voz activa. Recomendable el uso de mayúsculas y minúsculas combinadas.</p>
                     </div>
                 </section>
 
                 <section>
-                    <h3>Postura Transitoria</h3>
+                    <h3>Evaluación y Mejora Continua</h3>
                     <blockquote>
-                        <p>Las aplicaciones móviles tienen una <mark>postura transitoria</mark> (transient posture).</p>
+                        <p>Es crucial <mark>registrar la frecuencia de ocurrencia</mark> de cada error para saber dónde los usuarios tienen dificultades y modificar el software, la formación o la documentación.</p>
                     </blockquote>
                     <div class="fragment">
-                        <p><strong>Características:</strong></p>
+                        <p><strong>Métricas clave:</strong></p>
                         <ul>
-                            <li>Aparecen rápidamente para una función única</li>
-                            <li>Desaparecen después del uso</li>
-                            <li>Uso intermitente y breve</li>
+                            <li>Frecuencia de cada tipo de error</li>
+                            <li>Tiempo promedio de recuperación</li>
+                            <li>Tasa de abandono post-error</li>
+                            <li>Satisfacción del usuario después del error</li>
                         </ul>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Diseño del Factor de Forma</h3>
-                    <div class="r-hstack">
-                        <div class="column">
-                            <h4>Restricciones Físicas</h4>
-                            <ul>
-                                <li>Pequeños</li>
-                                <li>Ligeros</li>
-                                <li>Robustos</li>
-                                <li>Fáciles de manipular en distracciones</li>
-                            </ul>
-                        </div>
-                        <div class="column fragment">
-                            <h4>Implicaciones de Diseño</h4>
-                            <ul>
-                                <li>Densidad de información similar a diálogos de escritorio</li>
-                                <li>Controles grandes (tamaño de dedo)</li>
-                                <li>Optimización para exploración</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Tecnología Táctil</h3>
-                    <div class="r-hstack">
-                        <div class="column">
-                            <h4>Ventajas</h4>
-                            <ul>
-                                <li>Duraderas</li>
-                                <li>Fáciles de aprender</li>
-                                <li>Sin partes móviles</li>
-                                <li>Populares en quioscos y POS</li>
-                            </ul>
-                        </div>
-                        <div class="column fragment">
-                            <h4>Estrategia de Precisión</h4>
-                            <p><strong>Lift-off Strategy:</strong></p>
-                            <ol>
-                                <li>Usuario toca</li>
-                                <li>Ajusta posición del cursor</li>
-                                <li>Selecciona al levantar el dedo</li>
-                            </ol>
-                        </div>
                     </div>
                 </section>
             </section>
 
-            <!-- Multitouch -->
-            <section>
-                <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
-                </div>
-                <h2>Multitáctil y Affordances Táctiles</h2>
-                
-                <section data-auto-animate>
-                    <h3>¿Qué es Multitáctil?</h3>
-                    <div data-id="multitouch-def">
-                        <p>Las pantallas multitáctiles permiten que <mark>múltiples dedos o usuarios</mark> interactúen simultáneamente.</p>
-                    </div>
-                    <div class="fragment">
-                        <p><strong>Gestos clave:</strong> Pellizcar y deslizar son el corazón de la experiencia móvil.</p>
-                    </div>
-                    <div class="fragment">
-                        <p><strong>Recomendación de diseño:</strong> Un <mark>vocabulario de gestos pequeño</mark> para que sean fáciles de aprender.</p>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Limitación: Ausencia de Hover</h3>
-                    <div class="media-placeholder">
-                        [Comparación: Ratón con hover ↔ Pantalla táctil sin hover]
-                    </div>
-                    <div class="fragment">
-                        <p><strong>Problema:</strong> Las pantallas táctiles no soportan el <mark>estado de hover</mark> (pasar el dedo sin tocar).</p>
-                    </div>
-                    <div class="fragment">
-                        <p><strong>Pérdida de funcionalidad:</strong></p>
-                        <ul>
-                            <li>Tool tips informativos</li>
-                            <li>Cambios de forma/color de botones</li>
-                            <li>Indicadores de elementos pulsables</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Diseño Plano vs. Affordances</h3>
-                    <blockquote>
-                        <p>La tendencia hacia el <mark>diseño plano</mark> puede reducir las affordances virtuales.</p>
-                    </blockquote>
-                    <div class="r-hstack fragment">
-                        <div class="column">
-                            <h4>Diseño Plano Elimina</h4>
-                            <ul>
-                                <li>Sombras indicativas</li>
-                                <li>Contornos de profundidad</li>
-                                <li>Texturas táctiles</li>
-                            </ul>
-                        </div>
-                        <div class="column">
-                            <h4>Consecuencia</h4>
-                            <p>Amenaza la <mark>facilidad de uso</mark> en favor de la simplificación visual</p>
-                        </div>
-                    </div>
-                    
-                    <div class="cross-reference fragment">
-                        <strong>Conexión con Semana 3:</strong> Los affordances son fundamentales para la usabilidad según la teoría de Gibson y Norman.
-                    </div>
-                </section>
-            </section>
-
-            <!-- Animation and Parallax -->
-            <section>
-                <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
-                </div>
-                <h2>Animación y Efecto Parallax</h2>
-                
-                <section data-auto-animate>
-                    <h3>Importancia del Movimiento</h3>
-                    <div data-id="movement-importance">
-                        <p>El movimiento y las transiciones animadas son <mark>fundamentales</mark> para las interfaces móviles.</p>
-                    </div>
-                    <div class="fragment">
-                        <p><strong>Función cognitiva:</strong> Ayudan a los usuarios a crear un fuerte <mark>modelo mental</mark> de cómo se relacionan las vistas.</p>
-                    </div>
-                    <div class="fragment">
-                        <p><strong>Ejemplo:</strong> Transición al pasar de un listado a un elemento individual.</p>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Uso Judicioso del Movimiento</h3>
-                    <div class="media-placeholder">
-                        [Demostración: Animación Equilibrada vs. Sobreanimación]
-                    </div>
-                    <blockquote class="fragment">
-                        <p>El movimiento debe usarse con <mark>moderación y de manera juiciosa</mark>.</p>
-                    </blockquote>
-                    <div class="fragment">
-                        <p><strong>Riesgos de la sobreanimación:</strong></p>
-                        <ul>
-                            <li>Confusión en la navegación</li>
-                            <li>Irritación del usuario</li>
-                            <li>Malestar físico en algunas personas</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Efecto Parallax</h3>
-                    <div class="r-hstack">
-                        <div class="column">
-                            <h4>Definición</h4>
-                            <p>Diferentes elementos responden al <mark>desplazamiento</mark> (scrolling) a distintas velocidades</p>
-                        </div>
-                        <div class="column fragment">
-                            <h4>Patrón Común</h4>
-                            <p>Ampliamente utilizado en diseño web y móvil para crear sensación de profundidad</p>
-                        </div>
-                    </div>
-                    
-                    <div class="fragment" style="margin-top: 2em;">
-                        <h4>Caso de Estudio: iOS 7</h4>
-                        <blockquote>
-                            <p>Se informó que la versión iOS 7 de Apple causó malestar debido a sus <mark>"animaciones de parallax y zoom-in/zoom-out un tanto excesivas"</mark>.</p>
-                        </blockquote>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Principios de Animación Efectiva</h3>
-                    <div class="r-vstack">
-                        <div class="fragment">
-                            <h4>1. Propósito Claro</h4>
-                            <p>Cada animación debe tener una razón funcional específica</p>
-                        </div>
-                        <div class="fragment">
-                            <h4>2. Duración Apropiada</h4>
-                            <p>Ni demasiado rápida (desorientadora) ni demasiado lenta (frustrante)</p>
-                        </div>
-                        <div class="fragment">
-                            <h4>3. Consistencia</h4>
-                            <p>Mantener patrones de movimiento coherentes en toda la interfaz</p>
-                        </div>
-                        <div class="fragment">
-                            <h4>4. Accesibilidad</h4>
-                            <p>Considerar usuarios sensibles al movimiento y proporcionar opciones de reducción</p>
-                        </div>
-                    </div>
-                </section>
-            </section>
-
-            <!-- Synthesis and Future -->
+            <!-- UX Metrics -->
             <section data-transition="convex">
                 <div class="logo-container">
                     <img src="../../Logo UIDE.png" alt="Logo UIDE">
                 </div>
-                <h2>Síntesis: Hacia la Naturalidad Computacional</h2>
+                <h2>Métricas Básicas de UX</h2>
                 
                 <section data-auto-animate>
-                    <h3>Convergencia de Modalidades</h3>
-                    <div data-id="convergence">
-                        <p>Las interfaces naturales representan la <mark>convergencia</mark> de múltiples modalidades de interacción.</p>
+                    <h3>Importancia de la Medición</h3>
+                    <div data-id="measurement-importance">
+                        <p>Para enfocarse en la usabilidad, es <mark>indispensable medir</mark> el rendimiento del usuario.</p>
                     </div>
-                    <div class="media-placeholder fragment">
-                        [Diagrama: Gestos + Voz + Tacto + Contexto = Interacción Natural]
-                    </div>
-                </section>
-
-                <section data-auto-animate>
-                    <h3>Desafíos Persistentes</h3>
-                    <div class="r-hstack">
-                        <div class="column">
-                            <h4>Técnicos</h4>
-                            <ul>
-                                <li>Precisión en reconocimiento</li>
-                                <li>Latencia en respuesta</li>
-                                <li>Robustez contextual</li>
-                            </ul>
-                        </div>
-                        <div class="column fragment">
-                            <h4>Humanos</h4>
-                            <ul>
-                                <li>Curva de aprendizaje</li>
-                                <li>Expectativas culturales</li>
-                                <li>Fatiga gestual</li>
-                            </ul>
-                        </div>
-                        <div class="column fragment">
-                            <h4>Éticos</h4>
-                            <ul>
-                                <li>Privacidad de datos</li>
-                                <li>Vigilancia contextual</li>
-                                <li>Autonomía del usuario</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Principios de Diseño para NUI</h3>
-                    <div class="r-vstack">
-                        <div class="fragment">
-                            <p><strong>1. Aprovechamiento de habilidades naturales:</strong> Usar gestos y movimientos ya familiares</p>
-                        </div>
-                        <div class="fragment">
-                            <p><strong>2. Retroalimentación inmediata:</strong> Confirmar acciones de manera clara y rápida</p>
-                        </div>
-                        <div class="fragment">
-                            <p><strong>3. Degradación elegante:</strong> Funcionar incluso cuando el reconocimiento falla</p>
-                        </div>
-                        <div class="fragment">
-                            <p><strong>4. Conciencia contextual:</strong> Adaptar respuestas según la situación del usuario</p>
-                        </div>
-                        <div class="fragment">
-                            <p><strong>5. Respeto por la privacidad:</strong> Minimizar la recolección de datos no esenciales</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Reflexión: ¿Verdaderamente Natural?</h3>
-                    <blockquote>
-                        <p>La paradoja de las interfaces naturales: <mark>¿Pueden las interacciones mediadas por tecnología ser verdaderamente naturales?</mark></p>
+                    <blockquote class="fragment">
+                        <p>La usabilidad se define por la <mark>eficacia, eficiencia y satisfacción</mark> con la que los usuarios pueden lograr metas específicas en un contexto determinado.</p>
                     </blockquote>
+                </section>
+
+                <section>
+                    <h3>Las 5 Medidas de Usabilidad de Shneiderman</h3>
+                    <div class="media-placeholder">
+                        [Diagrama: Las 5 dimensiones de la usabilidad interconectadas]
+                    </div>
+                    <p class="fragment">Las cinco medidas utilizadas para la evaluación práctica, basadas en los criterios de Shneiderman:</p>
+                </section>
+
+                <section>
+                    <h3>1. Tiempo de Aprendizaje</h3>
+                    <div class="metric-card">
+                        <div class="metric-number">📚</div>
+                        <h4>Time to Learn</h4>
+                        <p>Cuánto tiempo tarda un usuario típico en <mark>aprender las acciones relevantes</mark> para un conjunto de tareas.</p>
+                    </div>
                     <div class="fragment">
-                        <p><strong>Consideración crítica:</strong> Quizás el objetivo no es la naturalidad perfecta, sino la <mark>reducción de la fricción cognitiva</mark> entre intención y acción.</p>
+                        <p><strong>Factores que influyen:</strong></p>
+                        <ul>
+                            <li>Complejidad de la interfaz</li>
+                            <li>Familiaridad con patrones similares</li>
+                            <li>Calidad de la documentación/onboarding</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>2. Velocidad de Rendimiento</h3>
+                    <div class="metric-card">
+                        <div class="metric-number">⚡</div>
+                        <h4>Speed of Performance</h4>
+                        <p>Cuánto tiempo se tarda en llevar a cabo las <mark>tareas de referencia</mark> (benchmark tasks), lo que mide la eficiencia.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Aplicación práctica:</strong></p>
+                        <ul>
+                            <li>Tiempo promedio para completar tareas comunes</li>
+                            <li>Comparación con herramientas competidoras</li>
+                            <li>Identificación de cuellos de botella</li>
+                        </ul>
                     </div>
                     
                     <div class="cross-reference fragment">
-                        <strong>Preparación para semanas futuras:</strong> Estos conceptos nos preparan para explorar inteligencia artificial conversacional y realidad aumentada.
+                        <strong>Conexión con latencia:</strong> Recordemos el Umbral de Doherty y los límites de tiempo de respuesta.
+                    </div>
+                </section>
+
+                <section>
+                    <h3>3. Tasa de Errores</h3>
+                    <div class="metric-card">
+                        <div class="metric-number">🚫</div>
+                        <h4>Rate of Errors by Users</h4>
+                        <p>Cuántos y qué tipos de errores cometen las personas.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Métrica clave:</strong> La tasa de error por cada <mark>1,000 acciones</mark> debe utilizarse como una métrica de la calidad de la interfaz.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Cálculo:</strong> Se informa típicamente como la relación entre los ensayos completados incorrectamente y el total de ensayos.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>4. Retención a lo Largo del Tiempo</h3>
+                    <div class="metric-card">
+                        <div class="metric-number">🧠</div>
+                        <h4>Retention Over Time</h4>
+                        <p>Qué tan bien mantienen los usuarios su <mark>conocimiento</mark> (ej. comandos) después de un periodo.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Factores importantes:</strong></p>
+                        <ul>
+                            <li>Frecuencia de uso de la aplicación</li>
+                            <li>Complejidad de los comandos/acciones</li>
+                            <li>Calidad de los affordances visuales</li>
+                            <li>Consistencia de patrones de interacción</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="cross-reference fragment">
+                        <strong>Conexión con Semana 4:</strong> La Ley de Miller y las limitaciones de memoria a corto plazo son cruciales aquí.
+                    </div>
+                </section>
+
+                <section>
+                    <h3>5. Satisfacción Subjetiva</h3>
+                    <div class="metric-card">
+                        <div class="metric-number">😊</div>
+                        <h4>Subjective Satisfaction</h4>
+                        <p>Cuánto le gustó a los usuarios el uso de <mark>varios aspectos de la interfaz</mark>, lo cual se determina mediante entrevistas o encuestas.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Métodos de medición:</strong></p>
+                        <ul>
+                            <li>Encuestas post-tarea (SUS, SUPR-Q)</li>
+                            <li>Entrevistas cualitativas</li>
+                            <li>Net Promoter Score (NPS)</li>
+                            <li>Análisis de sentimientos en feedback</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Integración de las Métricas</h3>
+                    <div class="media-placeholder">
+                        [Dashboard: Panel de métricas UX en tiempo real]
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Principio clave:</strong> Las cinco métricas deben evaluarse en conjunto para obtener una visión completa de la usabilidad.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Balance necesario:</strong> Una métrica excelente no compensa deficiencias graves en otras áreas.</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Synthesis -->
+            <section data-transition="slide">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Síntesis: Diseño Transparente</h2>
+                
+                <section data-auto-animate>
+                    <h3>Principios Integrados</h3>
+                    <div data-id="integration">
+                        <p>Esta semana hemos explorado cómo lograr la <mark>transparencia de la interacción</mark> a través de múltiples dimensiones.</p>
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>El Ecosistema de la Transparencia</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Dimensión Temporal</h4>
+                            <ul>
+                                <li>Latencia < 396ms</li>
+                                <li>Feedback continuo</li>
+                                <li>Indicadores de progreso</li>
+                            </ul>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Dimensión de Estado</h4>
+                            <ul>
+                                <li>Visibilidad del modo</li>
+                                <li>Comunicación clara</li>
+                                <li>Prevención de errores</li>
+                            </ul>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Dimensión de Medición</h4>
+                            <ul>
+                                <li>Métricas objetivas</li>
+                                <li>Satisfacción subjetiva</li>
+                                <li>Mejora continua</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Implicaciones para el Diseño</h3>
+                    <div class="r-vstack">
+                        <div class="fragment">
+                            <p><strong>1. Diseño proactivo:</strong> Anticipar necesidades y prevenir problemas antes de que ocurran</p>
+                        </div>
+                        <div class="fragment">
+                            <p><strong>2. Responsabilidad del sistema:</strong> Asumir la responsabilidad por errores y facilitar la recuperación</p>
+                        </div>
+                        <div class="fragment">
+                            <p><strong>3. Medición constante:</strong> Usar datos para guiar decisiones de diseño</p>
+                        </div>
+                        <div class="fragment">
+                            <p><strong>4. Empatía cognitiva:</strong> Respetar las limitaciones humanas de atención y memoria</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Preparación para el Futuro</h3>
+                    <blockquote>
+                        <p>Los principios de transparencia, prevención y medición continua son fundamentales para cualquier <mark>sistema de interacción exitoso</mark>, independientemente de la tecnología subyacente.</p>
+                    </blockquote>
+                    
+                    <div class="cross-reference fragment">
+                        <strong>Mirando hacia adelante:</strong> Estos conceptos nos preparan para explorar sistemas más complejos donde la transparencia será aún más crítica.
                     </div>
                 </section>
             </section>
@@ -1304,13 +1158,13 @@
                         <div class="flashcard" onclick="flipCard(this)">
                             <div class="flashcard-inner">
                                 <div class="flashcard-front">
-                                    <h4>Interacción Implícita (iHCI)</h4>
-                                    <p>¿Qué caracteriza a la interacción persona-ordenador implícita?</p>
+                                    <h4>Umbral de Doherty</h4>
+                                    <p>¿Cuál es el tiempo máximo de respuesta antes de perder la atención del usuario?</p>
                                 </div>
                                 <div class="flashcard-back">
-                                    <h4>Acción No Dirigida</h4>
-                                    <p>Una <strong>acción realizada por el usuario</strong> que no está primariamente dirigida a interactuar con un sistema, pero que este interpreta como input.</p>
-                                    <small>Base de la computación ubicua</small>
+                                    <h4>396 milisegundos</h4>
+                                    <p>El tiempo de espera en interacción Persona-Ordenador no debe superar los <strong>396 ms</strong> para mantener la atención del usuario.</p>
+                                    <small>Umbral crítico de la interacción fluida</small>
                                 </div>
                             </div>
                         </div>
@@ -1319,13 +1173,13 @@
                         <div class="flashcard" onclick="flipCard(this)">
                             <div class="flashcard-inner">
                                 <div class="flashcard-front">
-                                    <h4>Desafíos de los Gestos</h4>
-                                    <p>¿Por qué los gestos son problemáticos en interfaces naturales?</p>
+                                    <h4>Principio Cero de Errores</h4>
+                                    <p>¿Cuál es la mejor estrategia para manejar errores en interfaces?</p>
                                 </div>
                                 <div class="flashcard-back">
-                                    <h4>Ambigüedad Contextual</h4>
-                                    <p>Son <strong>ambiguos, varían culturalmente</strong> y pueden tener mapeos de muchos a uno con conceptos. Requieren contexto compartido.</p>
-                                    <small>El aplauso: ¿emoción o comando?</small>
+                                    <h4>Prevención Total</h4>
+                                    <p>La mejor solución de error es que <strong>no haya error</strong>. Diseñar el sistema para que los usuarios no puedan cometer errores graves.</p>
+                                    <small>Muchos errores son inducidos por el diseño</small>
                                 </div>
                             </div>
                         </div>
@@ -1338,13 +1192,13 @@
                         <div class="flashcard" onclick="flipCard(this)">
                             <div class="flashcard-inner">
                                 <div class="flashcard-front">
-                                    <h4>Obstáculos de Interfaces de Voz</h4>
-                                    <p>¿Cuáles son los tres obstáculos principales de la salida de voz?</p>
+                                    <h4>Límites de Tiempo de Respuesta</h4>
+                                    <p>¿Qué ocurre cuando el sistema responde en menos de 100ms?</p>
                                 </div>
                                 <div class="flashcard-back">
-                                    <h4>Tres Limitaciones</h4>
-                                    <p><strong>Ritmo lento</strong> comparado con pantallas, <strong>naturaleza efímera</strong> del habla, y <strong>dificultad para escanear</strong>/buscar.</p>
-                                    <small>Por eso necesitamos interfaces multimodales</small>
+                                    <h4>Respuesta Instantánea</h4>
+                                    <p>≤ 100ms: Los usuarios perciben la respuesta como <strong>instantánea</strong> y sienten que manipulan la interfaz directamente.</p>
+                                    <small>Sensación de control directo</small>
                                 </div>
                             </div>
                         </div>
@@ -1353,13 +1207,13 @@
                         <div class="flashcard" onclick="flipCard(this)">
                             <div class="flashcard-inner">
                                 <div class="flashcard-front">
-                                    <h4>Postura Transitoria</h4>
-                                    <p>¿Qué caracteriza la "postura transitoria" de las aplicaciones móviles?</p>
+                                    <h4>Métricas de Usabilidad</h4>
+                                    <p>¿Cuáles son las 5 medidas básicas de usabilidad según Shneiderman?</p>
                                 </div>
                                 <div class="flashcard-back">
-                                    <h4>Aparición-Función-Desaparición</h4>
-                                    <p><strong>Aparecen rápidamente</strong> para una función única y luego desaparecen. El uso es <strong>intermitente y breve</strong>.</p>
-                                    <small>Paradigma del diseño móvil moderno</small>
+                                    <h4>Las 5 Dimensiones</h4>
+                                    <p><strong>Tiempo de aprendizaje, velocidad de rendimiento, tasa de errores, retención</strong> y <strong>satisfacción subjetiva</strong>.</p>
+                                    <small>Evaluación integral de la usabilidad</small>
                                 </div>
                             </div>
                         </div>
@@ -1375,44 +1229,43 @@
                 <h2>Referencias Bibliográficas</h2>
                 
                 <section>
-                    <h3>Fuentes Primarias</h3>
+                    <h3>Fuentes Fundamentales</h3>
                     <div style="font-size: 0.7em; text-align: left;">
-                        <p><strong>Weiser, M.</strong> (1991, Septiembre). The computer for the twenty first century. <em>Scientific American</em>, 265(3), 94–104.</p>
-                        <p><strong>Jacob, R. J. K., Girouard, A., Hirshfield, L. M., Horn, M. S., Shaer, O., & Solovey, E. T., et al.</strong> (2008). Reality-based interaction: A framework for post-WIMP interfaces. <em>Proceedings of the ACM SIGCHI Conference on Human Factors in Computing—CHI 2008</em>. New York: ACM. 201–210.</p>
-                        <p><strong>Poslad, S.</strong> (2009). <em>Ubiquitous Computing: Smart Devices, Environments and Interactions</em>. John Wiley & Sons, Ltd.</p>
-                        <p><strong>Oviatt, S.</strong> (2000). Taming speech recognition errors within a multimodal interface. <em>Communications of the ACM</em>, 43(9), 45-51.</p>
+                        <p><strong>Doherty, W. J., & Chakraborty, A.</strong> (1982). The myth of the two-second response time.</p>
+                        <p><strong>Shneiderman, B.</strong> (1982). System message design: Guidelines and experimental results. <em>Proceedings of the 1982 ACM annual conference</em>. New York: ACM, 583–586.</p>
+                        <p><strong>Shneiderman, B., & Plaisant, C.</strong> (2004). <em>Designing the User Interface: Strategies for Effective Human Computer Interaction</em> (4th ed.). Pearson Education, Inc.</p>
+                        <p><strong>Nielsen, J.</strong> (1993). <em>Usability Engineering</em>. AP Professional.</p>
                     </div>
                 </section>
 
                 <section>
-                    <h3>Tecnología Móvil y Táctil</h3>
+                    <h3>Diseño y Psicología</h3>
                     <div style="font-size: 0.7em; text-align: left;">
-                        <p><strong>Shneiderman, B.</strong> (1991). High precision touchscreens: Design strategies and comparison with a mouse. <em>International Journal of Man-Machine Studies</em>, 34, 593–613.</p>
-                        <p><strong>Pickering, J. A.</strong> (1986). Touch sensitive screens: the technologies and their applications. <em>International Journal of Man Machine Studies</em>, 25, 249–269.</p>
-                        <p><strong>Lindholm, C., Keinonen, T., & Kiljander, H.</strong> (2003). <em>Mobile Usability: How Nokia Changed the Face of the Mobile Phone</em>. New York: McGraw Hill.</p>
-                        <p><strong>Villar, N., Izadi, S., Rosenfeld, D., Benko, H., Helmes, J., & Westhues, J., et al.</strong> (2009). Mouse 2.0: Multi-touch meets the mouse. <em>Proceedings of the ACM Symposium on User Interface Software and Technology—UIST 2009</em>. New York: ACM. 33–42.</p>
+                        <p><strong>Norman, D. A.</strong> (1983). Categorization of action slips. <em>Psychological Review</em>, 90(1), 1–15.</p>
+                        <p><strong>Norman, D. A.</strong> (1988). <em>The Psychology of Everyday Things</em>. Basic Books.</p>
+                        <p><strong>Cooper, A., Reimann, R., Cronin, D., & Verplank, B.</strong> (2014). <em>About Face: The Essentials of Interaction Design</em>. Wiley.</p>
+                        <p><strong>Miller, G. A.</strong> (1956). The magical number seven plus or minus two: Some limits on our capacity for processing information. <em>The Psychological Review</em>, 63, 81–97.</p>
                     </div>
                 </section>
 
                 <section>
-                    <h3>Gestos y Háptica</h3>
+                    <h3>Rendimiento y Métricas</h3>
                     <div style="font-size: 0.7em; text-align: left;">
-                        <p><strong>Goldberg, D. & Richardson, C.</strong> (1993). Unistrokes: A stroke alphabet for pen-based input. <em>Proceedings of the ACM SIGCHI Conference on Human Factors in Computing Systems—CHI '93</em>. New York: ACM. 17–24.</p>
-                        <p><strong>Balakrishnan, R. & Patel, P.</strong> (1998). The PadMouse: Facilitating selection and spatial positioning for the non-dominant hand. <em>Proceedings of the ACM SIGCHI Conference on Human Factors in Computing Systems—CHI '98</em>. New York: ACM. 9–16.</p>
-                        <p><strong>Igarashi, T. & Hughes, J. F.</strong> (2001). Voice as sound: Using non-verbal voice input for interactive control. <em>Proceedings of the ACM Symposium on User Interface Software and Technology—UIST 2001</em>. New York: ACM. 155–156.</p>
+                        <p><strong>Liang, J., Shaw, C., & Green, M.</strong> (1991). On temporal latency and rendering quality in 3D user interfaces.</p>
+                        <p><strong>Hart, S. & Staveland, L.</strong> (1988). Development of NASA-TLX.</p>
+                        <p><strong>MacKenzie, I. S.</strong> (2013). <em>Human-Computer Interaction: An Empirical Research Perspective</em>. Elsevier Inc.</p>
+                        <p><strong>Smith, S. L., & Mosier, J. N.</strong> (1986). Guidelines for designing user interface software.</p>
                     </div>
                 </section>
 
                 <section>
                     <h3>Referencias Adicionales</h3>
                     <div style="font-size: 0.7em; text-align: left;">
-                        <p><strong>Norman, D. A.</strong> (1988). <em>The Psychology of Everyday Things</em>. Basic Books.</p>
-                        <p><strong>Norman, D. A.</strong> (2005). <em>Emotional Design</em>. New York: Basic Books.</p>
                         <p><strong>Krug, S.</strong> (2006). <em>Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability</em>. New Riders.</p>
-                        <p><strong>MacKenzie, I. S.</strong> (2013). <em>Human-Computer Interaction: An Empirical Research Perspective</em>. Elsevier Inc.</p>
-                        <p><strong>Shneiderman, B., & Plaisant, C.</strong> (2004). <em>Designing the User Interface: Strategies for Effective Human Computer Interaction</em> (4th ed.). Pearson Education, Inc.</p>
-                        <p><strong>Zuboff, S.</strong> (2019). <em>The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power</em>. PublicAffairs.</p>
-                        <p><strong>Abowd, G. D. & Mynatt, E. D.</strong> (2000). Charting past, present, and future research in ubiquitous computing. <em>ACM Transactions on Computer Human Interaction (TOCHI)</em>, 7(1), 29–58.</p>
+                        <p><strong>Williams, R.</strong> (2008). <em>100 Things Every Designer Needs to Know About People</em>. Peachpit Press.</p>
+                        <p><strong>Casey, S. P.</strong> (2006). The design of the common sense.</p>
+                        <p><strong>Casey, S. P.</strong> (1998). <em>Set phasers on stun: And other true tales of design technology, and human error</em> (2nd ed.).</p>
+                        <p><strong>Hanington, B., & Martin, B.</strong> (2012). <em>Universal Principles of Design, Revised and Updated</em>. Rockport Publishers.</p>
                         <p><strong>Material de enseñanza:</strong> Excerpts from "UX Design: Hazlo fácil pensando en el usuario.pdf"</p>
                     </div>
                 </section>

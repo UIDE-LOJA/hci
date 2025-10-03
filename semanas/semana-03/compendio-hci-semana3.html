@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Semana 3 - Diseño Centrado en el Usuario y Psicología del Diseño</title>
+    <title>Semana 3 - Diseño Centrado en el Usuario</title>
 
     <!-- Reveal.js CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
@@ -99,245 +99,164 @@
             color: var(--uide-secondary);
             padding: 0.2em 0.4em;
             border-radius: 3px;
+            font-weight: 500;
         }
 
-        /* Logo positioning - Book corner */
+        /* Logo positioning */
         .logo-container {
             position: absolute;
-            top: 3vh;
-            right: 3vw;
-            z-index: 10;
-            opacity: 0.8;
+            top: 1em;
+            right: 1em;
+            z-index: 100;
         }
 
         .logo-container img {
-            width: 8vw;
+            width: min(10vw, 80px);
             height: auto;
-            max-width: 120px;
+            opacity: 0.9;
         }
 
-        /* Page numbers - Book style */
-        .page-number {
-            position: absolute;
-            bottom: 3vh;
-            right: 3vw;
-            font-size: 0.9em;
+        /* Blockquotes */
+        .reveal blockquote {
+            background: rgba(255,255,255,0.8);
+            border-left: 4px solid var(--uide-primary);
+            margin: 1em 0;
+            padding: 1em 2em;
+            font-style: italic;
             color: var(--uide-secondary);
-            font-family: 'Times New Roman', serif;
+            border-radius: 0 8px 8px 0;
         }
 
-        /* Title slide - Book cover style */
+        /* Title slide styling */
         .title-slide {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--uide-light) 0%, #e8e8e8 100%);
+            background: rgba(255,255,255,0.95);
+            padding: 2em;
+            border-radius: 15px;
             border: 3px double var(--uide-primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .title-slide h1 {
-            font-size: min(6vw, 4em);
-            margin-bottom: 0.5em;
             color: var(--uide-primary);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            margin-bottom: 0.5em;
         }
 
         .title-slide h2 {
-            font-size: min(4vw, 2.5em);
+            color: var(--uide-secondary);
+            font-size: min(3vw, 2em);
             margin-bottom: 1em;
-            color: var(--uide-secondary);
         }
 
-        /* Content styling - Book typography */
-        .reveal blockquote {
-            font-style: italic;
-            border-left: 4px solid var(--uide-accent);
-            padding-left: 1em;
+        .course-info {
+            background: rgba(255,255,255,0.9);
+            border-radius: 10px;
+            padding: 1em;
             margin: 1em 0;
-            color: var(--uide-primary);
-            font-size: min(2.2vw, 1.1em);
+            border: 2px solid var(--uide-accent);
+            font-size: min(2vw, 1em);
         }
 
-        .reveal table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5em 0;
-            font-size: min(2vw, 0.9em);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .reveal table th, .reveal table td {
-            border: 1px solid var(--uide-secondary);
-            padding: 0.8em;
-            text-align: left;
-        }
-
-        .reveal table th {
-            background-color: var(--uide-primary);
-            color: white;
-            font-weight: bold;
-        }
-
-        .reveal table tr:nth-child(even) {
-            background-color: rgba(255,255,255,0.5);
-        }
-
-        /* Fragment animations - Book page turning effect */
-        .fragment {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .fragment.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .fragment.fade-in {
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-
-        .fragment.fade-in.visible {
-            opacity: 1;
-        }
-
-        /* Highlight important text */
-        .highlight {
-            background-color: var(--uide-accent);
+        /* Cross-references */
+        .cross-reference {
+            background: rgba(233, 171, 33, 0.1);
+            border: 1px solid var(--uide-accent);
+            border-radius: 8px;
+            padding: 1em;
+            margin: 1em 0;
+            font-style: italic;
             color: var(--uide-secondary);
-            padding: 0.2em 0.4em;
-            border-radius: 3px;
-            font-weight: bold;
         }
 
         /* Media placeholders */
         .media-placeholder {
-            background: rgba(0,0,0,0.05);
-            border: 2px dashed var(--uide-secondary);
+            background: rgba(145, 0, 72, 0.1);
+            border: 2px dashed var(--uide-primary);
+            border-radius: 10px;
             padding: 3vh 2vw;
-            margin: 2vh 0;
             text-align: center;
-            border-radius: 5px;
-            color: var(--uide-secondary);
-        }
-
-        /* Chapter headers */
-        .chapter-header {
-            text-align: center;
-            border-bottom: 2px solid var(--uide-primary);
-            padding-bottom: 0.5em;
-            margin-bottom: 2em;
-            font-size: min(3vw, 2em);
             color: var(--uide-primary);
-        }
-
-        /* Footer with university info */
-        .slide-footer {
-            position: absolute;
-            bottom: 3vh;
-            left: 3vw;
-            font-size: 0.8em;
-            color: var(--uide-secondary);
-            font-family: 'Times New Roman', serif;
-        }
-
-        /* Cross-reference styling */
-        .cross-reference {
-            background-color: rgba(145, 0, 72, 0.1);
-            border-left: 3px solid var(--uide-primary);
-            padding: 0.5em 1em;
             margin: 1em 0;
             font-style: italic;
-            color: var(--uide-secondary);
         }
 
-        /* Two-column layout */
-        .two-column {
-            display: flex;
-            gap: 2em;
-            align-items: flex-start;
-        }
-
+        /* Two column layout */
         .column {
             flex: 1;
-            padding: 0 1em;
+            min-width: 0;
         }
 
-        /* Color swatches for color psychology section */
-        .color-swatch {
-            display: inline-block;
-            width: 2em;
-            height: 2em;
-            border-radius: 50%;
-            margin: 0.2em;
-            vertical-align: middle;
-            border: 2px solid #333;
+        .column h4 {
+            color: var(--uide-primary);
+            border-bottom: 2px solid var(--uide-accent);
+            padding-bottom: 0.3em;
+            margin-bottom: 0.8em;
         }
 
-        /* Responsive Design - Mobile First */
+        /* Special styling for concept boxes */
+        .concept-box {
+            background: rgba(145, 0, 72, 0.1);
+            border: 2px solid var(--uide-primary);
+            border-radius: 10px;
+            padding: 1em;
+            margin: 0.5em 0;
+            text-align: center;
+        }
+
+        .concept-box.good {
+            background: rgba(76, 175, 80, 0.1);
+            border-color: #4CAF50;
+            color: #2E7D32;
+        }
+
+        .concept-box.warning {
+            background: rgba(255, 193, 7, 0.1);
+            border-color: #FFC107;
+            color: #F57C00;
+        }
+
+        /* References section - optimized for readability */
+        .references-container {
+            column-count: 2;
+            column-gap: 2em;
+            column-rule: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .references-container p {
+            break-inside: avoid;
+            margin-bottom: 0.8em;
+            text-align: left;
+        }
+
+        /* Responsive design */
         @media (max-width: 768px) {
             .reveal {
                 font-size: min(4vw, 18px);
             }
 
-            .reveal h1 {
-                font-size: min(8vw, 2.5em);
-            }
-
-            .reveal h2 {
-                font-size: min(6vw, 2em);
-            }
-
-            .reveal h3 {
-                font-size: min(5vw, 1.5em);
-            }
-
-            .reveal p, .reveal li {
-                font-size: min(4vw, 1em);
-            }
-
-            .two-column {
+            .r-hstack {
                 flex-direction: column;
                 gap: 1em;
             }
 
-            .column {
-                padding: 0.5em;
-            }
-
-            .logo-container {
-                top: 2vh;
-                right: 2vw;
-            }
-
             .logo-container img {
                 width: 12vw;
-                max-width: 80px;
+                max-width: 60px;
             }
 
-            .page-number {
-                bottom: 2vh;
-                right: 2vw;
-                font-size: 0.7em;
-            }
-
-            .slide-footer {
-                bottom: 1vh;
-                left: 2vw;
-                font-size: 0.7em;
-            }
-
+            /* Title slide adjustments */
             .title-slide h1 {
                 font-size: min(10vw, 3em);
             }
 
             .title-slide h2 {
                 font-size: min(7vw, 2em);
+            }
+
+            /* References section */
+            .references-container {
+                column-count: 1 !important;
+                font-size: min(3.5vw, 0.7em);
             }
         }
 
@@ -361,6 +280,41 @@
 
             .title-slide h2 {
                 font-size: min(8vw, 1.8em);
+            }
+        }
+
+        /* Touch-friendly interactions for mobile */
+        @media (max-width: 768px) and (pointer: coarse) {
+            .reveal .controls {
+                font-size: 1.5em;
+            }
+
+            .fragment {
+                transition-duration: 0.6s;
+            }
+        }
+
+        /* Vertical slide indicators */
+        .reveal .controls .navigate-up, .reveal .controls .navigate-down {
+            opacity: 0.8;
+        }
+
+        .reveal .controls .navigate-up.enabled, .reveal .controls .navigate-down.enabled {
+            opacity: 1;
+        }
+
+        /* Transition effects - no gradients */
+        .reveal section[data-transition="fade"],
+        .reveal section[data-transition="slide"],
+        .reveal section[data-transition="convex"] {
+            background: var(--uide-light);
+        }
+
+        /* High DPI displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .logo-container img {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
             }
         }
 
@@ -483,47 +437,33 @@
     </style>
 </head>
 <body>
-
     <div class="reveal">
         <div class="slides">
-
             <!-- Title Slide -->
             <section data-background-color="#f8f8f8" data-transition="convex">
                 <div class="logo-container">
                     <img src="../../Logo UIDE.png" alt="Logo UIDE">
                 </div>
-
-                <h3 style="color: var(--uide-secondary);">Semana 3</h3>
-                <div style="width: 100px; height: 3px; background: var(--uide-primary); margin: 1em auto; border-radius: 2px;"></div>
-
-                <h1 style="color: var(--uide-primary);">Diseño Centrado en el Usuario</h1>
-                <h2 style="color: var(--uide-secondary);">y Psicología del Diseño</h2>
-
-                <div style="margin: 2em 0; padding: 1.5em; background: rgba(255,255,255,0.9); border-radius: 10px; border-left: 4px solid var(--uide-accent);">
-                    <h4 style="color: var(--uide-primary); margin: 0 0 0.5em 0;">Universidad Internacional del Ecuador</h4>
-                    <p style="margin: 0; color: var(--uide-secondary); font-style: italic;">
-                        "Formando líderes con visión global y excelencia académica"
-                    </p>
-                </div>
-
-                <div class="r-hstack" style="justify-content: center;">
-                    <div style="text-align: center;">
-                        <div style="color: var(--uide-primary); font-weight: bold;">PP-07-HCI</div>
-                        <div style="color: var(--uide-secondary); font-size: 0.8em;">Código del Curso</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="color: var(--uide-primary); font-weight: bold;">Oct 2025 - Feb 2026</div>
-                        <div style="color: var(--uide-secondary); font-size: 0.8em;">Período Académico</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="color: var(--uide-primary); font-weight: bold;">Séptimo Nivel</div>
-                        <div style="color: var(--uide-secondary); font-size: 0.8em;">Nivel</div>
-                    </div>
-                </div>
                 
-                <div style="margin-top: 2em; text-align: center; color: var(--uide-secondary); font-size: 0.9em;">
-                    <strong>Prof. Charlie Cárdenas Toledo, M.Sc.</strong><br>
-                    <em>chcardenasto@uide.edu.ec</em>
+                <div class="title-slide">
+                    <h1>Diseño Centrado en el Usuario</h1>
+                    <h2>Semana 3</h2>
+                    
+                    <div class="course-info">
+                        <strong>PP-07-HCI</strong> • Séptimo Nivel<br>
+                        <strong>Human-Computer Interaction</strong><br>
+                        <em>Prof. Charlie Cárdenas Toledo, M.Sc.</em><br>
+                        Universidad Internacional del Ecuador • Octubre 2025
+                    </div>
+                    
+                    <div style="background: rgba(233, 171, 33, 0.1); border-radius: 8px; padding: 1em; margin: 1em 0; font-size: 0.9em;">
+                        <strong>Unidad 1: Fundamentos de HCI</strong><br>
+                        <em>Semana 3 de 16 • Don Norman, Psicología del Color, Gestalt y Affordances</em>
+                    </div>
+                    
+                    <div style="margin-top: 2em; font-size: 0.9em; font-style: italic; color: var(--uide-secondary);">
+                        Explorando el diseño centrado en el usuario y los principios de percepción
+                    </div>
                 </div>
             </section>
 
@@ -533,17 +473,73 @@
                     <img src="../../Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 
-                <blockquote style="background: rgba(255,255,255,0.95); padding: 2em; border-radius: 15px; border-left: 5px solid var(--uide-primary);">
-                    <p style="font-size: 1.2em; color: var(--uide-secondary); margin: 0; line-height: 1.6; font-style: italic;">
-                        "El diseño no es simplemente cómo se ve y cómo se siente. El diseño es cómo funciona."
-                    </p>
-                    <cite style="display: block; margin-top: 1em; color: var(--uide-primary); font-weight: bold;">
-                        — Steve Jobs
-                    </cite>
+                <blockquote style="font-size: 1.2em; text-align: center;">
+                    <p><strong>"El buen diseño es realmente mucho más difícil de notar que el mal diseño, en parte porque los buenos diseños encajan tan bien en nuestras necesidades que el diseño es invisible."</strong></p>
+                    <footer style="margin-top: 1em; color: var(--uide-secondary);">
+                        — Don Norman, The Design of Everyday Things
+                    </footer>
                 </blockquote>
             </section>
 
-            <!-- Don Norman Introduction -->
+            <!-- Curriculum Context -->
+            <section data-background-color="#f8f8f8">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Contexto en la Unidad 2</h2>
+                
+                <section>
+                    <h3>Progresión Temática</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Unidad 1 Anterior</h4>
+                            <div style="background: rgba(145, 0, 72, 0.1); padding: 1em; border-radius: 8px;">
+                                <strong>Fundamentos de HCI</strong><br>
+                                <small>Introducción y factores humanos</small>
+                            </div>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Semana 3 (Actual)</h4>
+                            <div style="background: rgba(233, 171, 33, 0.2); padding: 1em; border-radius: 8px; border: 2px solid var(--uide-accent);">
+                                <strong>Diseño Centrado en Usuario</strong><br>
+                                <small>Don Norman, color, Gestalt, affordances</small>
+                            </div>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Semana 4</h4>
+                            <div style="background: rgba(35, 53, 110, 0.1); padding: 1em; border-radius: 8px;">
+                                <strong>Cognición y Percepción</strong><br>
+                                <small>Leyes de Fitts/Hick, memoria, carga cognitiva</small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Temas de la Semana 3</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Contenidos Principales</h4>
+                            <ul>
+                                <li><mark>Don Norman (diseño centrado en el usuario)</mark></li>
+                                <li><mark>Psicología del color</mark></li>
+                                <li><mark>Gestalt</mark></li>
+                                <li><mark>Affordances y señalizadores</mark></li>
+                            </ul>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Conexiones Previas</h4>
+                            <ul>
+                                <li><strong>Semana 1:</strong> Principios de usabilidad</li>
+                                <li><strong>Semana 2:</strong> Factores humanos como base</li>
+                                <li><strong>Continuidad:</strong> Aplicación práctica de principios</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Don Norman Overview -->
             <section data-transition="convex">
                 <div class="logo-container">
                     <img src="../../Logo UIDE.png" alt="Logo UIDE">
@@ -551,27 +547,54 @@
                 <h2>Don Norman: Pionero del Diseño Centrado en el Usuario</h2>
                 
                 <section data-auto-animate>
-                    <h3>¿Quién es Donald Norman?</h3>
-                    <p>Donald Norman es una <mark>figura central</mark> en el diseño y la usabilidad, conocido por sus contribuciones a la conceptualización de la Experiencia del Usuario (UX) y los modelos cognitivos que sustentan el diseño centrado en el ser humano.</p>
-                    
-                    <div class="cross-reference">
-                        <strong>Conexión con la Semana 1:</strong> Como vimos en nuestra introducción a HCI, Norman fue mencionado como una figura clave en el desarrollo de los principios de usabilidad fundamentales.
+                    <h3>Definición y Alcance</h3>
+                    <div class="concept-box">
+                        <p><strong>Donald Norman es una figura central en el diseño y la usabilidad</strong></p>
+                        <div class="fragment">
+                            <p>Conocido por sus contribuciones a la <mark>conceptualización de la Experiencia del Usuario (UX)</mark> y los modelos cognitivos</p>
+                        </div>
+                    </div>
+                    <p class="fragment">Sus ideas forman la base del <strong>diseño centrado en el ser humano</strong> y han influenciado profundamente la práctica moderna de HCI.</p>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>Origen del término UX</h3>
+                    <blockquote>
+                        <p><strong>"Probablemente se originó a principios de la década de 1990 en Apple, cuando me uní al equipo como Arquitecto de Experiencia del Usuario"</strong></p>
+                    </blockquote>
+                    <div class="fragment">
+                        <div class="concept-box warning">
+                            <p><strong>Razón del cambio:</strong> Norman consideraba que los términos <mark>"Interfaz Humana" y "usabilidad" eran demasiado estrechos</mark></p>
+                        </div>
                     </div>
                 </section>
 
                 <section data-auto-animate>
-                    <h3>Origen de la Experiencia del Usuario (UX)</h3>
-                    <div class="r-vstack">
-                        <div class="fragment">
-                            <p>El término <strong>"experiencia del usuario" (UX)</strong> probablemente se originó a <mark>principios de la década de 1990 en Apple</mark>, cuando Norman se unió al equipo como psicólogo cognitivo.</p>
+                    <h3>Visión Integral de UX</h3>
+                    <p>Norman quería cubrir <strong>todos los aspectos</strong> de la experiencia de una persona con un sistema:</p>
+                    <div class="r-hstack">
+                        <div class="column fragment">
+                            <div class="concept-box">
+                                <h4>Aspectos Físicos</h4>
+                                <ul>
+                                    <li>Diseño industrial</li>
+                                    <li>Interacción física</li>
+                                    <li>Manual de usuario</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="fragment">
-                            <p>Norman ostentó el título de <strong>"Arquitecto de Experiencia del Usuario"</strong>, y lo inventó porque consideraba que los términos "Interfaz Humana" y "usabilidad" eran demasiado estrechos.</p>
-                        </div>
-                        <div class="fragment">
-                            <p>Norman quería cubrir <mark>todos los aspectos</mark> de la experiencia de una persona con un sistema: diseño industrial, gráficos, interfaz, interacción física y manual.</p>
+                        <div class="column fragment">
+                            <div class="concept-box">
+                                <h4>Aspectos Digitales</h4>
+                                <ul>
+                                    <li>Gráficos</li>
+                                    <li>Interfaz de usuario</li>
+                                    <li>Interacciones digitales</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
+                    <p class="fragment"><strong>Resultado:</strong> <mark>Una experiencia holística e integrada del usuario</mark></p>
                 </section>
             </section>
 
@@ -580,155 +603,123 @@
                 <div class="logo-container">
                     <img src="../../Logo UIDE.png" alt="Logo UIDE">
                 </div>
-                <h2>El Diseño de las Cosas Cotidianas</h2>
+                <h2>The Design of Everyday Things</h2>
                 
                 <section>
-                    <h3>Un Libro Revolucionario</h3>
-                    <p>El libro de Norman de <strong>1988</strong>, inicialmente publicado como <em>"The Psychology of Everyday Things"</em> y luego reimpreso como <em>"The Design of Everyday Things"</em>, es un análisis refrescante sobre los temas psicológicos en el diseño de la tecnología cotidiana.</p>
-                    
-                    <blockquote class="fragment">
-                        <p>En este libro, Norman popularizó el concepto de <strong>affordances percibidas</strong>.</p>
-                    </blockquote>
-                </section>
-            </section>
-
-            <!-- Norman's Cognitive Model -->
-            <section>
-                <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
-                </div>
-                <h2>Modelo Cognitivo: Etapas de Acción</h2>
-                
-                <section>
-                    <h3>Las Siete Etapas de Acción</h3>
-                    <p>Norman (1988) propuso un <mark>modelo explicativo</mark> de la interacción persona-ordenador basado en siete etapas de acción dispuestas en un patrón cíclico:</p>
-                    
-                    <div class="cross-reference">
-                        <strong>Recordando la Semana 1:</strong> Este modelo se relaciona directamente con los principios de diseño cognitivo que mencionamos al hablar de la usabilidad.
+                    <h3>Libro Seminal (1988)</h3>
+                    <div class="concept-box">
+                        <p><strong>Inicialmente publicado como "The Psychology of Everyday Things"</strong></p>
+                        <p>Un análisis refrescante sobre los <mark>temas psicológicos en el diseño</mark> de la tecnología cotidiana</p>
                     </div>
-                </section>
-
-                <section data-auto-animate>
-                    <h3>El Ciclo de Acción</h3>
-                    <div class="r-vstack" style="text-align: center;">
-                        <div class="fragment">1. <strong>Formar el objetivo</strong></div>
-                        <div class="fragment">2. <strong>Formar la intención</strong></div>
-                        <div class="fragment">3. <strong>Especificar la acción</strong></div>
-                        <div class="fragment">4. <strong>Ejecutar la acción</strong></div>
-                        <div class="fragment">5. <strong>Percibir el estado</strong></div>
-                        <div class="fragment">6. <strong>Interpretar el estado</strong></div>
-                        <div class="fragment">7. <strong>Evaluar el resultado</strong></div>
+                    <div class="cross-reference fragment">
+                        <p><strong>Conexión con HCI:</strong> Este libro estableció los fundamentos teóricos que siguen siendo centrales en el diseño de interfaces digitales modernas.</p>
                     </div>
                 </section>
 
                 <section>
-                    <h3>Los Dos Golfos de la Interacción</h3>
-                    <p>Este modelo dinámico condujo a la identificación de <mark>dos fallas clave</mark> en la interacción:</p>
-                    
-                    <div class="two-column">
+                    <h3>Contribuciones Principales</h3>
+                    <div class="r-hstack">
                         <div class="column">
-                            <div class="fragment">
-                                <h4>1. Golfo de Ejecución</h4>
-                                <p>La falta de coincidencia entre las <strong>intenciones del usuario</strong> y las <strong>acciones permitidas</strong> por el sistema.</p>
+                            <div class="concept-box">
+                                <h4>Conceptos Clave</h4>
+                                <ul>
+                                    <li>Popularizó las <strong>affordances percibidas</strong></li>
+                                    <li>Análisis psicológico del diseño</li>
+                                    <li>Modelos mentales del usuario</li>
+                                    <li>Principios de buen diseño</li>
+                                </ul>
                             </div>
                         </div>
                         <div class="column">
-                            <div class="fragment">
-                                <h4>2. Golfo de Evaluación</h4>
-                                <p>La falta de coincidencia entre la <strong>representación del sistema</strong> y las <strong>expectativas del usuario</strong> (basadas en su modelo mental).</p>
+                            <div class="concept-box good">
+                                <h4>Impacto en HCI</h4>
+                                <p>Transformó la comprensión de la relación entre <strong>psicología humana</strong> y <strong>diseño de productos</strong></p>
+                                <p><small>Principios relevantes en la era digital</small></p>
                             </div>
                         </div>
                     </div>
                 </section>
             </section>
 
-            <!-- Norman's Four Principles -->
+            <!-- Slide 4: Modelo Cognitivo - 7 Etapas -->
             <section>
-                <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
-                </div>
-                <h2>Cuatro Principios de Buen Diseño</h2>
+                <h2>Modelo Cognitivo: 7 Etapas de Acción</h2>
                 
-                <section>
-                    <p>Norman sugiere <mark>cuatro principios</mark> de buen diseño derivados de su modelo de etapas de acción:</p>
-                    
-                    <div class="cross-reference">
-                        <strong>Conexión con la Semana 1:</strong> Estos principios complementan las Reglas de Oro de Shneiderman que estudiamos anteriormente.
+                <div class="r-hstack">
+                    <div class="flex-1">
+                        <h3>Las 7 Etapas (Patrón Cíclico)</h3>
+                        <ol>
+                            <li><strong>Formar el objetivo</strong></li>
+                            <li><strong>Formar la intención</strong></li>
+                            <li><strong>Especificar la acción</strong></li>
+                            <li><strong>Ejecutar la acción</strong></li>
+                            <li><strong>Percibir el estado</strong></li>
+                            <li><strong>Interpretar el estado</strong></li>
+                            <li><strong>Evaluar el resultado</strong></li>
+                        </ol>
                     </div>
-                </section>
+                    
+                    <div class="flex-1">
+                        <h3>Dos Fallas Clave</h3>
+                        <div class="definition-box">
+                            <h4>1. Golfo de Ejecución</h4>
+                            <p>Falta de coincidencia entre las <em>intenciones del usuario</em> y las <em>acciones permitidas por el sistema</em>.</p>
+                        </div>
+                        <div class="definition-box">
+                            <h4>2. Golfo de Evaluación</h4>
+                            <p>Falta de coincidencia entre la <em>representación del sistema</em> y las <em>expectativas del usuario</em> basadas en su modelo mental.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-                <section data-auto-animate>
-                    <div data-id="principles">
+            <!-- Slide 5: Principios de Buen Diseño -->
+            <section>
+                <h2>4 Principios de Buen Diseño (Norman)</h2>
+                
+                <div class="r-vstack">
+                    <div class="example-box">
                         <h3>1. Visibilidad</h3>
-                        <p><strong>"El estado y las alternativas de acción deben ser visibles"</strong></p>
+                        <p>El estado y las alternativas de acción deben ser <strong>visibles</strong> para el usuario.</p>
                     </div>
-                </section>
-
-                <section data-auto-animate>
-                    <div data-id="principles">
+                    
+                    <div class="example-box">
                         <h3>2. Modelo Conceptual</h3>
-                        <p>Debe haber un <mark>buen modelo conceptual</mark> con una imagen de sistema consistente.</p>
+                        <p>Debe haber un buen <strong>modelo conceptual</strong> con una imagen de sistema consistente.</p>
                     </div>
-                </section>
-
-                <section data-auto-animate>
-                    <div data-id="principles">
+                    
+                    <div class="example-box">
                         <h3>3. Mapeos (Mappings)</h3>
-                        <p>La interfaz debe incluir <mark>buenos mapeos</mark> que revelen las relaciones entre las etapas.</p>
+                        <p>La interfaz debe incluir buenos <strong>mapeos</strong> que revelen las relaciones entre las etapas.</p>
                     </div>
-                </section>
-
-                <section data-auto-animate>
-                    <div data-id="principles">
-                        <h3>4. Feedback</h3>
-                        <p>Los usuarios deben recibir <mark>retroalimentación continua</mark>.</p>
+                    
+                    <div class="example-box">
+                        <h3>4. Retroalimentación (Feedback)</h3>
+                        <p>Los usuarios deben recibir <strong>retroalimentación continua</strong> sobre sus acciones.</p>
                     </div>
-                </section>
+                </div>
             </section>
 
-            <!-- Emotional Design -->
+            <!-- Slide 6: Diseño Emocional - 3 Niveles -->
             <section>
-                <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
-                </div>
-                <h2>Diseño Emocional</h2>
+                <h2>Diseño Emocional: 3 Niveles de Procesamiento</h2>
                 
-                <section>
-                    <h3>Tres Niveles de Procesamiento</h3>
-                    <p>En <em>"Emotional Design"</em> (2005), Norman introdujo la idea de que el diseño debe abordar <mark>tres niveles diferentes</mark> de procesamiento cognitivo y emocional:</p>
-                </section>
-
-                <section data-auto-animate>
-                    <div data-id="levels">
-                        <h3>Nivel Visceral</h3>
-                        <p>Nivel más <strong>inmediato</strong>, relacionado con la respuesta emocional y las reacciones a los aspectos sensoriales <mark>antes de la interacción</mark>.</p>
-                        <p class="fragment">El diseño visceral busca el <strong>afecto</strong> (la respuesta psicológica o emocional apropiada).</p>
+                <div class="r-vstack">
+                    <div class="definition-box">
+                        <h3>1. Nivel Visceral</h3>
+                        <p><strong>Nivel más inmediato</strong> - Respuesta emocional y reacciones a los aspectos sensoriales <em>antes de la interacción</em>. Busca el afecto psicológico o emocional apropiado.</p>
                     </div>
-                </section>
-
-                <section data-auto-animate>
-                    <div data-id="levels">
-                        <h3>Nivel Conductual (Behavioral)</h3>
-                        <p>Nivel <strong>medio</strong> que gestiona comportamientos cotidianos simples, históricamente abordado por la usabilidad.</p>
-                        <p class="fragment">Corresponde a las <mark>Metas Finales</mark> del usuario (lo que quiere lograr).</p>
+                    
+                    <div class="highlight-box">
+                        <h3>2. Nivel Conductual (Behavioral)</h3>
+                        <p><strong>Nivel medio</strong> - Gestiona comportamientos cotidianos simples, históricamente abordado por la usabilidad. Corresponde a las <em>Metas Finales</em> del usuario (lo que quiere lograr).</p>
                     </div>
-                </section>
-
-                <section data-auto-animate>
-                    <div data-id="levels">
-                        <h3>Nivel Reflexivo (Reflective)</h3>
-                        <p>Nivel más <strong>alto</strong> que implica la consideración consciente de las experiencias, asociando significado y valor al artefacto.</p>
-                        <p class="fragment">Corresponde a las <mark>Metas de Vida</mark>.</p>
+                    
+                    <div class="example-box">
+                        <h3>3. Nivel Reflexivo (Reflective)</h3>
+                        <p><strong>Nivel más alto</strong> - Consideración consciente de las experiencias, asociando significado y valor al artefacto. Relacionado con las <em>Metas de Vida</em> del usuario.</p>
                     </div>
-                </section>
-
-                <section>
-                    <h3>Diseño Centrado en la Actividad (ACD)</h3>
-                    <p>Norman también defiende el <strong>Diseño Centrado en la Actividad (ACD)</strong>, basado en la Teoría de la Actividad.</p>
-                    <blockquote class="fragment">
-                        <p>Se enfoca primordialmente en la <mark>comprensión de las actividades</mark> que las personas realizan con un conjunto de herramientas para influir favorablemente en el diseño de esas herramientas.</p>
-                    </blockquote>
-                </section>
+                </div>
             </section>
 
             <!-- Color Psychology -->
@@ -740,9 +731,12 @@
                 
                 <section>
                     <h3>El Color en el Diseño</h3>
-                    <p>El color es un <mark>elemento visual fundamental</mark> que se utiliza en el diseño para atraer la atención, agrupar elementos, indicar significado y mejorar la estética.</p>
-                    
-                    <p class="fragment">Sin embargo, su <strong>uso indebido</strong> puede dañar gravemente la forma y función de un diseño.</p>
+                    <div class="concept-box">
+                        <p>El color es un <mark>elemento visual fundamental</mark> que se utiliza en el diseño para atraer la atención, agrupar elementos, indicar significado y mejorar la estética</p>
+                        <div class="fragment">
+                            <p>Sin embargo, su <strong>uso indebido</strong> puede dañar gravemente la forma y función de un diseño</p>
+                        </div>
+                    </div>
                 </section>
 
                 <section>
@@ -1026,11 +1020,8 @@
                 <div class="logo-container">
                     <img src="../../Logo UIDE.png" alt="Logo UIDE">
                 </div>
-                <h2>Recapitulación Rápida</h2>
-                
-                <p style="text-align: center; font-style: italic; color: var(--uide-secondary);">
-                    Tarjetas para repasar los conceptos clave de esta semana
-                </p>
+                <h2>Conceptos Clave - Flashcards Interactivas</h2>
+                <p style="text-align: center; margin-bottom: 2rem;"><em>Haz clic en cada tarjeta para ver la respuesta</em></p>
                 
                 <section>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin: 1.5em 0;">
@@ -1040,6 +1031,7 @@
                                 <div class="flashcard-front">
                                     <h4>Diseño Emocional de Norman</h4>
                                     <p>¿Cuáles son los tres niveles de procesamiento en el diseño emocional según Don Norman?</p>
+                                    <small>Clic para ver respuesta</small>
                                 </div>
                                 <div class="flashcard-back">
                                     <h4>Tres Niveles</h4>
@@ -1055,6 +1047,7 @@
                                 <div class="flashcard-front">
                                     <h4>Affordances</h4>
                                     <p>¿Qué son los affordances según la teoría de Gibson?</p>
+                                    <small>Clic para ver respuesta</small>
                                 </div>
                                 <div class="flashcard-back">
                                     <h4>Potencial de Acción</h4>
@@ -1074,6 +1067,7 @@
                                 <div class="flashcard-front">
                                     <h4>Principios de Gestalt</h4>
                                     <p>¿Cuál es el principio fundamental de la teoría de Gestalt?</p>
+                                    <small>Clic para ver respuesta</small>
                                 </div>
                                 <div class="flashcard-back">
                                     <h4>"El Todo es Mayor que la Suma"</h4>
@@ -1089,6 +1083,7 @@
                                 <div class="flashcard-front">
                                     <h4>Psicología del Color</h4>
                                     <p>¿Qué aspectos influyen en la percepción psicológica del color?</p>
+                                    <small>Clic para ver respuesta</small>
                                 </div>
                                 <div class="flashcard-back">
                                     <h4>Factores Múltiples</h4>
@@ -1108,34 +1103,19 @@
                 </div>
                 <h2>Referencias Bibliográficas</h2>
                 
-                <section>
-                    <h3>Fuentes Principales</h3>
-                    <div style="font-size: 0.7em; text-align: left;">
-                        <p><strong>Norman, D. A.</strong> (1988). <em>The Psychology of Everyday Things</em>. Basic Books.</p>
-                        <p><strong>Norman, D. A.</strong> (2005). <em>Emotional Design</em>. New York: Basic Books.</p>
-                        <p><strong>Shneiderman, B., & Plaisant, C.</strong> (2004). <em>Designing the User Interface: Strategies for Effective Human Computer Interaction</em> (4th ed.). Pearson Education, Inc.</p>
-                        <p><strong>Krug, S.</strong> (2006). <em>Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability</em>. New Riders.</p>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Fuentes Principales (cont.)</h3>
-                    <div style="font-size: 0.7em; text-align: left;">
-                        <p><strong>Díaz, S.</strong> (s.f.). <em>UX Design hazlo fácil pensando en el usuario</em>. Ediciones de la U / Editorial Ra-ma.</p>
-                        <p><strong>MacKenzie, I. S.</strong> (2013). <em>Human-Computer Interaction: An Empirical Research Perspective</em>. Elsevier Inc.</p>
-                        <p><strong>Fernández Casado, P. E.</strong> (2021). <em>UX Design: Hazlo fácil pensando en el usuario</em>. (Capítulos seleccionados).</p>
-                        <p><strong>Cooper, A., Reimann, R., Cronin, D., & Verplank, B.</strong> (2014). <em>About Face: The Essentials of Interaction Design</em> (4th ed.). Wiley.</p>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Referencias Adicionales</h3>
-                    <div style="font-size: 0.7em; text-align: left;">
-                        <p><strong>Williams, R.</strong> (2008). <em>100 Things Every Designer Needs to Know About People</em>. Peachpit Press.</p>
-                        <p><strong>Hanington, B. & Martin, B.</strong> (2012). <em>Universal Principles of Design</em>. Rockport Publishers.</p>
-                        <p><strong>Gibson, J. J.</strong> (1979). <em>The Ecological Approach to Visual Perception</em>. Houghton Mifflin.</p>
-                    </div>
-                </section>
+                <div class="references-container" style="font-size: 0.85em;">
+                    <p><strong>Cooper, A., Reimann, R., Cronin, D., & Verplank, B.</strong> (2014). <em>About Face: The Essentials of Interaction Design</em> (4th ed.). Wiley.</p>
+                    <p><strong>Díaz, S.</strong> (s.f.). <em>UX Design hazlo fácil pensando en el usuario</em>. Ediciones de la U / Editorial Ra-ma.</p>
+                    <p><strong>Fernández Casado, P. E.</strong> (2021). <em>UX Design: Hazlo fácil pensando en el usuario</em>. (Capítulos seleccionados).</p>
+                    <p><strong>Gibson, J. J.</strong> (1979). <em>The Ecological Approach to Visual Perception</em>. Houghton Mifflin.</p>
+                    <p><strong>Hanington, B. & Martin, B.</strong> (2012). <em>Universal Principles of Design</em>. Rockport Publishers.</p>
+                    <p><strong>Krug, S.</strong> (2006). <em>Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability</em>. New Riders.</p>
+                    <p><strong>MacKenzie, I. S.</strong> (2013). <em>Human-Computer Interaction: An Empirical Research Perspective</em>. Elsevier Inc.</p>
+                    <p><strong>Norman, D. A.</strong> (1988). <em>The Psychology of Everyday Things</em>. Basic Books.</p>
+                    <p><strong>Norman, D. A.</strong> (2005). <em>Emotional Design</em>. New York: Basic Books.</p>
+                    <p><strong>Shneiderman, B., & Plaisant, C.</strong> (2004). <em>Designing the User Interface: Strategies for Effective Human Computer Interaction</em> (4th ed.). Pearson Education, Inc.</p>
+                    <p><strong>Williams, R.</strong> (2008). <em>100 Things Every Designer Needs to Know About People</em>. Peachpit Press.</p>
+                </div>
             </section>
 
             <!-- Thank You Slide -->
@@ -1144,15 +1124,14 @@
                     <img src="../../Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 
-                <div class="r-fit-text" style="color: var(--uide-primary);">
-                    ¡Gracias!
-                </div>
-                
-                <h3>¿Preguntas?</h3>
-                
-                <div style="margin-top: 2em;">
-                    <small>Universidad Internacional del Ecuador<br>
-                    Semana 3 - Diseño Centrado en el Usuario y Psicología del Diseño</small>
+                <div class="title-slide">
+                    <h1 style="color: var(--uide-primary);">¡Gracias!</h1>
+                    <h3>¿Preguntas?</h3>
+                    
+                    <div style="margin-top: 2em; font-size: 0.9em;">
+                        <strong>Universidad Internacional del Ecuador</strong><br>
+                        <em>Semana 3 - Diseño Centrado en el Usuario</em>
+                    </div>
                 </div>
             </section>
 
@@ -1165,7 +1144,6 @@
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/markdown/markdown.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/highlight.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/math/math.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/zoom/zoom.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/search/search.js"></script>
 
@@ -1187,7 +1165,7 @@
             autoAnimateDuration: 1.0,
             autoAnimateUnmatched: true,
 
-            // Math rendering with KaTeX
+            // Math rendering
             math: {
                 mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
                 config: 'TeX-AMS_HTML-full',
@@ -1219,16 +1197,7 @@
             plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX, RevealZoom, RevealSearch ]
         });
 
-        // Add page numbers
-        Reveal.on('slidechanged', function(event) {
-            const currentSlide = event.indexh + 1;
-            const totalSlides = Reveal.getTotalSlides();
-            document.querySelectorAll('.page-number').forEach(el => {
-                el.textContent = `${currentSlide} / ${totalSlides}`;
-            });
-        });
-
-        // Flashcard flip functionality
+        // Simple Flashcard System
         function flipCard(card) {
             card.classList.toggle('flipped');
         }
