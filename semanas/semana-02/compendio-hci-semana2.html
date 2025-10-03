@@ -1,0 +1,1321 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Semana 2 - Factores Humanos y Computación Ubicua</title>
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css" id="theme">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/monokai.css">
+    
+
+    <!-- Custom CSS for UIDE colors -->
+    <style>
+        :root {
+            --uide-primary: #910048;    /* UIDE Burgundy */
+            --uide-secondary: #23356E;  /* UIDE Navy */
+            --uide-accent: #E9AB21;     /* UIDE Gold */
+            --uide-light: #f8f8f8;      /* Light background for contrast */
+        }
+
+        /* Typography */
+        .reveal {
+            font-family: 'Times New Roman', serif;
+            font-size: min(2.5vw, 22px);
+            line-height: 1.6;
+        }
+
+        .reveal h1, .reveal h2, .reveal h3 {
+            font-family: 'Georgia', serif;
+            font-weight: normal;
+            text-align: center;
+            color: var(--uide-primary) !important;
+            margin-bottom: 1em;
+        }
+
+        .reveal h1 {
+            font-size: min(4vw, 3em);
+        }
+
+        .reveal h2 {
+            font-size: min(3vw, 2.5em);
+        }
+
+        .reveal h3 {
+            font-size: min(2.5vw, 2em);
+        }
+
+        .reveal p, .reveal li {
+            text-align: justify;
+            color: #333;
+            margin-bottom: 1em;
+            font-size: min(2.2vw, 1.1em);
+        }
+
+        .reveal ul, .reveal ol {
+            text-align: left;
+        }
+
+        /* Clean slide format */
+        .reveal .slides section {
+            background: var(--uide-light);
+        }
+
+        /* Layout helpers */
+        .r-hstack {
+            display: flex;
+            gap: 2em;
+            align-items: flex-start;
+        }
+        
+        .r-vstack {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+        
+        .r-stack {
+            position: relative;
+        }
+        
+        .r-stack > * {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* UIDE color scheme */
+        .reveal .slide-background {
+            background: var(--uide-light);
+        }
+        
+        mark {
+            background-color: var(--uide-accent);
+            color: var(--uide-secondary);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+        }
+
+        /* Logo positioning */
+        .logo-container {
+            position: absolute;
+            top: 3vh;
+            right: 3vw;
+            z-index: 10;
+            opacity: 0.8;
+        }
+
+        .logo-container img {
+            width: 8vw;
+            height: auto;
+            max-width: 120px;
+        }
+
+        /* Content styling */
+        .reveal blockquote {
+            font-style: italic;
+            border-left: 4px solid var(--uide-accent);
+            padding-left: 1em;
+            margin: 1em 0;
+            color: var(--uide-primary);
+            font-size: min(2.2vw, 1.1em);
+        }
+
+        /* Highlight important text */
+        .highlight {
+            background-color: var(--uide-accent);
+            color: var(--uide-secondary);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        /* Fragment animations */
+        .fragment {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .fragment.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fragment.fade-in {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .fragment.fade-in.visible {
+            opacity: 1;
+        }
+
+        /* Transition effects - no gradients */
+        .reveal section[data-transition="fade"],
+        .reveal section[data-transition="slide"],
+        .reveal section[data-transition="convex"] {
+            background: var(--uide-light);
+        }
+
+        /* Responsive Design - Mobile First */
+        @media (max-width: 768px) {
+            .reveal {
+                font-size: min(4vw, 18px);
+            }
+
+            .reveal h1 {
+                font-size: min(8vw, 2.5em);
+            }
+
+            .reveal h2 {
+                font-size: min(6vw, 2em);
+            }
+
+            .reveal h3 {
+                font-size: min(5vw, 1.5em);
+            }
+
+            .reveal p, .reveal li {
+                font-size: min(4vw, 1em);
+            }
+
+            .r-hstack {
+                flex-direction: column;
+                gap: 2vh;
+            }
+
+            .logo-container {
+                top: 2vh;
+                right: 2vw;
+            }
+
+            .logo-container img {
+                width: 12vw;
+                max-width: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .reveal {
+                font-size: min(5vw, 16px);
+            }
+
+            .logo-container img {
+                width: 15vw;
+                max-width: 60px;
+            }
+        }
+
+        /* Gamified Quiz Cards */
+        .quiz-section {
+            background: linear-gradient(135deg, rgba(145, 0, 72, 0.1), rgba(35, 53, 110, 0.1));
+            border-radius: 15px;
+            padding: 2em;
+            margin: 2em 0;
+            border: 2px solid var(--uide-accent);
+        }
+
+        .quiz-intro {
+            text-align: center;
+            margin-bottom: 2em;
+        }
+
+        .quiz-intro h3 {
+            color: var(--uide-primary);
+            margin-bottom: 0.5em;
+        }
+
+        .score-display {
+            background: rgba(255,255,255,0.9);
+            border-radius: 10px;
+            padding: 1em;
+            text-align: center;
+            margin: 1em 0;
+            border: 2px solid var(--uide-accent);
+        }
+
+        .flashcard {
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            padding: 2em;
+            margin: 1.5em 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-left: 5px solid var(--uide-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            min-height: 200px;
+            perspective: 1000px;
+        }
+
+        .flashcard:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1em;
+        }
+
+        .flashcard-back {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, var(--uide-light), #e8e8e8);
+        }
+
+        .quiz-question {
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            padding: 2em;
+            margin: 1.5em 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-left: 5px solid var(--uide-accent);
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 1em;
+            margin: 1.5em 0;
+        }
+
+        .quiz-option {
+            background: rgba(255,255,255,0.9);
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .quiz-option:hover {
+            background: rgba(233, 171, 33, 0.1);
+            border-color: var(--uide-accent);
+            transform: translateX(5px);
+        }
+
+        .quiz-option.selected {
+            background: rgba(233, 171, 33, 0.2);
+            border-color: var(--uide-accent);
+            font-weight: bold;
+        }
+
+        .quiz-option.correct {
+            background: rgba(76, 175, 80, 0.2);
+            border-color: #4CAF50;
+            color: #2E7D32;
+        }
+
+        .quiz-option.incorrect {
+            background: rgba(244, 67, 54, 0.2);
+            border-color: #F44336;
+            color: #C62828;
+        }
+
+        .quiz-feedback {
+            background: rgba(255,255,255,0.95);
+            border-radius: 10px;
+            padding: 1.5em;
+            margin: 1em 0;
+            border-left: 4px solid var(--uide-primary);
+            display: none;
+        }
+
+        .quiz-feedback.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .achievement-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--uide-accent), #FFD54F);
+            color: var(--uide-secondary);
+            padding: 0.5em 1em;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin: 0.5em;
+            box-shadow: 0 4px 15px rgba(233, 171, 33, 0.3);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 1em 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--uide-primary), var(--uide-accent));
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        @media (max-width: 768px) {
+            .flashcard {
+                min-height: 150px;
+                padding: 1.5em;
+            }
+            
+            .quiz-options {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Flashcard styles */
+        .flashcard {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 0;
+            margin: 0.8em 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            min-height: 140px;
+            perspective: 1000px;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .flashcard:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            border-color: var(--uide-primary);
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            min-height: 140px;
+            text-align: left;
+            transition: transform 0.4s ease-in-out;
+            transform-style: preserve-3d;
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            min-height: 140px;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 1.2em;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .flashcard-front {
+            background: #ffffff;
+            border-left: 4px solid var(--uide-primary);
+        }
+
+        .flashcard-back {
+            transform: rotateY(180deg);
+            background: #fafafa;
+            border-left: 4px solid var(--uide-accent);
+        }
+
+        .flashcard h4 {
+            margin: 0 0 0.8em 0;
+            color: var(--uide-primary);
+            font-size: 0.95em;
+            font-weight: 600;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.4em;
+        }
+
+        .flashcard-back h4 {
+            color: var(--uide-secondary);
+        }
+
+        .flashcard p {
+            margin: 0.4em 0;
+            line-height: 1.4;
+            color: #444;
+            font-size: 0.85em;
+        }
+
+        .flashcard small {
+            font-style: italic;
+            color: #666;
+            margin-top: auto;
+            font-size: 0.75em;
+        }
+
+        .flashcard strong {
+            color: var(--uide-primary);
+            font-weight: 600;
+        }
+
+        .flashcard-back strong {
+            color: var(--uide-secondary);
+        }
+
+        /* Mobile responsive for flashcards */
+        @media (max-width: 768px) {
+            .flashcard {
+                min-height: 120px;
+            }
+            
+            .flashcard-front, .flashcard-back {
+                padding: 1em;
+            }
+            
+            .flashcard h4 {
+                font-size: 0.9em;
+            }
+            
+            .flashcard p {
+                font-size: 0.8em;
+            }
+            
+            .flashcard small {
+                font-size: 0.7em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Title Slide -->
+            <section data-background-color="#f8f8f8" data-transition="convex">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+
+                <h3 style="color: var(--uide-secondary);">Semana 2</h3>
+                <div style="width: 100px; height: 3px; background: var(--uide-primary); margin: 1em auto; border-radius: 2px;"></div>
+
+                <h1 style="color: var(--uide-primary);">Factores Humanos y Computación Ubicua</h1>
+                <h2 style="color: var(--uide-secondary);">Interacción Humano-Computadora</h2>
+
+                <div style="margin: 2em 0; padding: 1.5em; background: rgba(255,255,255,0.9); border-radius: 10px; border-left: 4px solid var(--uide-accent);">
+                    <h4 style="color: var(--uide-primary); margin: 0 0 0.5em 0;">Universidad Internacional del Ecuador</h4>
+                    <p style="margin: 0; color: var(--uide-secondary); font-style: italic;">
+                        "Formando líderes con visión global y excelencia académica"
+                    </p>
+                </div>
+
+                <div class="r-hstack" style="justify-content: center;">
+                    <div style="text-align: center;">
+                        <div style="color: var(--uide-primary); font-weight: bold;">PP-07-HCI</div>
+                        <div style="color: var(--uide-secondary); font-size: 0.8em;">Código del Curso</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="color: var(--uide-primary); font-weight: bold;">Oct 2025 - Feb 2026</div>
+                        <div style="color: var(--uide-secondary); font-size: 0.8em;">Período Académico</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="color: var(--uide-primary); font-weight: bold;">Séptimo Nivel</div>
+                        <div style="color: var(--uide-secondary); font-size: 0.8em;">Nivel</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2em; text-align: center; color: var(--uide-secondary); font-size: 0.9em;">
+                    <strong>Prof. Charlie Cárdenas Toledo, M.Sc.</strong><br>
+                    <em>chcardenasto@uide.edu.ec</em>
+                </div>
+            </section>
+
+            <!-- Overview -->
+            <section data-background-color="#f8f8f8">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                
+                <h2>Temas de Esta Semana</h2>
+                <div class="r-vstack">
+                    <div class="fragment">
+                        <h3 style="color: var(--uide-primary);">Factores Humanos</h3>
+                        <p>Capacidades, limitaciones y rendimiento humanos en HCI</p>
+                    </div>
+                    <div class="fragment">
+                        <h3 style="color: var(--uide-primary);">Cognición Distribuida y Teoría de la Actividad</h3>
+                        <p>Marcos teóricos para comprender la interacción contextual</p>
+                    </div>
+                    <div class="fragment">
+                        <h3 style="color: var(--uide-primary);">HCI Ubicua (UbiCom)</h3>
+                        <p>Computación pervasiva e inteligencia ambiental</p>
+                    </div>
+                    <div class="fragment">
+                        <h3 style="color: var(--uide-primary);">Rol de NASA en HCI</h3>
+                        <p>Contribuciones a la ingeniería de software y evaluación</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Factores Humanos -->
+            <section data-transition="convex">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Factores Humanos</h2>
+                
+                <section data-auto-animate>
+                    <h3>Definición y Alcance</h3>
+                    <p>Los <mark>Factores Humanos</mark>, o Ergonomía, son una de las disciplinas más centrales y fundamentales para la HCI.</p>
+                    <blockquote class="fragment">
+                        <p>"El campo de los factores humanos es tanto una ciencia como un campo de la ingeniería. Se encarga de las capacidades, limitaciones y rendimiento humanos."</p>
+                    </blockquote>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>HCI como Factores Humanos</h3>
+                    <blockquote>
+                        <p><strong>"La HCI se define esencialmente como factores humanos, pero enfocada específicamente en la interacción humana con tecnología informática de algún tipo."</strong></p>
+                    </blockquote>
+                    <p class="fragment">El objetivo: diseñar sistemas que sean <mark>eficientes, seguros, cómodos e incluso agradables</mark> para sus usuarios.</p>
+                </section>
+
+                <section>
+                    <h3>El Desafío Humano</h3>
+                    <div class="r-hstack">
+                        <div>
+                            <p><strong>Los desafíos más profundos en HCI residen en el factor humano</strong>, ya que los seres humanos son complicados.</p>
+                        </div>
+                        <div class="fragment">
+                            <p>Los diseñadores deben confrontar la <mark>variabilidad humana</mark>:</p>
+                            <ul>
+                                <li>Edad</li>
+                                <li>Género</li>
+                                <li>Experiencia</li>
+                                <li>Lateralidad (zurdos/diestros)</li>
+                                <li>Discapacidades</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="fragment">Esta variabilidad implica que <mark>el diseño nunca es preciso, sino siempre aproximado</mark>.</p>
+                </section>
+
+                <section>
+                    <h3>Disciplinas que Nutren HCI</h3>
+                    <p>La HCI se nutre de intereses y experiencia de diversas disciplinas:</p>
+                    <div class="r-vstack">
+                        <div class="fragment">
+                            <strong>Psicología</strong> (particularmente cognitiva y experimental)
+                        </div>
+                        <div class="fragment">
+                            <strong>Sociología y Antropología</strong>
+                        </div>
+                        <div class="fragment">
+                            <strong>Ciencia Cognitiva, Informática y Lingüística</strong>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Componentes Clave del Factor Humano -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Componentes Clave del Factor Humano</h2>
+                
+                <section>
+                    <h3>Visión General</h3>
+                    <p>La visión general del factor humano incluye las características <mark>sensoriales, motoras y cognitivas</mark> del ser humano.</p>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>1. Modelo del Procesador Humano (MHP)</h3>
+                    <div data-id="mhp">
+                        <p><strong>Card, Moran y Newell</strong> utilizaron el Modelo del Procesador Humano (MHP) como marco para conectar los procesos humanos de bajo nivel con la interacción informática.</p>
+                    </div>
+                    <p class="fragment">Conecta procesos como <mark>escribir o usar un ratón</mark> con la interacción informática.</p>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>2. Respuesta y Control Motor</h3>
+                    <div data-id="motor">
+                        <p>Los humanos tienen la capacidad de afectar su entorno mediante el movimiento a través de <mark>"responders"</mark>.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Incluyen:</strong> dedos, manos, pies, cuerdas vocales, y ojos.</p>
+                        <p>En HCI, el control sobre las máquinas generalmente se asocia con las <mark>extremidades superiores</mark>.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Homúnculo Motor de Penfield</h3>
+                    <blockquote>
+                        <p>"El homúnculo motor de Penfield ilustra que los músculos que controlan la mano y los dedos están altamente representados en la corteza motora cerebral."</p>
+                    </blockquote>
+                    <p class="fragment">Esto explica por qué las interfaces táctiles y de mouse son tan naturales para los humanos.</p>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>3. Cognición y Percepción</h3>
+                    <div data-id="cognition" class="r-vstack">
+                        <div>
+                            <strong>Cognición:</strong> La actividad intelectual consciente humana
+                            <ul class="fragment">
+                                <li>Pensar</li>
+                                <li>Razonar</li>
+                                <li>Decidir</li>
+                            </ul>
+                        </div>
+                        <div class="fragment">
+                            <strong>Percepción:</strong> La primera etapa de procesamiento en el cerebro
+                            <p style="font-size: 0.9em;">Donde se reciben señales sensoriales y se les da forma a las asociaciones y significados.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Importancia de la Percepción</h3>
+                    <blockquote>
+                        <p><strong>"La capacidad humana para interpretar rápidamente la información sensorial es fundamental para hacer posibles los sistemas informáticos modernos."</strong></p>
+                    </blockquote>
+                </section>
+            </section>
+
+            <!-- Contexto Histórico -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Contexto Histórico</h2>
+                
+                <section>
+                    <h3>Raíces de HCI</h3>
+                    <p>El campo de la HCI debe mucho a disciplinas más antiguas como los <mark>factores humanos</mark>.</p>
+                    <p class="fragment">La conferencia <strong>ACM SIGCHI</strong> (Special Interest Group on Computer-Human Interaction) utiliza el término "Factores Humanos" en su nombre, ya que es la conferencia preeminente en el campo.</p>
+                </section>
+
+                <section>
+                    <h3>Evento Clave: 1983</h3>
+                    <blockquote>
+                        <p>Un evento clave fue la publicación de <strong>"The Psychology of Human-Computer Interaction" (1983)</strong> por Card, Moran y Newell.</p>
+                    </blockquote>
+                    <p class="fragment">Este libro formalizó la entrada perceptual, la cognición y la salida motora humanas, <mark>vinculándolas a las interacciones informáticas</mark>.</p>
+                </section>
+            </section>
+
+            <!-- Cognición Distribuida y Teoría de la Actividad -->
+            <section data-transition="convex">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Cognición Distribuida y Teoría de la Actividad</h2>
+                
+                <section>
+                    <h3>Marcos Teóricos</h3>
+                    <p>Estos marcos teóricos ayudan a comprender cómo el <mark>contexto social, físico y las actividades</mark> dan forma a la interacción humana con la tecnología.</p>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>Teoría de la Actividad (AT)</h3>
+                    <div data-id="at-def">
+                        <p>La Teoría de la Actividad es una <mark>teoría psicológica rusa de la era soviética</mark>.</p>
+                    </div>
+                    <blockquote class="fragment">
+                        <p>"Enfatiza la comprensión de quiénes son las personas a través de cómo interactúan con el mundo."</p>
+                    </blockquote>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>Diseño Centrado en la Actividad (ACD)</h3>
+                    <div data-id="acd">
+                        <p>Esta teoría es el fundamento del <mark>Diseño Centrado en la Actividad (ACD)</mark>, defendido por Donald Norman.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Enfoque principal:</strong> La comprensión de las actividades.</p>
+                        <p>Norman argumenta que los humanos se adaptan a las herramientas disponibles y que la comprensión de las actividades puede influir favorablemente en el diseño.</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Acción Situada y Cognición Distribuida -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Acción Situada y Cognición Distribuida</h2>
+                
+                <section data-auto-animate>
+                    <h3>1. Acción Situada</h3>
+                    <div data-id="situated">
+                        <p>El trabajo de <strong>Suchman</strong> (Plans and Situated Actions, 1987) criticó la insuficiencia del modelo cognitivo que presupone planes humanos preordenados y ejecutados.</p>
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>Propuesta de Suchman</h3>
+                    <div data-id="suchman-prop">
+                        <blockquote>
+                            <p>Las acciones de los usuarios están <mark>situadas en el tiempo y el lugar</mark> (situated in time and place), haciéndolas altamente sensibles a otras personas y a contingencias ambientales.</p>
+                        </blockquote>
+                    </div>
+                    <p class="fragment">Esta perspectiva resalta el papel crítico de las complejas interacciones de los usuarios con:</p>
+                    <ul class="fragment">
+                        <li>Otras personas</li>
+                        <li>Otros dispositivos electrónicos</li>
+                        <li>Recursos en papel en su entorno</li>
+                    </ul>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>2. Cognición Distribuida</h3>
+                    <div data-id="distributed">
+                        <p>Este argumento sostiene que el <mark>conocimiento no reside únicamente en la mente del usuario</mark>, sino que está distribuido en el entorno.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Distribuido en:</strong></p>
+                        <ul>
+                            <li>Documentos en papel</li>
+                            <li>Mantenido por computadoras</li>
+                            <li>Disponible de colegas</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Modelo de Interfaz Objeto-Acción (OAI)</h3>
+                    <p>El Modelo de Interfaz Objeto-Acción (OAI) incorpora los argumentos de la <mark>acción situada y la cognición distribuida</mark>.</p>
+                    <div class="r-hstack fragment">
+                        <div>
+                            <strong>Objetos pueden incluir:</strong>
+                            <ul>
+                                <li>Libros</li>
+                                <li>Mapas</li>
+                                <li>Otros dispositivos</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>Acciones pueden incluir:</strong>
+                            <ul>
+                                <li>Hablar con colegas</li>
+                                <li>Manejar interrupciones</li>
+                                <li>Actividades comunes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- HCI Ubicua -->
+            <section data-transition="convex">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>HCI Ubicua (UbiCom)</h2>
+                
+                <section data-auto-animate>
+                    <h3>¿Qué es UbiCom?</h3>
+                    <div data-id="ubicom-def">
+                        <p>La <mark>Computación Ubicua (UbiCom)</mark>, a veces denominada Computación Pervasiva o Inteligencia Ambiental.</p>
+                    </div>
+                    <blockquote class="fragment">
+                        <p><strong>"Es una visión donde los sistemas informáticos infunden el mundo físico, humano y social."</strong></p>
+                    </blockquote>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>Visión de Mark Weiser</h3>
+                    <div data-id="weiser">
+                        <p>La UbiCom fue articulada por <strong>Mark Weiser (1991)</strong> con la visión de que las computadoras desaparecerían en el fondo del entorno.</p>
+                    </div>
+                    <blockquote class="fragment">
+                        <p><strong>Objetivo:</strong> "Que la tecnología sea altamente accesible y utilizable por los humanos, y que parezca invisible para el usuario."</p>
+                    </blockquote>
+                </section>
+
+                <section>
+                    <h3>Entorno Sin Fisuras</h3>
+                    <p>Las personas deben <mark>vivir, trabajar y jugar en un entorno habilitado por computadora sin fisuras</mark> (seamless).</p>
+                    <div class="fragment">
+                        <p><strong>Ubicuo vs. Global:</strong></p>
+                        <p>La UbiCom busca el soporte a la <mark>ubicuidad basada en el contexto</mark> (context based ubiquity), limitada a los servicios útiles y evitando la sobrecarga del usuario.</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Propiedades Centrales de UbiCom -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Propiedades Centrales de UbiCom</h2>
+                
+                <section>
+                    <h3>Las 5 Propiedades Fundamentales</h3>
+                    <p>La UbiCom se distingue por cinco propiedades fundamentales:</p>
+                </section>
+
+                <section data-auto-animate>
+                    <div data-id="prop1">
+                        <h3>1. Sistemas TIC Distribuidos</h3>
+                        <p>Interconectados y accesibles de manera transparente.</p>
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <div data-id="prop2">
+                        <h3>2. Interacción Persona-Ordenador Implícita (iHCI)</h3>
+                        <p>La interacción debe estar más oculta.</p>
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <div data-id="prop3">
+                        <h3>3. Conciencia del Contexto (Context-Awareness)</h3>
+                        <p>Las computadoras son conscientes de su entorno para optimizar su funcionamiento.</p>
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <div data-id="prop4">
+                        <h3>4. Autonomía</h3>
+                        <p>Los sistemas pueden operar sin intervención humana.</p>
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <div data-id="prop5">
+                        <h3>5. Inteligencia</h3>
+                        <p>Los sistemas manejan una multiplicidad de acciones e interacciones dinámicas.</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Tipos de Interacción en UbiCom -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Tipos de Interacción en UbiCom</h2>
+                
+                <section>
+                    <h3>Enfoque en la Interacción</h3>
+                    <p>La UbiCom se enfoca fuertemente en varios tipos de interacción:</p>
+                </section>
+
+                <section data-auto-animate>
+                    <div data-id="int1" class="r-vstack">
+                        <h3>1. Interacción Persona-Dispositivo TIC (HCI o eHCI)</h3>
+                        <p>Los humanos usan un modelo del sistema TIC para <mark>interactuar explícitamente</mark>.</p>
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <div data-id="int2" class="r-vstack">
+                        <h3>2. Interacción Dispositivo TIC a Humano (C2H o iHCI)</h3>
+                        <p>El sistema TIC es consciente del contexto del humano y se adapta, <mark>personalizándose</mark>.</p>
+                        <blockquote class="fragment" style="font-size: 0.9em;">
+                            <p>La iHCI es una acción realizada por el usuario que no busca primariamente interactuar con el sistema computarizado, pero que este interpreta como input.</p>
+                        </blockquote>
+                        <p class="fragment">Surge porque la interacción explícita puede <mark>distraer, interrumpir y abrumar</mark> a los usuarios.</p>
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <div data-id="int3" class="r-vstack">
+                        <h3>3. Interacción Dispositivo TIC a Mundo Físico (CPI)</h3>
+                        <p>El sistema TIC detecta y controla el mundo físico, o aumenta/media su realidad.</p>
+                        <p class="fragment"><strong>Incluye:</strong> Realidad Aumentada/Mediated Reality</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Formas de Dispositivos Ubicuos -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Formas de Dispositivos Ubicuos</h2>
+                
+                <section>
+                    <h3>Propuesta Original de Weiser</h3>
+                    <p>Weiser propuso tres formas principales de dispositivos:</p>
+                    <div class="r-hstack">
+                        <div class="fragment">
+                            <h4>Tabs</h4>
+                            <p>Pequeños, del tamaño de la palma</p>
+                        </div>
+                        <div class="fragment">
+                            <h4>Pads</h4>
+                            <p>Tamaño de libro</p>
+                        </div>
+                        <div class="fragment">
+                            <h4>Boards</h4>
+                            <p>Grandes, como pizarras o pantallas de pared</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Extensiones Modernas</h3>
+                    <p>Estas formas se han extendido para incluir:</p>
+                    <div class="r-vstack">
+                        <div class="fragment">
+                            <strong>Dust:</strong> Polvo inteligente/MEMS
+                        </div>
+                        <div class="fragment">
+                            <strong>Skins:</strong> Telas conductoras
+                        </div>
+                        <div class="fragment">
+                            <strong>Clay:</strong> Materia programable para formas 3D arbitrarias
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Implicaciones Sociales -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Implicaciones Sociales</h2>
+                
+                <section>
+                    <h3>Capitalismo de Vigilancia</h3>
+                    <p>La UbiCom se asocia con el concepto de <mark>"aparato"</mark> dentro del contexto del Capitalismo de Vigilancia.</p>
+                    <blockquote class="fragment">
+                        <p>Este aparato (que incluye términos como "ambient computing" e "internet de las cosas") <strong>instrumenta, conecta, comunica y computa continuamente</strong>.</p>
+                    </blockquote>
+                    <p class="fragment">Transformando la actividad del mundo real (desde teléfonos, automóviles y cuerpos) en <mark>datos listos para generar predicciones</mark>.</p>
+                </section>
+            </section>
+
+            <!-- Rol de NASA en HCI -->
+            <section data-transition="convex">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Rol de NASA en HCI/Ingeniería de Software</h2>
+                
+                <section>
+                    <h3>Contribuciones de NASA</h3>
+                    <p>La <mark>Administración Nacional de Aeronáutica y Espacio (NASA)</mark> ha jugado un papel importante en la HCI y la ingeniería de software.</p>
+                    <p class="fragment">Particularmente en el desarrollo de directrices y herramientas para evaluar <mark>sistemas de alta fiabilidad</mark> y la carga de trabajo humana.</p>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>NASA-TLX (Task Load Index)</h3>
+                    <div data-id="nasa-tlx">
+                        <p>NASA fue responsable del desarrollo del <mark>NASA-TLX (Task Load Index)</mark>.</p>
+                    </div>
+                    <div class="fragment">
+                        <p>Este índice surgió de la investigación empírica y teórica sobre la <strong>Carga de Trabajo Mental Humana</strong> (Human Mental Workload).</p>
+                        <p>Se utiliza comúnmente en el diseño de cuestionarios para <mark>medir la carga de trabajo subjetiva en HCI</mark>.</p>
+                    </div>
+                </section>
+            </section>
+
+
+            <!-- Directrices y Pruebas de NASA -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Directrices y Pruebas de NASA</h2>
+                
+                <section data-auto-animate>
+                    <h3>1. Directrices de Interfaz de Usuario</h3>
+                    <div data-id="guidelines">
+                        <p>Existen las <mark>Directrices de Interfaz de Usuario de NASA</mark>, publicadas por el Goddard Space Flight Center (enero de 1996).</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Propósito:</strong> Presentar directrices específicas para interfaces gráficas y orientadas a objetos que operan en sistemas distribuidos o independientes.</p>
+                        <p>Proporcionan <mark>principios y guía general</mark>, con numerosos ejemplos de interfaces gráficas.</p>
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>2. Evaluación de Sistemas Críticos</h3>
+                    <div data-id="critical">
+                        <p>La usabilidad es crucial en <mark>sistemas críticos para la vida</mark> (life-critical systems):</p>
+                    </div>
+                    <ul class="fragment">
+                        <li>Control de tráfico aéreo</li>
+                        <li>Aeronaves</li>
+                        <li>Vehículos espaciales</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Estudio del Transbordador Espacial</h3>
+                    <blockquote>
+                        <p>Un estudio de NASA sobre las pantallas del transbordador espacial demostró que la mejora de las etiquetas de datos, la agrupación de información y la eliminación de caracteres extraños podían reducir:</p>
+                    </blockquote>
+                    <div class="r-hstack fragment">
+                        <div>
+                            <h4 style="color: var(--uide-primary);">31%</h4>
+                            <p>Reducción en tiempos de tarea para usuarios no expertos</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--uide-primary);">28%</h4>
+                            <p>Reducción en tasas de error para usuarios no expertos</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Teleoperación</h3>
+                    <p>La <mark>Teleoperación</mark> (control remoto de procesos físicos en entornos complejos), incluyendo las aplicaciones espaciales, es un campo relevante en la ingeniería de software y HCI.</p>
+                    <p class="fragment">Especialmente importante para misiones espaciales donde la intervención humana directa no es posible.</p>
+                </section>
+            </section>
+
+            <!-- Recapitulación Rápida -->
+            <section data-background-color="#f9f9f9">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Recapitulación Rápida</h2>
+                
+                <p style="text-align: center; font-style: italic; color: var(--uide-secondary);">
+                    Tarjetas para repasar los conceptos clave de esta semana
+                </p>
+                
+                <section>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin: 1.5em 0;">
+                        <!-- Card 1 -->
+                        <div class="flashcard" onclick="flipCard(this)">
+                            <div class="flashcard-inner">
+                                <div class="flashcard-front">
+                                    <h4>Factores Humanos</h4>
+                                    <p>¿Qué disciplinas integra el enfoque de factores humanos en HCI?</p>
+                                </div>
+                                <div class="flashcard-back">
+                                    <h4>Múltiples Disciplinas</h4>
+                                    <p><strong>Ergonomía, psicología, antropometría</strong> y ciencias del comportamiento para optimizar la interacción humano-computadora.</p>
+                                    <small>Base científica del diseño de interfaces</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 2 -->
+                        <div class="flashcard" onclick="flipCard(this)">
+                            <div class="flashcard-inner">
+                                <div class="flashcard-front">
+                                    <h4>Computación Ubicua</h4>
+                                    <p>¿Cuál fue la visión original de Mark Weiser para UbiCom?</p>
+                                </div>
+                                <div class="flashcard-back">
+                                    <h4>Tecnología Invisible</h4>
+                                    <p>Las computadoras deben <strong>desaparecer en el fondo del entorno</strong>, siendo altamente accesibles pero invisibles para el usuario.</p>
+                                    <small>Paradigma de la computación del siglo XXI</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin: 1.5em 0;">
+                        <!-- Card 3 -->
+                        <div class="flashcard" onclick="flipCard(this)">
+                            <div class="flashcard-inner">
+                                <div class="flashcard-front">
+                                    <h4>Propiedades de UbiCom</h4>
+                                    <p>¿Cuántas propiedades fundamentales caracterizan a la computación ubicua?</p>
+                                </div>
+                                <div class="flashcard-back">
+                                    <h4>5 Propiedades Clave</h4>
+                                    <p><strong>Sistemas distribuidos, interacción implícita, conciencia del contexto, autonomía</strong> y interfaces naturales.</p>
+                                    <small>Pilares de la experiencia ubicua</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 4 -->
+                        <div class="flashcard" onclick="flipCard(this)">
+                            <div class="flashcard-inner">
+                                <div class="flashcard-front">
+                                    <h4>Interfaces Naturales</h4>
+                                    <p>¿Qué buscan las interfaces naturales en la interacción?</p>
+                                </div>
+                                <div class="flashcard-back">
+                                    <h4>Interacción Intuitiva</h4>
+                                    <p>Permiten interacción a través de <strong>gestos, voz, tacto</strong> y otros medios naturales, eliminando barreras tecnológicas.</p>
+                                    <small>Evolución hacia lo humano-céntrico</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Referencias -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Referencias Bibliográficas</h2>
+                
+                <section>
+                    <h3>Fuentes Principales</h3>
+                    <div style="font-size: 0.7em; text-align: left;">
+                        <p><strong>Card, S. K., Moran, T. P., y Newell, A.</strong> (1983). <em>The Psychology of Human-Computer Interaction</em>. Lawrence Erlbaum Associates.</p>
+                        <p><strong>Dourish, P.</strong> (2002). <em>Where the Action Is: The Foundations of Embodied Interaction</em>. MIT Press.</p>
+                        <p><strong>Hart, S. y Staveland, L.</strong> (1988). Development of NASA-TLX (task load index): Results of empirical and theoretical research. En P. Hancock & N. Meshkati (Eds.), <em>Human Mental Workload</em> (pp. 139–183). North-Holland.</p>
+                        <p><strong>MacKenzie, I. S.</strong> (2013). <em>Human-Computer Interaction: An Empirical Research Perspective</em>. Elsevier Inc.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Fuentes Principales (cont.)</h3>
+                    <div style="font-size: 0.7em; text-align: left;">
+                        <p><strong>NASA Goddard Space Flight Center.</strong> (1996, Enero). <em>NASA User-Interface Guidelines</em>.</p>
+                        <p><strong>Nardi, B. A.</strong> (1997). <em>Context and Consciousness: Activity Theory and Human-Computer Interaction</em>. MIT Press.</p>
+                        <p><strong>Norman, D. A.</strong> (1988). <em>The Psychology of Everyday Things</em>. Basic Books.</p>
+                        <p><strong>Poslad, S.</strong> (2009). <em>Ubiquitous Computing: Smart Devices, Environments and Interactions</em>. John Wiley & Sons, Ltd.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Fuentes Teóricas</h3>
+                    <div style="font-size: 0.7em; text-align: left;">
+                        <p><strong>Shoshana, Z.</strong> (2019). <em>The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power</em>. PublicAffairs.</p>
+                        <p><strong>Suchman, L. A.</strong> (1987). <em>Plans and Situated Actions: The Problem of Human-Machine Communication</em>. Cambridge University Press.</p>
+                        <p><strong>Weiser, M.</strong> (1991, Septiembre). The computer for the twenty first century. <em>Scientific American</em>, 265(3), 94–104.</p>
+                        <p><strong>Abowd, G. D. y Mynatt, E. D.</strong> (2000). Charting past, present, and future research in ubiquitous computing. <em>ACM Transactions on Computer Human Interaction (TOCHI)</em>, 7(1), 29–58.</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Thank You Slide -->
+            <section data-background-color="#f8f8f8" data-transition="convex">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                
+                <div class="r-fit-text" style="color: var(--uide-primary);">
+                    ¡Gracias!
+                </div>
+                
+                <h3>¿Preguntas?</h3>
+                
+                <div style="margin-top: 2em;">
+                    <small>Universidad Internacional del Ecuador<br>
+                    Semana 2 - Factores Humanos y Computación Ubicua</small>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js JavaScript with all plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/math/math.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/zoom/zoom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/search/search.js"></script>
+
+    <script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+            
+            // Advanced transitions and animations
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+            
+            // Auto-animate support
+            autoAnimateEasing: 'ease',
+            autoAnimateDuration: 1.0,
+            autoAnimateUnmatched: true,
+
+            // Math rendering with KaTeX
+            math: {
+                mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+                config: 'TeX-AMS_HTML-full',
+            },
+
+            // Zoom functionality
+            zoom: {
+                mouseWheel: false,
+                maxZoom: 3,
+                controls: true
+            },
+
+            // Search functionality
+            search: {
+                caseSensitive: false,
+                showIcon: true
+            },
+
+            // Keyboard shortcuts
+            keyboard: {
+                70: 'fullscreen', // f
+                83: 'next', // s
+                65: 'prev', // a
+                66: 'pause', // b
+                90: 'zoom', // z
+                191: 'search' // /
+            },
+
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX, RevealZoom, RevealSearch ]
+        });
+
+        // Add page numbers
+        Reveal.on('slidechanged', function(event) {
+            const currentSlide = event.indexh + 1;
+            const totalSlides = Reveal.getTotalSlides();
+            document.querySelectorAll('.page-number').forEach(el => {
+                el.textContent = `${currentSlide} / ${totalSlides}`;
+            });
+        });
+
+
+
+        // Flashcard flip functionality
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+    </script>
+
+</body>
+</html>

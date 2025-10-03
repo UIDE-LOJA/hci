@@ -1,105 +1,836 @@
-Introducción a HCI
-La Interacción Persona-Ordenador (HCI, por sus siglas en inglés, Human-Computer Interaction) es un campo de estudio que surgió formalmente en la década de 1980. Aunque su emergencia fue en esa década, HCI debe gran parte de sus fundamentos a disciplinas previas. La más central de estas es el campo de los factores humanos o ergonomía.
-Definición y Alcance HCI se considera esencialmente como factores humanos, pero enfocada específicamente en la interacción humana con algún tipo de tecnología informática. El campo de los factores humanos es tanto una ciencia como una rama de la ingeniería, preocupada por las capacidades, limitaciones y rendimiento humanos.
-El objetivo fundamental de HCI es distinguir los pares de acción-respuesta que funcionan bien de aquellos que resultan incómodos o confusos. El resultado final buscado es el diseño de mejores productos y diseños.
-HCI es un campo de alcance tremendamente amplio y multidisciplinario, que se nutre de la experiencia e intereses de varias disciplinas:
-• Psicología (especialmente cognitiva y experimental).
-• Ciencias de la computación.
-• Ciencia cognitiva.
-• Sociología y Antropología.
-• Lingüística.
-Componentes y Desafíos En el contexto moderno de la Computación Ubicua (UbiCom), los elementos de HCI son:
-1. Humanos: Usuarios que interactúan, con diversas habilidades físicas y mentales.
-2. Ordenadores: No solo PC, sino una gama diversa de dispositivos, incluyendo informáticos embebidos de varios tamaños (como dust, tabs, pads y boards).
-3. Interacción: Puede ser explícita (comandos o manipulación de objetos virtuales) o natural (voz, gestos).
-El factor humano presenta los desafíos más profundos en HCI, ya que la variabilidad humana (edad, sexo, experiencia, etc.) implica que el diseño nunca es preciso, sino siempre aproximado.
-Evolución histórica de HCI
-La evolución de HCI es una crónica de eventos significativos que culminaron en su formalización en la década de 1980:
-Período
-Hito Histórico
-Descripción Clave
-1940s
-Los Primeros Ordenadores y la Visión de Bush
-Surgimiento de los primeros ordenadores, que eran complejos y requerían la experiencia de científicos e ingenieros. El ensayo “As We May Think” (1945) de Vannevar Bush es fundamental, pues describió el sistema MEMEX, anticipando conceptos de interfaz como hipertexto y la World Wide Web.
-1960s
-Innovaciones Fundamentales
-Ivan Sutherland desarrolló Sketchpad (1962), un sistema gráfico que permitía la manipulación de formas mediante un lápiz de luz. Douglas Engelbart inventó el ratón (1963), un dispositivo que simboliza la emergencia de HCI y que cambiaría fundamentalmente la interacción con ordenadores.
-1969-1970s
-Raíces Académicas y Xerox PARC
-En 1969, se formó el SIGSOC de ACM, precursor del SIGCHI. Xerox fundó PARC alrededor de 1970, donde se inventaron muchas convenciones de interfaz que hoy son comunes, como la Interfaz Gráfica de Usuario (GUI) y los gráficos de mapa de bits. Bill Moggridge y Bill Verplank acuñaron el término "Diseño de Interacción".
-1981
-Xerox Star
-Este fue el primer sistema informático disponible comercialmente en utilizar una GUI y un ratón. El concepto clave era que los trabajadores de oficina querían realizar su trabajo, no lidiar con ordenadores, por lo que la máquina debía ser invisible o fácil de usar.
-1983
-Nacimiento de HCI
-Se considera el año clave, marcado por el primer congreso ACM SIGCHI y la publicación del libro "The Psychology of Human-Computer Interaction" por Card, Moran y Newell, que integró la psicología experimental y modelos predictivos (como la Ley de Hick y la Ley de Fitts) en el estudio de la interacción.
-1984
-Apple Macintosh
-El éxito del Macintosh popularizó las GUIs, introduciendo este nuevo estilo de interacción a una comunidad mucho más amplia de usuarios e investigadores.
-Posterior
-Crecimiento de GUIs
-Microsoft introdujo versiones tempranas de Windows en 1985, pero Windows 3.0 (1990) y 3.1 (1992) se consolidaron como alternativas serias al Macintosh.
-Breve historia de la computación y Ley de Moore
-Breve historia de la computación
-En sus inicios (década de 1940), los ordenadores eran gigantescos y complejos. Para interactuar con ellos se requería ser un experto, como ingenieros o científicos informáticos, y se utilizaban métodos como conectar relés o usar comandos Unix. Los ingenieros iniciales no se enfocaron en la interacción o la usabilidad.
-La interacción se convirtió en un problema en la década de 1980. La introducción de la Xerox Star (1981) y el Apple Macintosh (1984) fue un cambio dramático que llevó a que los ordenadores fueran no solo potentes, sino utilizables por cualquiera.
-Ley de Moore (Moore's Law)
-La Ley de Moore fue postulada por Gordon Moore en 1965.
-Concepto y Naturaleza La ley predice que el número de transistores que contendrá un microprocesador se duplicará aproximadamente cada 24 meses. Aunque se la denomina "ley", Moore mismo reconoció que no se basa en fundamentos físicos, sino que representa una tendencia tecnológica.
-Impacto en HCI y Usabilidad La Ley de Moore, al impulsar el aumento de potencia y velocidad, repercute directamente en la Experiencia de Usuario (UX) y la Usabilidad:
-1. Reducción de Latencia: El incremento en la velocidad de los microprocesadores disminuye el tiempo de latencia de las operaciones. Esto es esencial para que las transacciones cumplan con el Umbral de Doherty (396 ms).
-2. Aumento de Expectativas: Los usuarios se acostumbran a esperar menos tiempo como resultado de esta evolución, lo que constantemente eleva el listón de lo que se percibe como una buena UX.
-3. Imperativo de Evolución: Si los sistemas no evolucionan periódicamente, no cumplirán las expectativas de los usuarios, lo que lleva al abandono del producto debido a la percepción de mala Usabilidad.
-Principios de usabilidad
-La usabilidad se define como la medida en que un producto puede ser utilizado por usuarios específicos para lograr metas específicas con efectividad, eficiencia y satisfacción en un contexto de uso determinado.
-Los principios de usabilidad se enfocan en hacer que la interacción sea intuitiva y minimizar la carga cognitiva y motora del usuario.
-Leyes y Modelos Fundamentales
-1. ¡No me hagas pensar! (Primera Norma de Krug):
-    ◦ Este principio esencial dicta que el usuario promedio no debería tener que pensar para descubrir cómo funciona un producto o cómo navegar una página.
-    ◦ Si un diseño no puede ser completamente obvio, debe ser autoexplicativo para evitar "interrogantes" que detengan al usuario y lo obliguen a reflexionar.
-2. Ley de Miller:
-    ◦ Postulada por George Armitage Miller en 1956.
-    ◦ Establece que la capacidad de la memoria a corto plazo es extremadamente limitada, pudiendo recordar solo siete objetos o entidades, más o menos dos ($\mathbf{7 \pm 2}$), en un momento dado.
-    ◦ Aplicación práctica: Se debe limitar el número de opciones en menús o contextos a un valor manejable, o utilizar la fragmentación (chunking) para agrupar elementos de manera significativa.
-3. Ley de Hick-Hyman (Ley de Hick):
-    ◦ Demuestra que el tiempo que se tarda en tomar una decisión aumenta en función del número de opciones disponibles.
-    ◦ Una sobreestimulación (demasiadas opciones) puede llevar a la parálisis de decisión.
-    ◦ La solución de diseño es reducir el número de opciones a través de subdivisiones categóricas o estructuras diferenciables.
-4. Umbral de Doherty:
-    ◦ Establece que el tiempo de espera en una interacción Persona-Ordenador no debe superar los 396 ms.
-    ◦ Si la interacción es fluida, la productividad del usuario aumenta, ya que este se siente más cómodo y positivo.
-Principios Fundamentales del Diseño de Interfaces
-Las Ocho Reglas de Oro de Shneiderman Estas reglas son aplicables a la mayoría de los sistemas interactivos:
-1. Esfuérzate por la consistencia: Es la regla que más se viola. Requiere secuencias de acciones consistentes, terminología idéntica y un uso uniforme de elementos visuales (color, fuentes).
-2. Adáptate a la usabilidad universal: Diseña para la plasticidad y la diversidad de usuarios (novatos/expertos, diferentes edades, discapacidades).
-3. Ofrece feedback informativo: Proporciona retroalimentación del sistema por cada acción del usuario.
-4. Diseña diálogos que conduzcan al cierre: Las secuencias de tareas deben tener un inicio, desarrollo y final claros para brindar satisfacción y preparación para la siguiente tarea.
-5. Previene errores: El diseño debe evitar que los usuarios cometan errores graves, por ejemplo, desactivando (graying out) opciones inapropiadas.
-6. Permite la fácil reversibilidad de las acciones (Forgiveness): Proporcionar una función general de Deshacer (Undo) reduce la ansiedad y fomenta la exploración.
-7. Apoya el locus de control interno: Los usuarios deben sentir que son los iniciadores de las acciones y dueños de la interfaz.
-8. Reduce la carga de la memoria a corto plazo: Mantén las pantallas simples y evita obligar al usuario a recordar información de una pantalla a otra.
-Principios de Diseño y Cognición
-• Reconocimiento sobre Recuerdo (Recognition over Recall): La interfaz debe presentar opciones para que el usuario las reconozca (ej. menús) en lugar de obligarlo a recordar comandos sin pistas. El reconocimiento es más fácil y reduce la carga cognitiva.
-• Affordances (Pistas Visuales): Las pistas visuales en el diseño (como el estilo tridimensional de un botón) sugieren claramente cómo se debe usar un objeto. La affordance puede considerarse un concepto puramente cognitivo: lo que creemos que el objeto puede hacer.
-• Jerarquía Visual Clara: Lo más importante debe ser lo más prominente visualmente (tamaño, color, negrita) para que el usuario pueda preprocesar la página y establecer prioridades casi instantáneamente.
-• Uso de Convenciones: Las convenciones conocidas facilitan el aprendizaje y el descubrimiento. Los diseñadores deben aprovechar los patrones comunes, ya que la creatividad excesiva puede generar confusión.
-• Diseño para la Accesibilidad e Inclusión: El principio de Usabilidad Universal requiere diseñar para la diversidad humana, asegurando perceptibilidad, operabilidad, simplicidad y perdón. A menudo, lo que beneficia a un grupo con necesidades especiales (ej. usuarios con problemas de control motor) beneficia a todos los usuarios.
+# Semana 1 - Introducción a HCI
+<!-- .slide: data-background-color="#f8f8f8" -->
 
---------------------------------------------------------------------------------
-Referencias Bibliográficas (APA)
-A continuación, se presenta la bibliografía citada en formato APA, priorizando las referencias encontradas en las fuentes proporcionadas.
-Bush, V. (1945, Julio). As we may think. The Atlantic Monthly, 176, 101–108. (Reimpreso en ACM’s interactions, 1996).
-Card, S. K., Moran, T. P., & Newell, A. (1983). The Psychology of Human-Computer Interaction. Hillsdale, NJ: Erlbaum.
-Doherty, W. J., & Chakraborty, A. (1982). El Umbral de Doherty (Implícito en el texto sobre el Umbral de 396 ms).
-Dix, A., Finlay, J., Abowd, G., & Beale, R. (2004). Human-Computer Interaction (3ra ed.). Prentice Hall.
-Fitts, P. M. (1954). The information capacity of the human motor system in controlling amplitude of movement. Journal of Experimental Psychology, 4, 381–391.
-Hick, W. E. (1952). On the rate of gain of information. Quarterly Journal of Experimental Psychology, 4, 11–36.
-ISO. (2000). Ergonomic requirements for office work with visual display terminals (VDTs)—Part 11: Guidance on Usability (ISO 9241–11). International Organisation for Standardisation.
-Krug, S. (2014). Don’t Make Me Think, Revisited: A Common Sense Approach to Web Usability. New Riders.
-Miller, G. A. (1956). The magical number seven plus or minus two: Some limits on our capacity for processing information. Psychological Review, 63, 81–97.
-Moore, G. E. (1965). Moore's Law (Implícito en el texto sobre la duplicación de transistores cada 24 meses).
-Norman, D. A. (1988). The Psychology of Everyday Things (Mencionado en el texto como fundamento del modelo de etapas de acción).
-Norman, D. A. (1998). The Invisible Computer. The MIT Press.
-Shneiderman, B. (2005). Designing the User Interface: Strategies for Effective Human-Computer Interaction (4ta ed.). Pearson Education, Inc.
-Sutherland, I. (1963). Sketchpad: A Man-Machine Graphical Communication System. (Implícito en el texto).
-Weiser, M. (1991, Septiembre). The computer for the 21st century. Scientific American, 265, 94–105.
+## Interacción Humano-Computadora
+
+### Universidad Internacional del Ecuador
+### HCI 2025 - Semestre 1
+
+---
+
+<!-- .slide: data-background-color="#f8f8f8" -->
+
+> **"La tecnología no cambia la naturaleza esencial del hombre. Solo amplifica lo que ya somos."**
+> 
+> — Don Norman, Padre de la Experiencia del Usuario
+
+---
+
+<!-- .slide: data-transition="convex" -->
+
+## ¿Qué es HCI?
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+### Definición Inicial
+
+La Interacción Persona-Ordenador (HCI) es un **campo de investigación y práctica** cuya emergencia se alinea con un cambio dramático en las prácticas informáticas.
+
+> MacKenzie (2013): "Aunque surgió formalmente en la década de 1980, el campo extiende sus raíces hasta hace más de 30 años."
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+### Definición Completa
+
+> **"La interacción humano-computadora es un campo interdisciplinario que se preocupa por el diseño, evaluación e implementación de sistemas computacionales interactivos para uso humano, así como por los fenómenos principales que rodean a estos sistemas."**
+> 
+> — MacKenzie (2013, p. 1)
+
+--
+
+### Naturaleza Interdisciplinaria
+
+HCI es la <mark>**ciencia de diseño interdisciplinaria**</mark> que combina:
+
+- <!-- .element: class="fragment" --> **Métodos de recopilación de datos** de la psicología experimental
+- <!-- .element: class="fragment" --> **Marco intelectual** de la psicología 
+- <!-- .element: class="fragment" --> **Herramientas potentes** de la informática
+
+<div class="fragment">
+<em>(Shneiderman & Plaisant, 2010)</em>
+</div>
+
+---
+
+## Enfoque y Definición
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+### Factores Humanos
+
+<div class="r-hstack">
+<div>
+
+**MacKenzie (2013)** define HCI esencialmente como:
+
+**Factores Humanos** (o Ergonomía), enfocada específicamente en la interacción humana con tecnología informática.
+
+</div>
+<div>
+
+El campo se ocupa de:
+- Capacidades humanas
+- Limitaciones humanas  
+- Rendimiento humano
+
+</div>
+</div>
+
+--
+
+### Disciplinas que Nutren HCI
+
+<div class="r-vstack">
+<div class="fragment">
+
+**Psicología** (particularmente cognitiva y experimental)
+
+</div>
+<div class="fragment">
+
+**Sociología y Antropología**
+
+</div>
+<div class="fragment">
+
+**Ciencia Cognitiva, Informática y Lingüística**
+
+</div>
+</div>
+
+<div class="fragment">
+<em>(MacKenzie, 2013)</em>
+</div>
+
+---
+
+## Los Tres Elementos Fundamentales
+
+--
+
+### Elementos Básicos de HCI
+
+<div class="fragment">
+
+**Poslad (2009):** *"Los conceptos básicos de HCI se centran en tres elementos"*
+
+</div>
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+### 1. Humanos
+
+<div data-id="humans" class="r-fit-text">USUARIOS</div>
+
+Usuarios únicos o múltiples, con habilidades físicas y mentales diversas, interactuando cooperativamente o competitivamente.
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+### 2. Ordenadores
+
+<div data-id="computers" class="r-fit-text">DISPOSITIVOS</div>
+
+No solo PC, sino una gama de dispositivos con chips programables: 
+- Pads y tabs
+- Dispositivos incrustados
+- Sistemas IoT
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+### 3. Interacción
+
+<div data-id="interaction" class="r-fit-text">COMUNICACIÓN</div>
+
+Puede ser dirigida mediante:
+- <!-- .element: class="fragment" --> Comandos
+- <!-- .element: class="fragment" --> Manipulación de objetos virtuales
+- <!-- .element: class="fragment" --> Interacción natural (voz, gestos)
+
+---
+
+## Motivación y Metas
+
+--
+
+### Objetivo Principal
+
+<div class="r-stack">
+<div class="fragment fade-in-then-out">
+
+**La motivación para HCI es clara:**
+
+</div>
+<div class="fragment fade-in-then-out">
+
+**Apoyar un uso más efectivo de los sistemas interactivos**
+
+</div>
+<div class="fragment">
+
+**El éxito depende de la experiencia del usuario**
+
+</div>
+</div>
+
+<div class="fragment">
+<em>(Poslad, 2009)</em>
+</div>
+
+--
+
+### Las Tres "U" del Diseño
+
+Para que un sistema sea efectivo, debe ser:
+
+<div class="r-hstack">
+<div class="fragment">
+
+**Útil**
+<br>
+<small>Lograr una tarea que el usuario requiere</small>
+
+</div>
+<div class="fragment">
+
+**Utilizable**
+<br>
+<small>Realizar la tarea de forma fácil y segura</small>
+
+</div>
+<div class="fragment">
+
+**Usado**
+<br>
+<small>Experiencia atractiva y divertida</small>
+
+</div>
+</div>
+
+<div class="fragment">
+<em>(Poslad, 2009)</em>
+</div>
+
+---
+
+## Historia de la Computación
+
+--
+
+### Contexto Histórico
+
+<div class="r-hstack">
+<div>
+
+**Década de 1940**
+
+Las computadoras eran máquinas:
+- Demasiado complicadas
+- Muy preciosas
+- Solo para expertos
+
+</div>
+<div class="fragment">
+
+*"Vivían una vida recluida en grandes salas con aire acondicionado"*
+
+**Bush (1945)**
+
+</div>
+</div>
+
+--
+
+### El Cambio de los 80s
+
+<div class="fragment">
+
+**Década de 1980:** Las computadoras se volvieron:
+
+</div>
+
+<div class="r-vstack">
+<div class="fragment fade-in-then-semi-out">
+
+**Potentes**
+
+</div>
+<div class="fragment fade-in-then-semi-out">
+
+**Utilizables por cualquiera**
+
+</div>
+<div class="fragment">
+
+**El cambio fue impulsado por la adición de la USABILIDAD**
+
+</div>
+</div>
+
+---
+
+## Ley de Moore
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+### La Ley (1965)
+
+<div data-id="moore-title">
+
+**Gordon Moore** (cofundador de Intel) postuló:
+
+</div>
+
+<div class="fragment">
+
+> *"El número de transistores contenidos en un microprocesador se duplicará aproximadamente cada 24 meses."*
+
+</div>
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+### Expresión Matemática
+
+<div data-id="moore-title" style="font-size: 0.8em;">
+
+**Ley de Moore - Fórmula Matemática:**
+
+</div>
+
+`\[ \lim_{t \to \infty} \frac{\text{Transistores}(t)}{\text{Transistores}(t-24\text{ meses})} = 2 \]`
+
+<div class="fragment">
+
+**Nota:** Es una predicción, no una ley física.
+
+</div>
+
+--
+
+### Impacto en HCI
+
+<div class="r-vstack">
+<div class="fragment">
+
+**Menor tiempo de latencia** en operaciones
+
+</div>
+<div class="fragment">
+
+**Usuarios esperan menos tiempo** de respuesta
+
+</div>
+<div class="fragment">
+
+**Umbral de Doherty:** 396ms máximo para mantener atención
+
+</div>
+</div>
+
+---
+
+## Evolución Histórica de HCI
+
+--
+
+### Hitos Tempranos (1940s-1960s)
+
+<div class="r-vstack">
+<div class="fragment">
+
+**1945:** Bush - "As We May Think" (Memex, hipertexto)
+
+</div>
+<div class="fragment">
+
+**1962:** Sutherland - Sketchpad (manipulación directa)
+
+</div>
+<div class="fragment">
+
+**1963:** Engelbart - Invención del ratón
+
+</div>
+</div>
+
+--
+
+### Era de la GUI (1970s-1980s)
+
+<div class="r-vstack">
+<div class="fragment">
+
+**1970s:** Xerox PARC - Alto (GUI + ratón)
+
+</div>
+<div class="fragment">
+
+**1981:** Xerox Star - Primera GUI comercial
+
+</div>
+<div class="fragment">
+
+**1983:** Nacimiento formal de HCI (ACM SIGCHI)
+
+</div>
+<div class="fragment">
+
+**1984:** Apple Macintosh - GUI al mainstream
+
+</div>
+</div>
+
+--
+
+### Era Moderna (1990s-2000s)
+
+<div class="r-vstack">
+<div class="fragment">
+
+**1990s:** Mark Weiser - Computación Ubicua
+
+</div>
+<div class="fragment">
+
+**1990s:** Donald Norman - Término "Experiencia del Usuario"
+
+</div>
+<div class="fragment">
+
+**2007:** iPhone - Revolución táctil
+
+</div>
+</div>
+
+---
+
+## Principios de Usabilidad
+
+--
+
+### Definición de Usabilidad
+
+> **"La medida en que un producto puede ser utilizado por usuarios específicos para lograr metas específicas con eficacia, eficiencia y satisfacción en un contexto de uso determinado"**
+> 
+> — Shneiderman & Plaisant (2010, p. 51)
+
+--
+
+### Primera Norma de Krug
+
+<div class="r-fit-text fragment" style="color: #910048;">
+
+**¡No me hagas pensar!**
+
+</div>
+
+<div class="fragment">
+
+**Objetivo:** El usuario medio solo tenga que **mirar una página** para que le sea evidente de qué se trata y cómo usarla.
+
+</div>
+
+<div class="fragment">
+<em>(Krug, 2014)</em>
+</div>
+
+--
+
+### Principios Cognitivos
+
+<div class="r-hstack">
+<div>
+
+**Las preguntas aumentan la carga cognitiva**
+
+</div>
+<div class="fragment">
+
+**La claridad es fundamental**
+
+</div>
+</div>
+
+<div class="fragment">
+
+Si algo no puede ser **fácilmente entendido**, al menos debe ser **autoexplicativo**.
+
+</div>
+
+---
+
+## Metas de Usabilidad
+
+--
+
+### Medidas Cuantificables
+
+Para medir usabilidad, Shneiderman & Plaisant (2010) proponen **cinco medidas**:
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+<div data-id="metrics">
+
+### 1. Tiempo de Aprendizaje
+
+Cuánto tarda un usuario típico en aprender las acciones relevantes para un conjunto de tareas.
+
+</div>
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+<div data-id="metrics">
+
+### 2. Velocidad de Rendimiento
+
+Cuánto tiempo se tarda en llevar a cabo tareas de referencia (**eficiencia**).
+
+</div>
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+<div data-id="metrics">
+
+### 3. Tasa de Errores
+
+Cuántos y qué tipos de errores se cometen durante el uso.
+
+</div>
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+<div data-id="metrics">
+
+### 4. Retención
+
+Qué tan bien mantienen el conocimiento después de un período de tiempo.
+
+</div>
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+<div data-id="metrics">
+
+### 5. Satisfacción Subjetiva
+
+Cuánto gustó el uso de varios aspectos de la interfaz (encuestas/entrevistas).
+
+</div>
+
+---
+
+## Reglas de Oro de Shneiderman
+
+--
+
+### Las 8 Reglas Fundamentales
+
+**Ben Shneiderman** propuso ocho principios aplicables en la mayoría de los sistemas interactivos:
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+<div data-id="rules" class="r-vstack">
+<div>
+
+### 1. Consistencia
+
+</div>
+<div class="fragment">
+
+**"Esfuérzate por la consistencia"** - La regla más frecuentemente violada.
+
+</div>
+</div>
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+<div data-id="rules" class="r-vstack">
+<div>
+
+### 2. Usabilidad Universal
+
+</div>
+<div class="fragment">
+
+Reconocer las necesidades de usuarios diversos (novatos/expertos, edades, discapacidades).
+
+</div>
+</div>
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+<div data-id="rules" class="r-vstack">
+<div>
+
+### 3. Feedback Informativo
+
+</div>
+<div class="fragment">
+
+El sistema debe proporcionar **retroalimentación continua** para cada acción del usuario.
+
+</div>
+</div>
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+<div data-id="rules" class="r-vstack">
+<div>
+
+### 4. Diálogos con Cierre
+
+</div>
+<div class="fragment">
+
+Las secuencias deben tener **principio, desarrollo y final** claros.
+
+</div>
+</div>
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+<div data-id="rules" class="r-vstack">
+<div>
+
+### 5. Prevención de Errores
+
+</div>
+<div class="fragment">
+
+El sistema debe diseñarse para que los usuarios **no puedan cometer errores graves**.
+
+</div>
+</div>
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+<div data-id="rules" class="r-vstack">
+<div>
+
+### 6. Reversibilidad
+
+</div>
+<div class="fragment">
+
+Permite **fácil reversibilidad** de las acciones (**undo**). Alivia la ansiedad.
+
+</div>
+</div>
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+<div data-id="rules" class="r-vstack">
+<div>
+
+### 7. Locus de Control Interno
+
+</div>
+<div class="fragment">
+
+Los usuarios deben **sentirse dueños** de la interfaz.
+
+</div>
+</div>
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+<div data-id="rules" class="r-vstack">
+<div>
+
+### 8. Reducción de Carga de Memoria
+
+</div>
+<div class="fragment">
+
+Mantener las pantallas **simples** y evitar que los usuarios tengan que recordar información entre pantallas.
+
+</div>
+</div>
+
+---
+
+## Principios de Diseño Cognitivo
+
+--
+
+### Modelo de Norman
+
+Basado en el **Modelo de Etapas de Acción** (Norman, 1988), se derivan **cuatro principios** de buen diseño:
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+<div data-id="norman" class="r-vstack">
+<div>
+
+### 1. Visibilidad
+
+</div>
+<div class="fragment">
+
+**"El estado y las alternativas de acción deben ser visibles"**
+
+</div>
+</div>
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+<div data-id="norman" class="r-vstack">
+<div>
+
+### 2. Modelo Conceptual
+
+</div>
+<div class="fragment">
+
+Debe haber un **buen modelo conceptual** con una imagen de sistema consistente.
+
+</div>
+</div>
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+<div data-id="norman" class="r-vstack">
+<div>
+
+### 3. Mapeos
+
+</div>
+<div class="fragment">
+
+La interfaz debe incluir **buenos mapeos** que revelen las relaciones entre las etapas.
+
+</div>
+</div>
+
+--
+
+<!-- .slide: data-auto-animate -->
+
+<div data-id="norman" class="r-vstack">
+<div>
+
+### 4. Feedback
+
+</div>
+<div class="fragment">
+
+Los usuarios deben recibir **retroalimentación continua**.
+
+</div>
+</div>
+
+---
+
+## Referencias Bibliográficas
+
+--
+
+### Fuentes Principales
+
+<div style="font-size: 0.7em; text-align: left;">
+
+**Baecker, R., Grudin, J. T., Buxton, W., & Greenberg, S.** (1995). *Readings in Human-Computer Interaction: Toward the year 2000*. Morgan Kaufmann.
+
+**Bush, V.** (1945, Julio). As we may think. *The Atlantic Monthly*, 101–108.
+
+**Card, S. K., Moran, T. P., & Newell, A.** (1983). *The Psychology of Human-Computer Interaction*. Erlbaum.
+
+**Krug, S.** (2014). *Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability* (3ª ed.). New Riders.
+
+</div>
+
+--
+
+### Fuentes Principales (cont.)
+
+<div style="font-size: 0.7em; text-align: left;">
+
+**MacKenzie, I. S.** (2013). *Human-Computer Interaction: An Empirical Research Perspective*. Elsevier Inc.
+
+**Norman, D. A.** (1988). *The Design of Everyday Things*. Basic Books.
+
+**Poslad, S.** (2009). *Ubiquitous Computing: Smart Devices, Environments and Interactions*. John Wiley & Sons.
+
+**Shneiderman, B., & Plaisant, C.** (2010). *Designing the User Interface: Strategies for Effective Human-Computer Interaction* (5ª ed.). Addison-Wesley.
+
+</div>
+
+--
+
+### Material de Enseñanza
+
+<div style="font-size: 0.7em; text-align: left;">
+
+**Díaz, S.** (s.f.). *UX Design: Hazlo fácil pensando en el usuario* (Capítulo 2). [Material de enseñanza].
+
+**Díaz, S.** (2025). *Todas las notas* [Apuntes de clase no publicados]. Universidad Internacional del Ecuador.
+
+**English, W. K., Engelbart, D. C., & Berman, M. L.** (1967). Display-selection techniques for text manipulation. *IEEE Transactions on Human Factors in Electronics*, HFE-8(1), 5-15.
+
+**Weiser, M.** (1991). The computer for the 21st century. *Scientific American*, 265(3), 94-104.
+
+</div>
+
+---
+
+<!-- .slide: data-background-color="#f8f8f8" data-transition="convex" -->
+
+<div class="r-fit-text" style="color: #910048;">
+
+¡Gracias!
+
+</div>
+
+### ¿Preguntas?
+
+<div style="margin-top: 2em;">
+<small>Universidad Internacional del Ecuador<br>
+Semana 1 - Introducción a HCI</small>
+</div>

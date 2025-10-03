@@ -1,5 +1,9 @@
 # HCI - Human Computer Interaction
 
+  --universities-primary: #910048;    /* UIDE Burgundy */
+            --universities-secondary: #23356E;  /* UIDE Navy */
+            --universities-accent: #E9AB21;     /* UIDE Gold */
+
 Repositorio de compendios semanales del curso de Interacción Humano-Computadora.
 
 ## 📚 Contenido del Curso

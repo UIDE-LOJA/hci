@@ -1,0 +1,1545 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Semana 4 - Leyes Cognitivas y Procesamiento de Información</title>
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css" id="theme">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/monokai.css">
+
+    <!-- Custom CSS for A4 format and UIDE colors - Book-like design -->
+    <style>
+        :root {
+            --uide-primary: #910048;    /* UIDE Burgundy */
+            --uide-secondary: #23356E;  /* UIDE Navy */
+            --uide-accent: #E9AB21;     /* UIDE Gold */
+            --uide-light: #f8f8f8;      /* Light background for contrast */
+        }
+
+        /* Book-like typography - Responsive */
+        .reveal {
+            font-family: 'Times New Roman', serif;
+            font-size: min(2.5vw, 22px);
+            line-height: 1.6;
+        }
+
+        .reveal h1, .reveal h2, .reveal h3 {
+            font-family: 'Georgia', serif;
+            font-weight: normal;
+            text-align: center;
+            color: var(--uide-primary) !important;
+            margin-bottom: 1em;
+        }
+
+        .reveal h1 {
+            font-size: min(4vw, 3em);
+        }
+
+        .reveal h2 {
+            font-size: min(3vw, 2.5em);
+        }
+
+        .reveal h3 {
+            font-size: min(2.5vw, 2em);
+        }
+
+        .reveal p, .reveal li {
+            text-align: justify;
+            color: #333;
+            margin-bottom: 1em;
+            font-size: min(2.2vw, 1.1em);
+        }
+
+        .reveal ul, .reveal ol {
+            text-align: left;
+        }
+
+        /* Clean slide format */
+        .reveal .slides section {
+            background: var(--uide-light);
+        }
+
+        /* Layout helpers */
+        .r-hstack {
+            display: flex;
+            gap: 2em;
+            align-items: flex-start;
+        }
+        
+        .r-vstack {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+        
+        .r-stack {
+            position: relative;
+        }
+        
+        .r-stack > * {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* UIDE color scheme */
+        .reveal .slide-background {
+            background: var(--uide-light);
+        }
+        
+        mark {
+            background-color: var(--uide-accent);
+            color: var(--uide-secondary);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+        }
+
+        /* Logo positioning - Book corner */
+        .logo-container {
+            position: absolute;
+            top: 3vh;
+            right: 3vw;
+            z-index: 10;
+            opacity: 0.8;
+        }
+
+        .logo-container img {
+            width: 8vw;
+            height: auto;
+            max-width: 120px;
+        }
+
+        /* Page numbers - Book style */
+        .page-number {
+            position: absolute;
+            bottom: 3vh;
+            right: 3vw;
+            font-size: 0.9em;
+            color: var(--uide-secondary);
+            font-family: 'Times New Roman', serif;
+        }
+
+        /* Title slide - Book cover style */
+        .title-slide {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--uide-light) 0%, #e8e8e8 100%);
+            border: 3px double var(--uide-primary);
+        }
+
+        .title-slide h1 {
+            font-size: min(6vw, 4em);
+            margin-bottom: 0.5em;
+            color: var(--uide-primary);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .title-slide h2 {
+            font-size: min(4vw, 2.5em);
+            margin-bottom: 1em;
+            color: var(--uide-secondary);
+        }
+
+        /* Content styling - Book typography */
+        .reveal blockquote {
+            font-style: italic;
+            border-left: 4px solid var(--uide-accent);
+            padding-left: 1em;
+            margin: 1em 0;
+            color: var(--uide-primary);
+            font-size: min(2.2vw, 1.1em);
+        }
+
+        .reveal table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5em 0;
+            font-size: min(2vw, 0.9em);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .reveal table th, .reveal table td {
+            border: 1px solid var(--uide-secondary);
+            padding: 0.8em;
+            text-align: left;
+        }
+
+        .reveal table th {
+            background-color: var(--uide-primary);
+            color: white;
+            font-weight: bold;
+        }
+
+        .reveal table tr:nth-child(even) {
+            background-color: rgba(255,255,255,0.5);
+        }
+
+        /* Fragment animations - Book page turning effect */
+        .fragment {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .fragment.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fragment.fade-in {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .fragment.fade-in.visible {
+            opacity: 1;
+        }
+
+        /* Highlight important text */
+        .highlight {
+            background-color: var(--uide-accent);
+            color: var(--uide-secondary);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        /* Media placeholders */
+        .media-placeholder {
+            background: rgba(0,0,0,0.05);
+            border: 2px dashed var(--uide-secondary);
+            padding: 3vh 2vw;
+            margin: 2vh 0;
+            text-align: center;
+            border-radius: 5px;
+            color: var(--uide-secondary);
+        }
+
+        /* Chapter headers */
+        .chapter-header {
+            text-align: center;
+            border-bottom: 2px solid var(--uide-primary);
+            padding-bottom: 0.5em;
+            margin-bottom: 2em;
+            font-size: min(3vw, 2em);
+            color: var(--uide-primary);
+        }
+
+        /* Footer with university info */
+        .slide-footer {
+            position: absolute;
+            bottom: 3vh;
+            left: 3vw;
+            font-size: 0.8em;
+            color: var(--uide-secondary);
+            font-family: 'Times New Roman', serif;
+        }
+
+        /* Cross-reference styling */
+        .cross-reference {
+            background-color: rgba(145, 0, 72, 0.1);
+            border-left: 3px solid var(--uide-primary);
+            padding: 0.5em 1em;
+            margin: 1em 0;
+            font-style: italic;
+            color: var(--uide-secondary);
+        }
+
+        /* Two-column layout */
+        .two-column {
+            display: flex;
+            gap: 2em;
+            align-items: flex-start;
+        }
+
+        .column {
+            flex: 1;
+            padding: 0 1em;
+        }
+
+        /* Mathematical formulas styling */
+        .formula-box {
+            background: rgba(255,255,255,0.9);
+            border: 2px solid var(--uide-accent);
+            border-radius: 10px;
+            padding: 1.5em;
+            margin: 1em 0;
+            text-align: center;
+        }
+
+        .formula-box .mjx-chtml {
+            font-size: 1.2em !important;
+        }
+
+        /* Law boxes for emphasis */
+        .law-box {
+            background: linear-gradient(135deg, rgba(145, 0, 72, 0.1), rgba(35, 53, 110, 0.1));
+            border: 2px solid var(--uide-primary);
+            border-radius: 15px;
+            padding: 1.5em;
+            margin: 1.5em 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Cognitive load indicators */
+        .cognitive-indicator {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            margin: 0 0.2em;
+            vertical-align: middle;
+        }
+
+        .high-load { background: #ff6b6b; }
+        .medium-load { background: #ffd93d; }
+        .low-load { background: #6bcf7f; }
+
+        /* Memory capacity visualization */
+        .memory-slots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5em;
+            margin: 1em 0;
+        }
+
+        .memory-slot {
+            width: 3em;
+            height: 3em;
+            border: 2px solid var(--uide-secondary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            background: rgba(255,255,255,0.8);
+        }
+
+        .memory-slot.filled {
+            background: var(--uide-accent);
+            color: var(--uide-secondary);
+        }
+
+        /* Target visualization for Fitts' Law */
+        .fitts-demo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 2em 0;
+            padding: 1em;
+            background: rgba(255,255,255,0.9);
+            border-radius: 10px;
+        }
+
+        .target {
+            width: 60px;
+            height: 60px;
+            background: var(--uide-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .distance-line {
+            flex: 1;
+            height: 2px;
+            background: var(--uide-secondary);
+            margin: 0 1em;
+            position: relative;
+        }
+
+        .distance-line::after {
+            content: 'D';
+            position: absolute;
+            top: -1.5em;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--uide-secondary);
+            font-weight: bold;
+        }
+
+        /* Responsive Design - Mobile First */
+        @media (max-width: 768px) {
+            .reveal {
+                font-size: min(4vw, 18px);
+            }
+
+            .reveal h1 {
+                font-size: min(8vw, 2.5em);
+            }
+
+            .reveal h2 {
+                font-size: min(6vw, 2em);
+            }
+
+            .reveal h3 {
+                font-size: min(5vw, 1.5em);
+            }
+
+            .reveal p, .reveal li {
+                font-size: min(4vw, 1em);
+            }
+
+            .two-column, .r-hstack {
+                flex-direction: column;
+                gap: 1em;
+            }
+
+            .column {
+                padding: 0.5em;
+            }
+
+            .logo-container {
+                top: 2vh;
+                right: 2vw;
+            }
+
+            .logo-container img {
+                width: 12vw;
+                max-width: 80px;
+            }
+
+            .page-number {
+                bottom: 2vh;
+                right: 2vw;
+                font-size: 0.7em;
+            }
+
+            .slide-footer {
+                bottom: 1vh;
+                left: 2vw;
+                font-size: 0.7em;
+            }
+
+            .title-slide h1 {
+                font-size: min(10vw, 3em);
+            }
+
+            .title-slide h2 {
+                font-size: min(7vw, 2em);
+            }
+
+            .memory-slots {
+                flex-wrap: wrap;
+                gap: 0.3em;
+            }
+
+            .memory-slot {
+                width: 2.5em;
+                height: 2.5em;
+            }
+
+            .fitts-demo {
+                flex-direction: column;
+                gap: 1em;
+            }
+
+            .distance-line {
+                width: 80%;
+                margin: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .reveal {
+                font-size: min(5vw, 16px);
+            }
+
+            .reveal section {
+                padding: 3vh 3vw;
+            }
+
+            .logo-container img {
+                width: 15vw;
+                max-width: 60px;
+            }
+
+            .title-slide h1 {
+                font-size: min(12vw, 2.5em);
+            }
+
+            .title-slide h2 {
+                font-size: min(8vw, 1.8em);
+            }
+        }
+
+        /* Flashcard styles */
+        .flashcard {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 0;
+            margin: 0.8em 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            min-height: 140px;
+            perspective: 1000px;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .flashcard:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            border-color: var(--uide-primary);
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            min-height: 140px;
+            text-align: left;
+            transition: transform 0.4s ease-in-out;
+            transform-style: preserve-3d;
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            min-height: 140px;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 1.2em;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .flashcard-front {
+            background: #ffffff;
+            border-left: 4px solid var(--uide-primary);
+        }
+
+        .flashcard-back {
+            transform: rotateY(180deg);
+            background: #fafafa;
+            border-left: 4px solid var(--uide-accent);
+        }
+
+        .flashcard h4 {
+            margin: 0 0 0.8em 0;
+            color: var(--uide-primary);
+            font-size: 0.95em;
+            font-weight: 600;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.4em;
+        }
+
+        .flashcard-back h4 {
+            color: var(--uide-secondary);
+        }
+
+        .flashcard p {
+            margin: 0.4em 0;
+            line-height: 1.4;
+            color: #444;
+            font-size: 0.85em;
+        }
+
+        .flashcard small {
+            font-style: italic;
+            color: #666;
+            margin-top: auto;
+            font-size: 0.75em;
+        }
+
+        .flashcard strong {
+            color: var(--uide-primary);
+            font-weight: 600;
+        }
+
+        .flashcard-back strong {
+            color: var(--uide-secondary);
+        }
+
+        /* Mobile responsive for flashcards */
+        @media (max-width: 768px) {
+            .flashcard {
+                min-height: 120px;
+            }
+            
+            .flashcard-front, .flashcard-back {
+                padding: 1em;
+            }
+            
+            .flashcard h4 {
+                font-size: 0.9em;
+            }
+            
+            .flashcard p {
+                font-size: 0.8em;
+            }
+            
+            .flashcard small {
+                font-size: 0.7em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Title Slide -->
+            <section data-background-color="#f8f8f8" data-transition="convex">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+
+                <h3 style="color: var(--uide-secondary);">Semana 4</h3>
+                <div style="width: 100px; height: 3px; background: var(--uide-primary); margin: 1em auto; border-radius: 2px;"></div>
+
+                <h1 style="color: var(--uide-primary);">Leyes Cognitivas</h1>
+                <h2 style="color: var(--uide-secondary);">y Procesamiento de Información</h2>
+
+                <div style="margin: 2em 0; padding: 1.5em; background: rgba(255,255,255,0.9); border-radius: 10px; border-left: 4px solid var(--uide-accent);">
+                    <h4 style="color: var(--uide-primary); margin: 0 0 0.5em 0;">Universidad Internacional del Ecuador</h4>
+                    <p style="margin: 0; color: var(--uide-secondary); font-style: italic;">
+                        "Formando líderes con visión global y excelencia académica"
+                    </p>
+                </div>
+
+                <div class="r-hstack" style="justify-content: center;">
+                    <div style="text-align: center;">
+                        <div style="color: var(--uide-primary); font-weight: bold;">PP-07-HCI</div>
+                        <div style="color: var(--uide-secondary); font-size: 0.8em;">Código del Curso</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="color: var(--uide-primary); font-weight: bold;">Oct 2025 - Feb 2026</div>
+                        <div style="color: var(--uide-secondary); font-size: 0.8em;">Período Académico</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="color: var(--uide-primary); font-weight: bold;">Séptimo Nivel</div>
+                        <div style="color: var(--uide-secondary); font-size: 0.8em;">Nivel</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2em; text-align: center; color: var(--uide-secondary); font-size: 0.9em;">
+                    <strong>Prof. Charlie Cárdenas Toledo, M.Sc.</strong><br>
+                    <em>chcardenasto@uide.edu.ec</em>
+                </div>
+            </section>
+
+            <!-- Quote Slide -->
+            <section data-background-color="#f8f8f8">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                
+                <blockquote style="background: rgba(255,255,255,0.95); padding: 2em; border-radius: 15px; border-left: 5px solid var(--uide-primary);">
+                    <p style="font-size: 1.2em; color: var(--uide-secondary); margin: 0; line-height: 1.6; font-style: italic;">
+                        "El número mágico siete, más o menos dos: algunos límites en nuestra capacidad para procesar información."
+                    </p>
+                    <cite style="display: block; margin-top: 1em; color: var(--uide-primary); font-weight: bold;">
+                        — George A. Miller (1956)
+                    </cite>
+                </blockquote>
+            </section>
+
+            <!-- Introduction -->
+            <section data-transition="convex">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Modelos Matemáticos Predictivos en HCI</h2>
+                
+                <section data-auto-animate>
+                    <h3>Fundamentos del Procesamiento de Información</h3>
+                    <p>La <strong>Ley de Fitts</strong> y la <strong>Ley de Hick-Hyman</strong> son dos <mark>modelos matemáticos predictivos</mark> que surgieron de la psicología experimental y que fueron cruciales para la HCI.</p>
+                    
+                    <div class="cross-reference">
+                        <strong>Conexión con la Semana 1:</strong> Estos modelos complementan los principios de usabilidad que vimos con Shneiderman y Norman, proporcionando una base cuantitativa para el diseño.
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>¿Por qué son Importantes?</h3>
+                    <p>Estos modelos permiten <mark>modelar el comportamiento humano</mark> como una actividad de procesamiento de información, proporcionando herramientas predictivas para el diseño de interfaces.</p>
+                    
+                    <div class="r-vstack">
+                        <div class="fragment">
+                            <strong>Predicción:</strong> Permiten estimar tiempos de interacción
+                        </div>
+                        <div class="fragment">
+                            <strong>Optimización:</strong> Guían decisiones de diseño basadas en evidencia
+                        </div>
+                        <div class="fragment">
+                            <strong>Evaluación:</strong> Proporcionan métricas objetivas de usabilidad
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Fitts' Law -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Ley de Fitts</h2>
+                
+                <section>
+                    <h3>Concepto y Base Teórica</h3>
+                    <div class="law-box">
+                        <p>La <strong>Ley de Fitts</strong> es uno de los modelos más ampliamente utilizados en HCI.</p>
+                    </div>
+                    
+                    <div class="r-vstack">
+                        <div class="fragment">
+                            <p><strong>Desarrollada por:</strong> Paul Fitts en 1954, psicólogo experimental</p>
+                        </div>
+                        <div class="fragment">
+                            <p><strong>Modelo de:</strong> Movimiento motor humano</p>
+                        </div>
+                        <div class="fragment">
+                            <p><strong>Se aplica a:</strong> Movimientos rápidos y dirigidos (<em>rapid-aimed movements</em>)</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Principio Fundamental</h3>
+                    <p>El tiempo requerido para moverse hacia un objetivo (<mark>MT</mark>) está determinado por:</p>
+                    
+                    <div class="fitts-demo">
+                        <div class="target" style="width: 40px; height: 40px; font-size: 0.8em;">Start</div>
+                        <div class="distance-line"></div>
+                        <div class="target" style="width: 80px; height: 80px;">Target</div>
+                    </div>
+                    
+                    <div class="two-column">
+                        <div class="column">
+                            <div class="fragment">
+                                <strong>Distancia (D o A):</strong> La distancia al objetivo
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="fragment">
+                                <strong>Tamaño del objetivo (W):</strong> El ancho del objetivo
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Compensación Velocidad-Precisión</h3>
+                    <blockquote>
+                        <p>Existe una <mark>compensación velocidad-precisión</mark> (speed-accuracy trade-off): cuanto más rápido sea el movimiento y más pequeño el objetivo, mayor será la tasa de error.</p>
+                    </blockquote>
+                    
+                    <div class="r-vstack fragment">
+                        <div>🎯 <strong>Objetivo Grande + Movimiento Lento = </strong> <span class="cognitive-indicator low-load"></span> Pocos errores</div>
+                        <div>🎯 <strong>Objetivo Pequeño + Movimiento Rápido = </strong> <span class="cognitive-indicator high-load"></span> Más errores</div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Formulación Matemática</h3>
+                    <p>La relación entre la <mark>dificultad de la tarea (ID)</mark> y el <mark>tiempo de movimiento (MT)</mark> es lineal:</p>
+                    
+                    <div class="formula-box">
+                        <p><strong>Fórmula Principal:</strong></p>
+                        $$\mathbf{MT} = \mathbf{a} + \mathbf{b} \times \mathbf{ID}$$
+                        <small>Donde <em>a</em> y <em>b</em> son coeficientes empíricos</small>
+                    </div>
+                    
+                    <div class="fragment">
+                        <p><strong>Índice de Dificultad (ID):</strong> Medido en "bits", basándose en la teoría de la información.</p>
+                        <ul>
+                            <li><strong>Amplitud (A):</strong> Se asemeja a la señal</li>
+                            <li><strong>Ancho del objetivo (W):</strong> Se asemeja al ruido</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Aplicaciones en HCI</h3>
+                    
+                    <div class="cross-reference">
+                        <strong>Recordando la Semana 3:</strong> Como vimos con los affordances, el diseño debe proporcionar pistas claras sobre la funcionalidad. Fitts nos ayuda a optimizar estas interacciones.
+                    </div>
+                    
+                    <div class="r-vstack">
+                        <div class="fragment">
+                            <strong>Predicción:</strong> Se usa para predecir el tiempo para tareas de selección por puntero
+                        </div>
+                        <div class="fragment">
+                            <strong>Diseño de Botones:</strong> Ayuda a definir la ubicación y el tamaño de elementos en pantalla
+                        </div>
+                        <div class="fragment">
+                            <strong>Optimización de Layout:</strong> Posicionar controles en bordes o esquinas reduce movimientos de ajuste fino
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Movimientos Balísticos vs. Ajuste Fino</h3>
+                    <p>El movimiento de puntería consiste en:</p>
+                    
+                    <div class="two-column">
+                        <div class="column">
+                            <div class="fragment">
+                                <h4>Movimiento Balístico</h4>
+                                <p>Movimiento inicial rápido hacia el objetivo general</p>
+                                <span class="cognitive-indicator low-load"></span> <small>Menos errores</small>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="fragment">
+                                <h4>Movimientos de Ajuste Fino</h4>
+                                <p>Correcciones precisas para alcanzar el objetivo exacto</p>
+                                <span class="cognitive-indicator high-load"></span> <small>Responsables de la mayoría de errores y tiempo</small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Hick's Law -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Ley de Hick-Hyman</h2>
+                
+                <section>
+                    <h3>Concepto y Base Teórica</h3>
+                    <div class="law-box">
+                        <p>La <strong>Ley de Hick-Hyman</strong> se originó en la investigación sobre el <mark>tiempo de reacción de elección</mark> (choice reaction time).</p>
+                    </div>
+                    
+                    <blockquote class="fragment">
+                        <p>Demuestra que el tiempo que se tarda en tomar una decisión (<strong>RT</strong>) aumenta en función del <mark>número de opciones</mark> (n).</p>
+                    </blockquote>
+                    
+                    <div class="fragment">
+                        <p><strong>Advertencia:</strong> Una sobreestimulación (demasiadas opciones) puede perjudicar o conducir a la <mark>parálisis de decisión</mark>.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Formulación Matemática</h3>
+                    <div class="formula-box">
+                        <p><strong>Fórmula de Hick-Hyman:</strong></p>
+                        $$\mathbf{RT} = \mathbf{a} + \mathbf{b} \log_2(\mathbf{n})$$
+                        <small>Donde <em>n</em> es el número de opciones</small>
+                    </div>
+                    
+                    <div class="fragment">
+                        <p><strong>Constante b:</strong> Representa el tiempo de procesamiento cognitivo para cada opción</p>
+                        <p><mark>Valor aproximado: 150 ms/bit para humanos</mark></p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Demostración Visual</h3>
+                    <p>Tiempo de decisión vs. Número de opciones:</p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1em; margin: 2em 0;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2em;">⚫</div>
+                            <small>1 opción<br><span class="cognitive-indicator low-load"></span> Rápido</small>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.5em;">⚫ ⚫</div>
+                            <small>2 opciones<br><span class="cognitive-indicator low-load"></span></small>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 1em;">⚫ ⚫ ⚫ ⚫</div>
+                            <small>4 opciones<br><span class="cognitive-indicator medium-load"></span></small>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 0.8em;">⚫ ⚫ ⚫ ⚫<br>⚫ ⚫ ⚫ ⚫</div>
+                            <small>8 opciones<br><span class="cognitive-indicator high-load"></span> Lento</small>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Aplicaciones y Limitaciones</h3>
+                    
+                    <div class="cross-reference">
+                        <strong>Conexión con la Semana 2:</strong> Como vimos en factores humanos, debemos considerar las limitaciones cognitivas del usuario en nuestros diseños.
+                    </div>
+                    
+                    <div class="two-column">
+                        <div class="column">
+                            <h4>✅ Aplicaciones</h4>
+                            <ul>
+                                <li class="fragment">Reducir opciones mediante subdivisiones categóricas</li>
+                                <li class="fragment">Diseño de menús jerárquicos</li>
+                                <li class="fragment">Toma de decisiones simples</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>❌ Limitaciones</h4>
+                            <ul>
+                                <li class="fragment">No se aplica a búsqueda compleja</li>
+                                <li class="fragment">No para lectura intensiva</li>
+                                <li class="fragment">No para resolución de problemas complejos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Attention, Memory, and Perception -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Atención, Memoria y Percepción</h2>
+                
+                <section>
+                    <h3>Componentes Centrales de la Cognición</h3>
+                    <p>Estos son <mark>componentes centrales</mark> de la cognición humana que definen las capacidades y limitaciones que los diseñadores deben considerar en HCI.</p>
+                    
+                    <div class="r-vstack">
+                        <div class="fragment">
+                            <strong>Percepción:</strong> Primera etapa de procesamiento
+                        </div>
+                        <div class="fragment">
+                            <strong>Atención:</strong> Recurso limitado y selectivo
+                        </div>
+                        <div class="fragment">
+                            <strong>Memoria:</strong> Almacenamiento y recuperación de información
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Percepción</h3>
+                    <p>La percepción es la <mark>primera etapa de procesamiento</mark> en el cerebro que ocurre cuando se reciben señales sensoriales del entorno.</p>
+                    
+                    <div class="two-column">
+                        <div class="column">
+                            <div class="fragment">
+                                <h4>Importancia de la Visión</h4>
+                                <p>La <strong>visión</strong> es el sentido más importante: <mark>~80% de la información</mark> se obtiene a través de la vista.</p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="fragment">
+                                <h4>Funcionamiento Visual</h4>
+                                <ul>
+                                    <li><strong>Fijaciones:</strong> Ojos quietos, captando detalles (≥200 ms)</li>
+                                    <li><strong>Sacadas:</strong> Movimiento rápido para reposicionar (30-120 ms)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fragment">
+                        <p><strong>Diseño Visual:</strong> La visión periférica capta la idea general (gist), el centro de pantalla es crucial para visión central.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Atención</h3>
+                    <p>La atención es una <mark>propiedad limitada</mark> del comportamiento humano. Al concentrarse en una cosa, la persona no puede atender a otra.</p>
+                    
+                    <div class="two-column">
+                        <div class="column">
+                            <h4>Tipos de Atención</h4>
+                            <div class="fragment">
+                                <strong>Atención Dividida:</strong>
+                                <p>Concentrarse en más de una tarea a la vez</p>
+                                <small>Ej: enviar mensajes mientras se conduce</small>
+                                <span class="cognitive-indicator high-load"></span>
+                            </div>
+                            <div class="fragment">
+                                <strong>Atención Selectiva:</strong>
+                                <p>Capacidad de ignorar eventos extraños y mantener el foco</p>
+                                <span class="cognitive-indicator medium-load"></span>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <h4>Implicaciones de Diseño</h4>
+                            <div class="fragment">
+                                <p>Los diseñadores <strong>no deben asumir</strong> que los usuarios prestarán atención a la información.</p>
+                            </div>
+                            <div class="fragment">
+                                <p>Si es crucial, la información debe resaltar <mark>10 veces más</mark> de lo que se cree necesario.</p>
+                            </div>
+                            <div class="fragment">
+                                <p><strong>Atención sostenida:</strong> ~10 minutos aproximadamente</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Memoria</h3>
+                    
+                    <div class="cross-reference">
+                        <strong>Conexión con Miller:</strong> Como veremos más adelante, la memoria a corto plazo es una de las capacidades más limitadas del ser humano.
+                    </div>
+                    
+                    <div class="r-vstack">
+                        <div class="fragment">
+                            <h4>1. Memoria a Corto Plazo (MCP) / Memoria de Trabajo</h4>
+                            <p>Es una de las capacidades <mark>más limitadas</mark> del ser humano, siendo el foco de la Ley de Miller.</p>
+                        </div>
+                        
+                        <div class="fragment">
+                            <h4>2. Memoria a Largo Plazo y Reconocimiento</h4>
+                            <p>Los humanos utilizan <strong>esquemas (schemata)</strong> para almacenar y recuperar información.</p>
+                            <p>Es más fácil recordar nueva información si se puede <mark>conectar a un esquema ya existente</mark>.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Reconocimiento vs. Recuerdo</h3>
+                    <blockquote>
+                        <p>El diseño debe favorecer el <mark>reconocimiento</mark> sobre el <mark>recuerdo</mark> (recall).</p>
+                    </blockquote>
+                    
+                    <div class="two-column">
+                        <div class="column">
+                            <div class="fragment">
+                                <h4>✅ Reconocimiento</h4>
+                                <p>Elegir una opción de un menú</p>
+                                <span class="cognitive-indicator low-load"></span> <small>Más fácil y rápido</small>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="fragment">
+                                <h4>❌ Recuerdo Libre</h4>
+                                <p>Escribir comandos de memoria</p>
+                                <span class="cognitive-indicator high-load"></span> <small>Mayor carga cognitiva</small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Efectos en la Interfaz</h3>
+                    
+                    <div class="r-vstack">
+                        <div class="fragment">
+                            <h4>Efectos de Posición Serial</h4>
+                            <p>Los elementos al <mark>principio</mark> (primacy effect) y al <mark>final</mark> (recency effect) de una lista son más fáciles de recordar que los intermedios.</p>
+                            
+                            <div style="display: flex; justify-content: center; gap: 0.5em; margin: 1em 0;">
+                                <div style="padding: 0.5em; background: var(--uide-accent); border-radius: 5px;">1° ✓</div>
+                                <div style="padding: 0.5em; background: #ddd; border-radius: 5px;">2°</div>
+                                <div style="padding: 0.5em; background: #ddd; border-radius: 5px;">3°</div>
+                                <div style="padding: 0.5em; background: #ddd; border-radius: 5px;">4°</div>
+                                <div style="padding: 0.5em; background: var(--uide-accent); border-radius: 5px;">5° ✓</div>
+                            </div>
+                        </div>
+                        
+                        <div class="fragment">
+                            <h4>Profundidad de Procesamiento</h4>
+                            <p>La información que es <mark>distintiva, relevante y requiere elaboración</mark> se recuerda mejor que la información procesada superficialmente.</p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Cognitive Load -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Carga Cognitiva</h2>
+                
+                <section>
+                    <h3>Definición y Costo</h3>
+                    <div class="law-box">
+                        <p>La <strong>carga cognitiva</strong> se refiere al grado de <mark>esfuerzo mental</mark>, incluyendo percepción, memoria y resolución de problemas, requerido para lograr un objetivo.</p>
+                    </div>
+                    
+                    <div class="r-vstack">
+                        <div class="fragment">
+                            <p>Es el tipo de carga que requiere la <mark>mayor cantidad de recursos mentales</mark> y se considera la más "costosa".</p>
+                        </div>
+                        <div class="fragment">
+                            <div class="cross-reference">
+                                <strong>Recordando la Semana 1:</strong> La primera norma de usabilidad "¡No me hagas pensar!" busca eliminar o reducir esta carga.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Causas de la Sobrecarga Cognitiva</h3>
+                    
+                    <div class="r-vstack">
+                        <div class="fragment">
+                            <span class="cognitive-indicator high-load"></span> <strong>Número excesivo de opciones</strong> donde elegir
+                        </div>
+                        <div class="fragment">
+                            <span class="cognitive-indicator high-load"></span> <strong>Demasiada reflexión</strong> requerida
+                        </div>
+                        <div class="fragment">
+                            <span class="cognitive-indicator high-load"></span> <strong>Falta de legibilidad</strong>
+                        </div>
+                        <div class="fragment">
+                            <span class="cognitive-indicator high-load"></span> <strong>Diseños impactantes</strong> que merman la legibilidad
+                        </div>
+                        <div class="fragment">
+                            <span class="cognitive-indicator high-load"></span> <strong>Patrones inusuales</strong> o iconografía difícil de memorizar
+                        </div>
+                        <div class="fragment">
+                            <span class="cognitive-indicator high-load"></span> Cuando se <strong>obliga al usuario a pensar o recordar</strong>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Estrategias para Reducir la Carga Cognitiva</h3>
+                    
+                    <div class="two-column">
+                        <div class="column">
+                            <h4>🗑️ Eliminar</h4>
+                            <div class="fragment">
+                                <p>Eliminar elementos (incluyendo tareas) que no ayuden al usuario a conseguir su objetivo.</p>
+                                <span class="cognitive-indicator low-load"></span> <small>Máxima reducción</small>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <h4>📦 Agrupar (Chunking)</h4>
+                            <div class="fragment">
+                                <p>Agrupar información que debe ser recordada (si la eliminación no es posible).</p>
+                                <span class="cognitive-indicator medium-load"></span> <small>Reducción moderada</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="r-vstack fragment">
+                        <div>
+                            <span class="cognitive-indicator low-load"></span> <strong>Aprovechar patrones comunes:</strong> Para que los usuarios no tengan que aprender de nuevo
+                        </div>
+                        <div>
+                            <span class="cognitive-indicator low-load"></span> <strong>Automatizar tareas:</strong> Intensivas en memoria y cálculo
+                        </div>
+                        <div>
+                            <span class="cognitive-indicator low-load"></span> <strong>Sistemas conscientes del contexto:</strong> Pueden reducir la carga filtrando información relevante
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Miller's Law -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Ley de Miller</h2>
+                
+                <section>
+                    <h3>Concepto y Origen</h3>
+                    <div class="law-box">
+                        <p><strong>Postulada por:</strong> George Armitage Miller en 1956</p>
+                        <p>La memoria a corto plazo de los seres humanos tiene una <mark>capacidad limitada</mark>:</p>
+                        <div style="font-size: 2em; color: var(--uide-primary); margin: 0.5em 0;">
+                            <strong>7 ± 2</strong>
+                        </div>
+                        <p>Solo pueden recordar <strong>siete objetos o entidades, más o menos dos</strong></p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Visualización de la Capacidad de Memoria</h3>
+                    <p>Límite de la memoria a corto plazo (5 a 9 elementos):</p>
+                    
+                    <div class="memory-slots">
+                        <div class="memory-slot filled">1</div>
+                        <div class="memory-slot filled">2</div>
+                        <div class="memory-slot filled">3</div>
+                        <div class="memory-slot filled">4</div>
+                        <div class="memory-slot filled">5</div>
+                        <div class="memory-slot filled">6</div>
+                        <div class="memory-slot filled">7</div>
+                        <div class="memory-slot">8?</div>
+                        <div class="memory-slot">9?</div>
+                    </div>
+                    
+                    <div class="fragment">
+                        <p><strong>Investigaciones posteriores:</strong> Sugieren que el límite de la memoria de trabajo podría ser aproximadamente <mark>cuatro elementos</mark>.</p>
+                    </div>
+                    
+                    <div class="fragment">
+                        <p>Se relaciona con la <strong>capacidad del canal</strong> (capacidad de la memoria inmediata).</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Fragmentación (Chunking)</h3>
+                    <p>El <mark>agrupamiento o fragmentación</mark> (chunking) es una función cognitiva que permite:</p>
+                    
+                    <div class="r-vstack">
+                        <div class="fragment">
+                            <p><strong>Establecer relaciones semánticas</strong></p>
+                        </div>
+                        <div class="fragment">
+                            <p><strong>Aumentar la capacidad</strong> de la memoria a corto plazo</p>
+                        </div>
+                        <div class="fragment">
+                            <p><strong>Agrupar múltiples ítems</strong> de bajo nivel en un solo ítem de alto nivel</p>
+                        </div>
+                    </div>
+                    
+                    <div class="fragment">
+                        <blockquote>
+                            <p><strong>Condición importante:</strong> Este incremento solo es notable si cada fragmento es <mark>significativo para el individuo</mark>.</p>
+                        </blockquote>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Ejemplo de Chunking</h3>
+                    <p>Comparación de información sin agrupar vs. agrupada:</p>
+                    
+                    <div class="two-column">
+                        <div class="column">
+                            <h4>❌ Sin Chunking</h4>
+                            <div style="font-family: monospace; letter-spacing: 0.2em; background: rgba(255,255,255,0.9); padding: 1em; border-radius: 5px;">
+                                5 9 3 9 8 0 7 6 2 4 5 6
+                            </div>
+                            <small>12 elementos individuales</small>
+                            <span class="cognitive-indicator high-load"></span>
+                        </div>
+                        <div class="column">
+                            <h4>✅ Con Chunking</h4>
+                            <div style="font-family: monospace; letter-spacing: 0.2em; background: rgba(255,255,255,0.9); padding: 1em; border-radius: 5px;">
+                                593-980-762-456
+                            </div>
+                            <small>4 grupos significativos (número telefónico)</small>
+                            <span class="cognitive-indicator low-load"></span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Aplicación Práctica</h3>
+                    
+                    <div class="cross-reference">
+                        <strong>Conexión con Hick:</strong> Ambas leyes nos enseñan que limitar opciones mejora la experiencia del usuario.
+                    </div>
+                    
+                    <div class="r-vstack">
+                        <div class="fragment">
+                            <strong>Evaluación de carga cognitiva:</strong> La ley es fundamental para evaluar la carga cognitiva
+                        </div>
+                        <div class="fragment">
+                            <strong>Problema de menús:</strong> Si existen más de 7 posibilidades para elegir en un menú, es probable que los usuarios se frustren o bloqueen
+                        </div>
+                        <div class="fragment">
+                            <strong>Parálisis de decisión:</strong> Esto puede conducir a la parálisis de decisión
+                        </div>
+                        <div class="fragment">
+                            <strong>Solución por agrupación:</strong> Si no es posible eliminar opciones, se debe recurrir a la agrupación
+                        </div>
+                        <div class="fragment">
+                            <strong>Principio clave:</strong> <mark>Importa el número de opciones, no el número de niveles</mark>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Integration and Applications -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Integración y Aplicaciones</h2>
+                
+                <section>
+                    <h3>Síntesis de las Leyes Cognitivas</h3>
+                    <p>Las leyes estudiadas se integran para formar un <mark>marco comprehensivo</mark> del diseño basado en evidencia:</p>
+                    
+                    <div class="r-vstack">
+                        <div class="fragment">
+                            <strong>Ley de Fitts:</strong> Optimización de la interacción física (movimiento y targeting)
+                        </div>
+                        <div class="fragment">
+                            <strong>Ley de Hick:</strong> Optimización de la toma de decisiones
+                        </div>
+                        <div class="fragment">
+                            <strong>Ley de Miller:</strong> Optimización de la carga de memoria
+                        </div>
+                        <div class="fragment">
+                            <strong>Carga Cognitiva:</strong> Minimización del esfuerzo mental total
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Aplicación Conjunta en el Diseño</h3>
+                    
+                    <div class="cross-reference">
+                        <strong>Construyendo sobre las semanas anteriores:</strong> Estas leyes proporcionan la base cuantitativa para implementar los principios de usabilidad y diseño centrado en el usuario que hemos estudiado.
+                    </div>
+                    
+                    <div class="two-column">
+                        <div class="column">
+                            <h4>🎯 Diseño de Interfaces</h4>
+                            <ul>
+                                <li class="fragment">Botones grandes en posiciones accesibles (Fitts)</li>
+                                <li class="fragment">Menús categorizados (Hick + Miller)</li>
+                                <li class="fragment">Información agrupada lógicamente (Miller)</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>📱 Experiencia del Usuario</h4>
+                            <ul>
+                                <li class="fragment">Reducción de pasos en tareas (Carga Cognitiva)</li>
+                                <li class="fragment">Feedback inmediato (Atención)</li>
+                                <li class="fragment">Reconocimiento vs. recuerdo (Memoria)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Hacia el Diseño Basado en Evidencia</h3>
+                    <blockquote>
+                        <p>El <mark>diseño basado en evidencia</mark> requiere la integración de estos modelos predictivos con los principios de usabilidad para crear interfaces verdaderamente centradas en el usuario.</p>
+                    </blockquote>
+                    
+                    <div class="cross-reference">
+                        <strong>Preparación para futuras semanas:</strong> Estos fundamentos cuantitativos nos preparan para explorar métodos de evaluación más sofisticados y métricas de usabilidad.
+                    </div>
+                </section>
+            </section>
+
+            <!-- Recapitulación Rápida -->
+            <section data-background-color="#f9f9f9">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Recapitulación Rápida</h2>
+                
+                <p style="text-align: center; font-style: italic; color: var(--uide-secondary);">
+                    Tarjetas para repasar los conceptos clave de esta semana
+                </p>
+                
+                <section>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin: 1.5em 0;">
+                        <!-- Card 1 -->
+                        <div class="flashcard" onclick="flipCard(this)">
+                            <div class="flashcard-inner">
+                                <div class="flashcard-front">
+                                    <h4>Ley de Fitts</h4>
+                                    <p>¿Qué relación modela la Ley de Fitts en HCI?</p>
+                                </div>
+                                <div class="flashcard-back">
+                                    <h4>Tiempo = a + b × ID</h4>
+                                    <p>El <strong>tiempo de movimiento</strong> hacia un objetivo está determinado por la distancia y el tamaño del objetivo (Índice de Dificultad).</p>
+                                    <small>Base matemática del diseño de interfaces</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 2 -->
+                        <div class="flashcard" onclick="flipCard(this)">
+                            <div class="flashcard-inner">
+                                <div class="flashcard-front">
+                                    <h4>Ley de Hick</h4>
+                                    <p>¿Cómo afecta el número de opciones al tiempo de decisión?</p>
+                                </div>
+                                <div class="flashcard-back">
+                                    <h4>RT = a + b log₂(n)</h4>
+                                    <p>El <strong>tiempo de reacción</strong> aumenta logarítmicamente con el número de opciones disponibles.</p>
+                                    <small>Fundamento del diseño de menús</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin: 1.5em 0;">
+                        <!-- Card 3 -->
+                        <div class="flashcard" onclick="flipCard(this)">
+                            <div class="flashcard-inner">
+                                <div class="flashcard-front">
+                                    <h4>Ley de Miller</h4>
+                                    <p>¿Cuál es la capacidad de la memoria a corto plazo según Miller?</p>
+                                </div>
+                                <div class="flashcard-back">
+                                    <h4>7 ± 2 Elementos</h4>
+                                    <p>La memoria a corto plazo puede mantener <strong>5 a 9 elementos</strong> simultáneamente. El chunking ayuda a superar esta limitación.</p>
+                                    <small>Diseño basado en limitaciones cognitivas</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 4 -->
+                        <div class="flashcard" onclick="flipCard(this)">
+                            <div class="flashcard-inner">
+                                <div class="flashcard-front">
+                                    <h4>Carga Cognitiva</h4>
+                                    <p>¿Cuál es el principio fundamental para reducir la carga cognitiva?</p>
+                                </div>
+                                <div class="flashcard-back">
+                                    <h4>"¡No me hagas pensar!"</h4>
+                                    <p><strong>Eliminar tareas innecesarias</strong>, agrupar información, automatizar procesos y usar patrones familiares.</p>
+                                    <small>Optimización de la experiencia cognitiva</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- References -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Referencias Bibliográficas</h2>
+                
+                <section>
+                    <h3>Fuentes Primarias</h3>
+                    <div style="font-size: 0.7em; text-align: left;">
+                        <p><strong>Fitts, P. M.</strong> (1954). The information capacity of the human motor system in controlling amplitude of movement. <em>Journal of Experimental Psychology</em>, 47, 381–391.</p>
+                        <p><strong>Hick, W. E.</strong> (1952). On the rate of gain of information. <em>Quarterly Journal of Experimental Psychology</em>, 4, 11–36.</p>
+                        <p><strong>Hyman, R.</strong> (1953). Stimulus information as a determinant of reaction time. <em>Journal of Experimental Psychology</em>, 45, 188–196.</p>
+                        <p><strong>Miller, G. A.</strong> (1956). The magical number seven plus or minus two: Some limits on our capacity for processing information. <em>Psychological Review</em>, 63, 81–97.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Fuentes de Apoyo</h3>
+                    <div style="font-size: 0.7em; text-align: left;">
+                        <p><strong>Keele, S. W.</strong> (1973). <em>Attention and Human Performance</em>. Pacific Palisades, CA: Goodyear Publishing Company, Inc.</p>
+                        <p><strong>Kantowitz, B. H., & Sorkin, R. D.</strong> (1983). <em>Human factors: Understanding People-System Relationships</em>. New York: Wiley.</p>
+                        <p><strong>MacKenzie, I. S.</strong> (1992). Fitts' law as a research and design tool in human-computer interaction. <em>Human-Computer Interaction</em>, 7, 91–139.</p>
+                        <p><strong>MacKenzie, I. S.</strong> (2013). <em>Human-Computer Interaction: An Empirical Research Perspective</em>. Elsevier Inc.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Referencias Adicionales</h3>
+                    <div style="font-size: 0.7em; text-align: left;">
+                        <p><strong>Norman, D. A.</strong> (1988). <em>The Psychology of Everyday Things</em>. Basic Books.</p>
+                        <p><strong>Shneiderman, B., & Plaisant, C.</strong> (2004). <em>Designing the User Interface: Strategies for Effective Human Computer Interaction</em> (4th ed.). Pearson Education, Inc.</p>
+                        <p><strong>Williams, R.</strong> (2008). <em>100 Things Every Designer Needs to Know About People</em>. Peachpit Press.</p>
+                        <p><strong>Material de enseñanza:</strong> Excerpts from "01 UX Design hazlo fácil pensando en el usuario.pdf"</p>
+                        <p><strong>Material de enseñanza:</strong> Excerpts from "11 Universal Principles of Design, Revised and Updated.pdf"</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Thank You Slide -->
+            <section data-background-color="#f8f8f8" data-transition="convex">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                
+                <div class="r-fit-text" style="color: var(--uide-primary);">
+                    ¡Gracias!
+                </div>
+                
+                <h3>¿Preguntas?</h3>
+                
+                <div style="margin-top: 2em;">
+                    <small>Universidad Internacional del Ecuador<br>
+                    Semana 4 - Leyes Cognitivas y Procesamiento de Información</small>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js JavaScript with all plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/math/math.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/zoom/zoom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/search/search.js"></script>
+
+    <script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+            
+            // Advanced transitions and animations
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+            
+            // Auto-animate support
+            autoAnimateEasing: 'ease',
+            autoAnimateDuration: 1.0,
+            autoAnimateUnmatched: true,
+
+            // Math rendering with KaTeX
+            math: {
+                mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+                config: 'TeX-AMS_HTML-full',
+            },
+
+            // Zoom functionality
+            zoom: {
+                mouseWheel: false,
+                maxZoom: 3,
+                controls: true
+            },
+
+            // Search functionality
+            search: {
+                caseSensitive: false,
+                showIcon: true
+            },
+
+            // Keyboard shortcuts
+            keyboard: {
+                70: 'fullscreen', // f
+                83: 'next', // s
+                65: 'prev', // a
+                66: 'pause', // b
+                90: 'zoom', // z
+                191: 'search' // /
+            },
+
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX, RevealZoom, RevealSearch ]
+        });
+
+        // Add page numbers
+        Reveal.on('slidechanged', function(event) {
+            const currentSlide = event.indexh + 1;
+            const totalSlides = Reveal.getTotalSlides();
+            document.querySelectorAll('.page-number').forEach(el => {
+                el.textContent = `${currentSlide} / ${totalSlides}`;
+            });
+        });
+
+        // Flashcard flip functionality
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+    </script>
+
+</body>
+</html>

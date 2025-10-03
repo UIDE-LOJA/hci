@@ -9,13 +9,14 @@
             --university-primary: #910048;    /* UIDE Burgundy */
             --university-secondary: #23356E;  /* UIDE Navy */
             --university-accent: #E9AB21;     /* UIDE Gold */
+            --university-light: #f8f8f8;      /* Light background for contrast */
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Times New Roman', serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background: var(--university-secondary);
+            background: var(--university-light);
             min-height: 100vh;
         }
         .container {
@@ -25,17 +26,24 @@
         }
         .header {
             text-align: center;
-            color: white;
+            color: var(--university-primary);
             margin-bottom: 40px;
+            background: rgba(255,255,255,0.95);
+            padding: 2em;
+            border-radius: 15px;
+            border: 3px double var(--university-primary);
         }
         .header h1 {
+            font-family: 'Georgia', serif;
             font-size: 3em;
+            font-weight: normal;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
         .header p {
             font-size: 1.2em;
-            opacity: 0.9;
+            color: var(--university-secondary);
+            font-style: italic;
         }
         .weeks-grid {
             display: grid;
@@ -44,13 +52,14 @@
             margin-top: 40px;
         }
         .week-card {
-            background: white;
+            background: rgba(255,255,255,0.95);
             border-radius: 12px;
             padding: 25px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-decoration: none;
             color: inherit;
+            border-left: 4px solid var(--university-accent);
         }
         .week-card:hover {
             transform: translateY(-5px);
@@ -63,14 +72,16 @@
             margin-bottom: 10px;
         }
         .week-title {
+            font-family: 'Georgia', serif;
             font-size: 1.3em;
-            font-weight: 600;
-            color: #333;
+            font-weight: normal;
+            color: var(--university-secondary);
             margin-bottom: 10px;
         }
         .week-description {
-            color: #666;
+            color: #333;
             margin-bottom: 15px;
+            text-align: justify;
         }
         .week-links {
             display: flex;
@@ -102,9 +113,12 @@
         }
         .footer {
             text-align: center;
-            color: white;
+            color: var(--university-secondary);
             margin-top: 50px;
-            opacity: 0.8;
+            background: rgba(255,255,255,0.9);
+            padding: 1em;
+            border-radius: 10px;
+            border-top: 2px solid var(--university-primary);
         }
     </style>
 </head>
@@ -114,35 +128,48 @@
             <img src="Logo UIDE.png" alt="Logo UIDE" style="max-width: 150px; margin-bottom: 20px;">
             <h1>HCI - Human Computer Interaction</h1>
             <p>Compendios Semanales del Curso</p>
+            <div style="margin-top: 1em; padding: 1em; background: rgba(255,255,255,0.7); border-radius: 8px; font-size: 0.9em;">
+                <strong>PP-07-HCI</strong> • Séptimo Nivel • Octubre 2025 - Febrero 2026<br>
+                <em>Prof. Charlie Cárdenas Toledo, M.Sc.</em>
+            </div>
         </div>
 
         <div class="weeks-grid">
             <a href="semanas/semana-01/compendio-hci-semana1.html" class="week-card">
                 <div class="week-number">01</div>
                 <div class="week-title">Introducción a HCI</div>
-                <div class="week-description">Conceptos fundamentales de la interacción humano-computadora</div>
+                <div class="week-description">Historia, evolución, principios de usabilidad, reglas de oro de Shneiderman y metas de usabilidad</div>
                 <div class="week-links">
                     <span class="link-btn link-html">Ver Presentación</span>
                 </div>
             </a>
 
-            <div class="week-card" style="opacity: 0.6;">
+            <a href="semanas/semana-02/compendio-hci-semana2.html" class="week-card">
                 <div class="week-number">02</div>
-                <div class="week-title">Próximamente</div>
-                <div class="week-description">Contenido en desarrollo</div>
-            </div>
+                <div class="week-title">Factores Humanos y Computación Ubicua</div>
+                <div class="week-description">Ergonomía, factores humanos, computación ubicua, IoT e interfaces naturales</div>
+                <div class="week-links">
+                    <span class="link-btn link-html">Ver Presentación</span>
+                </div>
+            </a>
 
-            <div class="week-card" style="opacity: 0.6;">
+            <a href="semanas/semana-03/compendio-hci-semana3.html" class="week-card">
                 <div class="week-number">03</div>
-                <div class="week-title">Próximamente</div>
-                <div class="week-description">Contenido en desarrollo</div>
-            </div>
+                <div class="week-title">Diseño Centrado en el Usuario</div>
+                <div class="week-description">Don Norman, diseño emocional, psicología del color, Gestalt y affordances</div>
+                <div class="week-links">
+                    <span class="link-btn link-html">Ver Presentación</span>
+                </div>
+            </a>
 
-            <div class="week-card" style="opacity: 0.6;">
+            <a href="semanas/semana-04/compendio-hci-semana4.html" class="week-card">
                 <div class="week-number">04</div>
-                <div class="week-title">Próximamente</div>
-                <div class="week-description">Contenido en desarrollo</div>
-            </div>
+                <div class="week-title">Leyes Cognitivas y Procesamiento de Información</div>
+                <div class="week-description">Ley de Fitts, Ley de Hick, atención, memoria, percepción y carga cognitiva</div>
+                <div class="week-links">
+                    <span class="link-btn link-html">Ver Presentación</span>
+                </div>
+            </a>
 
             <div class="week-card" style="opacity: 0.6;">
                 <div class="week-number">05</div>
@@ -218,7 +245,11 @@
         </div>
 
         <div class="footer">
-            <p>&copy; 2024 - Curso HCI - Universidad Internacional del Ecuador</p>
+            <p>&copy; 2025 - Curso HCI - Universidad Internacional del Ecuador</p>
+            <p style="margin-top: 0.5em; font-size: 0.9em; opacity: 0.8;">
+                Horario: Miércoles 10:00-13:00 | Tutorías: Viernes 10:00-11:00<br>
+                <strong>chcardenasto@uide.edu.ec</strong>
+            </p>
         </div>
     </div>
 </body>
