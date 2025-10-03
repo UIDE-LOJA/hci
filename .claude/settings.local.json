@@ -11,7 +11,8 @@
       "WebFetch(domain:www.canva.com)",
       "WebFetch(domain:revealjs.com)",
       "Bash(git init:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(git reset:*)"
     ],
     "deny": [],
     "ask": []

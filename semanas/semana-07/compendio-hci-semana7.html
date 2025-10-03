@@ -1,0 +1,1350 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Semana 7 - Estados de Carga, Rendimiento y Manejo de Errores</title>
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css" id="theme">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/monokai.css">
+
+    <!-- Custom CSS for A4 format and UIDE colors - Book-like design -->
+    <style>
+        :root {
+            --uide-primary: #910048;    /* UIDE Burgundy */
+            --uide-secondary: #23356E;  /* UIDE Navy */
+            --uide-accent: #E9AB21;     /* UIDE Gold */
+            --uide-light: #f8f8f8;      /* Light background for contrast */
+        }
+
+        /* Book-like typography - Responsive */
+        .reveal {
+            font-family: 'Times New Roman', serif;
+            font-size: min(2.5vw, 22px);
+            line-height: 1.6;
+        }
+
+        .reveal h1, .reveal h2, .reveal h3 {
+            font-family: 'Georgia', serif;
+            font-weight: normal;
+            text-align: center;
+            color: var(--uide-primary) !important;
+            margin-bottom: 1em;
+        }
+
+        .reveal h1 {
+            font-size: min(4vw, 3em);
+        }
+
+        .reveal h2 {
+            font-size: min(3vw, 2.5em);
+        }
+
+        .reveal h3 {
+            font-size: min(2.5vw, 2em);
+        }
+
+        .reveal p, .reveal li {
+            text-align: justify;
+            color: #333;
+            margin-bottom: 1em;
+            font-size: min(2.2vw, 1.1em);
+        }
+
+        .reveal ul, .reveal ol {
+            text-align: left;
+        }
+
+        /* Clean slide format */
+        .reveal .slides section {
+            background: var(--uide-light);
+        }
+
+        /* Layout helpers */
+        .r-hstack {
+            display: flex;
+            gap: 2em;
+            align-items: flex-start;
+        }
+        
+        .r-vstack {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+        
+        .r-stack {
+            position: relative;
+        }
+        
+        .r-stack > * {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* UIDE color scheme */
+        .reveal .slide-background {
+            background: var(--uide-light);
+        }
+        
+        mark {
+            background-color: var(--uide-accent);
+            color: var(--uide-secondary);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+
+        /* Logo positioning */
+        .logo-container {
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            z-index: 100;
+        }
+
+        .logo-container img {
+            width: min(10vw, 80px);
+            height: auto;
+            opacity: 0.9;
+        }
+
+        /* Blockquotes */
+        .reveal blockquote {
+            background: rgba(255,255,255,0.8);
+            border-left: 4px solid var(--uide-primary);
+            margin: 1em 0;
+            padding: 1em 2em;
+            font-style: italic;
+            color: var(--uide-secondary);
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Title slide styling */
+        .title-slide {
+            background: rgba(255,255,255,0.95);
+            padding: 2em;
+            border-radius: 15px;
+            border: 3px double var(--uide-primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .title-slide h1 {
+            color: var(--uide-primary);
+            margin-bottom: 0.5em;
+        }
+
+        .title-slide h2 {
+            color: var(--uide-secondary);
+            font-size: min(3vw, 2em);
+            margin-bottom: 1em;
+        }
+
+        .course-info {
+            background: rgba(255,255,255,0.9);
+            border-radius: 10px;
+            padding: 1em;
+            margin: 1em 0;
+            border: 2px solid var(--uide-accent);
+            font-size: min(2vw, 1em);
+        }
+
+        /* Cross-references */
+        .cross-reference {
+            background: rgba(233, 171, 33, 0.1);
+            border: 1px solid var(--uide-accent);
+            border-radius: 8px;
+            padding: 1em;
+            margin: 1em 0;
+            font-style: italic;
+            color: var(--uide-secondary);
+        }
+
+        /* Media placeholders */
+        .media-placeholder {
+            background: rgba(145, 0, 72, 0.1);
+            border: 2px dashed var(--uide-primary);
+            border-radius: 10px;
+            padding: 3vh 2vw;
+            text-align: center;
+            color: var(--uide-primary);
+            margin: 1em 0;
+            font-style: italic;
+        }
+
+        /* Two column layout */
+        .column {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .column h4 {
+            color: var(--uide-primary);
+            border-bottom: 2px solid var(--uide-accent);
+            padding-bottom: 0.3em;
+            margin-bottom: 0.8em;
+        }
+
+        /* Special styling for timing boxes */
+        .timing-box {
+            background: rgba(145, 0, 72, 0.1);
+            border: 2px solid var(--uide-primary);
+            border-radius: 10px;
+            padding: 1em;
+            margin: 0.5em 0;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .timing-box.critical {
+            background: rgba(244, 67, 54, 0.1);
+            border-color: #F44336;
+            color: #C62828;
+        }
+
+        .timing-box.good {
+            background: rgba(76, 175, 80, 0.1);
+            border-color: #4CAF50;
+            color: #2E7D32;
+        }
+
+        .timing-box.acceptable {
+            background: rgba(255, 193, 7, 0.1);
+            border-color: #FFC107;
+            color: #F57C00;
+        }
+
+        /* Error message examples */
+        .error-example {
+            background: rgba(244, 67, 54, 0.1);
+            border: 1px solid #F44336;
+            border-radius: 5px;
+            padding: 0.8em;
+            margin: 0.5em 0;
+            font-family: 'Courier New', monospace;
+            color: #C62828;
+        }
+
+        .error-example.good {
+            background: rgba(76, 175, 80, 0.1);
+            border-color: #4CAF50;
+            color: #2E7D32;
+        }
+
+        /* Metrics styling */
+        .metric-card {
+            background: rgba(255,255,255,0.9);
+            border: 1px solid var(--uide-accent);
+            border-radius: 8px;
+            padding: 1em;
+            margin: 0.5em 0;
+            text-align: center;
+        }
+
+        .metric-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: var(--uide-primary);
+        }
+
+        /* References section - optimized for readability */
+        .references-container {
+            column-count: 2;
+            column-gap: 2em;
+            column-rule: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .references-container p {
+            break-inside: avoid;
+            margin-bottom: 0.8em;
+            text-align: left;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .reveal {
+                font-size: min(4vw, 18px);
+            }
+
+            .r-hstack {
+                flex-direction: column;
+                gap: 1em;
+            }
+
+            .logo-container img {
+                width: 12vw;
+                max-width: 60px;
+            }
+
+            /* Title slide adjustments */
+            .title-slide h1 {
+                font-size: min(10vw, 3em);
+            }
+
+            .title-slide h2 {
+                font-size: min(7vw, 2em);
+            }
+
+            /* References section */
+            .references-container {
+                column-count: 1 !important;
+                font-size: min(3.5vw, 0.7em);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .reveal {
+                font-size: min(5vw, 16px);
+            }
+
+            .reveal section {
+                padding: 3vh 3vw;
+            }
+
+            .logo-container img {
+                width: 15vw;
+                max-width: 60px;
+            }
+
+            .title-slide h1 {
+                font-size: min(12vw, 2.5em);
+            }
+
+            .title-slide h2 {
+                font-size: min(8vw, 1.8em);
+            }
+        }
+
+        /* Touch-friendly interactions for mobile */
+        @media (max-width: 768px) and (pointer: coarse) {
+            .reveal .controls {
+                font-size: 1.5em;
+            }
+
+            .fragment {
+                transition-duration: 0.6s;
+            }
+        }
+
+        /* Vertical slide indicators */
+        .reveal .controls .navigate-up, .reveal .controls .navigate-down {
+            opacity: 0.8;
+        }
+
+        .reveal .controls .navigate-up.enabled, .reveal .controls .navigate-down.enabled {
+            opacity: 1;
+        }
+
+        /* Transition effects - no gradients */
+        .reveal section[data-transition="fade"],
+        .reveal section[data-transition="slide"],
+        .reveal section[data-transition="convex"] {
+            background: var(--uide-light);
+        }
+
+        /* High DPI displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .logo-container img {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
+            }
+        }
+
+        /* Flashcard styles */
+        .flashcard {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 0;
+            margin: 0.8em 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            min-height: 140px;
+            perspective: 1000px;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .flashcard:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            border-color: var(--uide-primary);
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            min-height: 140px;
+            text-align: left;
+            transition: transform 0.4s ease-in-out;
+            transform-style: preserve-3d;
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            min-height: 140px;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 1.2em;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .flashcard-front {
+            background: #ffffff;
+            border-left: 4px solid var(--uide-primary);
+        }
+
+        .flashcard-back {
+            transform: rotateY(180deg);
+            background: #fafafa;
+            border-left: 4px solid var(--uide-accent);
+        }
+
+        .flashcard h4 {
+            margin: 0 0 0.8em 0;
+            color: var(--uide-primary);
+            font-size: 0.95em;
+            font-weight: 600;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.4em;
+        }
+
+        .flashcard-back h4 {
+            color: var(--uide-secondary);
+        }
+
+        .flashcard p {
+            margin: 0.4em 0;
+            line-height: 1.4;
+            color: #444;
+            font-size: 0.85em;
+        }
+
+        .flashcard small {
+            font-style: italic;
+            color: #666;
+            margin-top: auto;
+            font-size: 0.75em;
+        }
+
+        .flashcard strong {
+            color: var(--uide-primary);
+            font-weight: 600;
+        }
+
+        .flashcard-back strong {
+            color: var(--uide-secondary);
+        }
+
+        /* Mobile responsive for flashcards */
+        @media (max-width: 768px) {
+            .flashcard {
+                min-height: 120px;
+            }
+            
+            .flashcard-front, .flashcard-back {
+                padding: 1em;
+            }
+            
+            .flashcard h4 {
+                font-size: 0.9em;
+            }
+            
+            .flashcard p {
+                font-size: 0.8em;
+            }
+            
+            .flashcard small {
+                font-size: 0.7em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Title Slide -->
+            <section data-background-color="#f8f8f8" data-transition="convex">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                
+                <div class="title-slide">
+                    <h1>Estados de Carga, Rendimiento y Manejo de Errores</h1>
+                    <h2>Semana 7</h2>
+                    
+                    <div class="course-info">
+                        <strong>PP-07-HCI</strong> • Séptimo Nivel<br>
+                        <strong>Human-Computer Interaction</strong><br>
+                        <em>Prof. Charlie Cárdenas Toledo, M.Sc.</em><br>
+                        Universidad Internacional del Ecuador • Octubre 2025
+                    </div>
+                    
+                    <div style="background: rgba(233, 171, 33, 0.1); border-radius: 8px; padding: 1em; margin: 1em 0; font-size: 0.9em;">
+                        <strong>Unidad 3: Diseño de Interacción Moderna</strong><br>
+                        <em>Semana 7 de 16 • Continuación Unidad 3</em>
+                    </div>
+                    
+                    <div style="margin-top: 2em; font-size: 0.9em; font-style: italic; color: var(--uide-secondary);">
+                        Gestionando la transparencia en la interacción digital
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quote Slide -->
+            <section data-background-color="#f8f8f8">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                
+                <blockquote style="font-size: 1.2em; text-align: center;">
+                    <p><strong>"El objetivo central del diseño es la transparencia de la interacción, donde la mecánica del software se vuelve invisible para que el usuario se concentre en sus objetivos."</strong></p>
+                    <footer style="margin-top: 1em; color: var(--uide-secondary);">
+                        — Principio del Estado de Flujo en HCI
+                    </footer>
+                </blockquote>
+            </section>
+
+            <!-- Curriculum Context -->
+            <section data-background-color="#f8f8f8">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Contexto en la Unidad 3</h2>
+                
+                <section>
+                    <h3>Progresión Temática</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Semana 6</h4>
+                            <div style="background: rgba(145, 0, 72, 0.1); padding: 1em; border-radius: 8px;">
+                                <strong>Interfaces Naturales</strong><br>
+                                <small>NUI, gestos, voz, multitáctil</small>
+                            </div>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Semana 7 (Actual)</h4>
+                            <div style="background: rgba(233, 171, 33, 0.2); padding: 1em; border-radius: 8px; border: 2px solid var(--uide-accent);">
+                                <strong>Estados y Rendimiento</strong><br>
+                                <small>Carga, errores, métricas UX</small>
+                            </div>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Semana 8</h4>
+                            <div style="background: rgba(35, 53, 110, 0.1); padding: 1em; border-radius: 8px;">
+                                <strong>Próximamente</strong><br>
+                                <small>Continuación Unidad 3</small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Temas de la Semana 7</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Contenidos Principales</h4>
+                            <ul>
+                                <li><mark>Estados de carga, vacíos y error</mark></li>
+                                <li><mark>Rendimiento percibido</mark></li>
+                                <li><mark>Mensajería y recuperación de errores</mark></li>
+                                <li><mark>Métricas básicas de UX</mark></li>
+                            </ul>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Conexiones Previas</h4>
+                            <ul>
+                                <li><strong>Semana 4:</strong> Limitaciones cognitivas</li>
+                                <li><strong>Semana 1:</strong> Reglas de oro de Shneiderman</li>
+                                <li><strong>Semana 6:</strong> Transparencia en NUI</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Latency and Doherty Threshold -->
+            <section data-transition="convex">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Gestión de la Latencia</h2>
+                
+                <section data-auto-animate>
+                    <h3>El Umbral de Doherty</h3>
+                    <div data-id="doherty-def">
+                        <p>El <mark>Umbral de Doherty</mark> establece que el tiempo de espera en una interacción Persona-Ordenador no debe superar los <strong>396 ms</strong>.</p>
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>¿Por qué 396 ms?</h3>
+                    <div data-id="why-396">
+                        <p>Superado ese lapso, la <mark>capacidad de atención del usuario</mark> se va perdiendo.</p>
+                    </div>
+                    <div class="timing-box critical fragment">
+                        <strong>Umbral Crítico: 396 ms</strong><br>
+                        Punto de quiebre de la atención humana
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Impacto en la Productividad</h3>
+                    <blockquote>
+                        <p>Mantener los tiempos de respuesta por debajo de este umbral hace que la interacción sea fluida, lo que genera un <mark>clima óptimo</mark> para que aumente la productividad y el usuario no se frustre.</p>
+                    </blockquote>
+                    <div class="fragment">
+                        <p><strong>Aplicación práctica:</strong></p>
+                        <ul>
+                            <li>Tiempo de carga de la página (primer renderizado)</li>
+                            <li>Lapso desde interacción hasta resultado en pantalla</li>
+                            <li>Respuesta a acciones del usuario</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Expectativas Elevadas y Ley de Moore</h3>
+                    <div class="media-placeholder">
+                        [Gráfico: Evolución de las expectativas de velocidad vs. Capacidad tecnológica]
+                    </div>
+                    <div class="fragment">
+                        <p>Los usuarios se acostumbran a esperar <mark>menos tiempo</mark> debido al aumento constante de potencia y velocidad.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Consecuencia:</strong> Si un sistema no evoluciona para reducir los tiempos, los usuarios dejarán de usar el producto porque no cumplirá sus expectativas de Usabilidad y UX.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Límites de Tiempo de Respuesta</h3>
+                    <div class="r-vstack">
+                        <div class="timing-box good fragment">
+                            <strong>≤ 0.1 segundos (100 ms)</strong><br>
+                            Respuesta percibida como instantánea. El usuario siente que manipula la interfaz directamente.
+                        </div>
+                        <div class="timing-box acceptable fragment">
+                            <strong>≤ 1 segundo</strong><br>
+                            Los usuarios notan un retraso, pero sus procesos de pensamiento permanecen ininterrumpidos.
+                        </div>
+                        <div class="timing-box critical fragment">
+                            <strong>≤ 10 segundos</strong><br>
+                            El usuario nota que el sistema es lento. Requiere barra de progreso. Después de 10s se pierde la atención.
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Blank States and Mode -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Estados Vacíos y Visibilidad del Modo</h2>
+                
+                <section data-auto-animate>
+                    <h3>Diseño para la Iniciativa</h3>
+                    <div data-id="initiative">
+                        <p>En lugar de darle al usuario una <mark>pizarra en blanco</mark> (blank slate) y desafiarlo, la aplicación debe tomar un primer paso que tenga una probabilidad de ser correcto.</p>
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>¿Por qué evitar las pizarras en blanco?</h3>
+                    <div data-id="why-avoid">
+                        <blockquote>Las pizarras en blanco <mark>intimidan</mark> a la mayoría de las personas.</blockquote>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Alternativas proactivas:</strong></p>
+                        <ul>
+                            <li>Contenido de ejemplo precargado</li>
+                            <li>Plantillas sugeridas</li>
+                            <li>Asistentes de configuración inicial</li>
+                            <li>Onboarding guiado</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Visibilidad del Estado (Modo)</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Problema: Errores de Modo</h4>
+                            <p>La falta de retroalimentación sobre el <mark>modo o estado actual</mark> del sistema puede provocar errores de modo (mode errors).</p>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Ejemplo: Foco de Botones</h4>
+                            <p>Los botones pueden tener foco (focus) y recibir eventos de teclado. Si el foco avanza de manera inconsistente, la atención del usuario debe cambiar, interrumpiendo la transparencia.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cross-reference fragment">
+                        <strong>Conexión con Semana 1:</strong> Recordemos la regla de oro de Shneiderman sobre "feedback informativo" para cada acción del usuario.
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Comunicación de Estado</h3>
+                    <blockquote>
+                        <p>Cuando un producto está <mark>inactivo</mark> (asleep), <mark>despierto</mark> (awake) o <mark>ocupado</mark> (busy), debe parecerlo.</p>
+                    </blockquote>
+                    <div class="fragment">
+                        <p><strong>Implementación práctica:</strong></p>
+                        <ul>
+                            <li><strong>Inactivo:</strong> Elementos atenuados, reducción de brillo</li>
+                            <li><strong>Activo:</strong> Colores vibrantes, elementos resaltados</li>
+                            <li><strong>Ocupado:</strong> Spinners, barras de progreso, indicadores de carga</li>
+                        </ul>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Principio clave:</strong> Si está realizando una tarea compleja, debe ser obvio que la capacidad de respuesta será menor.</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Perceived Performance -->
+            <section data-transition="slide">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Rendimiento Percibido</h2>
+                
+                <section data-auto-animate>
+                    <h3>Objetivo: Transparencia de la Interacción</h3>
+                    <div data-id="transparency">
+                        <p>El objetivo central del diseño es la <mark>transparencia de la interacción</mark>, donde la mecánica del software se vuelve invisible para que el usuario se concentre en sus objetivos.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Meta:</strong> Mantener el <mark>estado de flujo</mark> del usuario.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Feedback Continuo</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Principio Fundamental</h4>
+                            <p>Es fundamental proporcionar <mark>retroalimentación continua</mark> para cada acción del usuario.</p>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Graduación del Feedback</h4>
+                            <ul>
+                                <li><strong>Acciones frecuentes y menores:</strong> Feedback modesto</li>
+                                <li><strong>Acciones mayores e infrecuentes:</strong> Feedback más sustancial</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Indicadores de Progreso</h3>
+                    <div class="media-placeholder">
+                        [Demostración: Barras de progreso dinámicas vs. contadores estáticos]
+                    </div>
+                    <blockquote class="fragment">
+                        <p>Los usuarios responden mejor a <mark>indicadores de progreso dinámicos y gráficos</mark> que a mensajes estáticos o numéricos (como un contador de segundos).</p>
+                    </blockquote>
+                    <div class="fragment">
+                        <p><strong>Beneficios psicológicos:</strong></p>
+                        <ul>
+                            <li>Dan seguridad de que el proceso está en curso</li>
+                            <li>Las animaciones hacen que el tiempo pase más rápido</li>
+                            <li>Reducen la ansiedad del usuario</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Pre-visualización (Placeholders)</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Elementos Visuales</h4>
+                            <p>Los elementos visuales deben utilizarse para transmitir a los usuarios <mark>cuál será el resultado</mark> de una función, en lugar de depender únicamente de palabras.</p>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Hints y Pistas</h4>
+                            <p>Texto pequeño, a menudo grisáceo, que proporciona <mark>breves direcciones o ejemplos</mark> de uso dentro de los campos de entrada.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="fragment" style="margin-top: 2em;">
+                        <h4>Principio de Economía</h4>
+                        <p>El diseño debe evitar el reporte innecesario de eventos que no le importan al usuario (ej. "conexión realizada," "transacción registrada").</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Diseño Pliant (Plástico)</h3>
+                    <blockquote>
+                        <p>Los elementos plásticos (pliant), que <mark>reaccionan a la entrada</mark> y pueden ser manipulados, deben comunicar visualmente cómo pueden ser utilizados.</p>
+                    </blockquote>
+                    <div class="fragment">
+                        <p><strong>Implementación:</strong> Idealmente mediante affordances visuales estáticas o dinámicas.</p>
+                    </div>
+                    
+                    <div class="cross-reference fragment">
+                        <strong>Conexión con Semana 3:</strong> Los affordances de Gibson y Norman son fundamentales para la comunicación de funcionalidad.
+                    </div>
+                </section>
+            </section>
+
+            <!-- Error Handling -->
+            <section data-transition="fade">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Mensajería y Recuperación de Errores</h2>
+                
+                <section data-auto-animate>
+                    <h3>Impacto Psicológico de los Errores</h3>
+                    <div data-id="psychological-impact">
+                        <p>El manejo de errores es una de las áreas más críticas de la interfaz, ya que los errores hacen que los usuarios se sientan <mark>confundidos, inadecuados y ansiosos</mark>.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Principio Cero: Prevención</h3>
+                    <blockquote>
+                        <p>La mejor solución de error es que <mark>no haya error</mark>. Como principio, se debe diseñar el sistema de modo que los usuarios no puedan cometer errores graves.</p>
+                    </blockquote>
+                    <div class="fragment">
+                        <p><strong>Estrategias de prevención:</strong></p>
+                        <ul>
+                            <li><strong>Graying out:</strong> Desactivar opciones de menú inapropiadas</li>
+                            <li><strong>Validación de entrada:</strong> No permitir caracteres inválidos</li>
+                            <li><strong>Autocompletado:</strong> Si la aplicación sabe qué teclear, ¿por qué no lo hace?</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="fragment">
+                        <p><strong>Reflexión crítica:</strong> Muchos errores son, de hecho, <mark>errores inducidos por el diseño</mark> (design-induced errors).</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Responsabilidad y Tono</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Percepción del Usuario</h4>
+                            <p>Los usuarios ven los mensajes de error como si alguien les dijera que <mark>son estúpidos</mark>.</p>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Responsabilidad del Sistema</h4>
+                            <p>Un error no es culpa de la aplicación, pero <mark>es su responsabilidad</mark>.</p>
+                        </div>
+                    </div>
+                    
+                    <blockquote class="fragment">
+                        <p>La mayoría de los mensajes de error son una <mark>admisión de estupidez por parte de la aplicación</mark>, reportando su incapacidad para trabajar flexiblemente.</p>
+                    </blockquote>
+                </section>
+
+                <section>
+                    <h3>Reversibilidad y Perdón</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Principio de Perdón</h4>
+                            <p>El diseño debe incorporar el <mark>principio de perdón</mark> (forgiveness).</p>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Implementación: Undo</h4>
+                            <p>La fácil <mark>reversibilidad de las acciones</mark> alivia la ansiedad y permite la exploración.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="fragment" style="margin-top: 2em;">
+                        <h4>Undo Robusto</h4>
+                        <p>El sistema de Deshacer debe ser robusto y capaz de revertir <mark>múltiples operaciones consecutivas</mark> (Múltiple Undo).</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Directrices para Mensajes de Error</h3>
+                    <div class="r-vstack">
+                        <div class="fragment">
+                            <h4>1. Evitar Interrupciones (Excise)</h4>
+                            <p>Los diálogos de boletín detienen el flujo y deben eliminarse o reemplazarse por <mark>feedback modeless</mark> siempre que sea posible.</p>
+                        </div>
+                        <div class="fragment">
+                            <h4>2. Especificidad</h4>
+                            <p>El mensaje debe ser lo más <mark>específico y preciso</mark> posible. Los mensajes vagos ("SYNTAX ERROR") frustran al usuario.</p>
+                        </div>
+                        <div class="fragment">
+                            <h4>3. Tono Constructivo</h4>
+                            <p>Debe ser <mark>constructivo</mark> (indicando qué hacer) y <mark>positivo</mark> (evitando palabras hostiles como ILLEGAL, ERROR, INVALID).</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Ejemplos de Mensajería</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>❌ Mensajes Problemáticos</h4>
+                            <div class="error-example">SYNTAX ERROR</div>
+                            <div class="error-example">ILLEGAL INPUT</div>
+                            <div class="error-example">INVALID CHARACTER</div>
+                            <div class="error-example">ERROR 404</div>
+                        </div>
+                        <div class="column fragment">
+                            <h4>✅ Mensajes Mejorados</h4>
+                            <div class="error-example good">Por favor ingrese una fecha en formato DD/MM/AAAA</div>
+                            <div class="error-example good">Solo se permiten números en este campo</div>
+                            <div class="error-example good">La página que busca no está disponible. ¿Quiere ir al inicio?</div>
+                        </div>
+                    </div>
+                    
+                    <div class="fragment" style="margin-top: 1em;">
+                        <h4>Formato Físico</h4>
+                        <p>El mensaje debe estar escrito en <mark>lenguaje sencillo</mark> y usar voz activa. Recomendable el uso de mayúsculas y minúsculas combinadas.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Evaluación y Mejora Continua</h3>
+                    <blockquote>
+                        <p>Es crucial <mark>registrar la frecuencia de ocurrencia</mark> de cada error para saber dónde los usuarios tienen dificultades y modificar el software, la formación o la documentación.</p>
+                    </blockquote>
+                    <div class="fragment">
+                        <p><strong>Métricas clave:</strong></p>
+                        <ul>
+                            <li>Frecuencia de cada tipo de error</li>
+                            <li>Tiempo promedio de recuperación</li>
+                            <li>Tasa de abandono post-error</li>
+                            <li>Satisfacción del usuario después del error</li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+
+            <!-- UX Metrics -->
+            <section data-transition="convex">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Métricas Básicas de UX</h2>
+                
+                <section data-auto-animate>
+                    <h3>Importancia de la Medición</h3>
+                    <div data-id="measurement-importance">
+                        <p>Para enfocarse en la usabilidad, es <mark>indispensable medir</mark> el rendimiento del usuario.</p>
+                    </div>
+                    <blockquote class="fragment">
+                        <p>La usabilidad se define por la <mark>eficacia, eficiencia y satisfacción</mark> con la que los usuarios pueden lograr metas específicas en un contexto determinado.</p>
+                    </blockquote>
+                </section>
+
+                <section>
+                    <h3>Las 5 Medidas de Usabilidad de Shneiderman</h3>
+                    <div class="media-placeholder">
+                        [Diagrama: Las 5 dimensiones de la usabilidad interconectadas]
+                    </div>
+                    <p class="fragment">Las cinco medidas utilizadas para la evaluación práctica, basadas en los criterios de Shneiderman:</p>
+                </section>
+
+                <section>
+                    <h3>1. Tiempo de Aprendizaje</h3>
+                    <div class="metric-card">
+                        <div class="metric-number">📚</div>
+                        <h4>Time to Learn</h4>
+                        <p>Cuánto tiempo tarda un usuario típico en <mark>aprender las acciones relevantes</mark> para un conjunto de tareas.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Factores que influyen:</strong></p>
+                        <ul>
+                            <li>Complejidad de la interfaz</li>
+                            <li>Familiaridad con patrones similares</li>
+                            <li>Calidad de la documentación/onboarding</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>2. Velocidad de Rendimiento</h3>
+                    <div class="metric-card">
+                        <div class="metric-number">⚡</div>
+                        <h4>Speed of Performance</h4>
+                        <p>Cuánto tiempo se tarda en llevar a cabo las <mark>tareas de referencia</mark> (benchmark tasks), lo que mide la eficiencia.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Aplicación práctica:</strong></p>
+                        <ul>
+                            <li>Tiempo promedio para completar tareas comunes</li>
+                            <li>Comparación con herramientas competidoras</li>
+                            <li>Identificación de cuellos de botella</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="cross-reference fragment">
+                        <strong>Conexión con latencia:</strong> Recordemos el Umbral de Doherty y los límites de tiempo de respuesta.
+                    </div>
+                </section>
+
+                <section>
+                    <h3>3. Tasa de Errores</h3>
+                    <div class="metric-card">
+                        <div class="metric-number">🚫</div>
+                        <h4>Rate of Errors by Users</h4>
+                        <p>Cuántos y qué tipos de errores cometen las personas.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Métrica clave:</strong> La tasa de error por cada <mark>1,000 acciones</mark> debe utilizarse como una métrica de la calidad de la interfaz.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Cálculo:</strong> Se informa típicamente como la relación entre los ensayos completados incorrectamente y el total de ensayos.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>4. Retención a lo Largo del Tiempo</h3>
+                    <div class="metric-card">
+                        <div class="metric-number">🧠</div>
+                        <h4>Retention Over Time</h4>
+                        <p>Qué tan bien mantienen los usuarios su <mark>conocimiento</mark> (ej. comandos) después de un periodo.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Factores importantes:</strong></p>
+                        <ul>
+                            <li>Frecuencia de uso de la aplicación</li>
+                            <li>Complejidad de los comandos/acciones</li>
+                            <li>Calidad de los affordances visuales</li>
+                            <li>Consistencia de patrones de interacción</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="cross-reference fragment">
+                        <strong>Conexión con Semana 4:</strong> La Ley de Miller y las limitaciones de memoria a corto plazo son cruciales aquí.
+                    </div>
+                </section>
+
+                <section>
+                    <h3>5. Satisfacción Subjetiva</h3>
+                    <div class="metric-card">
+                        <div class="metric-number">😊</div>
+                        <h4>Subjective Satisfaction</h4>
+                        <p>Cuánto le gustó a los usuarios el uso de <mark>varios aspectos de la interfaz</mark>, lo cual se determina mediante entrevistas o encuestas.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Métodos de medición:</strong></p>
+                        <ul>
+                            <li>Encuestas post-tarea (SUS, SUPR-Q)</li>
+                            <li>Entrevistas cualitativas</li>
+                            <li>Net Promoter Score (NPS)</li>
+                            <li>Análisis de sentimientos en feedback</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Integración de las Métricas</h3>
+                    <div class="media-placeholder">
+                        [Dashboard: Panel de métricas UX en tiempo real]
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Principio clave:</strong> Las cinco métricas deben evaluarse en conjunto para obtener una visión completa de la usabilidad.</p>
+                    </div>
+                    <div class="fragment">
+                        <p><strong>Balance necesario:</strong> Una métrica excelente no compensa deficiencias graves en otras áreas.</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Synthesis -->
+            <section data-transition="slide">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Síntesis: Diseño Transparente</h2>
+                
+                <section data-auto-animate>
+                    <h3>Principios Integrados</h3>
+                    <div data-id="integration">
+                        <p>Esta semana hemos explorado cómo lograr la <mark>transparencia de la interacción</mark> a través de múltiples dimensiones.</p>
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>El Ecosistema de la Transparencia</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <h4>Dimensión Temporal</h4>
+                            <ul>
+                                <li>Latencia < 396ms</li>
+                                <li>Feedback continuo</li>
+                                <li>Indicadores de progreso</li>
+                            </ul>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Dimensión de Estado</h4>
+                            <ul>
+                                <li>Visibilidad del modo</li>
+                                <li>Comunicación clara</li>
+                                <li>Prevención de errores</li>
+                            </ul>
+                        </div>
+                        <div class="column fragment">
+                            <h4>Dimensión de Medición</h4>
+                            <ul>
+                                <li>Métricas objetivas</li>
+                                <li>Satisfacción subjetiva</li>
+                                <li>Mejora continua</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Implicaciones para el Diseño</h3>
+                    <div class="r-vstack">
+                        <div class="fragment">
+                            <p><strong>1. Diseño proactivo:</strong> Anticipar necesidades y prevenir problemas antes de que ocurran</p>
+                        </div>
+                        <div class="fragment">
+                            <p><strong>2. Responsabilidad del sistema:</strong> Asumir la responsabilidad por errores y facilitar la recuperación</p>
+                        </div>
+                        <div class="fragment">
+                            <p><strong>3. Medición constante:</strong> Usar datos para guiar decisiones de diseño</p>
+                        </div>
+                        <div class="fragment">
+                            <p><strong>4. Empatía cognitiva:</strong> Respetar las limitaciones humanas de atención y memoria</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Preparación para el Futuro</h3>
+                    <blockquote>
+                        <p>Los principios de transparencia, prevención y medición continua son fundamentales para cualquier <mark>sistema de interacción exitoso</mark>, independientemente de la tecnología subyacente.</p>
+                    </blockquote>
+                    
+                    <div class="cross-reference fragment">
+                        <strong>Mirando hacia adelante:</strong> Estos conceptos nos preparan para explorar sistemas más complejos donde la transparencia será aún más crítica.
+                    </div>
+                </section>
+            </section>
+
+            <!-- Recapitulación Rápida -->
+            <section data-background-color="#f9f9f9">
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Recapitulación Rápida</h2>
+                
+                <p style="text-align: center; font-style: italic; color: var(--uide-secondary);">
+                    Tarjetas para repasar los conceptos clave de esta semana
+                </p>
+                
+                <section>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin: 1.5em 0;">
+                        <!-- Card 1 -->
+                        <div class="flashcard" onclick="flipCard(this)">
+                            <div class="flashcard-inner">
+                                <div class="flashcard-front">
+                                    <h4>Umbral de Doherty</h4>
+                                    <p>¿Cuál es el tiempo máximo de respuesta antes de perder la atención del usuario?</p>
+                                </div>
+                                <div class="flashcard-back">
+                                    <h4>396 milisegundos</h4>
+                                    <p>El tiempo de espera en interacción Persona-Ordenador no debe superar los <strong>396 ms</strong> para mantener la atención del usuario.</p>
+                                    <small>Umbral crítico de la interacción fluida</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 2 -->
+                        <div class="flashcard" onclick="flipCard(this)">
+                            <div class="flashcard-inner">
+                                <div class="flashcard-front">
+                                    <h4>Principio Cero de Errores</h4>
+                                    <p>¿Cuál es la mejor estrategia para manejar errores en interfaces?</p>
+                                </div>
+                                <div class="flashcard-back">
+                                    <h4>Prevención Total</h4>
+                                    <p>La mejor solución de error es que <strong>no haya error</strong>. Diseñar el sistema para que los usuarios no puedan cometer errores graves.</p>
+                                    <small>Muchos errores son inducidos por el diseño</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin: 1.5em 0;">
+                        <!-- Card 3 -->
+                        <div class="flashcard" onclick="flipCard(this)">
+                            <div class="flashcard-inner">
+                                <div class="flashcard-front">
+                                    <h4>Límites de Tiempo de Respuesta</h4>
+                                    <p>¿Qué ocurre cuando el sistema responde en menos de 100ms?</p>
+                                </div>
+                                <div class="flashcard-back">
+                                    <h4>Respuesta Instantánea</h4>
+                                    <p>≤ 100ms: Los usuarios perciben la respuesta como <strong>instantánea</strong> y sienten que manipulan la interfaz directamente.</p>
+                                    <small>Sensación de control directo</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 4 -->
+                        <div class="flashcard" onclick="flipCard(this)">
+                            <div class="flashcard-inner">
+                                <div class="flashcard-front">
+                                    <h4>Métricas de Usabilidad</h4>
+                                    <p>¿Cuáles son las 5 medidas básicas de usabilidad según Shneiderman?</p>
+                                </div>
+                                <div class="flashcard-back">
+                                    <h4>Las 5 Dimensiones</h4>
+                                    <p><strong>Tiempo de aprendizaje, velocidad de rendimiento, tasa de errores, retención</strong> y <strong>satisfacción subjetiva</strong>.</p>
+                                    <small>Evaluación integral de la usabilidad</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- References -->
+            <section>
+                <div class="logo-container">
+                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                </div>
+                <h2>Referencias Bibliográficas</h2>
+                
+                <section>
+                    <h3>Fuentes Fundamentales</h3>
+                    <div style="font-size: 0.7em; text-align: left;">
+                        <p><strong>Doherty, W. J., & Chakraborty, A.</strong> (1982). The myth of the two-second response time.</p>
+                        <p><strong>Shneiderman, B.</strong> (1982). System message design: Guidelines and experimental results. <em>Proceedings of the 1982 ACM annual conference</em>. New York: ACM, 583–586.</p>
+                        <p><strong>Shneiderman, B., & Plaisant, C.</strong> (2004). <em>Designing the User Interface: Strategies for Effective Human Computer Interaction</em> (4th ed.). Pearson Education, Inc.</p>
+                        <p><strong>Nielsen, J.</strong> (1993). <em>Usability Engineering</em>. AP Professional.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Diseño y Psicología</h3>
+                    <div style="font-size: 0.7em; text-align: left;">
+                        <p><strong>Norman, D. A.</strong> (1983). Categorization of action slips. <em>Psychological Review</em>, 90(1), 1–15.</p>
+                        <p><strong>Norman, D. A.</strong> (1988). <em>The Psychology of Everyday Things</em>. Basic Books.</p>
+                        <p><strong>Cooper, A., Reimann, R., Cronin, D., & Verplank, B.</strong> (2014). <em>About Face: The Essentials of Interaction Design</em>. Wiley.</p>
+                        <p><strong>Miller, G. A.</strong> (1956). The magical number seven plus or minus two: Some limits on our capacity for processing information. <em>The Psychological Review</em>, 63, 81–97.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Rendimiento y Métricas</h3>
+                    <div style="font-size: 0.7em; text-align: left;">
+                        <p><strong>Liang, J., Shaw, C., & Green, M.</strong> (1991). On temporal latency and rendering quality in 3D user interfaces.</p>
+                        <p><strong>Hart, S. & Staveland, L.</strong> (1988). Development of NASA-TLX.</p>
+                        <p><strong>MacKenzie, I. S.</strong> (2013). <em>Human-Computer Interaction: An Empirical Research Perspective</em>. Elsevier Inc.</p>
+                        <p><strong>Smith, S. L., & Mosier, J. N.</strong> (1986). Guidelines for designing user interface software.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Referencias Adicionales</h3>
+                    <div style="font-size: 0.7em; text-align: left;">
+                        <p><strong>Krug, S.</strong> (2006). <em>Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability</em>. New Riders.</p>
+                        <p><strong>Williams, R.</strong> (2008). <em>100 Things Every Designer Needs to Know About People</em>. Peachpit Press.</p>
+                        <p><strong>Casey, S. P.</strong> (2006). The design of the common sense.</p>
+                        <p><strong>Casey, S. P.</strong> (1998). <em>Set phasers on stun: And other true tales of design technology, and human error</em> (2nd ed.).</p>
+                        <p><strong>Hanington, B., & Martin, B.</strong> (2012). <em>Universal Principles of Design, Revised and Updated</em>. Rockport Publishers.</p>
+                        <p><strong>Material de enseñanza:</strong> Excerpts from "UX Design: Hazlo fácil pensando en el usuario.pdf"</p>
+                    </div>
+                </section>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js JavaScript with all plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/math/math.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/zoom/zoom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/search/search.js"></script>
+
+    <script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: true,
+            transition: 'slide',
+            
+            // Responsive settings
+            width: '90%',
+            height: '90%',
+            margin: 0.04,
+            minScale: 0.2,
+            maxScale: 2.0,
+
+            // Plugin configuration
+            plugins: [
+                RevealMarkdown,
+                RevealHighlight,
+                RevealNotes,
+                RevealMath.KaTeX,
+                RevealZoom,
+                RevealSearch
+            ],
+
+            // Math plugin settings
+            math: {
+                mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+                config: 'TeX-AMS_HTML-full',
+                TeX: {
+                    Macros: {
+                        RR: "{\\bf R}",
+                        bold: ["{\\bf #1}", 1]
+                    }
+                }
+            },
+
+            // Keyboard navigation
+            keyboard: {
+                27: function() { // ESC
+                    if (Reveal.isOverview()) {
+                        Reveal.toggleOverview();
+                    }
+                }
+            }
+        });
+
+        // Add page numbers and update them
+        Reveal.on('slidechanged', event => {
+            const currentSlide = Reveal.getIndices().h + 1;
+            const totalSlides = Reveal.getTotalSlides();
+            document.querySelectorAll('.page-number').forEach(el => {
+                el.textContent = `${currentSlide} / ${totalSlides}`;
+            });
+        });
+
+        // Flashcard flip functionality
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+    </script>
+
+</body>
+</html>
