@@ -13,468 +13,8 @@
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/monokai.css">
 
-    <!-- Custom CSS for A4 format and UIDE colors - Book-like design -->
-    <style>
-        :root {
-            --uide-primary: #910048;    /* UIDE Burgundy */
-            --uide-secondary: #23356E;  /* UIDE Navy */
-            --uide-accent: #E9AB21;     /* UIDE Gold */
-            --uide-light: #f8f8f8;      /* Light background for contrast */
-        }
-
-        /* Book-like typography - Responsive */
-        .reveal {
-            font-family: 'Times New Roman', serif;
-            font-size: min(2.5vw, 22px);
-            line-height: 1.6;
-        }
-
-        .reveal h1, .reveal h2, .reveal h3 {
-            font-family: 'Georgia', serif;
-            font-weight: normal;
-            text-align: center;
-            color: var(--uide-primary) !important;
-            margin-bottom: 1em;
-        }
-
-        .reveal h1 {
-            font-size: min(4vw, 3em);
-        }
-
-        .reveal h2 {
-            font-size: min(3vw, 2.5em);
-        }
-
-        .reveal h3 {
-            font-size: min(2.5vw, 2em);
-        }
-
-        .reveal p, .reveal li {
-            text-align: justify;
-            color: #333;
-            margin-bottom: 1em;
-            font-size: min(2.2vw, 1.1em);
-        }
-
-        .reveal ul, .reveal ol {
-            text-align: left;
-        }
-
-        /* Clean slide format */
-        .reveal .slides section {
-            background: var(--uide-light);
-        }
-
-        /* Layout helpers */
-        .r-hstack {
-            display: flex;
-            gap: 2em;
-            align-items: flex-start;
-        }
-        
-        .r-vstack {
-            display: flex;
-            flex-direction: column;
-            gap: 1em;
-        }
-        
-        .r-stack {
-            position: relative;
-        }
-        
-        .r-stack > * {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        /* UIDE color scheme */
-        .reveal .slide-background {
-            background: var(--uide-light);
-        }
-        
-        mark {
-            background-color: var(--uide-accent);
-            color: var(--uide-secondary);
-            padding: 0.2em 0.4em;
-            border-radius: 3px;
-            font-weight: 500;
-        }
-
-        /* Logo positioning */
-        .logo-container {
-            position: absolute;
-            top: 1em;
-            right: 1em;
-            z-index: 100;
-        }
-
-        .logo-container img {
-            width: min(10vw, 80px);
-            height: auto;
-            opacity: 0.9;
-        }
-
-        /* Blockquotes */
-        .reveal blockquote {
-            background: rgba(255,255,255,0.8);
-            border-left: 4px solid var(--uide-primary);
-            margin: 1em 0;
-            padding: 1em 2em;
-            font-style: italic;
-            color: var(--uide-secondary);
-            border-radius: 0 8px 8px 0;
-        }
-
-        /* Title slide styling */
-        .title-slide {
-            background: rgba(255,255,255,0.95);
-            padding: 2em;
-            border-radius: 15px;
-            border: 3px double var(--uide-primary);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .title-slide h1 {
-            color: var(--uide-primary);
-            margin-bottom: 0.5em;
-        }
-
-        .title-slide h2 {
-            color: var(--uide-secondary);
-            font-size: min(3vw, 2em);
-            margin-bottom: 1em;
-        }
-
-        .course-info {
-            background: rgba(255,255,255,0.9);
-            border-radius: 10px;
-            padding: 1em;
-            margin: 1em 0;
-            border: 2px solid var(--uide-accent);
-            font-size: min(2vw, 1em);
-        }
-
-        /* Cross-references */
-        .cross-reference {
-            background: rgba(233, 171, 33, 0.1);
-            border: 1px solid var(--uide-accent);
-            border-radius: 8px;
-            padding: 1em;
-            margin: 1em 0;
-            font-style: italic;
-            color: var(--uide-secondary);
-        }
-
-        /* Media placeholders */
-        .media-placeholder {
-            background: rgba(145, 0, 72, 0.1);
-            border: 2px dashed var(--uide-primary);
-            border-radius: 10px;
-            padding: 3vh 2vw;
-            text-align: center;
-            color: var(--uide-primary);
-            margin: 1em 0;
-            font-style: italic;
-        }
-
-        /* Two column layout */
-        .column {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .column h4 {
-            color: var(--uide-primary);
-            border-bottom: 2px solid var(--uide-accent);
-            padding-bottom: 0.3em;
-            margin-bottom: 0.8em;
-        }
-
-        /* Special styling for timing boxes */
-        .timing-box {
-            background: rgba(145, 0, 72, 0.1);
-            border: 2px solid var(--uide-primary);
-            border-radius: 10px;
-            padding: 1em;
-            margin: 0.5em 0;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .timing-box.critical {
-            background: rgba(244, 67, 54, 0.1);
-            border-color: #F44336;
-            color: #C62828;
-        }
-
-        .timing-box.good {
-            background: rgba(76, 175, 80, 0.1);
-            border-color: #4CAF50;
-            color: #2E7D32;
-        }
-
-        .timing-box.acceptable {
-            background: rgba(255, 193, 7, 0.1);
-            border-color: #FFC107;
-            color: #F57C00;
-        }
-
-        /* Error message examples */
-        .error-example {
-            background: rgba(244, 67, 54, 0.1);
-            border: 1px solid #F44336;
-            border-radius: 5px;
-            padding: 0.8em;
-            margin: 0.5em 0;
-            font-family: 'Courier New', monospace;
-            color: #C62828;
-        }
-
-        .error-example.good {
-            background: rgba(76, 175, 80, 0.1);
-            border-color: #4CAF50;
-            color: #2E7D32;
-        }
-
-        /* Metrics styling */
-        .metric-card {
-            background: rgba(255,255,255,0.9);
-            border: 1px solid var(--uide-accent);
-            border-radius: 8px;
-            padding: 1em;
-            margin: 0.5em 0;
-            text-align: center;
-        }
-
-        .metric-number {
-            font-size: 2em;
-            font-weight: bold;
-            color: var(--uide-primary);
-        }
-
-        /* References section - optimized for readability */
-        .references-container {
-            column-count: 2;
-            column-gap: 2em;
-            column-rule: 1px solid #ddd;
-            text-align: left;
-        }
-
-        .references-container p {
-            break-inside: avoid;
-            margin-bottom: 0.8em;
-            text-align: left;
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .reveal {
-                font-size: min(4vw, 18px);
-            }
-
-            .r-hstack {
-                flex-direction: column;
-                gap: 1em;
-            }
-
-            .logo-container img {
-                width: 12vw;
-                max-width: 60px;
-            }
-
-            /* Title slide adjustments */
-            .title-slide h1 {
-                font-size: min(10vw, 3em);
-            }
-
-            .title-slide h2 {
-                font-size: min(7vw, 2em);
-            }
-
-            /* References section */
-            .references-container {
-                column-count: 1 !important;
-                font-size: min(3.5vw, 0.7em);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .reveal {
-                font-size: min(5vw, 16px);
-            }
-
-            .reveal section {
-                padding: 3vh 3vw;
-            }
-
-            .logo-container img {
-                width: 15vw;
-                max-width: 60px;
-            }
-
-            .title-slide h1 {
-                font-size: min(12vw, 2.5em);
-            }
-
-            .title-slide h2 {
-                font-size: min(8vw, 1.8em);
-            }
-        }
-
-        /* Touch-friendly interactions for mobile */
-        @media (max-width: 768px) and (pointer: coarse) {
-            .reveal .controls {
-                font-size: 1.5em;
-            }
-
-            .fragment {
-                transition-duration: 0.6s;
-            }
-        }
-
-        /* Vertical slide indicators */
-        .reveal .controls .navigate-up, .reveal .controls .navigate-down {
-            opacity: 0.8;
-        }
-
-        .reveal .controls .navigate-up.enabled, .reveal .controls .navigate-down.enabled {
-            opacity: 1;
-        }
-
-        /* Transition effects - no gradients */
-        .reveal section[data-transition="fade"],
-        .reveal section[data-transition="slide"],
-        .reveal section[data-transition="convex"] {
-            background: var(--uide-light);
-        }
-
-        /* High DPI displays */
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            .logo-container img {
-                image-rendering: -webkit-optimize-contrast;
-                image-rendering: crisp-edges;
-            }
-        }
-
-        /* Flashcard styles */
-        .flashcard {
-            background: #ffffff;
-            border: 1px solid #e0e0e0;
-            border-radius: 6px;
-            padding: 0;
-            margin: 0.8em 0;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            position: relative;
-            min-height: 140px;
-            perspective: 1000px;
-            font-family: 'Times New Roman', serif;
-        }
-
-        .flashcard:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-            border-color: var(--uide-primary);
-        }
-
-        .flashcard-inner {
-            position: relative;
-            width: 100%;
-            min-height: 140px;
-            text-align: left;
-            transition: transform 0.4s ease-in-out;
-            transform-style: preserve-3d;
-        }
-
-        .flashcard.flipped .flashcard-inner {
-            transform: rotateY(180deg);
-        }
-
-        .flashcard-front, .flashcard-back {
-            position: absolute;
-            width: 100%;
-            min-height: 140px;
-            backface-visibility: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            padding: 1.2em;
-            border-radius: 6px;
-            box-sizing: border-box;
-        }
-
-        .flashcard-front {
-            background: #ffffff;
-            border-left: 4px solid var(--uide-primary);
-        }
-
-        .flashcard-back {
-            transform: rotateY(180deg);
-            background: #fafafa;
-            border-left: 4px solid var(--uide-accent);
-        }
-
-        .flashcard h4 {
-            margin: 0 0 0.8em 0;
-            color: var(--uide-primary);
-            font-size: 0.95em;
-            font-weight: 600;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 0.4em;
-        }
-
-        .flashcard-back h4 {
-            color: var(--uide-secondary);
-        }
-
-        .flashcard p {
-            margin: 0.4em 0;
-            line-height: 1.4;
-            color: #444;
-            font-size: 0.85em;
-        }
-
-        .flashcard small {
-            font-style: italic;
-            color: #666;
-            margin-top: auto;
-            font-size: 0.75em;
-        }
-
-        .flashcard strong {
-            color: var(--uide-primary);
-            font-weight: 600;
-        }
-
-        .flashcard-back strong {
-            color: var(--uide-secondary);
-        }
-
-        /* Mobile responsive for flashcards */
-        @media (max-width: 768px) {
-            .flashcard {
-                min-height: 120px;
-            }
-            
-            .flashcard-front, .flashcard-back {
-                padding: 1em;
-            }
-            
-            .flashcard h4 {
-                font-size: 0.9em;
-            }
-            
-            .flashcard p {
-                font-size: 0.8em;
-            }
-            
-            .flashcard small {
-                font-size: 0.7em;
-            }
-        }
-    </style>
+    <!-- UIDE Theme CSS -->
+    <link rel="stylesheet" href="../../assets/css/uide-theme.css">
 </head>
 <body>
 
@@ -484,7 +24,7 @@
             <!-- Title Slide -->
             <section data-background-color="#f8f8f8" data-transition="convex">
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 
                 <div class="title-slide">
@@ -512,7 +52,7 @@
             <!-- Quote Slide -->
             <section data-background-color="#f8f8f8">
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 
                 <blockquote style="font-size: 1.2em; text-align: center;">
@@ -526,7 +66,7 @@
             <!-- Curriculum Context -->
             <section data-background-color="#f8f8f8">
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 <h2>Contexto en la Unidad 3</h2>
                 
@@ -584,7 +124,7 @@
             <!-- Latency and Doherty Threshold -->
             <section data-transition="convex">
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 <h2>Evaluación de Aplicaciones</h2>
                 
@@ -678,7 +218,7 @@
             <!-- Blank States and Mode -->
             <section>
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 <h2>Estados Vacíos y Visibilidad del Modo</h2>
                 
@@ -745,7 +285,7 @@
             <!-- Perceived Performance -->
             <section data-transition="slide">
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 <h2>Rendimiento Percibido</h2>
                 
@@ -831,7 +371,7 @@
             <!-- Error Handling -->
             <section data-transition="fade">
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 <h2>Mensajería y Recuperación de Errores</h2>
                 
@@ -960,7 +500,7 @@
             <!-- UX Metrics -->
             <section data-transition="convex">
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 <h2>Métricas Básicas de UX</h2>
                 
@@ -1092,7 +632,7 @@
             <!-- Synthesis -->
             <section data-transition="slide">
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 <h2>Síntesis: Diseño Transparente</h2>
                 
@@ -1166,7 +706,7 @@
             <!-- Recapitulación Rápida -->
             <section data-background-color="#f9f9f9">
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 <h2>Recapitulación Rápida</h2>
                 
@@ -1246,7 +786,7 @@
             <!-- References -->
             <section>
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 <h2>Referencias Bibliográficas</h2>
                 

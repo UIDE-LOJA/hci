@@ -4,128 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HCI - Compendios Semanales</title>
-    <style>
-        :root {
-            --university-primary: #910048;    /* UIDE Burgundy */
-            --university-secondary: #23356E;  /* UIDE Navy */
-            --university-accent: #E9AB21;     /* UIDE Gold */
-            --university-light: #f8f8f8;      /* Light background for contrast */
-        }
-        body {
-            font-family: 'Times New Roman', serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background: var(--university-light);
-            min-height: 100vh;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .header {
-            text-align: center;
-            color: var(--university-primary);
-            margin-bottom: 40px;
-            background: rgba(255,255,255,0.95);
-            padding: 2em;
-            border-radius: 15px;
-            border: 3px double var(--university-primary);
-        }
-        .header h1 {
-            font-family: 'Georgia', serif;
-            font-size: 3em;
-            font-weight: normal;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
-        .header p {
-            font-size: 1.2em;
-            color: var(--university-secondary);
-            font-style: italic;
-        }
-        .weeks-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-        .week-card {
-            background: rgba(255,255,255,0.95);
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            border-left: 4px solid var(--university-accent);
-        }
-        .week-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
-        .week-number {
-            font-size: 2em;
-            font-weight: bold;
-            color: var(--university-primary);
-            margin-bottom: 10px;
-        }
-        .week-title {
-            font-family: 'Georgia', serif;
-            font-size: 1.3em;
-            font-weight: normal;
-            color: var(--university-secondary);
-            margin-bottom: 10px;
-        }
-        .week-description {
-            color: #333;
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        .week-links {
-            display: flex;
-            gap: 10px;
-        }
-        .link-btn {
-            padding: 8px 16px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.9em;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .link-html {
-            background: var(--university-primary);
-            color: white;
-        }
-        .link-html:hover {
-            background: var(--university-accent);
-            color: var(--university-secondary);
-        }
-        .link-md {
-            background: #f8f9fa;
-            color: #333;
-            border: 1px solid #dee2e6;
-        }
-        .link-md:hover {
-            background: #e9ecef;
-        }
-        .footer {
-            text-align: center;
-            color: var(--university-secondary);
-            margin-top: 50px;
-            background: rgba(255,255,255,0.9);
-            padding: 1em;
-            border-radius: 10px;
-            border-top: 2px solid var(--university-primary);
-        }
-    </style>
+    <!-- UIDE Theme CSS -->
+    <link rel="stylesheet" href="assets/css/uide-theme.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <img src="Logo UIDE.png" alt="Logo UIDE" style="max-width: 150px; margin-bottom: 20px;">
+            <img src="assets/images/Logo UIDE.png" alt="Logo UIDE" style="max-width: 150px; margin-bottom: 20px;">
             <h1>HCI - Human Computer Interaction</h1>
             <p>Compendios Semanales del Curso</p>
             <div style="margin-top: 1em; padding: 1em; background: rgba(255,255,255,0.7); border-radius: 8px; font-size: 0.9em;">
@@ -134,141 +19,105 @@
             </div>
         </div>
 
+        <!-- Course Table of Contents -->
+        <div class="toc-section">
+            <h2>Compendios Semanales</h2>
+            <p class="toc-subtitle">Contenidos organizados cronológicamente por semanas</p>
+        </div>
+
         <div class="weeks-grid">
             <a href="semanas/semana-01/compendio-hci-semana1.html" class="week-card">
-                <div class="week-number">01</div>
+                <div class="week-number">Semana 01</div>
                 <div class="week-title">Introducción a HCI</div>
                 <div class="week-description"><strong>Unidad 1:</strong> Historia, evolución, principios de usabilidad, reglas de oro de Shneiderman y metas de usabilidad</div>
-                <div class="week-links">
-                    <span class="link-btn link-html">Ver Presentación</span>
-                </div>
             </a>
 
             <a href="semanas/semana-02/compendio-hci-semana2.html" class="week-card">
-                <div class="week-number">02</div>
+                <div class="week-number">Semana 02</div>
                 <div class="week-title">Factores Humanos y Computación Ubicua</div>
                 <div class="week-description"><strong>Unidad 1:</strong> Ergonomía, factores humanos, computación ubicua, IoT e interfaces naturales</div>
-                <div class="week-links">
-                    <span class="link-btn link-html">Ver Presentación</span>
-                </div>
             </a>
 
             <a href="semanas/semana-03/compendio-hci-semana3.html" class="week-card">
-                <div class="week-number">03</div>
+                <div class="week-number">Semana 03</div>
                 <div class="week-title">Diseño Centrado en el Usuario</div>
                 <div class="week-description"><strong>Unidad 2:</strong> Don Norman, diseño emocional, psicología del color, Gestalt y affordances</div>
-                <div class="week-links">
-                    <span class="link-btn link-html">Ver Presentación</span>
-                </div>
             </a>
 
             <a href="semanas/semana-04/compendio-hci-semana4.html" class="week-card">
-                <div class="week-number">04</div>
+                <div class="week-number">Semana 04</div>
                 <div class="week-title">Leyes Cognitivas y Procesamiento de Información</div>
                 <div class="week-description"><strong>Unidad 2:</strong> Ley de Fitts, Ley de Hick, atención, memoria, percepción y carga cognitiva</div>
-                <div class="week-links">
-                    <span class="link-btn link-html">Ver Presentación</span>
-                </div>
             </a>
 
-            <div class="week-card" style="opacity: 0.8; background: linear-gradient(135deg, #ff9800, #f57c00);">
-                <div class="week-number">05</div>
-                <div class="week-title">Evaluación Diagnóstica</div>
-                <div class="week-description">Evaluación intermedia de conocimientos adquiridos en Unidades 1 y 2</div>
-                <div class="week-links">
-                    <span class="link-btn" style="background: #fff; color: #ff9800;">Evaluación</span>
-                </div>
-            </div>
+            <a href="semanas/semana-05/compendio-hci-semana5.html" class="week-card" style="border-left-color: #ff9800;">
+                <div class="week-number">Semana 05</div>
+                <div class="week-title">Guía de Repaso para Evaluación Diagnóstica</div>
+                <div class="week-description">Material de estudio y repaso de conceptos clave de Unidades 1 y 2 para preparación del examen</div>
+            </a>
 
             <a href="semanas/semana-06/compendio-hci-semana6.html" class="week-card">
-                <div class="week-number">06</div>
+                <div class="week-number">Semana 06</div>
                 <div class="week-title">Interfaces Naturales y Multimodalidad</div>
                 <div class="week-description"><strong>Unidad 3:</strong> Interfaces naturales (NUI), gestos y háptica, voz y asistentes, multitáctil y smartphones</div>
-                <div class="week-links">
-                    <span class="link-btn link-html">Ver Presentación</span>
-                </div>
             </a>
 
             <a href="semanas/semana-07/compendio-hci-semana7.html" class="week-card">
-                <div class="week-number">07</div>
+                <div class="week-number">Semana 07</div>
                 <div class="week-title">Estados de Carga y Manejo de Errores</div>
                 <div class="week-description"><strong>Unidad 3:</strong> Estados de carga, vacíos y error, rendimiento percibido, mensajería y recuperación de errores, métricas básicas de UX</div>
-                <div class="week-links">
-                    <span class="link-btn link-html">Ver Presentación</span>
-                </div>
             </a>
 
             <a href="semanas/semana-08/compendio-hci-semana8.html" class="week-card">
-                <div class="week-number">08</div>
+                <div class="week-number">Semana 08</div>
                 <div class="week-title">Diseño de Interacción en Equipos Ágiles</div>
                 <div class="week-description"><strong>Unidad 4:</strong> Integración de Lean UX, metodologías ágiles, Design Thinking, personas, historias y evaluación iterativa</div>
-                <div class="week-links">
-                    <span class="link-btn link-html">Ver Presentación</span>
-                </div>
             </a>
 
             <a href="semanas/semana-09/compendio-hci-semana9.html" class="week-card">
-                <div class="week-number">09</div>
+                <div class="week-number">Semana 09</div>
                 <div class="week-title">Múltiples Dispositivos y Arquitectura de Información</div>
                 <div class="week-description"><strong>Unidad 4:</strong> Múltiples dispositivos y plataformas, diseño responsivo y adaptativo, arquitectura de información, patrones de diseño en interfaces</div>
-                <div class="week-links">
-                    <span class="link-btn link-html">Ver Presentación</span>
-                </div>
             </a>
 
-            <div class="week-card" style="opacity: 0.6;">
-                <div class="week-number">10</div>
+            <div class="week-card" style="opacity: 0.4; border-left-color: #ccc;">
+                <div class="week-number">Semana 10</div>
                 <div class="week-title">Próximamente</div>
                 <div class="week-description">Contenido en desarrollo</div>
             </div>
 
             <a href="semanas/semana-11/compendio-hci-semana11.html" class="week-card">
-                <div class="week-number">11</div>
+                <div class="week-number">Semana 11</div>
                 <div class="week-title">Experiencia de Usuario Avanzada (UX)</div>
                 <div class="week-description">UX en ecosistemas digitales, diseño emocional y persuasivo, gamificación, efecto estético-usabilidad</div>
-                <div class="week-links">
-                    <span class="link-btn link-html">Ver Presentación</span>
-                </div>
             </a>
 
             <a href="semanas/semana-12/compendio-hci-semana12.html" class="week-card">
-                <div class="week-number">12</div>
+                <div class="week-number">Semana 12</div>
                 <div class="week-title">Usabilidad, Accesibilidad y Diseño Inclusivo</div>
                 <div class="week-description"><strong>Unidad 4:</strong> Computación ubicua, plasticidad del diseño, realidades extendidas (XR), pautas WCAG, heurísticas de Nielsen</div>
-                <div class="week-links">
-                    <span class="link-btn link-html">Ver Presentación</span>
-                </div>
             </a>
 
             <a href="semanas/semana-13/compendio-hci-semana13.html" class="week-card">
-                <div class="week-number">13</div>
+                <div class="week-number">Semana 13</div>
                 <div class="week-title">Métodos Avanzados de Investigación y Evaluación en UX/HCI</div>
                 <div class="week-description"><strong>Unidad 4:</strong> Métodos mixtos, analítica de UX, Big Data, A/B testing, eye-tracking, biometría, estudios longitudinales</div>
-                <div class="week-links">
-                    <span class="link-btn link-html">Ver Presentación</span>
-                </div>
             </a>
 
             <a href="semanas/semana-14/compendio-hci-semana14.html" class="week-card">
-                <div class="week-number">14</div>
+                <div class="week-number">Semana 14</div>
                 <div class="week-title">Evaluación, Modelos Cognitivos y Ética en HCI</div>
                 <div class="week-description"><strong>Unidad 4:</strong> Evaluación experta y de usuario, modelos mentales, validez experimental, ética en diseño, privacidad y capitalismo de vigilancia</div>
-                <div class="week-links">
-                    <span class="link-btn link-html">Ver Presentación</span>
-                </div>
             </a>
 
             <a href="semanas/semana-15/compendio-hci-semana15.html" class="week-card">
-                <div class="week-number">15</div>
+                <div class="week-number">Semana 15</div>
                 <div class="week-title">Fronteras de la Interacción Persona-Ordenador</div>
                 <div class="week-description"><strong>Unidad 4:</strong> Computación afectiva, interfaces cerebro-computadora (BCI), HCI en 5G/Edge, futuro de redes sociales y economía de la conexión</div>
-                <div class="week-links">
-                    <span class="link-btn link-html">Ver Presentación</span>
-                </div>
             </a>
 
-            <div class="week-card" style="opacity: 0.6;">
-                <div class="week-number">16</div>
+            <div class="week-card" style="opacity: 0.4; border-left-color: #ccc;">
+                <div class="week-number">Semana 16</div>
                 <div class="week-title">Próximamente</div>
                 <div class="week-description">Contenido en desarrollo</div>
             </div>
@@ -282,5 +131,6 @@
             </p>
         </div>
     </div>
+
 </body>
 </html>

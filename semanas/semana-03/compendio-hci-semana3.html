@@ -13,428 +13,8 @@
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/monokai.css">
 
-    <!-- Custom CSS for A4 format and UIDE colors - Book-like design -->
-    <style>
-        :root {
-            --uide-primary: #910048;    /* UIDE Burgundy */
-            --uide-secondary: #23356E;  /* UIDE Navy */
-            --uide-accent: #E9AB21;     /* UIDE Gold */
-            --uide-light: #f8f8f8;      /* Light background for contrast */
-        }
-
-        /* Book-like typography - Responsive */
-        .reveal {
-            font-family: 'Times New Roman', serif;
-            font-size: min(2.5vw, 22px);
-            line-height: 1.6;
-        }
-
-        .reveal h1, .reveal h2, .reveal h3 {
-            font-family: 'Georgia', serif;
-            font-weight: normal;
-            text-align: center;
-            color: var(--uide-primary) !important;
-            margin-bottom: 1em;
-        }
-
-        .reveal h1 {
-            font-size: min(4vw, 3em);
-        }
-
-        .reveal h2 {
-            font-size: min(3vw, 2.5em);
-        }
-
-        .reveal h3 {
-            font-size: min(2.5vw, 2em);
-        }
-
-        .reveal p, .reveal li {
-            text-align: justify;
-            color: #333;
-            margin-bottom: 1em;
-            font-size: min(2.2vw, 1.1em);
-        }
-
-        .reveal ul, .reveal ol {
-            text-align: left;
-        }
-
-        /* Clean slide format */
-        .reveal .slides section {
-            background: var(--uide-light);
-        }
-
-        /* Layout helpers */
-        .r-hstack {
-            display: flex;
-            gap: 2em;
-            align-items: flex-start;
-        }
-        
-        .r-vstack {
-            display: flex;
-            flex-direction: column;
-            gap: 1em;
-        }
-        
-        .r-stack {
-            position: relative;
-        }
-        
-        .r-stack > * {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        /* UIDE color scheme */
-        .reveal .slide-background {
-            background: var(--uide-light);
-        }
-        
-        mark {
-            background-color: var(--uide-accent);
-            color: var(--uide-secondary);
-            padding: 0.2em 0.4em;
-            border-radius: 3px;
-            font-weight: 500;
-        }
-
-        /* Logo positioning */
-        .logo-container {
-            position: absolute;
-            top: 1em;
-            right: 1em;
-            z-index: 100;
-        }
-
-        .logo-container img {
-            width: min(10vw, 80px);
-            height: auto;
-            opacity: 0.9;
-        }
-
-        /* Blockquotes */
-        .reveal blockquote {
-            background: rgba(255,255,255,0.8);
-            border-left: 4px solid var(--uide-primary);
-            margin: 1em 0;
-            padding: 1em 2em;
-            font-style: italic;
-            color: var(--uide-secondary);
-            border-radius: 0 8px 8px 0;
-        }
-
-        /* Title slide styling */
-        .title-slide {
-            background: rgba(255,255,255,0.95);
-            padding: 2em;
-            border-radius: 15px;
-            border: 3px double var(--uide-primary);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .title-slide h1 {
-            color: var(--uide-primary);
-            margin-bottom: 0.5em;
-        }
-
-        .title-slide h2 {
-            color: var(--uide-secondary);
-            font-size: min(3vw, 2em);
-            margin-bottom: 1em;
-        }
-
-        .course-info {
-            background: rgba(255,255,255,0.9);
-            border-radius: 10px;
-            padding: 1em;
-            margin: 1em 0;
-            border: 2px solid var(--uide-accent);
-            font-size: min(2vw, 1em);
-        }
-
-        /* Cross-references */
-        .cross-reference {
-            background: rgba(233, 171, 33, 0.1);
-            border: 1px solid var(--uide-accent);
-            border-radius: 8px;
-            padding: 1em;
-            margin: 1em 0;
-            font-style: italic;
-            color: var(--uide-secondary);
-        }
-
-        /* Media placeholders */
-        .media-placeholder {
-            background: rgba(145, 0, 72, 0.1);
-            border: 2px dashed var(--uide-primary);
-            border-radius: 10px;
-            padding: 3vh 2vw;
-            text-align: center;
-            color: var(--uide-primary);
-            margin: 1em 0;
-            font-style: italic;
-        }
-
-        /* Two column layout */
-        .column {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .column h4 {
-            color: var(--uide-primary);
-            border-bottom: 2px solid var(--uide-accent);
-            padding-bottom: 0.3em;
-            margin-bottom: 0.8em;
-        }
-
-        /* Special styling for concept boxes */
-        .concept-box {
-            background: rgba(145, 0, 72, 0.1);
-            border: 2px solid var(--uide-primary);
-            border-radius: 10px;
-            padding: 1em;
-            margin: 0.5em 0;
-            text-align: center;
-        }
-
-        .concept-box.good {
-            background: rgba(76, 175, 80, 0.1);
-            border-color: #4CAF50;
-            color: #2E7D32;
-        }
-
-        .concept-box.warning {
-            background: rgba(255, 193, 7, 0.1);
-            border-color: #FFC107;
-            color: #F57C00;
-        }
-
-        /* References section - optimized for readability */
-        .references-container {
-            column-count: 2;
-            column-gap: 2em;
-            column-rule: 1px solid #ddd;
-            text-align: left;
-        }
-
-        .references-container p {
-            break-inside: avoid;
-            margin-bottom: 0.8em;
-            text-align: left;
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .reveal {
-                font-size: min(4vw, 18px);
-            }
-
-            .r-hstack {
-                flex-direction: column;
-                gap: 1em;
-            }
-
-            .logo-container img {
-                width: 12vw;
-                max-width: 60px;
-            }
-
-            /* Title slide adjustments */
-            .title-slide h1 {
-                font-size: min(10vw, 3em);
-            }
-
-            .title-slide h2 {
-                font-size: min(7vw, 2em);
-            }
-
-            /* References section */
-            .references-container {
-                column-count: 1 !important;
-                font-size: min(3.5vw, 0.7em);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .reveal {
-                font-size: min(5vw, 16px);
-            }
-
-            .reveal section {
-                padding: 3vh 3vw;
-            }
-
-            .logo-container img {
-                width: 15vw;
-                max-width: 60px;
-            }
-
-            .title-slide h1 {
-                font-size: min(12vw, 2.5em);
-            }
-
-            .title-slide h2 {
-                font-size: min(8vw, 1.8em);
-            }
-        }
-
-        /* Touch-friendly interactions for mobile */
-        @media (max-width: 768px) and (pointer: coarse) {
-            .reveal .controls {
-                font-size: 1.5em;
-            }
-
-            .fragment {
-                transition-duration: 0.6s;
-            }
-        }
-
-        /* Vertical slide indicators */
-        .reveal .controls .navigate-up, .reveal .controls .navigate-down {
-            opacity: 0.8;
-        }
-
-        .reveal .controls .navigate-up.enabled, .reveal .controls .navigate-down.enabled {
-            opacity: 1;
-        }
-
-        /* Transition effects - no gradients */
-        .reveal section[data-transition="fade"],
-        .reveal section[data-transition="slide"],
-        .reveal section[data-transition="convex"] {
-            background: var(--uide-light);
-        }
-
-        /* High DPI displays */
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            .logo-container img {
-                image-rendering: -webkit-optimize-contrast;
-                image-rendering: crisp-edges;
-            }
-        }
-
-        /* Flashcard styles */
-        .flashcard {
-            background: #ffffff;
-            border: 1px solid #e0e0e0;
-            border-radius: 6px;
-            padding: 0;
-            margin: 0.8em 0;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            position: relative;
-            min-height: 140px;
-            perspective: 1000px;
-            font-family: 'Times New Roman', serif;
-        }
-
-        .flashcard:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-            border-color: var(--uide-primary);
-        }
-
-        .flashcard-inner {
-            position: relative;
-            width: 100%;
-            min-height: 140px;
-            text-align: left;
-            transition: transform 0.4s ease-in-out;
-            transform-style: preserve-3d;
-        }
-
-        .flashcard.flipped .flashcard-inner {
-            transform: rotateY(180deg);
-        }
-
-        .flashcard-front, .flashcard-back {
-            position: absolute;
-            width: 100%;
-            min-height: 140px;
-            backface-visibility: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            padding: 1.2em;
-            border-radius: 6px;
-            box-sizing: border-box;
-        }
-
-        .flashcard-front {
-            background: #ffffff;
-            border-left: 4px solid var(--uide-primary);
-        }
-
-        .flashcard-back {
-            transform: rotateY(180deg);
-            background: #fafafa;
-            border-left: 4px solid var(--uide-accent);
-        }
-
-        .flashcard h4 {
-            margin: 0 0 0.8em 0;
-            color: var(--uide-primary);
-            font-size: 0.95em;
-            font-weight: 600;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 0.4em;
-        }
-
-        .flashcard-back h4 {
-            color: var(--uide-secondary);
-        }
-
-        .flashcard p {
-            margin: 0.4em 0;
-            line-height: 1.4;
-            color: #444;
-            font-size: 0.85em;
-        }
-
-        .flashcard small {
-            font-style: italic;
-            color: #666;
-            margin-top: auto;
-            font-size: 0.75em;
-        }
-
-        .flashcard strong {
-            color: var(--uide-primary);
-            font-weight: 600;
-        }
-
-        .flashcard-back strong {
-            color: var(--uide-secondary);
-        }
-
-        /* Mobile responsive for flashcards */
-        @media (max-width: 768px) {
-            .flashcard {
-                min-height: 120px;
-            }
-            
-            .flashcard-front, .flashcard-back {
-                padding: 1em;
-            }
-            
-            .flashcard h4 {
-                font-size: 0.9em;
-            }
-            
-            .flashcard p {
-                font-size: 0.8em;
-            }
-            
-            .flashcard small {
-                font-size: 0.7em;
-            }
-        }
-    </style>
+    <!-- UIDE Theme CSS -->
+    <link rel="stylesheet" href="../../assets/css/uide-theme.css">
 </head>
 <body>
     <div class="reveal">
@@ -442,7 +22,7 @@
             <!-- Title Slide -->
             <section data-background-color="#f8f8f8" data-transition="convex">
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 
                 <div class="title-slide">
@@ -470,7 +50,7 @@
             <!-- Quote Slide -->
             <section data-background-color="#f8f8f8">
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 
                 <blockquote style="font-size: 1.2em; text-align: center;">
@@ -484,7 +64,7 @@
             <!-- Curriculum Context -->
             <section data-background-color="#f8f8f8">
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 <h2>Contexto en la Unidad 2</h2>
                 
@@ -542,7 +122,7 @@
             <!-- Don Norman Overview -->
             <section data-transition="convex">
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 <h2>Don Norman: Pionero del Diseño Centrado en el Usuario</h2>
                 
@@ -601,7 +181,7 @@
             <!-- The Design of Everyday Things -->
             <section>
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 <h2>The Design of Everyday Things</h2>
                 
@@ -722,10 +302,70 @@
                 </div>
             </section>
 
+            <!-- Activity-Centered Design -->
+            <section>
+                <h2>Diseño Centrado en la Actividad (ACD)</h2>
+                
+                <section>
+                    <h3>Fundamentos del ACD</h3>
+                    <div class="concept-box">
+                        <p>Norman también defiende el <mark>Diseño Centrado en la Actividad (ACD)</mark>, basado en la Teoría de la Actividad</p>
+                        <div class="fragment">
+                            <p>Se enfoca primordialmente en la <strong>comprensión de las actividades</strong> que las personas realizan con un conjunto de herramientas</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Objetivo del ACD</h3>
+                    <div class="cross-reference">
+                        <p><strong>Conexión con Semana 2:</strong> El ACD está fundamentado en la Teoría de la Actividad rusa que vimos anteriormente</p>
+                    </div>
+                    <div class="concept-box good">
+                        <p><strong>Meta principal:</strong> Influir favorablemente en el diseño de herramientas mediante la comprensión profunda de las actividades humanas</p>
+                        <div class="fragment">
+                            <ul>
+                                <li>Analizar qué hacen las personas realmente</li>
+                                <li>Entender el contexto de las actividades</li>
+                                <li>Diseñar herramientas que se adapten a las actividades naturales</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>ACD vs. Diseño Centrado en el Usuario</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <div class="concept-box">
+                                <h4>Diseño Centrado en Usuario</h4>
+                                <p>Se enfoca en las <strong>necesidades y preferencias</strong> del usuario</p>
+                                <ul>
+                                    <li>¿Qué quiere el usuario?</li>
+                                    <li>¿Cómo prefiere interactuar?</li>
+                                    <li>¿Qué le resulta más cómodo?</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="concept-box good">
+                                <h4>Diseño Centrado en Actividad</h4>
+                                <p>Se enfoca en las <strong>actividades y tareas</strong> que realiza</p>
+                                <ul>
+                                    <li>¿Qué actividades realiza?</li>
+                                    <li>¿En qué contexto las hace?</li>
+                                    <li>¿Cómo se relaciona con las herramientas?</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
             <!-- Color Psychology -->
             <section>
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 <h2>Psicología del Color</h2>
                 
@@ -823,7 +463,7 @@
             <!-- Gestalt Principles -->
             <section>
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 <h2>Principios de la Gestalt</h2>
                 
@@ -889,7 +529,7 @@
             <!-- Affordances and Signifiers -->
             <section>
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 <h2>Affordances y Señalizadores</h2>
                 
@@ -979,7 +619,7 @@
             <!-- Synthesis and Integration -->
             <section>
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 <h2>Síntesis e Integración</h2>
                 
@@ -1018,7 +658,7 @@
             <!-- Recapitulación Rápida -->
             <section data-background-color="#f9f9f9">
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 <h2>Conceptos Clave - Flashcards Interactivas</h2>
                 <p style="text-align: center; margin-bottom: 2rem;"><em>Haz clic en cada tarjeta para ver la respuesta</em></p>
@@ -1099,7 +739,7 @@
             <!-- References -->
             <section>
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 <h2>Referencias Bibliográficas</h2>
                 
@@ -1107,8 +747,7 @@
                     <p><strong>Cooper, A., Reimann, R., Cronin, D., & Verplank, B.</strong> (2014). <em>About Face: The Essentials of Interaction Design</em> (4th ed.). Wiley.</p>
                     <p><strong>Díaz, S.</strong> (s.f.). <em>UX Design hazlo fácil pensando en el usuario</em>. Ediciones de la U / Editorial Ra-ma.</p>
                     <p><strong>Fernández Casado, P. E.</strong> (2021). <em>UX Design: Hazlo fácil pensando en el usuario</em>. (Capítulos seleccionados).</p>
-                    <p><strong>Gibson, J. J.</strong> (1979). <em>The Ecological Approach to Visual Perception</em>. Houghton Mifflin.</p>
-                    <p><strong>Hanington, B. & Martin, B.</strong> (2012). <em>Universal Principles of Design</em>. Rockport Publishers.</p>
+                    <p><strong>Hanington, B., & Martin, B.</strong> (2012). <em>Universal Principles of Design</em>. Rockport Publishers.</p>
                     <p><strong>Krug, S.</strong> (2006). <em>Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability</em>. New Riders.</p>
                     <p><strong>MacKenzie, I. S.</strong> (2013). <em>Human-Computer Interaction: An Empirical Research Perspective</em>. Elsevier Inc.</p>
                     <p><strong>Norman, D. A.</strong> (1988). <em>The Psychology of Everyday Things</em>. Basic Books.</p>
@@ -1118,10 +757,113 @@
                 </div>
             </section>
 
+            <!-- Graded Activities -->
+            <section data-background-color="#f8f8f8" data-transition="convex">
+                <h2>Actividades Calificadas - Semana 3</h2>
+                <section>
+                    <h3>Diseño Visual y Principios de Percepción</h3>
+                    <p style="text-align: center; font-style: italic; color: var(--uide-secondary);">
+                        Aplicación práctica de Gestalt, psicología del color y affordances
+                    </p>
+                </section>
+
+                <section>
+                    <h3>GA-1.1: Revisión Rápida de Conceptos</h3>
+                    <div class="concept-box">
+                        <h4 style="color: var(--uide-accent);">Graded Activity 1.1</h4>
+                        <p><strong>Actividad:</strong> Revisión rápida de conceptos fundamentales de la semana</p>
+                        <p><strong>Enfoque:</strong> Evaluación de comprensión de principios básicos de diseño</p>
+                        <ul style="text-align: left;">
+                            <li>Conceptos de Don Norman (UX, affordances, niveles emocionales)</li>
+                            <li>Principios básicos de Gestalt</li>
+                            <li>Fundamentos de psicología del color</li>
+                        </ul>
+                        <div style="background: rgba(233, 171, 33, 0.1); padding: 1em; border-radius: 8px; margin: 1em 0;">
+                            <strong>Puntaje:</strong> 0.5 puntos<br>
+                            <strong>Modalidad:</strong> Evaluación rápida individual
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>PE-1.3: Taller "Before/After" con Gestalt</h3>
+                    <div class="concept-box">
+                        <h4 style="color: var(--uide-primary);">Práctico Experimental 1.3</h4>
+                        <p><strong>Actividad:</strong> Taller práctico aplicando principios de Gestalt en rediseños</p>
+                        <p><strong>Enfoque:</strong> Transformación de interfaces usando principios de percepción visual</p>
+                        <div class="r-hstack">
+                            <div class="column">
+                                <div class="concept-box">
+                                    <h4>Principios a Aplicar</h4>
+                                    <ul style="text-align: left; font-size: 0.9em;">
+                                        <li>Proximidad y agrupación</li>
+                                        <li>Similitud y conexión uniforme</li>
+                                        <li>Cierre y simplicidad (Pragnanz)</li>
+                                        <li>Relación figura-fondo</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="concept-box">
+                                    <h4>Metodología</h4>
+                                    <ul style="text-align: left; font-size: 0.9em;">
+                                        <li>Análisis del "antes"</li>
+                                        <li>Identificación de problemas perceptuales</li>
+                                        <li>Aplicación de principios Gestalt</li>
+                                        <li>Presentación del "después" justificado</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="background: rgba(233, 171, 33, 0.1); padding: 1em; border-radius: 8px; margin: 1em 0;">
+                            <strong>Puntaje:</strong> 2.25 puntos<br>
+                            <strong>Modalidad:</strong> Taller práctico con presentación grupal
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>TA-1.3: Tarjeta de Color con Justificación</h3>
+                    <div class="concept-box">
+                        <h4 style="color: var(--uide-secondary);">Trabajo Autónomo 1.3</h4>
+                        <p><strong>Actividad:</strong> Creación de tarjeta de color con justificación teórica</p>
+                        <p><strong>Enfoque:</strong> Aplicación práctica de psicología del color en diseño</p>
+                        <div class="r-hstack">
+                            <div class="column">
+                                <div class="concept-box">
+                                    <h4>Componentes de la Tarjeta</h4>
+                                    <ul style="text-align: left; font-size: 0.9em;">
+                                        <li>Paleta de colores seleccionada</li>
+                                        <li>Aplicación en contexto específico</li>
+                                        <li>Consideraciones de accesibilidad</li>
+                                        <li>Análisis de valor, matiz y saturación</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="concept-box">
+                                    <h4>Justificación Teórica</h4>
+                                    <ul style="text-align: left; font-size: 0.9em;">
+                                        <li>Fundamentos de psicología del color</li>
+                                        <li>Impacto cognitivo y perceptual</li>
+                                        <li>Consideraciones culturales</li>
+                                        <li>Mejores prácticas de accesibilidad</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="background: rgba(145, 0, 72, 0.1); padding: 1em; border-radius: 8px; margin: 1em 0; text-align: center;">
+                            <strong>Puntaje:</strong> 3.0 puntos<br>
+                            <strong>Modalidad:</strong> Individual con justificación escrita
+                        </div>
+                    </div>
+                </section>
+            </section>
+
             <!-- Thank You Slide -->
             <section data-background-color="#f8f8f8" data-transition="convex">
                 <div class="logo-container">
-                    <img src="../../Logo UIDE.png" alt="Logo UIDE">
+                    <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
                 
                 <div class="title-slide">

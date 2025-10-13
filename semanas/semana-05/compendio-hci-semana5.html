@@ -1,0 +1,1474 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Semana 5 - Aventura Interactiva: Fundamentos de HCI</title>
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css" id="theme">
+
+    <!-- UIDE Theme CSS -->
+    <link rel="stylesheet" href="../../assets/css/uide-theme.css">
+    
+    <!-- Additional styles for Comic/Story format -->
+    <style>
+        :root {
+            --uide-primary: #910048;
+            --uide-secondary: #23356E;
+            --uide-accent: #E9AB21;
+            --uide-light: #f8f8f8;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --info: #17a2b8;
+            --comic-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --speech-bubble: #ffffff;
+            --thought-bubble: #e3f2fd;
+        }
+
+        body {
+            background: var(--comic-bg);
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+        }
+
+        .reveal {
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .reveal .slides section {
+            background: none;
+            text-align: center;
+        }
+
+        /* Character Styles */
+        .character {
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 20px;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            border: 4px solid var(--uide-primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .ada {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+        }
+
+        .ada::before {
+            content: "👩‍💻";
+            font-size: 80px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .alex {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            position: relative;
+        }
+
+        .alex::before {
+            content: "🧑‍🎓";
+            font-size: 80px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Speech Bubble Styles */
+        .speech-bubble {
+            background: var(--speech-bubble);
+            border: 3px solid var(--uide-primary);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px;
+            position: relative;
+            max-width: 600px;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .speech-bubble.ada-speaks {
+            background: #e8f5e8;
+            border-color: var(--success);
+        }
+
+        .speech-bubble.alex-speaks {
+            background: #fff3e0;
+            border-color: var(--warning);
+        }
+
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid var(--uide-primary);
+        }
+
+        .speech-bubble.ada-speaks::after {
+            border-top-color: var(--success);
+        }
+
+        .speech-bubble.alex-speaks::after {
+            border-top-color: var(--warning);
+        }
+
+        /* Thought Bubble */
+        .thought-bubble {
+            background: var(--thought-bubble);
+            border: 2px dashed var(--info);
+            border-radius: 30px;
+            padding: 15px;
+            margin: 15px;
+            position: relative;
+            max-width: 400px;
+            display: inline-block;
+            font-style: italic;
+            animation: pulse 2s infinite;
+        }
+
+        /* Interactive Elements */
+        .choice-button {
+            background: var(--uide-accent);
+            color: var(--uide-secondary);
+            border: none;
+            padding: 15px 30px;
+            margin: 10px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .choice-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            background: var(--uide-primary);
+            color: white;
+        }
+
+        .choice-button.correct {
+            background: var(--success);
+            color: white;
+            animation: bounceIn 0.6s ease-out;
+        }
+
+        .choice-button.incorrect {
+            background: var(--danger);
+            color: white;
+            animation: shake 0.6s ease-out;
+        }
+
+        /* Story Chapter Headers */
+        .chapter-header {
+            background: var(--uide-primary);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%);
+            animation: shine 3s infinite;
+        }
+
+        .chapter-number {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--uide-accent);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Progress Tracker */
+        .progress-tracker {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.9);
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            margin-right: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .progress-dot.completed {
+            background: var(--success);
+            animation: pulse 1s ease-out;
+        }
+
+        .progress-dot.current {
+            background: var(--uide-primary);
+            animation: pulse 2s infinite;
+        }
+
+        /* Interactive Quiz Elements */
+        .quiz-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 700px;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--uide-primary), var(--uide-accent), var(--uide-secondary));
+        }
+
+        /* Drag and Drop Visual Style */
+        .concept-card {
+            background: var(--uide-accent);
+            color: var(--uide-secondary);
+            padding: 15px 25px;
+            margin: 10px;
+            border-radius: 15px;
+            display: inline-block;
+            cursor: grab;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .concept-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .concept-card.dragging {
+            transform: rotate(10deg) scale(0.9);
+            opacity: 0.7;
+        }
+
+        .drop-zone {
+            min-height: 200px;
+            border: 3px dashed #ccc;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.5);
+        }
+
+        .drop-zone.drag-over {
+            border-color: var(--success);
+            background: rgba(40, 167, 69, 0.1);
+            transform: scale(1.02);
+        }
+
+        .drop-zone h3 {
+            color: var(--uide-primary);
+            margin-top: 0;
+        }
+
+        /* Feedback Messages */
+        .feedback {
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px;
+            font-weight: bold;
+            text-align: center;
+            display: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feedback.success {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            animation: slideInFromRight 0.8s ease-out;
+        }
+
+        .feedback.error {
+            background: linear-gradient(135deg, #dc3545, #fd7e14);
+            color: white;
+            animation: slideInFromLeft 0.8s ease-out;
+        }
+
+        .feedback::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: slideShine 2s infinite;
+        }
+
+        /* Navigation Styles */
+        .nav-hint {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            z-index: 1000;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Story Scene Backgrounds */
+        .scene-university {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scene-lab {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scene-library {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            10%, 30%, 50%, 70%, 90% {
+                transform: translateX(-10px);
+            }
+            20%, 40%, 60%, 80% {
+                transform: translateX(10px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideShine {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .character {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .character::before {
+                font-size: 50px;
+            }
+            
+            .speech-bubble {
+                max-width: 90%;
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            .progress-tracker {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 20px auto;
+                display: inline-block;
+            }
+            
+            .nav-hint {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                transform: none;
+                margin: 20px auto;
+                display: inline-block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Progress Tracker -->
+    <div class="progress-tracker">
+        <div class="progress-item">
+            <div class="progress-dot current" id="intro-dot"></div>
+            <span>Introducción</span>
+        </div>
+        <div class="progress-item">
+            <div class="progress-dot" id="hci-dot"></div>
+            <span>¿Qué es HCI?</span>
+        </div>
+        <div class="progress-item">
+            <div class="progress-dot" id="history-dot"></div>
+            <span>Historia</span>
+        </div>
+        <div class="progress-item">
+            <div class="progress-dot" id="usability-dot"></div>
+            <span>Usabilidad</span>
+        </div>
+        <div class="progress-item">
+            <div class="progress-dot" id="design-dot"></div>
+            <span>Diseño</span>
+        </div>
+        <div class="progress-item">
+            <div class="progress-dot" id="cognitive-dot"></div>
+            <span>Cognición</span>
+        </div>
+        <div class="progress-item">
+            <div class="progress-dot" id="final-dot"></div>
+            <span>Evaluación</span>
+        </div>
+    </div>
+
+    <!-- Navigation Hint -->
+    <div class="nav-hint">
+        Usa las flechas ↑↓ para navegar verticalmente • ←→ para navegar horizontalmente
+    </div>
+
+    <div class="reveal">
+        <div class="slides">
+            <!-- HORIZONTAL SLIDE 1: Introducción y Presentación de Personajes -->
+            <section class="scene-university">
+                <div>
+                    <div class="chapter-header">
+                        <div class="chapter-number">🎭</div>
+                        <h1>Aventura Interactiva: Fundamentos de HCI</h1>
+                        <p>Una historia de descubrimiento en el mundo de la Interacción Persona-Ordenador</p>
+                    </div>
+
+                    <div style="margin: 40px 0;">
+                        <div class="character ada"></div>
+                        <div class="character alex"></div>
+                    </div>
+
+                    <div class="speech-bubble ada-speaks">
+                        <strong>Ada:</strong> ¡Hola! Soy Ada, tu guía en esta aventura por el fascinante mundo de HCI. ¿Estás listo para descubrir los secretos de la interacción entre humanos y computadoras?
+                    </div>
+
+                    <div class="speech-bubble alex-speaks">
+                        <strong>Alex:</strong> ¡Hola Ada! Soy Alex, un estudiante curioso. Tengo muchas preguntas sobre HCI. ¿Podrías ayudarme a entender qué es exactamente?
+                    </div>
+
+                    <div class="choice-button" onclick="startJourney()">
+                        ¡Comenzar la Aventura!
+                    </div>
+                </div>
+            </section>
+
+            <!-- HORIZONTAL SLIDE 2: Capítulo 1 - ¿Qué es HCI? (Vertical Navigation) -->
+            <section>
+                <!-- Vertical Slide 2.1: Pregunta Socrática Inicial -->
+                <section class="scene-lab">
+                    <div class="chapter-header">
+                        <div class="chapter-number">Capítulo 1</div>
+                        <h2>El Misterio de HCI</h2>
+                    </div>
+
+                    <div class="speech-bubble ada-speaks">
+                        <strong>Ada:</strong> Alex, antes de decirte qué es HCI, déjame preguntarte algo. Cuando usas tu teléfono, ¿qué elementos están involucrados en esa experiencia?
+                    </div>
+
+                    <div class="thought-bubble">
+                        💭 Piensa en los elementos que participan cuando interactúas con tecnología...
+                    </div>
+
+                    <div style="margin: 30px 0;">
+                        <div class="choice-button" onclick="selectHCIElement('human')">El humano (yo)</div>
+                        <div class="choice-button" onclick="selectHCIElement('computer')">La computadora (teléfono)</div>
+                        <div class="choice-button" onclick="selectHCIElement('interaction')">La interacción entre ambos</div>
+                        <div class="choice-button" onclick="selectHCIElement('all')">¡Todos los anteriores!</div>
+                    </div>
+
+                    <div class="feedback" id="hci-feedback"></div>
+                </section>
+
+                <!-- Vertical Slide 2.2: Revelación de los Tres Elementos -->
+                <section class="scene-lab">
+                    <div class="speech-bubble alex-speaks">
+                        <strong>Alex:</strong> ¡Ah! Entonces HCI involucra tres elementos: humanos, computadoras e interacción. ¿Pero qué significa exactamente cada uno?
+                    </div>
+
+                    <div class="speech-bubble ada-speaks">
+                        <strong>Ada:</strong> ¡Excelente deducción! Vamos a explorar cada elemento con más detalle...
+                    </div>
+
+                    <div class="quiz-card">
+                        <h3>Los Tres Pilares de HCI</h3>
+                        <div id="hci-elements" style="margin: 20px 0;">
+                            <div class="concept-card" draggable="true" data-element="human">
+                                👥 HUMANOS<br><small>Usuarios únicos o múltiples</small>
+                            </div>
+                            <div class="concept-card" draggable="true" data-element="computer">
+                                💻 ORDENADORES<br><small>Dispositivos programables</small>
+                            </div>
+                            <div class="concept-card" draggable="true" data-element="interaction">
+                                🤝 INTERACCIÓN<br><small>Comunicación bidireccional</small>
+                            </div>
+                        </div>
+
+                        <div class="drop-zone" data-accepts="human,computer,interaction">
+                            <h3>Arrastra los elementos de HCI aquí</h3>
+                            <p>Descubre las características de cada elemento</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Vertical Slide 2.3: Definición Completa -->
+                <section class="scene-lab">
+                    <div class="speech-bubble ada-speaks">
+                        <strong>Ada:</strong> Perfecto Alex. Ahora que entiendes los elementos, ¿puedes intentar definir qué es HCI?
+                    </div>
+
+                    <div class="speech-bubble alex-speaks">
+                        <strong>Alex:</strong> Hmm... ¿HCI es el estudio de cómo los humanos interactúan con las computadoras?
+                    </div>
+
+                    <div class="quiz-card">
+                        <h3>Construye la Definición de HCI</h3>
+                        <p>Completa la definición oficial de MacKenzie (2013):</p>
+                        
+                        <div style="margin: 20px; font-size: 18px; line-height: 2;">
+                            "HCI es un campo <select id="field-type" onchange="checkDefinition()">
+                                <option value="">...</option>
+                                <option value="multidisciplinario">multidisciplinario</option>
+                                <option value="interdisciplinario">interdisciplinario</option>
+                                <option value="unidisciplinario">unidisciplinario</option>
+                            </select> que se preocupa por el 
+                            <select id="main-focus" onchange="checkDefinition()">
+                                <option value="">...</option>
+                                <option value="diseño">diseño, evaluación e implementación</option>
+                                <option value="solo-diseño">solo diseño</option>
+                                <option value="solo-evaluación">solo evaluación</option>
+                            </select> de sistemas computacionales 
+                            <select id="system-type" onchange="checkDefinition()">
+                                <option value="">...</option>
+                                <option value="interactivos">interactivos</option>
+                                <option value="automáticos">automáticos</option>
+                                <option value="independientes">independientes</option>
+                            </select> para uso humano."
+                        </div>
+
+                        <div class="feedback" id="definition-feedback"></div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- HORIZONTAL SLIDE 3: Capítulo 2 - Historia de HCI -->
+            <section>
+                <!-- Vertical Slide 3.1: Viaje en el Tiempo -->
+                <section class="scene-library">
+                    <div class="chapter-header">
+                        <div class="chapter-number">Capítulo 2</div>
+                        <h2>Viaje en el Tiempo: Historia de HCI</h2>
+                    </div>
+
+                    <div class="speech-bubble alex-speaks">
+                        <strong>Alex:</strong> Ada, me pregunto... ¿HCI siempre existió o es algo nuevo?
+                    </div>
+
+                    <div class="speech-bubble ada-speaks">
+                        <strong>Ada:</strong> ¡Excelente pregunta! Vamos a viajar en el tiempo. ¿En qué década crees que nacieron las primeras computadoras?
+                    </div>
+
+                    <div class="quiz-card">
+                        <h3>🕰️ Línea de Tiempo HCI</h3>
+                        <p>Selecciona el evento y su década correcta:</p>
+                        
+                        <div id="timeline-game" style="margin: 30px 0;">
+                            <div class="concept-card" draggable="true" data-decade="1940s">
+                                Primeras computadoras para expertos
+                            </div>
+                            <div class="concept-card" draggable="true" data-decade="1960s">
+                                Invención del ratón (Engelbart)
+                            </div>
+                            <div class="concept-card" draggable="true" data-decade="1980s">
+                                Nacimiento formal de HCI
+                            </div>
+                            <div class="concept-card" draggable="true" data-decade="2000s">
+                                Era de smartphones y táctil
+                            </div>
+                        </div>
+
+                        <div class="drop-zone" data-decade="1940s" style="background: #ffebee;">
+                            <h4>1940s - Era de las Máquinas</h4>
+                        </div>
+                        <div class="drop-zone" data-decade="1960s" style="background: #e8f5e8;">
+                            <h4>1960s - Primeras Innovaciones</h4>
+                        </div>
+                        <div class="drop-zone" data-decade="1980s" style="background: #fff3e0;">
+                            <h4>1980s - Revolución GUI</h4>
+                        </div>
+                        <div class="drop-zone" data-decade="2000s" style="background: #e3f2fd;">
+                            <h4>2000s - Era Móvil</h4>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Vertical Slide 3.2: La Gran Transformación -->
+                <section class="scene-library">
+                    <div class="speech-bubble ada-speaks">
+                        <strong>Ada:</strong> Ahora Alex, ¿qué crees que cambió para que las computadoras pasaran de ser máquinas para expertos a herramientas para todos?
+                    </div>
+
+                    <div class="speech-bubble alex-speaks">
+                        <strong>Alex:</strong> ¿Se volvieron más potentes? ¿Más baratas?
+                    </div>
+
+                    <div class="speech-bubble ada-speaks">
+                        <strong>Ada:</strong> Sí, pero hay algo más fundamental... ¡Se volvieron USABLES! Este concepto es clave en HCI.
+                    </div>
+
+                    <div class="quiz-card">
+                        <h3>⚡ La Ley de Moore y su Impacto</h3>
+                        <p>Gordon Moore predijo en 1965:</p>
+                        
+                        <div class="thought-bubble">
+                            "El número de transistores se duplica cada _____ meses"
+                        </div>
+
+                        <div style="margin: 20px 0;">
+                            <div class="choice-button" onclick="checkMoore('12')">12 meses</div>
+                            <div class="choice-button" onclick="checkMoore('24')">24 meses</div>
+                            <div class="choice-button" onclick="checkMoore('36')">36 meses</div>
+                        </div>
+
+                        <div class="feedback" id="moore-feedback"></div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- HORIZONTAL SLIDE 4: Capítulo 3 - Usabilidad y Reglas de Oro -->
+            <section>
+                <!-- Vertical Slide 4.1: El Secreto de la Usabilidad -->
+                <section class="scene-university">
+                    <div class="chapter-header">
+                        <div class="chapter-number">Capítulo 3</div>
+                        <h2>El Secreto de la Usabilidad</h2>
+                    </div>
+
+                    <div class="speech-bubble alex-speaks">
+                        <strong>Alex:</strong> Ada, mencionaste la usabilidad. ¿Qué hace que algo sea "usable"?
+                    </div>
+
+                    <div class="speech-bubble ada-speaks">
+                        <strong>Ada:</strong> ¡Ah! Steve Krug tiene una regla de oro famosa. ¿Puedes adivinar cuál es?
+                    </div>
+
+                    <div class="quiz-card">
+                        <h3>🥇 La Primera Regla de Oro</h3>
+                        <p>Steve Krug dice que la usabilidad se resume en:</p>
+                        
+                        <div style="margin: 30px 0;">
+                            <div class="choice-button" onclick="checkKrug('think')">¡Hazme pensar!</div>
+                            <div class="choice-button" onclick="checkKrug('nothink')">¡No me hagas pensar!</div>
+                            <div class="choice-button" onclick="checkKrug('simple')">¡Manténlo simple!</div>
+                            <div class="choice-button" onclick="checkKrug('fast')">¡Hazlo rápido!</div>
+                        </div>
+
+                        <div class="feedback" id="krug-feedback"></div>
+                    </div>
+                </section>
+
+                <!-- Vertical Slide 4.2: Las Tres "U" del Diseño -->
+                <section class="scene-university">
+                    <div class="speech-bubble ada-speaks">
+                        <strong>Ada:</strong> Excelente Alex. Ahora, para que un sistema sea realmente exitoso, debe cumplir las tres "U". ¿Puedes conectar cada "U" con su significado?
+                    </div>
+
+                    <div class="quiz-card">
+                        <h3>🎯 Las Tres "U" del Diseño</h3>
+                        
+                        <div style="display: flex; justify-content: space-around; margin: 30px 0;">
+                            <div>
+                                <h4>Las "U"</h4>
+                                <div class="concept-card" data-match="util">ÚTIL</div>
+                                <div class="concept-card" data-match="usable">UTILIZABLE</div>
+                                <div class="concept-card" data-match="used">USADO</div>
+                            </div>
+                            
+                            <div>
+                                <h4>Significados</h4>
+                                <div class="drop-zone" data-meaning="util">
+                                    Lograr una tarea que el usuario requiere
+                                </div>
+                                <div class="drop-zone" data-meaning="usable">
+                                    Realizar la tarea de forma fácil y segura
+                                </div>
+                                <div class="drop-zone" data-meaning="used">
+                                    Experiencia atractiva y divertida
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Vertical Slide 4.3: Shneiderman's Golden Rules -->
+                <section class="scene-university">
+                    <div class="speech-bubble alex-speaks">
+                        <strong>Alex:</strong> ¿Hay más reglas además de "no me hagas pensar"?
+                    </div>
+
+                    <div class="speech-bubble ada-speaks">
+                        <strong>Ada:</strong> ¡Por supuesto! Ben Shneiderman creó 8 reglas de oro. ¿Cuántas puedes identificar correctamente?
+                    </div>
+
+                    <div class="quiz-card">
+                        <h3>🏆 Las 8 Reglas de Oro de Shneiderman</h3>
+                        
+                        <div id="shneiderman-quiz">
+                            <div class="question-card">
+                                <p><strong>¿Cuál es la regla más frecuentemente violada?</strong></p>
+                                <div class="choice-button" onclick="checkShneiderman(1, 'consistency')">Consistencia</div>
+                                <div class="choice-button" onclick="checkShneiderman(1, 'feedback')">Feedback</div>
+                                <div class="choice-button" onclick="checkShneiderman(1, 'errors')">Prevención de errores</div>
+                            </div>
+                            
+                            <div class="feedback" id="shneiderman-feedback"></div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- HORIZONTAL SLIDE 5: Capítulo 4 - Don Norman y Diseño Emocional -->
+            <section>
+                <!-- Vertical Slide 5.1: Conociendo a Don Norman -->
+                <section class="scene-lab">
+                    <div class="chapter-header">
+                        <div class="chapter-number">Capítulo 4</div>
+                        <h2>El Mundo de Don Norman</h2>
+                    </div>
+
+                    <div class="speech-bubble alex-speaks">
+                        <strong>Alex:</strong> Ada, he escuchado sobre Don Norman. ¿Por qué es tan importante en HCI?
+                    </div>
+
+                    <div class="speech-bubble ada-speaks">
+                        <strong>Ada:</strong> ¡Don Norman es una leyenda! Él acuñó el término "Experiencia del Usuario". Pero también creó un modelo fascinante sobre cómo pensamos cuando interactuamos con objetos.
+                    </div>
+
+                    <div class="quiz-card">
+                        <h3>🧠 Los Niveles Emocionales de Norman</h3>
+                        <p>Norman propuso que procesamos las experiencias en tres niveles:</p>
+                        
+                        <div id="norman-levels">
+                            <div class="concept-card" data-level="visceral">
+                                VISCERAL<br><small>¿Cómo se ve?</small>
+                            </div>
+                            <div class="concept-card" data-level="behavioral">
+                                CONDUCTUAL<br><small>¿Cómo funciona?</small>
+                            </div>
+                            <div class="concept-card" data-level="reflective">
+                                REFLEXIVO<br><small>¿Qué significa?</small>
+                            </div>
+                        </div>
+
+                        <div class="drop-zone" data-description="visceral">
+                            <h4>Respuesta emocional inmediata</h4>
+                            <p>Primera impresión, aspectos sensoriales</p>
+                        </div>
+                        <div class="drop-zone" data-description="behavioral">
+                            <h4>Comportamientos cotidianos</h4>
+                            <p>Usabilidad, eficiencia, funcionalidad</p>
+                        </div>
+                        <div class="drop-zone" data-description="reflective">
+                            <h4>Consideración consciente</h4>
+                            <p>Significado, valor, identidad personal</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Vertical Slide 5.2: Los Golfos de Norman -->
+                <section class="scene-lab">
+                    <div class="speech-bubble ada-speaks">
+                        <strong>Ada:</strong> Norman también identificó dos "golfos" que causan problemas en la interacción. ¿Puedes imaginar qué son?
+                    </div>
+
+                    <div class="speech-bubble alex-speaks">
+                        <strong>Alex:</strong> ¿Golfos? ¿Como brechas entre lo que quiero hacer y lo que puedo hacer?
+                    </div>
+
+                    <div class="speech-bubble ada-speaks">
+                        <strong>Ada:</strong> ¡Exacto! Vamos a explorarlos...
+                    </div>
+
+                    <div class="quiz-card">
+                        <h3>🌊 Los Dos Golfos de Norman</h3>
+                        
+                        <div class="scenario">
+                            <p><strong>Escenario:</strong> Quieres subir el volumen de tu música, pero no encuentras el botón correcto en la interfaz.</p>
+                            
+                            <div style="margin: 20px 0;">
+                                <div class="choice-button" onclick="checkGulfs('execution')">Golfo de Ejecución</div>
+                                <div class="choice-button" onclick="checkGulfs('evaluation')">Golfo de Evaluación</div>
+                            </div>
+
+                            <div class="feedback" id="gulfs-feedback"></div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- HORIZONTAL SLIDE 6: Capítulo 5 - Leyes Cognitivas -->
+            <section>
+                <!-- Vertical Slide 6.1: La Ley de Fitts -->
+                <section class="scene-library">
+                    <div class="chapter-header">
+                        <div class="chapter-number">Capítulo 5</div>
+                        <h2>Las Leyes de la Mente</h2>
+                    </div>
+
+                    <div class="speech-bubble alex-speaks">
+                        <strong>Alex:</strong> Ada, ¿existen leyes que describan cómo interactuamos con las interfaces?
+                    </div>
+
+                    <div class="speech-bubble ada-speaks">
+                        <strong>Ada:</strong> ¡Absolutamente! Vamos a jugar un juego. Intenta tocar el botón más rápido que puedas...
+                    </div>
+
+                    <div class="quiz-card">
+                        <h3>🎯 Experimento de Fitts</h3>
+                        <p>¿Cuál botón puedes presionar más rápido?</p>
+                        
+                        <div style="margin: 30px 0;">
+                            <div class="choice-button" style="padding: 5px 10px; font-size: 12px;" onclick="fittsTest('small-far')">
+                                Pequeño y Lejos
+                            </div>
+                            <div class="choice-button" style="padding: 20px 40px; font-size: 18px; margin: 10px;" onclick="fittsTest('large-close')">
+                                Grande y Cerca
+                            </div>
+                        </div>
+
+                        <div class="feedback" id="fitts-feedback"></div>
+                    </div>
+                </section>
+
+                <!-- Vertical Slide 6.2: La Ley de Hick -->
+                <section class="scene-library">
+                    <div class="speech-bubble ada-speaks">
+                        <strong>Ada:</strong> Ahora otro experimento, Alex. ¿Qué es más fácil de decidir?
+                    </div>
+
+                    <div class="quiz-card">
+                        <h3>🤔 Experimento de Hick</h3>
+                        
+                        <div style="margin: 30px 0;">
+                            <h4>Opción A: Elige tu color favorito</h4>
+                            <div>
+                                <div class="choice-button" onclick="hickTest('simple')">Azul</div>
+                                <div class="choice-button" onclick="hickTest('simple')">Rojo</div>
+                            </div>
+                            
+                            <h4 style="margin-top: 30px;">Opción B: Elige tu color favorito</h4>
+                            <div>
+                                <div class="choice-button" onclick="hickTest('complex')">Azul Marino</div>
+                                <div class="choice-button" onclick="hickTest('complex')">Rojo Carmesí</div>
+                                <div class="choice-button" onclick="hickTest('complex')">Verde Esmeralda</div>
+                                <div class="choice-button" onclick="hickTest('complex')">Amarillo Dorado</div>
+                                <div class="choice-button" onclick="hickTest('complex')">Púrpura Real</div>
+                                <div class="choice-button" onclick="hickTest('complex')">Rosa Fucsia</div>
+                            </div>
+                        </div>
+
+                        <div class="feedback" id="hick-feedback"></div>
+                    </div>
+                </section>
+
+                <!-- Vertical Slide 6.3: La Ley de Miller -->
+                <section class="scene-library">
+                    <div class="speech-bubble alex-speaks">
+                        <strong>Alex:</strong> ¡Es más difícil elegir cuando hay más opciones! ¿Hay algún límite en lo que podemos recordar?
+                    </div>
+
+                    <div class="speech-bubble ada-speaks">
+                        <strong>Ada:</strong> ¡Excelente observación! George Miller descubrió algo fascinante sobre nuestra memoria...
+                    </div>
+
+                    <div class="quiz-card">
+                        <h3>🧮 Experimento de Miller</h3>
+                        <p>Memoriza estos números por 5 segundos:</p>
+                        
+                        <div id="miller-test">
+                            <div class="number-display" style="font-size: 24px; padding: 20px; background: #f0f0f0; margin: 20px 0;">
+                                <span id="numbers-to-remember">7-3-9-2-1-8-4-6-5</span>
+                            </div>
+                            
+                            <div class="choice-button" onclick="startMemoryTest()">¡Comenzar Test!</div>
+                            
+                            <div id="memory-input" style="display: none;">
+                                <input type="text" placeholder="Escribe los números que recuerdas" style="padding: 10px; margin: 10px; width: 300px;">
+                                <div class="choice-button" onclick="checkMemory()">Verificar</div>
+                            </div>
+                        </div>
+
+                        <div class="feedback" id="miller-feedback"></div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- HORIZONTAL SLIDE 7: Evaluación Final Interactiva -->
+            <section>
+                <!-- Vertical Slide 7.1: Gran Desafío Final -->
+                <section class="scene-university">
+                    <div class="chapter-header">
+                        <div class="chapter-number">🏆</div>
+                        <h2>El Gran Desafío Final</h2>
+                    </div>
+
+                    <div class="speech-bubble ada-speaks">
+                        <strong>Ada:</strong> ¡Alex, has aprendido mucho! Ahora es momento del desafío final. ¿Estás listo para demostrar todo lo que sabes?
+                    </div>
+
+                    <div class="speech-bubble alex-speaks">
+                        <strong>Alex:</strong> ¡Estoy listo! ¿Qué tipo de desafío será?
+                    </div>
+
+                    <div class="quiz-card">
+                        <h3>🎮 Elige tu Modalidad de Evaluación</h3>
+                        
+                        <div style="margin: 30px 0;">
+                            <div class="choice-button" onclick="selectEvaluation('quick')">
+                                🚀 Evaluación Rápida<br><small>5 preguntas esenciales</small>
+                            </div>
+                            <div class="choice-button" onclick="selectEvaluation('complete')">
+                                📚 Evaluación Completa<br><small>Todos los conceptos</small>
+                            </div>
+                            <div class="choice-button" onclick="selectEvaluation('creative')">
+                                🎨 Desafío Creativo<br><small>Aplicación práctica</small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Vertical Slide 7.2: Evaluación Rápida -->
+                <section class="scene-university">
+                    <div id="quick-evaluation" style="display: none;">
+                        <div class="quiz-card">
+                            <h3>⚡ Evaluación Rápida</h3>
+                            <div id="quick-question">
+                                <!-- Preguntas dinámicas serán cargadas aquí -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Vertical Slide 7.3: Resultados y Celebración -->
+                <section class="scene-university">
+                    <div id="final-results" style="display: none;">
+                        <div class="chapter-header">
+                            <div class="chapter-number">🎉</div>
+                            <h2>¡Felicitaciones!</h2>
+                        </div>
+
+                        <div class="speech-bubble ada-speaks">
+                            <strong>Ada:</strong> ¡Excelente trabajo Alex! Has completado tu aventura en el mundo de HCI.
+                        </div>
+
+                        <div class="quiz-card">
+                            <h3>📊 Tu Puntuación Final</h3>
+                            <div id="score-display">
+                                <!-- Puntuación será mostrada aquí -->
+                            </div>
+                            
+                            <div class="choice-button" onclick="restartAdventure()">
+                                🔄 Repetir Aventura
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </div>
+
+    <!-- Reveal.js JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/highlight.js"></script>
+
+    <!-- Interactive Story JavaScript -->
+    <script>
+        // Initialize Reveal.js with vertical navigation
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: true,
+            transition: 'slide',
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+        });
+
+        // Story State Management
+        let storyState = {
+            currentChapter: 0,
+            score: 0,
+            maxScore: 0,
+            completedActivities: [],
+            startTime: new Date()
+        };
+
+        // Progress Tracking
+        function updateProgress(chapter) {
+            const dots = document.querySelectorAll('.progress-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.remove('current', 'completed');
+                if (index < chapter) {
+                    dot.classList.add('completed');
+                } else if (index === chapter) {
+                    dot.classList.add('current');
+                }
+            });
+        }
+
+        // Navigation Event Listeners
+        Reveal.addEventListener('slidechanged', function(event) {
+            const indices = Reveal.getIndices();
+            updateProgress(indices.h);
+        });
+
+        // Interactive Functions
+
+        function startJourney() {
+            storyState.startTime = new Date();
+            Reveal.next();
+            updateProgress(1);
+        }
+
+        function selectHCIElement(element) {
+            const feedback = document.getElementById('hci-feedback');
+            
+            if (element === 'all') {
+                feedback.innerHTML = '<strong>¡Correcto!</strong> HCI involucra tres elementos fundamentales: humanos, computadoras e interacción. ¡Excelente razonamiento!';
+                feedback.className = 'feedback success';
+                storyState.score++;
+            } else {
+                feedback.innerHTML = '<strong>Casi correcto.</strong> Ese es uno de los elementos, pero HCI involucra TODOS: humanos, computadoras e interacción.';
+                feedback.className = 'feedback error';
+            }
+            
+            feedback.style.display = 'block';
+            storyState.maxScore++;
+        }
+
+        function checkDefinition() {
+            const fieldType = document.getElementById('field-type').value;
+            const mainFocus = document.getElementById('main-focus').value;
+            const systemType = document.getElementById('system-type').value;
+            const feedback = document.getElementById('definition-feedback');
+            
+            if (fieldType === 'interdisciplinario' && mainFocus === 'diseño' && systemType === 'interactivos') {
+                feedback.innerHTML = '¡Perfecto! Has construido la definición oficial de HCI según MacKenzie (2013).';
+                feedback.className = 'feedback success';
+                feedback.style.display = 'block';
+                storyState.score++;
+            } else if (fieldType && mainFocus && systemType) {
+                feedback.innerHTML = 'Casi correcto. Revisa las opciones: HCI es interdisciplinario, se enfoca en diseño/evaluación/implementación de sistemas interactivos.';
+                feedback.className = 'feedback error';
+                feedback.style.display = 'block';
+            }
+        }
+
+        function checkMoore(months) {
+            const feedback = document.getElementById('moore-feedback');
+            
+            if (months === '24') {
+                feedback.innerHTML = '¡Correcto! La Ley de Moore predice que los transistores se duplican cada 24 meses. Esto impulsó la revolución de las computadoras personales.';
+                feedback.className = 'feedback success';
+                storyState.score++;
+            } else {
+                feedback.innerHTML = 'Incorrecto. La Ley de Moore predice duplicación cada 24 meses, no ' + months + ' meses.';
+                feedback.className = 'feedback error';
+            }
+            
+            feedback.style.display = 'block';
+            storyState.maxScore++;
+        }
+
+        function checkKrug(answer) {
+            const feedback = document.getElementById('krug-feedback');
+            
+            if (answer === 'nothink') {
+                feedback.innerHTML = '¡Excelente! "No me hagas pensar" es la primera regla de usabilidad de Steve Krug. La interfaz debe ser intuitiva.';
+                feedback.className = 'feedback success';
+                storyState.score++;
+            } else {
+                feedback.innerHTML = 'La regla de oro de Krug es "¡No me hagas pensar!" - las interfaces deben ser tan intuitivas que no requieran esfuerzo cognitivo.';
+                feedback.className = 'feedback error';
+            }
+            
+            feedback.style.display = 'block';
+            storyState.maxScore++;
+        }
+
+        function checkShneiderman(questionNum, answer) {
+            const feedback = document.getElementById('shneiderman-feedback');
+            
+            if (answer === 'consistency') {
+                feedback.innerHTML = '¡Correcto! La consistencia es la regla más violada según Shneiderman. Los usuarios esperan que las cosas funcionen de manera similar.';
+                feedback.className = 'feedback success';
+                storyState.score++;
+            } else {
+                feedback.innerHTML = 'La consistencia es la regla más frecuentemente violada. Los usuarios se confunden cuando las interfaces no son consistentes.';
+                feedback.className = 'feedback error';
+            }
+            
+            feedback.style.display = 'block';
+            storyState.maxScore++;
+        }
+
+        function checkGulfs(gulf) {
+            const feedback = document.getElementById('gulfs-feedback');
+            
+            if (gulf === 'execution') {
+                feedback.innerHTML = '¡Correcto! El Golfo de Ejecución ocurre cuando no sabes cómo realizar una acción. No encuentras el botón correcto.';
+                feedback.className = 'feedback success';
+                storyState.score++;
+            } else {
+                feedback.innerHTML = 'Incorrecto. Este es el Golfo de Ejecución (no sabes cómo actuar). El Golfo de Evaluación sería no entender el resultado de tu acción.';
+                feedback.className = 'feedback error';
+            }
+            
+            feedback.style.display = 'block';
+            storyState.maxScore++;
+        }
+
+        function fittsTest(buttonType) {
+            const feedback = document.getElementById('fitts-feedback');
+            
+            if (buttonType === 'large-close') {
+                feedback.innerHTML = '¡Exacto! Según la Ley de Fitts, targets más grandes y cercanos son más rápidos de alcanzar. Por eso los botones importantes deben ser grandes.';
+                feedback.className = 'feedback success';
+                storyState.score++;
+            } else {
+                feedback.innerHTML = 'La Ley de Fitts dice que objetivos más grandes y cercanos son más fáciles de alcanzar. ¡Por eso el botón grande fue más fácil!';
+                feedback.className = 'feedback error';
+            }
+            
+            feedback.style.display = 'block';
+            storyState.maxScore++;
+        }
+
+        function hickTest(complexity) {
+            const feedback = document.getElementById('hick-feedback');
+            
+            if (complexity === 'simple') {
+                feedback.innerHTML = '¡Correcto! Elegiste la opción simple. La Ley de Hick dice que más opciones = más tiempo de decisión. ¡El diseño simple es mejor!';
+                feedback.className = 'feedback success';
+                storyState.score++;
+            } else {
+                feedback.innerHTML = 'Elegiste la opción compleja. La Ley de Hick demuestra que más opciones incrementan el tiempo de decisión logarítmicamente.';
+                feedback.className = 'feedback error';
+            }
+            
+            feedback.style.display = 'block';
+            storyState.maxScore++;
+        }
+
+        function startMemoryTest() {
+            document.getElementById('numbers-to-remember').style.display = 'none';
+            document.getElementById('memory-input').style.display = 'block';
+            
+            setTimeout(() => {
+                document.getElementById('numbers-to-remember').textContent = '';
+            }, 5000);
+        }
+
+        function checkMemory() {
+            const userInput = document.querySelector('#memory-input input').value;
+            const feedback = document.getElementById('miller-feedback');
+            const original = '7-3-9-2-1-8-4-6-5';
+            
+            if (userInput.includes('7') && userInput.includes('3') && userInput.includes('9')) {
+                const score = (userInput.split('').filter(char => original.includes(char)).length / 9) * 100;
+                feedback.innerHTML = `¡Buen intento! Recordaste ${Math.round(score)}% de los números. La Ley de Miller dice que solo podemos recordar 7±2 elementos en memoria a corto plazo.`;
+                feedback.className = 'feedback success';
+                storyState.score++;
+            } else {
+                feedback.innerHTML = 'La Ley de Miller (7±2) explica por qué es difícil recordar muchos elementos. Por eso los interfaces agrupan información en "chunks".';
+                feedback.className = 'feedback error';
+            }
+            
+            feedback.style.display = 'block';
+            storyState.maxScore++;
+        }
+
+        function selectEvaluation(type) {
+            if (type === 'quick') {
+                document.getElementById('quick-evaluation').style.display = 'block';
+                startQuickEvaluation();
+            }
+            Reveal.next();
+        }
+
+        function startQuickEvaluation() {
+            const questions = [
+                {
+                    question: "¿Cuáles son los tres elementos fundamentales de HCI?",
+                    options: ["Hardware, Software, Redes", "Humanos, Computadoras, Interacción", "Diseño, Código, Testing"],
+                    correct: 1
+                },
+                {
+                    question: "¿Qué predice la Ley de Fitts?",
+                    options: ["Tiempo de decisión", "Tiempo de movimiento motor", "Capacidad de memoria"],
+                    correct: 1
+                }
+                // Más preguntas pueden ser agregadas aquí
+            ];
+            
+            // Implementar lógica de evaluación rápida
+            displayQuestion(questions[0], 0);
+        }
+
+        function displayQuestion(question, index) {
+            const container = document.getElementById('quick-question');
+            container.innerHTML = `
+                <h4>Pregunta ${index + 1}</h4>
+                <p>${question.question}</p>
+                ${question.options.map((option, i) => 
+                    `<div class="choice-button" onclick="answerQuestion(${i}, ${question.correct})">${option}</div>`
+                ).join('')}
+            `;
+        }
+
+        function answerQuestion(selected, correct) {
+            if (selected === correct) {
+                storyState.score++;
+            }
+            storyState.maxScore++;
+            
+            // Continuar con siguiente pregunta o mostrar resultados
+            showFinalResults();
+        }
+
+        function showFinalResults() {
+            document.getElementById('final-results').style.display = 'block';
+            const percentage = Math.round((storyState.score / storyState.maxScore) * 100);
+            
+            document.getElementById('score-display').innerHTML = `
+                <h2>${percentage}%</h2>
+                <p>Puntuación: ${storyState.score} / ${storyState.maxScore}</p>
+                <div class="progress-bar" style="width: 100%; height: 20px; background: #eee; border-radius: 10px; overflow: hidden;">
+                    <div style="width: ${percentage}%; height: 100%; background: linear-gradient(90deg, var(--success), var(--uide-accent)); transition: width 2s ease;"></div>
+                </div>
+            `;
+            
+            Reveal.next();
+        }
+
+        function restartAdventure() {
+            storyState = {
+                currentChapter: 0,
+                score: 0,
+                maxScore: 0,
+                completedActivities: [],
+                startTime: new Date()
+            };
+            
+            Reveal.slide(0, 0);
+            updateProgress(0);
+            
+            // Reset all feedback
+            document.querySelectorAll('.feedback').forEach(feedback => {
+                feedback.style.display = 'none';
+            });
+        }
+
+        // Initialize drag and drop functionality for concept cards
+        function initializeDragAndDrop() {
+            const conceptCards = document.querySelectorAll('.concept-card');
+            const dropZones = document.querySelectorAll('.drop-zone');
+            
+            conceptCards.forEach(card => {
+                card.addEventListener('dragstart', handleDragStart);
+                card.addEventListener('dragend', handleDragEnd);
+            });
+            
+            dropZones.forEach(zone => {
+                zone.addEventListener('dragover', handleDragOver);
+                zone.addEventListener('drop', handleDrop);
+                zone.addEventListener('dragenter', handleDragEnter);
+                zone.addEventListener('dragleave', handleDragLeave);
+            });
+        }
+
+        let draggedElement = null;
+
+        function handleDragStart(e) {
+            draggedElement = this;
+            this.classList.add('dragging');
+        }
+
+        function handleDragEnd(e) {
+            this.classList.remove('dragging');
+            draggedElement = null;
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+        }
+
+        function handleDragEnter(e) {
+            this.classList.add('drag-over');
+        }
+
+        function handleDragLeave(e) {
+            this.classList.remove('drag-over');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            this.classList.remove('drag-over');
+            
+            if (draggedElement) {
+                this.appendChild(draggedElement);
+                // Aquí puedes agregar lógica para verificar si el drop es correcto
+            }
+        }
+
+        // Initialize when page loads
+        window.addEventListener('load', function() {
+            initializeDragAndDrop();
+            updateProgress(0);
+        });
+    </script>
+</body>
+</html>
