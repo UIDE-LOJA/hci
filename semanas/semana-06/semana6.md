@@ -1,4 +1,4 @@
-nterfaces Naturales (NUI)
+Interfaces Naturales (NUI)
 El concepto de Interfaces Naturales (NUI) está intrínsecamente ligado a la visión de la Computación Ubicua (UbiCom) y la migración de la interacción explícita a la interacción implícita.
 Contexto y Objetivos (Interacción Implícita - iHCI)
 1. Fundamento UbiCom: La Interacción Persona-Ordenador Implícita (iHCI) es uno de los pilares que distingue a los sistemas UbiCom.

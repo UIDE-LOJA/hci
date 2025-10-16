@@ -17,8 +17,13 @@
     <!-- UIDE Theme CSS -->
     <link rel="stylesheet" href="../../assets/css/uide-theme.css">
 
+    <link rel="stylesheet" href="./compendio-hci-semana3.css">
+
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Mermaid.js -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
 </head>
 
 <body>
@@ -41,12 +46,12 @@
                         Universidad Internacional del Ecuador • Octubre 2025
                     </div>
 
-                    <div style="background: rgba(233, 171, 33, 0.1); border-radius: 8px; padding: 1em; margin: 1em 0; font-size: 0.9em;">
+                    <div class="week3-style-1">
                         <strong>Unidad 1: Fundamentos de HCI</strong><br>
                         <em>Semana 3 de 16 • Don Norman, Psicología del Color, Gestalt y Affordances</em>
                     </div>
 
-                    <div style="margin-top: 2em; font-size: 0.9em; font-style: italic; color: var(--uide-secondary);">
+                    <div class="week3-style-2">
                         Explorando el diseño centrado en el usuario y los principios de percepción
                     </div>
                 </div>
@@ -58,9 +63,9 @@
                     <img src="../../assets/images/Logo UIDE.png" alt="Logo UIDE">
                 </div>
 
-                <blockquote style="font-size: 1.2em; text-align: center;">
+                <blockquote class="week3-style-3">
                     <p><strong>"El buen diseño es realmente mucho más difícil de notar que el mal diseño, en parte porque los buenos diseños encajan tan bien en nuestras necesidades que el diseño es invisible."</strong></p>
-                    <footer style="margin-top: 1em; color: var(--uide-secondary);">
+                    <footer class="week3-style-4">
                         — Don Norman, The Design of Everyday Things
                     </footer>
                 </blockquote>
@@ -78,21 +83,21 @@
                     <div class="r-hstack">
                         <div class="column">
                             <h4>Unidad 1 Anterior</h4>
-                            <div style="background: rgba(145, 0, 72, 0.1); padding: 1em; border-radius: 8px;">
+                            <div class="week3-style-5">
                                 <strong>Fundamentos de HCI</strong><br>
                                 <small>Introducción y factores humanos</small>
                             </div>
                         </div>
                         <div class="column fragment">
                             <h4>Semana 3 (Actual)</h4>
-                            <div style="background: rgba(233, 171, 33, 0.2); padding: 1em; border-radius: 8px; border: 2px solid var(--uide-accent);">
+                            <div class="week3-style-6">
                                 <strong>Diseño Centrado en Usuario</strong><br>
                                 <small>Don Norman, color, Gestalt, affordances</small>
                             </div>
                         </div>
                         <div class="column fragment">
                             <h4>Semana 4</h4>
-                            <div style="background: rgba(35, 53, 110, 0.1); padding: 1em; border-radius: 8px;">
+                            <div class="week3-style-7">
                                 <strong>Cognición y Percepción</strong><br>
                                 <small>Leyes de Fitts/Hick, memoria, carga cognitiva</small>
                             </div>
@@ -184,30 +189,30 @@
 
                 <section>
                     <h3>Ejemplo Visual: Evolución del Concepto UX</h3>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; margin: 2em 0;">
-                        <div style="text-align: center;">
-                            <div style="background: #f8d7da; padding: 20px; border-radius: 8px; border: 2px solid #dc3545;">
-                                <i class="fas fa-times-circle" style="color: #dc3545; font-size: 2em;"></i>
-                                <h4 style="color: #dc3545; margin: 0.5em 0;">Antes: "Usabilidad"</h4>
-                                <p style="font-size: 0.9em; margin: 0.5em 0;">Solo interfaz de usuario</p>
-                                <div style="background: white; padding: 10px; margin: 10px 0; border-radius: 4px;">
-                                    <i class="fas fa-desktop" style="font-size: 1.5em; color: #6c757d;"></i>
+                    <div class="week3-style-8">
+                        <div class="week3-style-9">
+                            <div class="week3-style-10">
+                                <i class="fas fa-times-circle week3-style-11"></i>
+                                <h4 class="week3-style-12">Antes: "Usabilidad"</h4>
+                                <p class="week3-style-13">Solo interfaz de usuario</p>
+                                <div class="week3-style-14">
+                                    <i class="fas fa-desktop week3-style-15"></i>
                                 </div>
-                                <p style="font-size: 0.8em; color: #721c24;"><em>Visión limitada</em></p>
+                                <p class="week3-style-16"><em>Visión limitada</em></p>
                             </div>
                         </div>
-                        <div style="text-align: center;">
-                            <div style="background: #d4edda; padding: 20px; border-radius: 8px; border: 2px solid #28a745;">
-                                <i class="fas fa-check-circle" style="color: #28a745; font-size: 2em;"></i>
-                                <h4 style="color: #28a745; margin: 0.5em 0;">Después: "UX"</h4>
-                                <p style="font-size: 0.9em; margin: 0.5em 0;">Experiencia completa</p>
-                                <div style="background: white; padding: 10px; margin: 10px 0; border-radius: 4px; display: flex; justify-content: space-around;">
-                                    <i class="fas fa-desktop" style="font-size: 1.2em; color: #007bff;"></i>
-                                    <i class="fas fa-box" style="font-size: 1.2em; color: #007bff;"></i>
-                                    <i class="fas fa-book" style="font-size: 1.2em; color: #007bff;"></i>
-                                    <i class="fas fa-heart" style="font-size: 1.2em; color: #007bff;"></i>
+                        <div class="week3-style-9">
+                            <div class="week3-style-17">
+                                <i class="fas fa-check-circle week3-style-18"></i>
+                                <h4 class="week3-style-19">Después: "UX"</h4>
+                                <p class="week3-style-13">Experiencia completa</p>
+                                <div class="week3-style-20">
+                                    <i class="fas fa-desktop week3-style-21"></i>
+                                    <i class="fas fa-box week3-style-21"></i>
+                                    <i class="fas fa-book week3-style-21"></i>
+                                    <i class="fas fa-heart week3-style-21"></i>
                                 </div>
-                                <p style="font-size: 0.8em; color: #155724;"><em>Visión holística</em></p>
+                                <p class="week3-style-22"><em>Visión holística</em></p>
                             </div>
                         </div>
                     </div>
@@ -265,104 +270,81 @@
                 <h2>Modelo Cognitivo: 7 Etapas de Acción</h2>
 
                 <section>
-                    <h3>Las 7 Etapas (Patrón Cíclico)</h3>
-                    <div class="r-hstack">
-                        <div style="flex: 1;">
-                            <ol style="font-size: 0.9em;">
-                                <li><strong>Formar el objetivo</strong></li>
-                                <li><strong>Formar la intención</strong></li>
-                                <li><strong>Especificar la acción</strong></li>
-                                <li><strong>Ejecutar la acción</strong></li>
-                                <li><strong>Percibir el estado</strong></li>
-                                <li><strong>Interpretar el estado</strong></li>
-                                <li><strong>Evaluar el resultado</strong></li>
-                            </ol>
+                    <div class="week3-style-23">
+                        <div class="mermaid">
+                            flowchart LR
+                                subgraph execution["🔴 EJECUCIÓN"]
+                                    direction TB
+                                    A["1. Formar<br/>objetivo"] --> B["2. Formar<br/>intención"]
+                                    B --> C["3. Especificar<br/>acción"]
+                                    C --> D["4. EJECUTAR"]
+                                end
+                                
+                                subgraph world[" "]
+                                    E["🎯 OBJETIVO<br/>CUMPLIDO"]
+                                end
+                                
+                                subgraph evaluation["🟢 EVALUACIÓN"]
+                                    direction TB
+                                    F["5. PERCIBIR"] --> G["6. Interpretar<br/>estado"]
+                                    G --> H["7. Evaluar<br/>resultado"]
+                                end
+                                
+                                execution --> world
+                                world --> evaluation
+                                evaluation --> execution
+                                
+                                D -.->|"⚠️ Golfo de Ejecución"| E
+                                E -.->|"⚠️ Golfo de Evaluación"| F
+                                
+                                classDef executionClass fill:#ffebee,stroke:#dc3545,stroke-width:2px,color:#000
+                                classDef evaluationClass fill:#e8f5e9,stroke:#28a745,stroke-width:2px,color:#000
+                                classDef actionClass fill:#dc3545,stroke:#dc3545,stroke-width:2px,color:#fff
+                                classDef perceptionClass fill:#28a745,stroke:#28a745,stroke-width:2px,color:#fff
+                                classDef objectiveClass fill:#e3f2fd,stroke:#007bff,stroke-width:3px,color:#007bff
+                                classDef gulfClass stroke-dasharray: 5 5,stroke:#ffc107,fill:none
+                                
+                                class A,B,C executionClass
+                                class D actionClass
+                                class F perceptionClass
+                                class G,H evaluationClass
+                                class E objectiveClass
                         </div>
-                        <div style="flex: 1;">
-                            <h4>Dos Fallas Clave</h4>
-                            <div class="definition-box" style="margin: 0.5em 0;">
-                                <h5 style="font-size: 0.9em;">1. Golfo de Ejecución</h5>
-                                <p style="font-size: 0.85em;">Falta de coincidencia entre las <em>intenciones del usuario</em> y las <em>acciones permitidas por el sistema</em>.</p>
+                    </div>
+                    
+                    <div class="week3-style-24">
+                        <div class="week3-style-9">
+                            <div class="week3-style-25">
+                                <strong class="week3-style-26">EJECUCIÓN</strong><br>
+                                <small>¿Cómo hacer algo?</small>
                             </div>
-                            <div class="definition-box" style="margin: 0.5em 0;">
-                                <h5 style="font-size: 0.9em;">2. Golfo de Evaluación</h5>
-                                <p style="font-size: 0.85em;">Falta de coincidencia entre la <em>representación del sistema</em> y las <em>expectativas del usuario</em>.</p>
+                        </div>
+                        <div class="week3-style-9">
+                            <div class="week3-style-27">
+                                <strong class="week3-style-28">OBJETIVO</strong><br>
+                                <small>Estado deseado</small>
+                            </div>
+                        </div>
+                        <div class="week3-style-9">
+                            <div class="week3-style-29">
+                                <strong class="week3-style-30">EVALUACIÓN</strong><br>
+                                <small>¿Qué pasó?</small>
                             </div>
                         </div>
                     </div>
-                </section>
 
-                <section>
-                    <h3>Diagrama Visual: Ciclo de Acción</h3>
-                    <div style="max-width: 800px; margin: 0 auto;">
-                        <svg viewBox="0 0 600 500" style="width: 100%; height: auto;">
-                            <!-- Centro: Objetivo -->
-                            <circle cx="300" cy="250" r="40" fill="#007bff" opacity="0.2" stroke="#007bff" stroke-width="2"/>
-                            <text x="300" y="255" text-anchor="middle" fill="#007bff" font-weight="bold" font-size="14">OBJETIVO</text>
-                            
-                            <!-- Lado izquierdo: EJECUCIÓN -->
-                            <text x="100" y="30" text-anchor="middle" fill="#dc3545" font-weight="bold" font-size="16">EJECUCIÓN</text>
-                            
-                            <!-- Etapas de Ejecución -->
-                            <rect x="20" y="80" width="160" height="50" fill="#ffebee" stroke="#dc3545" stroke-width="2" rx="5"/>
-                            <text x="100" y="105" text-anchor="middle" font-size="12" font-weight="bold">1. Formar objetivo</text>
-                            
-                            <rect x="20" y="150" width="160" height="50" fill="#ffebee" stroke="#dc3545" stroke-width="2" rx="5"/>
-                            <text x="100" y="175" text-anchor="middle" font-size="12" font-weight="bold">2. Formar intención</text>
-                            
-                            <rect x="20" y="220" width="160" height="50" fill="#ffebee" stroke="#dc3545" stroke-width="2" rx="5"/>
-                            <text x="100" y="245" text-anchor="middle" font-size="12" font-weight="bold">3. Especificar acción</text>
-                            
-                            <rect x="20" y="290" width="160" height="50" fill="#dc3545" stroke="#dc3545" stroke-width="2" rx="5"/>
-                            <text x="100" y="315" text-anchor="middle" fill="white" font-size="12" font-weight="bold">4. EJECUTAR</text>
-                            
-                            <!-- Golfo de Ejecución -->
-                            <text x="100" y="370" text-anchor="middle" fill="#dc3545" font-style="italic" font-size="14">⚠ Golfo de Ejecución</text>
-                            
-                            <!-- Lado derecho: EVALUACIÓN -->
-                            <text x="500" y="30" text-anchor="middle" fill="#28a745" font-weight="bold" font-size="16">EVALUACIÓN</text>
-                            
-                            <!-- Etapas de Evaluación -->
-                            <rect x="420" y="290" width="160" height="50" fill="#28a745" stroke="#28a745" stroke-width="2" rx="5"/>
-                            <text x="500" y="315" text-anchor="middle" fill="white" font-size="12" font-weight="bold">5. PERCIBIR</text>
-                            
-                            <rect x="420" y="220" width="160" height="50" fill="#e8f5e9" stroke="#28a745" stroke-width="2" rx="5"/>
-                            <text x="500" y="245" text-anchor="middle" font-size="12" font-weight="bold">6. Interpretar estado</text>
-                            
-                            <rect x="420" y="150" width="160" height="50" fill="#e8f5e9" stroke="#28a745" stroke-width="2" rx="5"/>
-                            <text x="500" y="175" text-anchor="middle" font-size="12" font-weight="bold">7. Evaluar resultado</text>
-                            
-                            <!-- Golfo de Evaluación -->
-                            <text x="500" y="370" text-anchor="middle" fill="#28a745" font-style="italic" font-size="14">⚠ Golfo de Evaluación</text>
-                            
-                            <!-- Flechas del ciclo -->
-                            <defs>
-                                <marker id="arrowred" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-                                    <path d="M0,0 L0,6 L9,3 z" fill="#dc3545" />
-                                </marker>
-                                <marker id="arrowgreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-                                    <path d="M0,0 L0,6 L9,3 z" fill="#28a745" />
-                                </marker>
-                            </defs>
-                            
-                            <!-- Flechas ejecución -->
-                            <path d="M 180 105 L 260 220" stroke="#dc3545" stroke-width="2" fill="none" marker-end="url(#arrowred)"/>
-                            <path d="M 180 315 L 300 320" stroke="#dc3545" stroke-width="3" fill="none" marker-end="url(#arrowred)"/>
-                            
-                            <!-- Flechas evaluación -->
-                            <path d="M 300 280 L 420 315" stroke="#28a745" stroke-width="3" fill="none" marker-end="url(#arrowgreen)"/>
-                            <path d="M 420 175 L 340 220" stroke="#28a745" stroke-width="2" fill="none" marker-end="url(#arrowgreen)"/>
-                        </svg>
+                    <div class="week3-style-31">
+                        <p class="week3-style-32"><strong>Nota:</strong> Los <mark>golfos</mark> ocurren cuando hay desconexión entre lo que el usuario quiere hacer y lo que el sistema permite/comunica.</p>
                     </div>
                 </section>
 
                 <section>
                     <h3>Ejemplo Práctico: Enviar un Email</h3>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; font-size: 0.85em;">
+                    <div class="week3-style-33">
                         <div>
-                            <div style="background: #ffebee; padding: 15px; border-radius: 8px; border-left: 4px solid #dc3545; margin: 0.5em 0;">
-                                <strong style="color: #dc3545;">Ejecución</strong>
-                                <ol style="margin: 0.5em 0; padding-left: 20px;">
+                            <div class="week3-style-34">
+                                <strong class="week3-style-26">Ejecución</strong>
+                                <ol class="week3-style-35">
                                     <li><strong>Objetivo:</strong> "Quiero enviar un email a mi jefe"</li>
                                     <li><strong>Intención:</strong> "Voy a usar Gmail"</li>
                                     <li><strong>Especificar:</strong> "Click en 'Redactar', escribir mensaje, click en 'Enviar'"</li>
@@ -371,18 +353,15 @@
                             </div>
                         </div>
                         <div>
-                            <div style="background: #e8f5e9; padding: 15px; border-radius: 8px; border-left: 4px solid #28a745; margin: 0.5em 0;">
-                                <strong style="color: #28a745;">Evaluación</strong>
-                                <ol start="5" style="margin: 0.5em 0; padding-left: 20px;">
+                            <div class="week3-style-36">
+                                <strong class="week3-style-30">Evaluación</strong>
+                                <ol start="5" class="week3-style-35">
                                     <li><strong>Percibir:</strong> Ver mensaje "Email enviado"</li>
                                     <li><strong>Interpretar:</strong> "El sistema confirmó el envío"</li>
                                     <li><strong>Evaluar:</strong> "¡Objetivo cumplido! El email fue enviado"</li>
                                 </ol>
                             </div>
                         </div>
-                    </div>
-                    <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-top: 1em; border-left: 4px solid #ffc107;">
-                        <p style="margin: 0; font-size: 0.9em;"><strong>Nota:</strong> Los <mark>golfos</mark> ocurren cuando hay desconexión entre lo que el usuario quiere hacer y lo que el sistema permite/comunica.</p>
                     </div>
                 </section>
             </section>
@@ -398,33 +377,33 @@
                     <h3>1. Visibilidad</h3>
                     <p>El estado y las alternativas de acción deben ser <strong>visibles</strong> para el usuario.</p>
                     
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; margin: 2em 0;">
+                    <div class="week3-style-8">
                         <div>
-                            <h4 style="color: #dc3545;"><i class="fas fa-times"></i> Baja Visibilidad</h4>
-                            <div style="background: white; padding: 20px; border: 2px solid #ddd; border-radius: 8px;">
-                                <div style="text-align: center; padding: 20px;">
-                                    <div style="width: 40px; height: 40px; background: #f8f9fa; margin: 10px auto; border-radius: 50%;"></div>
-                                    <div style="width: 40px; height: 40px; background: #f8f9fa; margin: 10px auto; border-radius: 50%;"></div>
-                                    <div style="width: 40px; height: 40px; background: #f8f9fa; margin: 10px auto; border-radius: 50%;"></div>
+                            <h4 class="week3-style-26"><i class="fas fa-times"></i> Baja Visibilidad</h4>
+                            <div class="week3-style-37">
+                                <div class="week3-style-38">
+                                    <div class="week3-style-39"></div>
+                                    <div class="week3-style-39"></div>
+                                    <div class="week3-style-39"></div>
                                 </div>
-                                <p style="font-size: 0.8em; color: #dc3545; text-align: center;"><em>¿Qué son estos botones?</em></p>
+                                <p class="week3-style-40"><em>¿Qué son estos botones?</em></p>
                             </div>
                         </div>
                         <div>
-                            <h4 style="color: #28a745;"><i class="fas fa-check"></i> Alta Visibilidad</h4>
-                            <div style="background: white; padding: 20px; border: 2px solid #ddd; border-radius: 8px;">
-                                <div style="text-align: center; padding: 20px;">
-                                    <button style="background: #007bff; color: white; border: none; padding: 12px 24px; margin: 5px; border-radius: 4px; cursor: pointer;">
+                            <h4 class="week3-style-30"><i class="fas fa-check"></i> Alta Visibilidad</h4>
+                            <div class="week3-style-37">
+                                <div class="week3-style-38">
+                                    <button class="week3-style-41">
                                         <i class="fas fa-save"></i> Guardar
                                     </button>
-                                    <button style="background: #28a745; color: white; border: none; padding: 12px 24px; margin: 5px; border-radius: 4px; cursor: pointer;">
+                                    <button class="week3-style-42">
                                         <i class="fas fa-check"></i> Confirmar
                                     </button>
-                                    <button style="background: #6c757d; color: white; border: none; padding: 12px 24px; margin: 5px; border-radius: 4px; cursor: pointer;">
+                                    <button class="week3-style-43">
                                         <i class="fas fa-times"></i> Cancelar
                                     </button>
                                 </div>
-                                <p style="font-size: 0.8em; color: #28a745; text-align: center;"><em>Acciones claramente identificadas</em></p>
+                                <p class="week3-style-44"><em>Acciones claramente identificadas</em></p>
                             </div>
                         </div>
                     </div>
@@ -434,26 +413,26 @@
                     <h3>2. Modelo Conceptual</h3>
                     <p>Debe haber un buen <strong>modelo conceptual</strong> con una imagen de sistema consistente.</p>
                     
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; margin: 2em 0;">
+                    <div class="week3-style-8">
                         <div>
-                            <h4 style="color: #dc3545;"><i class="fas fa-times"></i> Modelo Confuso</h4>
-                            <div style="background: white; padding: 20px; border: 2px solid #ddd; border-radius: 8px;">
-                                <div style="background: #f8f9fa; padding: 15px; margin: 10px 0; border-radius: 4px;">
-                                    <p style="margin: 0; font-size: 0.85em;">📁 Archivo guardado en: <code>C:\Users\xyz\AppData\Local\Temp\abc123\file.tmp</code></p>
+                            <h4 class="week3-style-26"><i class="fas fa-times"></i> Modelo Confuso</h4>
+                            <div class="week3-style-37">
+                                <div class="week3-style-45">
+                                    <p class="week3-style-46">📁 Archivo guardado en: <code>C:\Users\xyz\AppData\Local\Temp\abc123\file.tmp</code></p>
                                 </div>
-                                <p style="font-size: 0.8em; color: #dc3545;"><em>Usuario: "¿Dónde está mi archivo?"</em></p>
+                                <p class="week3-style-47"><em>Usuario: "¿Dónde está mi archivo?"</em></p>
                             </div>
                         </div>
                         <div>
-                            <h4 style="color: #28a745;"><i class="fas fa-check"></i> Modelo Claro</h4>
-                            <div style="background: white; padding: 20px; border: 2px solid #ddd; border-radius: 8px;">
-                                <div style="background: #d4edda; padding: 15px; margin: 10px 0; border-radius: 4px; border-left: 4px solid #28a745;">
-                                    <p style="margin: 0; font-size: 0.85em;"><i class="fas fa-check-circle" style="color: #28a745;"></i> Guardado en <strong>Documentos</strong></p>
-                                    <button style="background: #007bff; color: white; border: none; padding: 6px 12px; margin-top: 8px; border-radius: 4px; font-size: 0.8em;">
+                            <h4 class="week3-style-30"><i class="fas fa-check"></i> Modelo Claro</h4>
+                            <div class="week3-style-37">
+                                <div class="week3-style-48">
+                                    <p class="week3-style-46"><i class="fas fa-check-circle week3-style-30"></i> Guardado en <strong>Documentos</strong></p>
+                                    <button class="week3-style-49">
                                         <i class="fas fa-folder-open"></i> Abrir ubicación
                                     </button>
                                 </div>
-                                <p style="font-size: 0.8em; color: #28a745;"><em>Usuario: "Perfecto, sé dónde está"</em></p>
+                                <p class="week3-style-50"><em>Usuario: "Perfecto, sé dónde está"</em></p>
                             </div>
                         </div>
                     </div>
@@ -463,45 +442,45 @@
                     <h3>3. Mapeos (Mappings)</h3>
                     <p>La interfaz debe incluir buenos <strong>mapeos</strong> que revelen las relaciones entre las etapas.</p>
                     
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; margin: 2em 0;">
+                    <div class="week3-style-8">
                         <div>
-                            <h4 style="color: #dc3545;"><i class="fas fa-times"></i> Mapeo Pobre</h4>
-                            <div style="background: white; padding: 20px; border: 2px solid #ddd; border-radius: 8px;">
-                                <div style="display: flex; justify-content: space-around; margin: 20px 0;">
-                                    <div style="text-align: center;">
-                                        <div style="width: 60px; height: 60px; background: #007bff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">A</div>
-                                        <p style="font-size: 0.7em; margin: 5px 0;">Botón A</p>
+                            <h4 class="week3-style-26"><i class="fas fa-times"></i> Mapeo Pobre</h4>
+                            <div class="week3-style-37">
+                                <div class="week3-style-51">
+                                    <div class="week3-style-9">
+                                        <div class="week3-style-52">A</div>
+                                        <p class="week3-style-53">Botón A</p>
                                     </div>
-                                    <div style="text-align: center;">
-                                        <div style="width: 60px; height: 60px; background: #28a745; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">B</div>
-                                        <p style="font-size: 0.7em; margin: 5px 0;">Botón B</p>
+                                    <div class="week3-style-9">
+                                        <div class="week3-style-54">B</div>
+                                        <p class="week3-style-53">Botón B</p>
                                     </div>
-                                    <div style="text-align: center;">
-                                        <div style="width: 60px; height: 60px; background: #ffc107; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">C</div>
-                                        <p style="font-size: 0.7em; margin: 5px 0;">Botón C</p>
+                                    <div class="week3-style-9">
+                                        <div class="week3-style-55">C</div>
+                                        <p class="week3-style-53">Botón C</p>
                                     </div>
                                 </div>
-                                <p style="font-size: 0.8em; color: #dc3545; text-align: center;"><em>¿Qué hace cada botón?</em></p>
+                                <p class="week3-style-40"><em>¿Qué hace cada botón?</em></p>
                             </div>
                         </div>
                         <div>
-                            <h4 style="color: #28a745;"><i class="fas fa-check"></i> Mapeo Claro</h4>
-                            <div style="background: white; padding: 20px; border: 2px solid #ddd; border-radius: 8px;">
-                                <div style="display: flex; flex-direction: column; gap: 10px; margin: 20px 0;">
-                                    <button style="background: #007bff; color: white; border: none; padding: 12px; border-radius: 4px; text-align: left; display: flex; align-items: center; gap: 10px;">
-                                        <i class="fas fa-volume-down" style="font-size: 1.5em;"></i>
+                            <h4 class="week3-style-30"><i class="fas fa-check"></i> Mapeo Claro</h4>
+                            <div class="week3-style-37">
+                                <div class="week3-style-56">
+                                    <button class="week3-style-57">
+                                        <i class="fas fa-volume-down week3-style-58"></i>
                                         <span>Disminuir volumen</span>
                                     </button>
-                                    <button style="background: #28a745; color: white; border: none; padding: 12px; border-radius: 4px; text-align: left; display: flex; align-items: center; gap: 10px;">
-                                        <i class="fas fa-play" style="font-size: 1.5em;"></i>
+                                    <button class="week3-style-59">
+                                        <i class="fas fa-play week3-style-58"></i>
                                         <span>Reproducir</span>
                                     </button>
-                                    <button style="background: #ffc107; color: white; border: none; padding: 12px; border-radius: 4px; text-align: left; display: flex; align-items: center; gap: 10px;">
-                                        <i class="fas fa-volume-up" style="font-size: 1.5em;"></i>
+                                    <button class="week3-style-60">
+                                        <i class="fas fa-volume-up week3-style-58"></i>
                                         <span>Aumentar volumen</span>
                                     </button>
                                 </div>
-                                <p style="font-size: 0.8em; color: #28a745; text-align: center;"><em>Función claramente mapeada</em></p>
+                                <p class="week3-style-44"><em>Función claramente mapeada</em></p>
                             </div>
                         </div>
                     </div>
@@ -511,30 +490,30 @@
                     <h3>4. Retroalimentación (Feedback)</h3>
                     <p>Los usuarios deben recibir <strong>retroalimentación continua</strong> sobre sus acciones.</p>
                     
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; margin: 2em 0;">
+                    <div class="week3-style-8">
                         <div>
-                            <h4 style="color: #dc3545;"><i class="fas fa-times"></i> Sin Feedback</h4>
-                            <div style="background: white; padding: 20px; border: 2px solid #ddd; border-radius: 8px; min-height: 180px;">
-                                <button style="background: #007bff; color: white; border: none; padding: 12px 24px; border-radius: 4px; margin: 20px auto; display: block;">
+                            <h4 class="week3-style-26"><i class="fas fa-times"></i> Sin Feedback</h4>
+                            <div class="week3-style-61">
+                                <button class="week3-style-62">
                                     Enviar Formulario
                                 </button>
-                                <div style="text-align: center; margin-top: 40px;">
-                                    <p style="font-size: 0.9em; color: #6c757d;">...</p>
-                                    <p style="font-size: 0.8em; color: #dc3545; font-style: italic;">Usuario: "¿Se envió? ¿Funcionó?"</p>
+                                <div class="week3-style-63">
+                                    <p class="week3-style-64">...</p>
+                                    <p class="week3-style-65">Usuario: "¿Se envió? ¿Funcionó?"</p>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <h4 style="color: #28a745;"><i class="fas fa-check"></i> Con Feedback</h4>
-                            <div style="background: white; padding: 20px; border: 2px solid #ddd; border-radius: 8px; min-height: 180px;">
-                                <button style="background: #6c757d; color: white; border: none; padding: 12px 24px; border-radius: 4px; margin: 20px auto; display: block; opacity: 0.6;">
+                            <h4 class="week3-style-30"><i class="fas fa-check"></i> Con Feedback</h4>
+                            <div class="week3-style-61">
+                                <button class="week3-style-66">
                                     <i class="fas fa-spinner fa-spin"></i> Enviando...
                                 </button>
-                                <div style="background: #d4edda; padding: 15px; margin-top: 20px; border-radius: 4px; border-left: 4px solid #28a745;">
-                                    <p style="margin: 0; font-size: 0.9em; color: #155724;">
+                                <div class="week3-style-67">
+                                    <p class="week3-style-68">
                                         <i class="fas fa-check-circle"></i> <strong>¡Formulario enviado exitosamente!</strong>
                                     </p>
-                                    <p style="margin: 5px 0 0 0; font-size: 0.8em; color: #155724;">Recibirás una confirmación por email</p>
+                                    <p class="week3-style-69">Recibirás una confirmación por email</p>
                                 </div>
                             </div>
                         </div>
@@ -569,34 +548,34 @@
 
                 <section>
                     <h3>Nivel 1: Visceral - Ejemplos Visuales</h3>
-                    <p style="text-align: center; margin-bottom: 1.5em;"><em>Primera impresión, respuesta automática e inmediata</em></p>
+                    <p class="week3-style-70"><em>Primera impresión, respuesta automática e inmediata</em></p>
                     
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em;">
+                    <div class="week3-style-71">
                         <div>
-                            <h4 style="color: #dc3545; text-align: center;"><i class="fas fa-times"></i> Diseño Visceral Negativo</h4>
-                            <div style="background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ffff00); padding: 3px; border-radius: 8px;">
-                                <div style="background: white; padding: 20px; border-radius: 6px;">
-                                    <h5 style="font-family: 'Comic Sans MS', cursive; color: #ff00ff; text-shadow: 2px 2px #00ffff;">¡¡BIENVENIDO!!</h5>
-                                    <p style="font-size: 0.7em; color: red;">¡¡OFERTA!! <blink>CLICK AQUÍ</blink></p>
-                                    <button style="background: linear-gradient(red, yellow); border: 5px solid blue; padding: 10px; font-size: 1em; animation: blink 1s infinite;">
+                            <h4 class="week3-style-72"><i class="fas fa-times"></i> Diseño Visceral Negativo</h4>
+                            <div class="week3-style-73">
+                                <div class="week3-style-74">
+                                    <h5 class="week3-style-75">¡¡BIENVENIDO!!</h5>
+                                    <p class="week3-style-76">¡¡OFERTA!! <blink>CLICK AQUÍ</blink></p>
+                                    <button class="week3-style-77">
                                         COMPRAR AHORA!!!
                                     </button>
                                 </div>
                             </div>
-                            <p style="font-size: 0.8em; color: #dc3545; text-align: center; margin-top: 10px;">
+                            <p class="week3-style-78">
                                 <strong>Reacción:</strong> "¡Qué horror! Me voy de aquí"
                             </p>
                         </div>
                         <div>
-                            <h4 style="color: #28a745; text-align: center;"><i class="fas fa-check"></i> Diseño Visceral Positivo</h4>
-                            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                                <h5 style="color: white; font-family: -apple-system, system-ui; font-weight: 300; font-size: 2em; margin: 0;">Bienvenido</h5>
-                                <p style="color: rgba(255,255,255,0.9); font-size: 0.9em; margin: 10px 0;">Descubre una nueva experiencia</p>
-                                <button style="background: white; color: #667eea; border: none; padding: 12px 30px; border-radius: 25px; font-weight: 600; margin-top: 15px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                            <h4 class="week3-style-79"><i class="fas fa-check"></i> Diseño Visceral Positivo</h4>
+                            <div class="week3-style-80">
+                                <h5 class="week3-style-81">Bienvenido</h5>
+                                <p class="week3-style-82">Descubre una nueva experiencia</p>
+                                <button class="week3-style-83">
                                     Comenzar
                                 </button>
                             </div>
-                            <p style="font-size: 0.8em; color: #28a745; text-align: center; margin-top: 10px;">
+                            <p class="week3-style-84">
                                 <strong>Reacción:</strong> "¡Qué bonito! Me quedo a explorar"
                             </p>
                         </div>
@@ -605,49 +584,49 @@
 
                 <section>
                     <h3>Nivel 2: Conductual - Ejemplos de Usabilidad</h3>
-                    <p style="text-align: center; margin-bottom: 1.5em;"><em>Experiencia durante el uso, eficiencia y placer de uso</em></p>
+                    <p class="week3-style-70"><em>Experiencia durante el uso, eficiencia y placer de uso</em></p>
                     
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em;">
+                    <div class="week3-style-71">
                         <div>
-                            <h4 style="color: #dc3545; text-align: center;"><i class="fas fa-times"></i> Pobre Experiencia Conductual</h4>
-                            <div style="background: white; padding: 20px; border: 2px solid #ddd; border-radius: 8px;">
-                                <p style="font-size: 0.9em; margin-bottom: 15px;">Proceso de pago (5 pasos):</p>
-                                <div style="font-size: 0.75em; line-height: 1.8;">
+                            <h4 class="week3-style-72"><i class="fas fa-times"></i> Pobre Experiencia Conductual</h4>
+                            <div class="week3-style-37">
+                                <p class="week3-style-85">Proceso de pago (5 pasos):</p>
+                                <div class="week3-style-86">
                                     <p>1. Información personal (12 campos)</p>
                                     <p>2. Dirección (9 campos obligatorios)</p>
                                     <p>3. Método de pago (sin guardar)</p>
                                     <p>4. Confirmación (sin resumen claro)</p>
                                     <p>5. Código de verificación por correo</p>
-                                    <p style="margin-top: 10px; padding: 10px; background: #f8d7da; color: #721c24; border-radius: 4px;">
+                                    <p class="week3-style-87">
                                         <i class="fas fa-exclamation-triangle"></i> Error: Session expired
                                     </p>
                                 </div>
                             </div>
-                            <p style="font-size: 0.8em; color: #dc3545; text-align: center; margin-top: 10px;">
+                            <p class="week3-style-78">
                                 <strong>Sentimiento:</strong> Frustración y abandono
                             </p>
                         </div>
                         <div>
-                            <h4 style="color: #28a745; text-align: center;"><i class="fas fa-check"></i> Buena Experiencia Conductual</h4>
-                            <div style="background: white; padding: 20px; border: 2px solid #ddd; border-radius: 8px;">
-                                <p style="font-size: 0.9em; margin-bottom: 15px;">Proceso de pago (2 pasos):</p>
-                                <div style="font-size: 0.85em; line-height: 2;">
-                                    <div style="background: #e8f5e9; padding: 12px; margin: 8px 0; border-radius: 4px; border-left: 4px solid #28a745;">
+                            <h4 class="week3-style-79"><i class="fas fa-check"></i> Buena Experiencia Conductual</h4>
+                            <div class="week3-style-37">
+                                <p class="week3-style-85">Proceso de pago (2 pasos):</p>
+                                <div class="week3-style-88">
+                                    <div class="week3-style-89">
                                         <strong>1. Revisar pedido</strong>
-                                        <p style="margin: 5px 0; font-size: 0.9em;">Total: $49.99 • 3 items</p>
+                                        <p class="week3-style-90">Total: $49.99 • 3 items</p>
                                     </div>
-                                    <div style="background: #e3f2fd; padding: 12px; margin: 8px 0; border-radius: 4px; border-left: 4px solid #007bff;">
+                                    <div class="week3-style-91">
                                         <strong>2. Pagar</strong>
-                                        <p style="margin: 5px 0; font-size: 0.9em;">
+                                        <p class="week3-style-90">
                                             <input type="radio" checked> Tarjeta guardada ****1234
                                         </p>
                                     </div>
-                                    <button style="background: #28a745; color: white; border: none; padding: 12px; width: 100%; border-radius: 4px; font-weight: bold; margin-top: 10px;">
+                                    <button class="week3-style-92">
                                         <i class="fas fa-lock"></i> Completar compra segura
                                     </button>
                                 </div>
                             </div>
-                            <p style="font-size: 0.8em; color: #28a745; text-align: center; margin-top: 10px;">
+                            <p class="week3-style-84">
                                 <strong>Sentimiento:</strong> Confianza y satisfacción
                             </p>
                         </div>
@@ -656,42 +635,42 @@
 
                 <section>
                     <h3>Nivel 3: Reflexivo - Significado y Valor</h3>
-                    <p style="text-align: center; margin-bottom: 1.5em;"><em>Reflexión posterior, memoria e identidad personal</em></p>
+                    <p class="week3-style-70"><em>Reflexión posterior, memoria e identidad personal</em></p>
                     
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; font-size: 0.9em;">
+                    <div class="week3-style-93">
                         <div>
-                            <h4 style="color: #6c757d; text-align: center;">Diseño Sin Valor Reflexivo</h4>
-                            <div style="background: #f8f9fa; padding: 20px; border: 2px solid #ddd; border-radius: 8px;">
-                                <div style="text-align: center; padding: 20px;">
-                                    <i class="fas fa-mobile-alt" style="font-size: 3em; color: #6c757d;"></i>
-                                    <h5 style="margin: 15px 0;">Smartphone Genérico X1</h5>
-                                    <p style="font-size: 0.85em; color: #6c757d;">
+                            <h4 class="week3-style-94">Diseño Sin Valor Reflexivo</h4>
+                            <div class="week3-style-95">
+                                <div class="week3-style-38">
+                                    <i class="fas fa-mobile-alt week3-style-96"></i>
+                                    <h5 class="week3-style-97">Smartphone Genérico X1</h5>
+                                    <p class="week3-style-98">
                                         "Es solo un teléfono más"<br>
                                         "Funciona bien, pero..."<br>
                                         "No me identifica"
                                     </p>
                                 </div>
-                                <div style="background: white; padding: 10px; margin-top: 15px; border-radius: 4px;">
-                                    <p style="margin: 0; font-size: 0.8em; color: #6c757d;">
+                                <div class="week3-style-99">
+                                    <p class="week3-style-100">
                                         <strong>Reflexión:</strong> Producto utilitario sin conexión emocional
                                     </p>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <h4 style="color: #007bff; text-align: center;">Diseño Con Valor Reflexivo</h4>
-                            <div style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 20px; border: 2px solid #007bff; border-radius: 8px;">
-                                <div style="text-align: center; padding: 20px;">
-                                    <i class="fab fa-apple" style="font-size: 3em; color: #000;"></i>
-                                    <h5 style="margin: 15px 0;">iPhone / Tesla / Rolex</h5>
-                                    <p style="font-size: 0.85em; color: #333;">
+                            <h4 class="week3-style-101">Diseño Con Valor Reflexivo</h4>
+                            <div class="week3-style-102">
+                                <div class="week3-style-38">
+                                    <i class="fab fa-apple week3-style-103"></i>
+                                    <h5 class="week3-style-97">iPhone / Tesla / Rolex</h5>
+                                    <p class="week3-style-104">
                                         "Dice algo sobre quién soy"<br>
                                         "Me hace sentir parte de algo"<br>
                                         "Refleja mis valores"
                                     </p>
                                 </div>
-                                <div style="background: white; padding: 10px; margin-top: 15px; border-radius: 4px; border-left: 4px solid #007bff;">
-                                    <p style="margin: 0; font-size: 0.8em;">
+                                <div class="week3-style-105">
+                                    <p class="week3-style-106">
                                         <strong>Reflexión:</strong> Producto como extensión de identidad y estatus
                                     </p>
                                 </div>
@@ -702,43 +681,43 @@
 
                 <section>
                     <h3>Los 3 Niveles en Acción: Ejemplo Completo</h3>
-                    <div style="max-width: 800px; margin: 0 auto;">
-                        <div style="background: white; border: 2px solid #ddd; border-radius: 12px; overflow: hidden;">
-                            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; color: white;">
-                                <h4 style="margin: 0; text-align: center;">App de Meditación Premium</h4>
+                    <div class="week3-style-23">
+                        <div class="week3-style-107">
+                            <div class="week3-style-108">
+                                <h4 class="week3-style-109">App de Meditación Premium</h4>
                             </div>
                             
-                            <div style="padding: 20px;">
-                                <div style="background: #fff3cd; padding: 15px; margin: 10px 0; border-radius: 8px; border-left: 4px solid #ffc107;">
-                                    <h5 style="color: #856404; margin: 0 0 10px 0;">
+                            <div class="week3-style-110">
+                                <div class="week3-style-111">
+                                    <h5 class="week3-style-112">
                                         <i class="fas fa-eye"></i> Nivel Visceral
                                     </h5>
-                                    <p style="margin: 0; font-size: 0.85em;">
+                                    <p class="week3-style-46">
                                         Colores suaves, animaciones fluidas, sonidos relajantes • <strong>Impresión inmediata:</strong> "Se ve hermoso y tranquilo"
                                     </p>
                                 </div>
                                 
-                                <div style="background: #d1ecf1; padding: 15px; margin: 10px 0; border-radius: 8px; border-left: 4px solid #17a2b8;">
-                                    <h5 style="color: #0c5460; margin: 0 0 10px 0;">
+                                <div class="week3-style-113">
+                                    <h5 class="week3-style-114">
                                         <i class="fas fa-hand-pointer"></i> Nivel Conductual
                                     </h5>
-                                    <p style="margin: 0; font-size: 0.85em;">
+                                    <p class="week3-style-46">
                                         Fácil de usar, meditaciones guiadas efectivas, progreso visible • <strong>Durante el uso:</strong> "Me ayuda a meditar mejor"
                                     </p>
                                 </div>
                                 
-                                <div style="background: #d4edda; padding: 15px; margin: 10px 0; border-radius: 8px; border-left: 4px solid #28a745;">
-                                    <h5 style="color: #155724; margin: 0 0 10px 0;">
+                                <div class="week3-style-115">
+                                    <h5 class="week3-style-116">
                                         <i class="fas fa-brain"></i> Nivel Reflexivo
                                     </h5>
-                                    <p style="margin: 0; font-size: 0.85em;">
+                                    <p class="week3-style-46">
                                         Parte de mi rutina de autocuidado, me identifica como alguien consciente • <strong>Reflexión:</strong> "Soy una persona que valora el bienestar mental"
                                     </p>
                                 </div>
                             </div>
                             
-                            <div style="background: #f8f9fa; padding: 15px; text-align: center; border-top: 2px solid #ddd;">
-                                <p style="margin: 0; font-size: 0.9em; color: #495057;">
+                            <div class="week3-style-117">
+                                <p class="week3-style-118">
                                     <strong>Resultado:</strong> Experiencia completa y memorable en los tres niveles
                                 </p>
                             </div>
@@ -811,40 +790,40 @@
 
                 <section>
                     <h3>Ejemplo Comparativo: Diseñando una App de Fotos</h3>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; font-size: 0.85em;">
+                    <div class="week3-style-119">
                         <div>
-                            <div style="background: #e3f2fd; padding: 20px; border-radius: 8px; border-left: 4px solid #2196f3;">
-                                <h4 style="color: #1976d2; margin-top: 0;"><i class="fas fa-user"></i> Enfoque UCD</h4>
+                            <div class="week3-style-120">
+                                <h4 class="week3-style-121"><i class="fas fa-user"></i> Enfoque UCD</h4>
                                 <p><strong>Pregunta:</strong> "¿Qué quieren los usuarios?"</p>
-                                <ul style="line-height: 1.8;">
+                                <ul class="week3-style-122">
                                     <li>Interfaz bonita y moderna</li>
                                     <li>Filtros divertidos</li>
                                     <li>Fácil de compartir en redes</li>
                                     <li>Organización por carpetas</li>
                                 </ul>
-                                <div style="background: rgba(33,150,243,0.1); padding: 10px; margin-top: 15px; border-radius: 4px;">
-                                    <p style="margin: 0; font-size: 0.9em;"><strong>Resultado:</strong> App enfocada en preferencias estéticas y facilidad de uso</p>
+                                <div class="week3-style-123">
+                                    <p class="week3-style-32"><strong>Resultado:</strong> App enfocada en preferencias estéticas y facilidad de uso</p>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <div style="background: #e8f5e9; padding: 20px; border-radius: 8px; border-left: 4px solid #4caf50;">
-                                <h4 style="color: #2e7d32; margin-top: 0;"><i class="fas fa-tasks"></i> Enfoque ACD</h4>
+                            <div class="week3-style-124">
+                                <h4 class="week3-style-125"><i class="fas fa-tasks"></i> Enfoque ACD</h4>
                                 <p><strong>Pregunta:</strong> "¿Qué actividades realizan?"</p>
-                                <ul style="line-height: 1.8;">
+                                <ul class="week3-style-122">
                                     <li>Capturar momentos de eventos familiares</li>
                                     <li>Crear álbumes cronológicos</li>
                                     <li>Buscar fotos de personas específicas</li>
                                     <li>Compartir recuerdos con familia</li>
                                 </ul>
-                                <div style="background: rgba(76,175,80,0.1); padding: 10px; margin-top: 15px; border-radius: 4px;">
-                                    <p style="margin: 0; font-size: 0.9em;"><strong>Resultado:</strong> App que facilita la actividad completa de preservar y compartir recuerdos</p>
+                                <div class="week3-style-126">
+                                    <p class="week3-style-32"><strong>Resultado:</strong> App que facilita la actividad completa de preservar y compartir recuerdos</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div style="background: #fff3cd; padding: 15px; margin-top: 1.5em; border-radius: 8px; text-align: center; border-left: 4px solid #ffc107;">
-                        <p style="margin: 0;"><strong>Insight:</strong> Ambos enfoques son valiosos y complementarios. El mejor diseño integra ambas perspectivas.</p>
+                    <div class="week3-style-127">
+                        <p class="week3-style-128"><strong>Insight:</strong> Ambos enfoques son valiosos y complementarios. El mejor diseño integra ambas perspectivas.</p>
                     </div>
                 </section>
             </section>
@@ -873,23 +852,23 @@
                     <div class="r-vstack">
                         <div class="fragment">
                             <strong>Valor (Value):</strong> Lo claro u oscuro que es un color.
-                            <span class="color-swatch" style="background: #000;"></span>
-                            <span class="color-swatch" style="background: #888;"></span>
-                            <span class="color-swatch" style="background: #fff;"></span>
+                            <span class="color-swatch week3-style-129"></span>
+                            <span class="color-swatch week3-style-130"></span>
+                            <span class="color-swatch week3-style-131"></span>
                             <br><small>Los usuarios perciben rápidamente los contrastes de valor para diferenciar elementos.</small>
                         </div>
                         <div class="fragment">
                             <strong>Matiz (Hue):</strong> El color puro (rojo, verde, azul).
-                            <span class="color-swatch" style="background: #ff0000;"></span>
-                            <span class="color-swatch" style="background: #00ff00;"></span>
-                            <span class="color-swatch" style="background: #0000ff;"></span>
+                            <span class="color-swatch week3-style-132"></span>
+                            <span class="color-swatch week3-style-133"></span>
+                            <span class="color-swatch week3-style-134"></span>
                             <br><small>Usar demasiados matices puede provocar el "efecto carnaval".</small>
                         </div>
                         <div class="fragment">
                             <strong>Saturación (Saturation):</strong> La pureza del color.
-                            <span class="color-swatch" style="background: #ff0000;"></span>
-                            <span class="color-swatch" style="background: #ff8080;"></span>
-                            <span class="color-swatch" style="background: #ffcccc;"></span>
+                            <span class="color-swatch week3-style-132"></span>
+                            <span class="color-swatch week3-style-135"></span>
+                            <span class="color-swatch week3-style-136"></span>
                             <br><small>Los colores altamente saturados se usan para atraer atención.</small>
                         </div>
                     </div>
@@ -930,24 +909,24 @@
                     <div class="r-hstack">
                         <div class="column">
                             <h4>Botones de Acción</h4>
-                            <div style="display: flex; gap: 10px; justify-content: center; margin: 1em 0;">
-                                <button style="background: #28a745; color: white; border: none; padding: 8px 16px; border-radius: 4px;">Primario</button>
-                                <button style="background: #6c757d; color: white; border: none; padding: 8px 16px; border-radius: 4px;">Secundario</button>
-                                <button style="background: #dc3545; color: white; border: none; padding: 8px 16px; border-radius: 4px;">Peligro</button>
+                            <div class="week3-style-137">
+                                <button class="week3-style-138">Primario</button>
+                                <button class="week3-style-139">Secundario</button>
+                                <button class="week3-style-140">Peligro</button>
                             </div>
                             <p><small>Verde saturado para acción principal, gris para secundario, rojo para acciones destructivas</small></p>
                         </div>
                         <div class="column">
                             <h4>Estados del Sistema</h4>
-                            <div style="margin: 1em 0;">
-                                <div style="background: #d4edda; border-left: 4px solid #28a745; padding: 8px; margin: 4px 0; font-size: 0.8em;">
-                                    <i class="fas fa-check-circle" style="color: #28a745;"></i> Éxito
+                            <div class="week3-style-141">
+                                <div class="week3-style-142">
+                                    <i class="fas fa-check-circle week3-style-30"></i> Éxito
                                 </div>
-                                <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 8px; margin: 4px 0; font-size: 0.8em;">
-                                    <i class="fas fa-exclamation-triangle" style="color: #ffc107;"></i> Advertencia
+                                <div class="week3-style-143">
+                                    <i class="fas fa-exclamation-triangle week3-style-144"></i> Advertencia
                                 </div>
-                                <div style="background: #f8d7da; border-left: 4px solid #dc3545; padding: 8px; margin: 4px 0; font-size: 0.8em;">
-                                    <i class="fas fa-times-circle" style="color: #dc3545;"></i> Error
+                                <div class="week3-style-145">
+                                    <i class="fas fa-times-circle week3-style-26"></i> Error
                                 </div>
                             </div>
                             <p><small>Colores que comunican estados del sistema de forma inmediata</small></p>
@@ -960,29 +939,29 @@
                     <div class="r-hstack">
                         <div class="column">
                             <h4>Categorías de Productos</h4>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 1em 0;">
-                                <div style="background: #e3f2fd; border: 2px solid #2196f3; padding: 8px; border-radius: 4px; font-size: 0.8em;">
-                                    <i class="fas fa-mobile-alt" style="color: #2196f3;"></i> Smartphone
+                            <div class="week3-style-146">
+                                <div class="week3-style-147">
+                                    <i class="fas fa-mobile-alt week3-style-148"></i> Smartphone
                                 </div>
-                                <div style="background: #e3f2fd; border: 2px solid #2196f3; padding: 8px; border-radius: 4px; font-size: 0.8em;">
-                                    <i class="fas fa-laptop" style="color: #2196f3;"></i> Laptop
+                                <div class="week3-style-147">
+                                    <i class="fas fa-laptop week3-style-148"></i> Laptop
                                 </div>
-                                <div style="background: #e8f5e8; border: 2px solid #4caf50; padding: 8px; border-radius: 4px; font-size: 0.8em;">
-                                    <i class="fas fa-tshirt" style="color: #4caf50;"></i> Camiseta
+                                <div class="week3-style-149">
+                                    <i class="fas fa-tshirt week3-style-150"></i> Camiseta
                                 </div>
-                                <div style="background: #e8f5e8; border: 2px solid #4caf50; padding: 8px; border-radius: 4px; font-size: 0.8em;">
-                                    <i class="fas fa-user-tie" style="color: #4caf50;"></i> Pantalón
+                                <div class="week3-style-149">
+                                    <i class="fas fa-user-tie week3-style-150"></i> Pantalón
                                 </div>
                             </div>
                             <p><small>Azul para tecnología, verde para ropa - agrupación por color</small></p>
                         </div>
                         <div class="column">
                             <h4>Jerarquía por Valor</h4>
-                            <div style="margin: 1em 0;">
-                                <h5 style="color: #212529; margin: 4px 0;">Título Principal</h5>
-                                <h6 style="color: #495057; margin: 4px 0;">Subtítulo</h6>
-                                <p style="color: #6c757d; margin: 4px 0; font-size: 0.9em;">Texto normal</p>
-                                <p style="color: #adb5bd; margin: 4px 0; font-size: 0.8em; font-style: italic;">Texto secundario</p>
+                            <div class="week3-style-141">
+                                <h5 class="week3-style-151">Título Principal</h5>
+                                <h6 class="week3-style-152">Subtítulo</h6>
+                                <p class="week3-style-153">Texto normal</p>
+                                <p class="week3-style-154">Texto secundario</p>
                             </div>
                             <p><small>Diferentes valores de gris crean jerarquía tipográfica</small></p>
                         </div>
@@ -994,23 +973,23 @@
 
                     <div class="r-hstack">
                         <div class="column">
-                            <h4><i class="fas fa-times" style="color: #dc3545;"></i> Problemático: Solo Color</h4>
-                            <div style="margin: 1em 0;">
-                                <label for="email-bad" style="display: block; font-size: 0.9em; margin-bottom: 4px;">Email:</label>
-                                <input type="email" id="email-bad" placeholder="usuario@ejemplo.com" style="border: 2px solid #6c757d; padding: 8px; width: 100%; border-radius: 4px; font-size: 0.9em;" oninput="validateEmailBad(this)">
-                                <div id="error-bad" style="color: #dc3545; font-size: 0.8em; margin-top: 4px; display: none;">Email inválido</div>
+                            <h4><i class="fas fa-times week3-style-26"></i> Problemático: Solo Color</h4>
+                            <div class="week3-style-141">
+                                <label for="email-bad" class="week3-style-155">Email:</label>
+                                <input type="email" id="email-bad" placeholder="usuario@ejemplo.com" class="week3-style-156" oninput="validateEmailBad(this)">
+                                <div id="error-bad" class="week3-style-157">Email inválido</div>
                             </div>
                             <p><small>Escribe un email inválido para ver el error - solo usa color</small></p>
                         </div>
                         <div class="column">
-                            <h4><i class="fas fa-check" style="color: #198754;"></i> Accesible: Color + Iconos + Texto</h4>
-                            <div style="margin: 1em 0;">
-                                <label for="email-good" style="display: block; font-size: 0.9em; margin-bottom: 4px;">Email:</label>
-                                <input type="email" id="email-good" placeholder="usuario@ejemplo.com" style="border: 2px solid #6c757d; padding: 8px; width: 100%; border-radius: 4px; font-size: 0.9em;" oninput="validateEmailGood(this)" aria-describedby="error-good">
-                                <div id="error-good" style="color: #dc3545; font-size: 0.8em; font-weight: bold; margin-top: 4px; display: none;">
+                            <h4><i class="fas fa-check week3-style-158"></i> Accesible: Color + Iconos + Texto</h4>
+                            <div class="week3-style-141">
+                                <label for="email-good" class="week3-style-155">Email:</label>
+                                <input type="email" id="email-good" placeholder="usuario@ejemplo.com" class="week3-style-156" oninput="validateEmailGood(this)" aria-describedby="error-good">
+                                <div id="error-good" class="week3-style-159">
                                     <i class="fas fa-times-circle"></i> Error: Formato de email inválido. Debe incluir @ y un dominio válido
                                 </div>
-                                <div id="success-good" style="color: #198754; font-size: 0.8em; font-weight: bold; margin-top: 4px; display: none;">
+                                <div id="success-good" class="week3-style-160">
                                     <i class="fas fa-check-circle"></i> Email válido
                                 </div>
                             </div>
@@ -1024,27 +1003,27 @@
                     <div class="r-hstack">
                         <div class="column">
                             <h4>Solo Color (Problemático)</h4>
-                            <div style="display: flex; gap: 8px; margin: 1em 0;">
-                                <div style="width: 20px; height: 20px; background: #28a745;"></div>
-                                <div style="width: 20px; height: 20px; background: #ffc107;"></div>
-                                <div style="width: 20px; height: 20px; background: #dc3545;"></div>
+                            <div class="week3-style-161">
+                                <div class="week3-style-162"></div>
+                                <div class="week3-style-163"></div>
+                                <div class="week3-style-164"></div>
                             </div>
                             <p><small>Difícil de distinguir para personas daltónicas</small></p>
                         </div>
                         <div class="column">
                             <h4>Color + Patrones (Accesible)</h4>
-                            <div style="margin: 1em 0;">
-                                <div style="display: flex; align-items: center; gap: 8px; margin: 4px 0;">
-                                    <div style="width: 20px; height: 20px; background: #28a745; background-image: radial-gradient(circle, white 30%, transparent 30%); background-size: 4px 4px;"></div>
-                                    <span style="font-size: 0.8em;">Completado (puntos)</span>
+                            <div class="week3-style-141">
+                                <div class="week3-style-165">
+                                    <div class="week3-style-166"></div>
+                                    <span class="week3-style-167">Completado (puntos)</span>
                                 </div>
-                                <div style="display: flex; align-items: center; gap: 8px; margin: 4px 0;">
-                                    <div style="width: 20px; height: 20px; background: #ffc107; background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, white 2px, white 4px);"></div>
-                                    <span style="font-size: 0.8em;">En progreso (líneas)</span>
+                                <div class="week3-style-165">
+                                    <div class="week3-style-168"></div>
+                                    <span class="week3-style-167">En progreso (líneas)</span>
                                 </div>
-                                <div style="display: flex; align-items: center; gap: 8px; margin: 4px 0;">
-                                    <div style="width: 20px; height: 20px; background: #dc3545;"></div>
-                                    <span style="font-size: 0.8em;">Error (sólido)</span>
+                                <div class="week3-style-165">
+                                    <div class="week3-style-164"></div>
+                                    <span class="week3-style-167">Error (sólido)</span>
                                 </div>
                             </div>
                             <p><small>Patrones distintivos además del color</small></p>
@@ -1057,17 +1036,17 @@
                     <div class="r-hstack">
                         <div class="column">
                             <h4>Contraste Inadecuado</h4>
-                            <div style="background: #ffffff; padding: 1em; border: 1px solid #ddd; margin: 1em 0;">
-                                <p style="color: #999999; margin: 0;">Texto con bajo contraste (2.85:1)</p>
-                                <p style="color: #cccccc; margin: 0;">Texto casi invisible (1.6:1)</p>
+                            <div class="week3-style-169">
+                                <p class="week3-style-170">Texto con bajo contraste (2.85:1)</p>
+                                <p class="week3-style-171">Texto casi invisible (1.6:1)</p>
                             </div>
                         </div>
                         <div class="column">
                             <h4>Contraste Adecuado</h4>
-                            <div style="background: #ffffff; padding: 1em; border: 1px solid #ddd; margin: 1em 0;">
-                                <p style="color: #212529; margin: 0; font-weight: bold;">Título principal (16.73:1)</p>
-                                <p style="color: #495057; margin: 0;">Texto normal (9.94:1)</p>
-                                <p style="color: #6c757d; margin: 0;">Texto secundario (5.94:1)</p>
+                            <div class="week3-style-169">
+                                <p class="week3-style-172">Título principal (16.73:1)</p>
+                                <p class="week3-style-173">Texto normal (9.94:1)</p>
+                                <p class="week3-style-174">Texto secundario (5.94:1)</p>
                             </div>
                         </div>
                     </div>
@@ -1078,19 +1057,19 @@
                     <h3>Evitar Combinaciones Problemáticas</h3>
                     <div class="r-hstack">
                         <div class="column">
-                            <h4><i class="fas fa-times" style="color: #dc3545;"></i> Problemático (Cromostereopsis)</h4>
-                            <div style="margin: 1em 0;">
-                                <span style="color: #ff0000; background-color: #0000ff; padding: 4px; margin: 2px;">Rojo sobre azul</span><br>
-                                <span style="color: #00ff00; background-color: #ff0000; padding: 4px; margin: 2px;">Verde sobre rojo</span>
+                            <h4><i class="fas fa-times week3-style-26"></i> Problemático (Cromostereopsis)</h4>
+                            <div class="week3-style-141">
+                                <span class="week3-style-175">Rojo sobre azul</span><br>
+                                <span class="week3-style-176">Verde sobre rojo</span>
                             </div>
                             <p><small>Causa fatiga visual y efecto de profundidad</small></p>
                         </div>
                         <div class="column">
-                            <h4><i class="fas fa-check" style="color: #198754;"></i> Combinaciones Seguras</h4>
-                            <div style="margin: 1em 0;">
-                                <span style="color: #0d6efd; background-color: #ffffff; padding: 4px; margin: 2px; border: 1px solid #ddd;">Azul sobre blanco</span><br>
-                                <span style="color: #198754; background-color: #f8f9fa; padding: 4px; margin: 2px;">Verde sobre gris claro</span><br>
-                                <span style="color: #dc3545; background-color: #f8f9fa; padding: 4px; margin: 2px;">Rojo sobre gris claro</span>
+                            <h4><i class="fas fa-check week3-style-158"></i> Combinaciones Seguras</h4>
+                            <div class="week3-style-141">
+                                <span class="week3-style-177">Azul sobre blanco</span><br>
+                                <span class="week3-style-178">Verde sobre gris claro</span><br>
+                                <span class="week3-style-179">Rojo sobre gris claro</span>
                             </div>
                             <p><small>Fáciles de leer, sin fatiga visual</small></p>
                         </div>
@@ -1141,36 +1120,36 @@
 
                     <div class="r-hstack">
                         <div class="column">
-                            <h4><i class="fas fa-times" style="color: #dc3545;"></i> Sin Aplicar Gestalt</h4>
-                            <div style="background: #f8f9fa; padding: 20px; border: 1px solid #ddd; margin: 1em 0; text-align: left;">
-                                <div style="display: inline-block; width: 12px; height: 12px; background: #007bff; margin: 3px;"></div>
-                                <div style="display: inline-block; width: 12px; height: 12px; background: #28a745; margin: 8px;"></div>
-                                <div style="display: inline-block; width: 12px; height: 12px; background: #007bff; margin: 12px;"></div>
-                                <div style="display: inline-block; width: 12px; height: 12px; background: #dc3545; margin: 5px;"></div>
+                            <h4><i class="fas fa-times week3-style-26"></i> Sin Aplicar Gestalt</h4>
+                            <div class="week3-style-180">
+                                <div class="week3-style-181"></div>
+                                <div class="week3-style-182"></div>
+                                <div class="week3-style-183"></div>
+                                <div class="week3-style-184"></div>
                                 <br>
-                                <div style="display: inline-block; width: 12px; height: 12px; background: #28a745; margin: 15px;"></div>
-                                <div style="display: inline-block; width: 12px; height: 12px; background: #dc3545; margin: 2px;"></div>
-                                <div style="display: inline-block; width: 12px; height: 12px; background: #007bff; margin: 10px;"></div>
-                                <div style="display: inline-block; width: 12px; height: 12px; background: #28a745; margin: 7px;"></div>
+                                <div class="week3-style-185"></div>
+                                <div class="week3-style-186"></div>
+                                <div class="week3-style-187"></div>
+                                <div class="week3-style-188"></div>
                             </div>
                             <p><small>Elementos dispersos, difíciles de organizar mentalmente</small></p>
                         </div>
                         <div class="column">
-                            <h4><i class="fas fa-check" style="color: #198754;"></i> Con Principios Gestalt</h4>
-                            <div style="background: #f8f9fa; padding: 20px; border: 1px solid #ddd; margin: 1em 0; text-align: left;">
-                                <div style="display: inline-block; margin-right: 20px;">
-                                    <div style="display: inline-block; width: 12px; height: 12px; background: #007bff; margin: 1px;"></div>
-                                    <div style="display: inline-block; width: 12px; height: 12px; background: #007bff; margin: 1px;"></div>
-                                    <div style="display: inline-block; width: 12px; height: 12px; background: #007bff; margin: 1px;"></div>
+                            <h4><i class="fas fa-check week3-style-158"></i> Con Principios Gestalt</h4>
+                            <div class="week3-style-180">
+                                <div class="week3-style-189">
+                                    <div class="week3-style-190"></div>
+                                    <div class="week3-style-190"></div>
+                                    <div class="week3-style-190"></div>
                                 </div>
-                                <div style="display: inline-block; margin-right: 20px;">
-                                    <div style="display: inline-block; width: 12px; height: 12px; background: #28a745; margin: 1px;"></div>
-                                    <div style="display: inline-block; width: 12px; height: 12px; background: #28a745; margin: 1px;"></div>
+                                <div class="week3-style-189">
+                                    <div class="week3-style-191"></div>
+                                    <div class="week3-style-191"></div>
                                 </div>
-                                <div style="display: inline-block;">
-                                    <div style="display: inline-block; width: 12px; height: 12px; background: #dc3545; margin: 1px;"></div>
-                                    <div style="display: inline-block; width: 12px; height: 12px; background: #dc3545; margin: 1px;"></div>
-                                    <div style="display: inline-block; width: 12px; height: 12px; background: #dc3545; margin: 1px;"></div>
+                                <div class="week3-style-192">
+                                    <div class="week3-style-193"></div>
+                                    <div class="week3-style-193"></div>
+                                    <div class="week3-style-193"></div>
                                 </div>
                             </div>
                             <p><small>Proximidad + Similitud: grupos claros y organizados</small></p>
@@ -1200,29 +1179,29 @@
                         <p>Los elementos que están <mark>cercanos entre sí</mark> se perciben como más relacionados y se agrupan en un solo chunk o grupo.</p>
                     </div>
 
-                    <div class="r-hstack" style="margin-top: 2em;">
+                    <div class="r-hstack week3-style-194">
                         <div class="column">
                             <h4>Sin Proximidad</h4>
-                            <div style="background: white; padding: 20px; border: 1px solid #ddd; text-align: center;">
-                                <button style="background: #007bff; color: white; border: none; padding: 8px 16px; margin: 15px; border-radius: 4px;">Guardar</button>
-                                <button style="background: #6c757d; color: white; border: none; padding: 8px 16px; margin: 15px; border-radius: 4px;">Cancelar</button>
+                            <div class="week3-style-195">
+                                <button class="week3-style-196">Guardar</button>
+                                <button class="week3-style-197">Cancelar</button>
                                 <br><br>
-                                <button style="background: #28a745; color: white; border: none; padding: 8px 16px; margin: 15px; border-radius: 4px;">Nuevo</button>
-                                <button style="background: #dc3545; color: white; border: none; padding: 8px 16px; margin: 15px; border-radius: 4px;">Eliminar</button>
+                                <button class="week3-style-198">Nuevo</button>
+                                <button class="week3-style-199">Eliminar</button>
                             </div>
                             <p><small>Acciones dispersas, sin relación clara</small></p>
                         </div>
                         <div class="column">
                             <h4>Con Proximidad</h4>
-                            <div style="background: white; padding: 20px; border: 1px solid #ddd; text-align: center;">
-                                <div style="display: inline-block; margin: 10px; padding: 10px; border: 1px dashed #ccc; border-radius: 8px;">
-                                    <button style="background: #007bff; color: white; border: none; padding: 8px 16px; margin: 3px; border-radius: 4px;">Guardar</button>
-                                    <button style="background: #6c757d; color: white; border: none; padding: 8px 16px; margin: 3px; border-radius: 4px;">Cancelar</button>
+                            <div class="week3-style-195">
+                                <div class="week3-style-200">
+                                    <button class="week3-style-201">Guardar</button>
+                                    <button class="week3-style-202">Cancelar</button>
                                 </div>
                                 <br>
-                                <div style="display: inline-block; margin: 10px; padding: 10px; border: 1px dashed #ccc; border-radius: 8px;">
-                                    <button style="background: #28a745; color: white; border: none; padding: 8px 16px; margin: 3px; border-radius: 4px;">Nuevo</button>
-                                    <button style="background: #dc3545; color: white; border: none; padding: 8px 16px; margin: 3px; border-radius: 4px;">Eliminar</button>
+                                <div class="week3-style-200">
+                                    <button class="week3-style-203">Nuevo</button>
+                                    <button class="week3-style-204">Eliminar</button>
                                 </div>
                             </div>
                             <p><small>Acciones agrupadas: formulario y gestión</small></p>
@@ -1236,20 +1215,20 @@
                         <p>Los elementos que son <mark>similares</mark> (en color, tamaño y forma) se perciben como más relacionados que los elementos disímiles.</p>
                     </div>
 
-                    <div class="r-hstack" style="margin-top: 2em;">
+                    <div class="r-hstack week3-style-194">
                         <div class="column">
                             <h4>Sin Similitud</h4>
-                            <div style="background: white; padding: 20px; border: 1px solid #ddd;">
-                                <div style="margin: 8px 0; padding: 8px; background: #e3f2fd; color: #1976d2; border-radius: 4px; font-size: 0.9em;">
+                            <div class="week3-style-205">
+                                <div class="week3-style-206">
                                     <i class="fas fa-star"></i> Elemento importante
                                 </div>
-                                <div style="margin: 8px 0; padding: 12px; background: #fff3cd; color: #856404; border-radius: 8px; font-size: 1.1em;">
+                                <div class="week3-style-207">
                                     <i class="fas fa-circle"></i> Otro elemento
                                 </div>
-                                <div style="margin: 8px 0; padding: 6px; background: #f8d7da; color: #721c24; border-radius: 2px; font-size: 0.8em;">
+                                <div class="week3-style-208">
                                     <i class="fas fa-square"></i> Tercer elemento
                                 </div>
-                                <div style="margin: 8px 0; padding: 10px; background: #d4edda; color: #155724; border-radius: 12px; font-size: 1.0em;">
+                                <div class="week3-style-209">
                                     <i class="fas fa-triangle"></i> Cuarto elemento
                                 </div>
                             </div>
@@ -1257,18 +1236,18 @@
                         </div>
                         <div class="column">
                             <h4>Con Similitud</h4>
-                            <div style="background: white; padding: 20px; border: 1px solid #ddd;">
-                                <div style="margin: 8px 0; padding: 10px; background: #f8f9fa; border-left: 4px solid #007bff; font-size: 0.9em;">
-                                    <i class="fas fa-file-alt" style="color: #007bff; width: 16px;"></i> Documento 1
+                            <div class="week3-style-205">
+                                <div class="week3-style-210">
+                                    <i class="fas fa-file-alt week3-style-211"></i> Documento 1
                                 </div>
-                                <div style="margin: 8px 0; padding: 10px; background: #f8f9fa; border-left: 4px solid #007bff; font-size: 0.9em;">
-                                    <i class="fas fa-file-alt" style="color: #007bff; width: 16px;"></i> Documento 2
+                                <div class="week3-style-210">
+                                    <i class="fas fa-file-alt week3-style-211"></i> Documento 2
                                 </div>
-                                <div style="margin: 8px 0; padding: 10px; background: #f8f9fa; border-left: 4px solid #007bff; font-size: 0.9em;">
-                                    <i class="fas fa-file-alt" style="color: #007bff; width: 16px;"></i> Documento 3
+                                <div class="week3-style-210">
+                                    <i class="fas fa-file-alt week3-style-211"></i> Documento 3
                                 </div>
-                                <div style="margin: 8px 0; padding: 10px; background: #f8f9fa; border-left: 4px solid #007bff; font-size: 0.9em;">
-                                    <i class="fas fa-file-alt" style="color: #007bff; width: 16px;"></i> Documento 4
+                                <div class="week3-style-210">
+                                    <i class="fas fa-file-alt week3-style-211"></i> Documento 4
                                 </div>
                             </div>
                             <p><small>Elementos similares se perciben como grupo cohesivo</small></p>
@@ -1286,27 +1265,27 @@
                         </ul>
                     </div>
 
-                    <div class="r-hstack" style="margin-top: 2em;">
+                    <div class="r-hstack week3-style-194">
                         <div class="column">
                             <h4>Figura-Fondo Poco Clara</h4>
-                            <div style="background: #e9ecef; padding: 20px; border: 1px solid #ddd;">
-                                <div style="background: #f8f9fa; padding: 15px; border: 1px solid #dee2e6; border-radius: 4px; color: #6c757d;">
-                                    <h5 style="color: #495057; margin: 0 0 10px 0;">Confirmar Acción</h5>
-                                    <p style="margin: 0 0 15px 0; font-size: 0.9em;">¿Estás seguro de que quieres continuar?</p>
-                                    <button style="background: #f8f9fa; color: #6c757d; border: 1px solid #ced4da; padding: 6px 12px; margin-right: 8px; border-radius: 3px;">Cancelar</button>
-                                    <button style="background: #e9ecef; color: #495057; border: 1px solid #adb5bd; padding: 6px 12px; border-radius: 3px;">Confirmar</button>
+                            <div class="week3-style-212">
+                                <div class="week3-style-213">
+                                    <h5 class="week3-style-214">Confirmar Acción</h5>
+                                    <p class="week3-style-215">¿Estás seguro de que quieres continuar?</p>
+                                    <button class="week3-style-216">Cancelar</button>
+                                    <button class="week3-style-217">Confirmar</button>
                                 </div>
                             </div>
                             <p><small>Difícil distinguir el modal del fondo</small></p>
                         </div>
                         <div class="column">
                             <h4>Figura-Fondo Clara</h4>
-                            <div style="background: rgba(0,0,0,0.4); padding: 20px; border: 1px solid #ddd;">
-                                <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); color: #212529;">
-                                    <h5 style="color: #212529; margin: 0 0 15px 0;">Confirmar Acción</h5>
-                                    <p style="margin: 0 0 20px 0; color: #6c757d;">¿Estás seguro de que quieres continuar?</p>
-                                    <button style="background: #6c757d; color: white; border: none; padding: 8px 16px; margin-right: 10px; border-radius: 4px;">Cancelar</button>
-                                    <button style="background: #007bff; color: white; border: none; padding: 8px 16px; border-radius: 4px;">Confirmar</button>
+                            <div class="week3-style-218">
+                                <div class="week3-style-219">
+                                    <h5 class="week3-style-220">Confirmar Acción</h5>
+                                    <p class="week3-style-221">¿Estás seguro de que quieres continuar?</p>
+                                    <button class="week3-style-222">Cancelar</button>
+                                    <button class="week3-style-223">Confirmar</button>
                                 </div>
                             </div>
                             <p><small>Modal claramente separado del fondo oscuro</small></p>
@@ -1332,24 +1311,24 @@
 
                 <section>
                     <h3>Formulario Disperso - Vista Completa</h3>
-                    <div style="background: white; padding: 20px; border: 1px solid #ddd; max-width: 400px; margin: 0 auto;">
-                        <div style="margin: 15px 0;">
-                            <label style="display: block; font-size: 0.9em; margin-bottom: 4px;">Nombre:</label>
-                            <input type="text" style="border: 1px solid #ccc; padding: 8px; width: 100%; border-radius: 3px;">
+                    <div class="week3-style-224">
+                        <div class="week3-style-97">
+                            <label class="week3-style-155">Nombre:</label>
+                            <input type="text" class="week3-style-225">
                         </div>
-                        <div style="margin: 15px 0;">
-                            <label style="display: block; font-size: 0.9em; margin-bottom: 4px;">Email:</label>
-                            <input type="email" style="border: 1px solid #ccc; padding: 8px; width: 100%; border-radius: 3px;">
+                        <div class="week3-style-97">
+                            <label class="week3-style-155">Email:</label>
+                            <input type="email" class="week3-style-225">
                         </div>
-                        <div style="margin: 15px 0;">
-                            <label style="display: block; font-size: 0.9em; margin-bottom: 4px;">País:</label>
-                            <select style="border: 1px solid #ccc; padding: 8px; width: 100%; border-radius: 3px;">
+                        <div class="week3-style-97">
+                            <label class="week3-style-155">País:</label>
+                            <select class="week3-style-225">
                                 <option>España</option>
                             </select>
                         </div>
-                        <div style="margin: 15px 0;">
-                            <label style="display: block; font-size: 0.9em; margin-bottom: 4px;">Ciudad:</label>
-                            <input type="text" style="border: 1px solid #ccc; padding: 8px; width: 100%; border-radius: 3px;">
+                        <div class="week3-style-97">
+                            <label class="week3-style-155">Ciudad:</label>
+                            <input type="text" class="week3-style-225">
                         </div>
                     </div>
                     <p><small>Todos los campos parecen independientes, sin relación visual</small></p>
@@ -1365,42 +1344,42 @@
 
                 <section>
                     <h3>Análisis de Problemas Cognitivos</h3>
-                    <div style="background: #fff5f5; padding: 20px; border: 2px solid #f56565; border-radius: 12px; max-width: 700px; margin: 1em auto;">
-                        <h4 style="color: #c53030; text-align: center; margin-bottom: 1em;">
-                            <i class="fas fa-exclamation-triangle" style="font-size: 1.2em; margin-right: 8px;"></i>
+                    <div class="week3-style-226">
+                        <h4 class="week3-style-227">
+                            <i class="fas fa-exclamation-triangle week3-style-228"></i>
                             Problemas de Diseño Sin Conexión Uniforme
                         </h4>
 
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 1em;">
+                        <div class="week3-style-229">
                             <div>
-                                <h5 style="color: #c53030; margin-bottom: 0.8em; font-size: 1em;">
-                                    <i class="fas fa-brain" style="margin-right: 8px;"></i>Problemas Cognitivos:
+                                <h5 class="week3-style-230">
+                                    <i class="fas fa-brain week3-style-231"></i>Problemas Cognitivos:
                                 </h5>
-                                <ul style="text-align: left; font-size: 0.9em; line-height: 1.4; margin: 0; padding-left: 20px;">
-                                    <li style="margin-bottom: 0.3em;">No hay agrupación lógica visible</li>
-                                    <li style="margin-bottom: 0.3em;">Difícil entender qué elementos van juntos</li>
-                                    <li style="margin-bottom: 0.3em;">Carga cognitiva alta para el usuario</li>
-                                    <li style="margin-bottom: 0.3em;">Navegación y completado confuso</li>
-                                    <li style="margin-bottom: 0.3em;">Tiempo de comprensión elevado</li>
+                                <ul class="week3-style-232">
+                                    <li class="week3-style-233">No hay agrupación lógica visible</li>
+                                    <li class="week3-style-233">Difícil entender qué elementos van juntos</li>
+                                    <li class="week3-style-233">Carga cognitiva alta para el usuario</li>
+                                    <li class="week3-style-233">Navegación y completado confuso</li>
+                                    <li class="week3-style-233">Tiempo de comprensión elevado</li>
                                 </ul>
                             </div>
                             <div>
-                                <h5 style="color: #c53030; margin-bottom: 0.8em; font-size: 1em;">
-                                    <i class="fas fa-chart-line" style="margin-right: 8px;"></i>Impacto en UX:
+                                <h5 class="week3-style-230">
+                                    <i class="fas fa-chart-line week3-style-231"></i>Impacto en UX:
                                 </h5>
-                                <ul style="text-align: left; font-size: 0.9em; line-height: 1.4; margin: 0; padding-left: 20px;">
-                                    <li style="margin-bottom: 0.3em;">Mayor tasa de abandono</li>
-                                    <li style="margin-bottom: 0.3em;">Errores de usuario frecuentes</li>
-                                    <li style="margin-bottom: 0.3em;">Satisfacción reducida</li>
-                                    <li style="margin-bottom: 0.3em;">Tiempo de tarea aumentado</li>
-                                    <li style="margin-bottom: 0.3em;">Accesibilidad comprometida</li>
+                                <ul class="week3-style-232">
+                                    <li class="week3-style-233">Mayor tasa de abandono</li>
+                                    <li class="week3-style-233">Errores de usuario frecuentes</li>
+                                    <li class="week3-style-233">Satisfacción reducida</li>
+                                    <li class="week3-style-233">Tiempo de tarea aumentado</li>
+                                    <li class="week3-style-233">Accesibilidad comprometida</li>
                                 </ul>
                             </div>
                         </div>
 
-                        <div style="background: rgba(196, 48, 48, 0.1); padding: 15px; margin-top: 15px; border-radius: 8px; text-align: center;">
-                            <p style="margin: 0; font-size: 0.9em; color: #c53030; font-weight: 500;">
-                                <i class="fas fa-lightbulb" style="margin-right: 8px;"></i>
+                        <div class="week3-style-234">
+                            <p class="week3-style-235">
+                                <i class="fas fa-lightbulb week3-style-231"></i>
                                 <strong>Resultado:</strong> Los usuarios abandonan o cometen errores por falta de organización visual clara
                             </p>
                         </div>
@@ -1409,25 +1388,25 @@
 
                 <section>
                     <h3>Vista Esquemática: Elementos Aislados</h3>
-                    <div style="background: white; padding: 30px; border: 2px solid #ddd; max-width: 500px; margin: 2em auto;">
-                        <div style="text-align: center; margin-bottom: 2em;">
-                            <h4 style="color: #6c757d;">Representación Visual del Problema</h4>
+                    <div class="week3-style-236">
+                        <div class="week3-style-237">
+                            <h4 class="week3-style-238">Representación Visual del Problema</h4>
                         </div>
-                        <div style="display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 300px; margin: 0 auto;">
-                            <div style="padding: 12px; border: 2px solid #ccc; border-radius: 4px; background: #f8f9fa; text-align: center;">
-                                <i class="fas fa-user" style="color: #6c757d; margin-right: 8px;"></i>Nombre
+                        <div class="week3-style-239">
+                            <div class="week3-style-240">
+                                <i class="fas fa-user week3-style-241"></i>Nombre
                             </div>
-                            <div style="padding: 12px; border: 2px solid #ccc; border-radius: 4px; background: #f8f9fa; text-align: center;">
-                                <i class="fas fa-envelope" style="color: #6c757d; margin-right: 8px;"></i>Email
+                            <div class="week3-style-240">
+                                <i class="fas fa-envelope week3-style-241"></i>Email
                             </div>
-                            <div style="padding: 12px; border: 2px solid #ccc; border-radius: 4px; background: #f8f9fa; text-align: center;">
-                                <i class="fas fa-globe" style="color: #6c757d; margin-right: 8px;"></i>País
+                            <div class="week3-style-240">
+                                <i class="fas fa-globe week3-style-241"></i>País
                             </div>
-                            <div style="padding: 12px; border: 2px solid #ccc; border-radius: 4px; background: #f8f9fa; text-align: center;">
-                                <i class="fas fa-city" style="color: #6c757d; margin-right: 8px;"></i>Ciudad
+                            <div class="week3-style-240">
+                                <i class="fas fa-city week3-style-241"></i>Ciudad
                             </div>
                         </div>
-                        <p style="text-align: center; margin-top: 1.5em; color: #6c757d; font-style: italic;">
+                        <p class="week3-style-242">
                             Cada campo existe independientemente sin relación visual clara
                         </p>
                     </div>
@@ -1443,29 +1422,29 @@
 
                 <section>
                     <h3>Formulario Agrupado - Vista Completa</h3>
-                    <div style="background: white; padding: 20px; border: 1px solid #ddd; max-width: 450px; margin: 0 auto;">
-                        <div style="background: #f8f9fa; padding: 15px; margin: 15px 0; border-radius: 6px; border-left: 4px solid #007bff;">
-                            <h4 style="margin: 0 0 15px 0; color: #007bff;"><i class="fas fa-user" style="margin-right: 8px;"></i>Información Personal</h4>
-                            <div style="margin: 10px 0;">
-                                <label style="display: block; font-size: 0.9em; margin-bottom: 4px;">Nombre:</label>
-                                <input type="text" style="border: 1px solid #007bff; padding: 8px; width: 100%; border-radius: 3px;">
+                    <div class="week3-style-243">
+                        <div class="week3-style-244">
+                            <h4 class="week3-style-245"><i class="fas fa-user week3-style-231"></i>Información Personal</h4>
+                            <div class="week3-style-246">
+                                <label class="week3-style-155">Nombre:</label>
+                                <input type="text" class="week3-style-247">
                             </div>
-                            <div style="margin: 10px 0;">
-                                <label style="display: block; font-size: 0.9em; margin-bottom: 4px;">Email:</label>
-                                <input type="email" style="border: 1px solid #007bff; padding: 8px; width: 100%; border-radius: 3px;">
+                            <div class="week3-style-246">
+                                <label class="week3-style-155">Email:</label>
+                                <input type="email" class="week3-style-247">
                             </div>
                         </div>
-                        <div style="background: #fff3cd; padding: 15px; margin: 15px 0; border-radius: 6px; border-left: 4px solid #ffc107;">
-                            <h4 style="margin: 0 0 15px 0; color: #856404;"><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>Ubicación</h4>
-                            <div style="margin: 10px 0;">
-                                <label style="display: block; font-size: 0.9em; margin-bottom: 4px;">País:</label>
-                                <select style="border: 1px solid #ffc107; padding: 8px; width: 100%; border-radius: 3px;">
+                        <div class="week3-style-248">
+                            <h4 class="week3-style-249"><i class="fas fa-map-marker-alt week3-style-231"></i>Ubicación</h4>
+                            <div class="week3-style-246">
+                                <label class="week3-style-155">País:</label>
+                                <select class="week3-style-250">
                                     <option>España</option>
                                 </select>
                             </div>
-                            <div style="margin: 10px 0;">
-                                <label style="display: block; font-size: 0.9em; margin-bottom: 4px;">Ciudad:</label>
-                                <input type="text" style="border: 1px solid #ffc107; padding: 8px; width: 100%; border-radius: 3px;">
+                            <div class="week3-style-246">
+                                <label class="week3-style-155">Ciudad:</label>
+                                <input type="text" class="week3-style-250">
                             </div>
                         </div>
                     </div>
@@ -1474,42 +1453,42 @@
 
                 <section>
                     <h3>Elementos de Conexión Uniforme</h3>
-                    <div style="background: #f0fff4; padding: 25px; border: 2px solid #38a169; border-radius: 12px; max-width: 600px; margin: 2em auto;">
-                        <h4 style="color: #2f855a; text-align: center; margin-bottom: 1.5em;">
-                            <i class="fas fa-check-circle" style="font-size: 1.3em; margin-right: 10px;"></i>
+                    <div class="week3-style-251">
+                        <h4 class="week3-style-252">
+                            <i class="fas fa-check-circle week3-style-253"></i>
                             Soluciones de Diseño Con Conexión Uniforme
                         </h4>
 
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                        <div class="week3-style-254">
                             <div>
-                                <h5 style="color: #2f855a; margin-bottom: 1em; font-size: 1em;">
-                                    <i class="fas fa-tools" style="margin-right: 8px;"></i>Técnicas Visuales:
+                                <h5 class="week3-style-255">
+                                    <i class="fas fa-tools week3-style-231"></i>Técnicas Visuales:
                                 </h5>
-                                <ul style="text-align: left; font-size: 0.9em; line-height: 1.5; margin: 0; padding-left: 20px;">
-                                    <li style="margin-bottom: 0.4em;">Regiones de fondo comunes</li>
-                                    <li style="margin-bottom: 0.4em;">Bordes y colores consistentes</li>
-                                    <li style="margin-bottom: 0.4em;">Iconos temáticos agrupadores</li>
-                                    <li style="margin-bottom: 0.4em;">Espaciado uniforme interno</li>
-                                    <li style="margin-bottom: 0.4em;">Tipografía coherente</li>
+                                <ul class="week3-style-256">
+                                    <li class="week3-style-257">Regiones de fondo comunes</li>
+                                    <li class="week3-style-257">Bordes y colores consistentes</li>
+                                    <li class="week3-style-257">Iconos temáticos agrupadores</li>
+                                    <li class="week3-style-257">Espaciado uniforme interno</li>
+                                    <li class="week3-style-257">Tipografía coherente</li>
                                 </ul>
                             </div>
                             <div>
-                                <h5 style="color: #2f855a; margin-bottom: 1em; font-size: 1em;">
-                                    <i class="fas fa-eye" style="margin-right: 8px;"></i>Beneficios Perceptuales:
+                                <h5 class="week3-style-255">
+                                    <i class="fas fa-eye week3-style-231"></i>Beneficios Perceptuales:
                                 </h5>
-                                <ul style="text-align: left; font-size: 0.9em; line-height: 1.5; margin: 0; padding-left: 20px;">
-                                    <li style="margin-bottom: 0.4em;">Agrupación inmediata y clara</li>
-                                    <li style="margin-bottom: 0.4em;">Reducción de carga cognitiva</li>
-                                    <li style="margin-bottom: 0.4em;">Navegación intuitiva</li>
-                                    <li style="margin-bottom: 0.4em;">Menor tiempo de comprensión</li>
-                                    <li style="margin-bottom: 0.4em;">Mejor experiencia de usuario</li>
+                                <ul class="week3-style-256">
+                                    <li class="week3-style-257">Agrupación inmediata y clara</li>
+                                    <li class="week3-style-257">Reducción de carga cognitiva</li>
+                                    <li class="week3-style-257">Navegación intuitiva</li>
+                                    <li class="week3-style-257">Menor tiempo de comprensión</li>
+                                    <li class="week3-style-257">Mejor experiencia de usuario</li>
                                 </ul>
                             </div>
                         </div>
 
-                        <div style="background: rgba(47, 133, 90, 0.1); padding: 15px; margin-top: 20px; border-radius: 8px; text-align: center;">
-                            <p style="margin: 0; font-size: 0.9em; color: #2f855a; font-weight: 500;">
-                                <i class="fas fa-magic" style="margin-right: 8px;"></i>
+                        <div class="week3-style-258">
+                            <p class="week3-style-259">
+                                <i class="fas fa-magic week3-style-231"></i>
                                 <strong>Resultado:</strong> Los usuarios entienden instantáneamente la organización y completan tareas más eficientemente
                             </p>
                         </div>
@@ -1518,35 +1497,35 @@
 
                 <section>
                     <h3>Vista Esquemática: Elementos Conectados</h3>
-                    <div style="background: white; padding: 30px; border: 2px solid #38a169; max-width: 500px; margin: 2em auto;">
-                        <div style="text-align: center; margin-bottom: 2em;">
-                            <h4 style="color: #2f855a;">Representación Visual de la Solución</h4>
+                    <div class="week3-style-260">
+                        <div class="week3-style-237">
+                            <h4 class="week3-style-261">Representación Visual de la Solución</h4>
                         </div>
-                        <div style="max-width: 350px; margin: 0 auto;">
-                            <div style="background: #e3f2fd; margin: 15px 0; padding: 12px; border-left: 4px solid #2196f3; border-radius: 6px;">
-                                <h5 style="color: #1976d2; margin: 0 0 10px 0;">
-                                    <i class="fas fa-user" style="margin-right: 8px;"></i>Información Personal
+                        <div class="week3-style-262">
+                            <div class="week3-style-263">
+                                <h5 class="week3-style-264">
+                                    <i class="fas fa-user week3-style-231"></i>Información Personal
                                 </h5>
-                                <div style="padding: 6px; margin: 4px 0; background: rgba(33,150,243,0.15); border-radius: 4px; text-align: center;">
-                                    <i class="fas fa-user" style="color: #1976d2; margin-right: 8px;"></i>Nombre
+                                <div class="week3-style-265">
+                                    <i class="fas fa-user week3-style-266"></i>Nombre
                                 </div>
-                                <div style="padding: 6px; margin: 4px 0; background: rgba(33,150,243,0.15); border-radius: 4px; text-align: center;">
-                                    <i class="fas fa-envelope" style="color: #1976d2; margin-right: 8px;"></i>Email
+                                <div class="week3-style-265">
+                                    <i class="fas fa-envelope week3-style-266"></i>Email
                                 </div>
                             </div>
-                            <div style="background: #fff8e1; margin: 15px 0; padding: 12px; border-left: 4px solid #ff9800; border-radius: 6px;">
-                                <h5 style="color: #f57c00; margin: 0 0 10px 0;">
-                                    <i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>Ubicación
+                            <div class="week3-style-267">
+                                <h5 class="week3-style-268">
+                                    <i class="fas fa-map-marker-alt week3-style-231"></i>Ubicación
                                 </h5>
-                                <div style="padding: 6px; margin: 4px 0; background: rgba(255,152,0,0.15); border-radius: 4px; text-align: center;">
-                                    <i class="fas fa-globe" style="color: #f57c00; margin-right: 8px;"></i>País
+                                <div class="week3-style-269">
+                                    <i class="fas fa-globe week3-style-270"></i>País
                                 </div>
-                                <div style="padding: 6px; margin: 4px 0; background: rgba(255,152,0,0.15); border-radius: 4px; text-align: center;">
-                                    <i class="fas fa-city" style="color: #f57c00; margin-right: 8px;"></i>Ciudad
+                                <div class="week3-style-269">
+                                    <i class="fas fa-city week3-style-270"></i>Ciudad
                                 </div>
                             </div>
                         </div>
-                        <p style="text-align: center; margin-top: 1.5em; color: #2f855a; font-style: italic;">
+                        <p class="week3-style-271">
                             Elementos claramente conectados por regiones, colores e iconos comunes
                         </p>
                     </div>
@@ -1603,45 +1582,45 @@
                 <section>
                     <h3>Ejemplos Visuales de Affordances</h3>
 
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; margin: 2em 0; font-size: 0.9em;">
+                    <div class="week3-style-272">
                         <div>
-                            <h4 style="color: #dc3545; text-align: center;"><i class="fas fa-times"></i> Affordances Pobres</h4>
-                            <div style="background: white; padding: 20px; border: 2px solid #ddd; border-radius: 8px;">
-                                <div style="text-align: center; margin: 15px 0;">
-                                    <div style="display: inline-block; width: 100px; height: 40px; background: #f8f9fa; border: 1px solid #dee2e6; cursor: not-allowed;">
+                            <h4 class="week3-style-72"><i class="fas fa-times"></i> Affordances Pobres</h4>
+                            <div class="week3-style-37">
+                                <div class="week3-style-273">
+                                    <div class="week3-style-274">
                                         Texto plano
                                     </div>
                                 </div>
-                                <div style="text-align: center; margin: 15px 0;">
-                                    <div style="display: inline-block; padding: 10px 20px; background: linear-gradient(white, white); color: #000;">
+                                <div class="week3-style-273">
+                                    <div class="week3-style-275">
                                         ¿Botón?
                                     </div>
                                 </div>
-                                <div style="text-align: center; margin: 15px 0;">
-                                    <input type="text" style="border: none; background: transparent; padding: 5px;" placeholder="¿Campo?">
+                                <div class="week3-style-273">
+                                    <input type="text" class="week3-style-276" placeholder="¿Campo?">
                                 </div>
-                                <p style="text-align: center; color: #dc3545; font-size: 0.85em; margin-top: 20px;">
+                                <p class="week3-style-277">
                                     <em>"¿Puedo hacer clic aquí?"</em>
                                 </p>
                             </div>
                         </div>
                         <div>
-                            <h4 style="color: #28a745; text-align: center;"><i class="fas fa-check"></i> Affordances Claras</h4>
-                            <div style="background: white; padding: 20px; border: 2px solid #ddd; border-radius: 8px;">
-                                <div style="text-align: center; margin: 15px 0;">
-                                    <button style="background: linear-gradient(180deg, #007bff 0%, #0056b3 100%); color: white; border: none; padding: 12px 30px; border-radius: 6px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); cursor: pointer; font-weight: bold;">
+                            <h4 class="week3-style-79"><i class="fas fa-check"></i> Affordances Claras</h4>
+                            <div class="week3-style-37">
+                                <div class="week3-style-273">
+                                    <button class="week3-style-278">
                                         Botón Claro
                                     </button>
                                 </div>
-                                <div style="text-align: center; margin: 15px 0;">
-                                    <input type="text" placeholder="Escribe aquí..." style="border: 2px solid #007bff; padding: 10px; border-radius: 4px; width: 80%; background: white;">
+                                <div class="week3-style-273">
+                                    <input type="text" placeholder="Escribe aquí..." class="week3-style-279">
                                 </div>
-                                <div style="text-align: center; margin: 15px 0;">
-                                    <div style="display: inline-block; padding: 8px 15px; background: white; border: 2px solid #28a745; border-radius: 20px; cursor: pointer;">
-                                        <i class="fas fa-toggle-off" style="font-size: 1.5em; color: #6c757d;"></i>
+                                <div class="week3-style-273">
+                                    <div class="week3-style-280">
+                                        <i class="fas fa-toggle-off week3-style-15"></i>
                                     </div>
                                 </div>
-                                <p style="text-align: center; color: #28a745; font-size: 0.85em; margin-top: 20px;">
+                                <p class="week3-style-281">
                                     <em>"Sé exactamente cómo interactuar"</em>
                                 </p>
                             </div>
@@ -1652,35 +1631,35 @@
                 <section>
                     <h3>Ejemplos en Interfaces Digitales</h3>
 
-                    <div style="max-width: 700px; margin: 0 auto;">
-                        <div style="background: white; padding: 25px; border: 2px solid #ddd; border-radius: 12px;">
-                            <h4 style="text-align: center; margin-bottom: 1.5em; color: #007bff;">Toolbar con Buenos Affordances</h4>
+                    <div class="week3-style-282">
+                        <div class="week3-style-283">
+                            <h4 class="week3-style-284">Toolbar con Buenos Affordances</h4>
                             
-                            <div style="display: flex; justify-content: space-around; align-items: center; padding: 15px; background: #f8f9fa; border-radius: 8px;">
-                                <button style="background: white; border: 2px solid #dee2e6; border-radius: 4px; padding: 10px 15px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" title="Negrita">
-                                    <i class="fas fa-bold" style="font-size: 1.2em; color: #495057;"></i>
+                            <div class="week3-style-285">
+                                <button class="week3-style-286" title="Negrita">
+                                    <i class="fas fa-bold week3-style-287"></i>
                                 </button>
-                                <button style="background: white; border: 2px solid #dee2e6; border-radius: 4px; padding: 10px 15px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" title="Cursiva">
-                                    <i class="fas fa-italic" style="font-size: 1.2em; color: #495057;"></i>
+                                <button class="week3-style-286" title="Cursiva">
+                                    <i class="fas fa-italic week3-style-287"></i>
                                 </button>
-                                <button style="background: white; border: 2px solid #dee2e6; border-radius: 4px; padding: 10px 15px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" title="Subrayado">
-                                    <i class="fas fa-underline" style="font-size: 1.2em; color: #495057;"></i>
+                                <button class="week3-style-286" title="Subrayado">
+                                    <i class="fas fa-underline week3-style-287"></i>
                                 </button>
-                                <div style="width: 2px; height: 30px; background: #dee2e6;"></div>
-                                <button style="background: white; border: 2px solid #dee2e6; border-radius: 4px; padding: 10px 15px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" title="Alinear izquierda">
-                                    <i class="fas fa-align-left" style="font-size: 1.2em; color: #495057;"></i>
+                                <div class="week3-style-288"></div>
+                                <button class="week3-style-286" title="Alinear izquierda">
+                                    <i class="fas fa-align-left week3-style-287"></i>
                                 </button>
-                                <button style="background: white; border: 2px solid #dee2e6; border-radius: 4px; padding: 10px 15px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" title="Alinear centro">
-                                    <i class="fas fa-align-center" style="font-size: 1.2em; color: #495057;"></i>
+                                <button class="week3-style-286" title="Alinear centro">
+                                    <i class="fas fa-align-center week3-style-287"></i>
                                 </button>
-                                <button style="background: white; border: 2px solid #dee2e6; border-radius: 4px; padding: 10px 15px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" title="Alinear derecha">
-                                    <i class="fas fa-align-right" style="font-size: 1.2em; color: #495057;"></i>
+                                <button class="week3-style-286" title="Alinear derecha">
+                                    <i class="fas fa-align-right week3-style-287"></i>
                                 </button>
                             </div>
                             
-                            <div style="margin-top: 20px; padding: 15px; background: #e7f3ff; border-radius: 8px; border-left: 4px solid #007bff;">
-                                <p style="margin: 0; font-size: 0.9em;"><strong>Affordances presentes:</strong></p>
-                                <ul style="margin: 10px 0; padding-left: 20px; font-size: 0.85em;">
+                            <div class="week3-style-289">
+                                <p class="week3-style-32"><strong>Affordances presentes:</strong></p>
+                                <ul class="week3-style-290">
                                     <li>Forma de botón (bordes, sombra, fondo)</li>
                                     <li>Iconos familiares y reconocibles</li>
                                     <li>Espaciado y agrupación lógica</li>
@@ -1708,39 +1687,39 @@
                     <h3>Diseño Plano y Affordances</h3>
                     <p>La tendencia actual de <mark>diseño "plano" (flattening)</mark> en interfaces móviles puede reducir las affordances virtuales al eliminar las sombras y los contornos.</p>
 
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; margin: 2em 0; font-size: 0.85em;">
+                    <div class="week3-style-291">
                         <div>
-                            <h4 style="text-align: center; color: #ffc107;">Diseño Plano Extremo</h4>
-                            <div style="background: white; padding: 30px; border: 2px solid #ddd; border-radius: 8px;">
-                                <div style="text-align: center;">
-                                    <div style="display: inline-block; padding: 12px 30px; background: #007bff; color: white; margin: 10px;">
+                            <h4 class="week3-style-292">Diseño Plano Extremo</h4>
+                            <div class="week3-style-293">
+                                <div class="week3-style-9">
+                                    <div class="week3-style-294">
                                         Botón 1
                                     </div>
                                 </div>
-                                <div style="text-align: center;">
-                                    <div style="display: inline-block; padding: 12px 30px; color: #007bff; margin: 10px;">
+                                <div class="week3-style-9">
+                                    <div class="week3-style-295">
                                         Botón 2
                                     </div>
                                 </div>
-                                <p style="text-align: center; color: #856404; margin-top: 20px; font-style: italic;">
+                                <p class="week3-style-296">
                                     Estéticamente limpio, pero<br>¿cuál es clickeable?
                                 </p>
                             </div>
                         </div>
                         <div>
-                            <h4 style="text-align: center; color: #28a745;">Balance: Plano con Affordances</h4>
-                            <div style="background: white; padding: 30px; border: 2px solid #ddd; border-radius: 8px;">
-                                <div style="text-align: center;">
-                                    <button style="display: inline-block; padding: 12px 30px; background: #007bff; color: white; margin: 10px; border: none; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,123,255,0.3); cursor: pointer;">
+                            <h4 class="week3-style-297">Balance: Plano con Affordances</h4>
+                            <div class="week3-style-293">
+                                <div class="week3-style-9">
+                                    <button class="week3-style-298">
                                         Botón 1
                                     </button>
                                 </div>
-                                <div style="text-align: center;">
-                                    <span style="display: inline-block; padding: 12px 30px; color: #007bff; margin: 10px;">
+                                <div class="week3-style-9">
+                                    <span class="week3-style-295">
                                         Texto simple
                                     </span>
                                 </div>
-                                <p style="text-align: center; color: #155724; margin-top: 20px; font-style: italic;">
+                                <p class="week3-style-299">
                                     Mantiene estética moderna<br>con pistas claras de interacción
                                 </p>
                             </div>
@@ -1795,7 +1774,7 @@
             <!-- Conceptos Clave - Flashcards Interactivas -->
             <section>
                 <h2>Conceptos Clave - Flashcards Interactivas</h2>
-                <p style="text-align: center; margin-bottom: 2rem;"><em>Haz clic en cada tarjeta para ver la
+                <p class="week3-style-300"><em>Haz clic en cada tarjeta para ver la
                         respuesta</em></p>
 
                 <section>
@@ -1912,7 +1891,7 @@
                 </div>
                 <h2>Referencias Bibliográficas</h2>
 
-                <div class="references-container" style="font-size: 0.85em;">
+                <div class="references-container week3-style-301">
                     <p><strong>Cooper, A., Reimann, R., Cronin, D., & Verplank, B.</strong> (2014). <em>About Face: The Essentials of Interaction Design</em> (4th ed.). Wiley.</p>
                     <p><strong>Díaz, S.</strong> (s.f.). <em>UX Design hazlo fácil pensando en el usuario</em>. Ediciones de la U / Editorial Ra-ma.</p>
                     <p><strong>Fernández Casado, P. E.</strong> (2021). <em>UX Design: Hazlo fácil pensando en el usuario</em>. (Capítulos seleccionados).</p>
@@ -1931,7 +1910,7 @@
                 <h2>Actividades Calificadas - Semana 3</h2>
                 <section>
                     <h3>Diseño Visual y Principios de Percepción</h3>
-                    <p style="text-align: center; font-style: italic; color: var(--uide-secondary);">
+                    <p class="week3-style-302">
                         Aplicación práctica de Gestalt, psicología del color y affordances
                     </p>
                 </section>
@@ -1939,15 +1918,15 @@
                 <section>
                     <h3>GA-1.1: Revisión Rápida de Conceptos</h3>
                     <div class="concept-box">
-                        <h4 style="color: var(--uide-accent);">Graded Activity 1.1</h4>
+                        <h4 class="week3-style-303">Graded Activity 1.1</h4>
                         <p><strong>Actividad:</strong> Revisión rápida de conceptos fundamentales de la semana</p>
                         <p><strong>Enfoque:</strong> Evaluación de comprensión de principios básicos de diseño</p>
-                        <ul style="text-align: left;">
+                        <ul class="week3-style-304">
                             <li>Conceptos de Don Norman (UX, affordances, niveles emocionales)</li>
                             <li>Principios básicos de Gestalt</li>
                             <li>Fundamentos de psicología del color</li>
                         </ul>
-                        <div style="background: rgba(233, 171, 33, 0.1); padding: 1em; border-radius: 8px; margin: 1em 0;">
+                        <div class="week3-style-305">
                             <strong>Puntaje:</strong> 0.5 puntos<br>
                             <strong>Modalidad:</strong> Evaluación rápida individual
                         </div>
@@ -1957,14 +1936,14 @@
                 <section>
                     <h3>PE-1.3: Taller "Before/After" con Gestalt</h3>
                     <div class="concept-box">
-                        <h4 style="color: var(--uide-primary);">Práctico Experimental 1.3</h4>
+                        <h4 class="week3-style-306">Práctico Experimental 1.3</h4>
                         <p><strong>Actividad:</strong> Taller práctico aplicando principios de Gestalt en rediseños</p>
                         <p><strong>Enfoque:</strong> Transformación de interfaces usando principios de percepción visual</p>
                         <div class="r-hstack">
                             <div class="column">
                                 <div class="concept-box">
                                     <h4>Principios a Aplicar</h4>
-                                    <ul style="text-align: left; font-size: 0.9em;">
+                                    <ul class="week3-style-307">
                                         <li>Proximidad y agrupación</li>
                                         <li>Similitud y conexión uniforme</li>
                                         <li>Cierre y simplicidad (Pragnanz)</li>
@@ -1975,7 +1954,7 @@
                             <div class="column">
                                 <div class="concept-box">
                                     <h4>Metodología</h4>
-                                    <ul style="text-align: left; font-size: 0.9em;">
+                                    <ul class="week3-style-307">
                                         <li>Análisis del "antes"</li>
                                         <li>Identificación de problemas perceptuales</li>
                                         <li>Aplicación de principios Gestalt</li>
@@ -1984,7 +1963,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="background: rgba(233, 171, 33, 0.1); padding: 1em; border-radius: 8px; margin: 1em 0;">
+                        <div class="week3-style-305">
                             <strong>Puntaje:</strong> 2.25 puntos<br>
                             <strong>Modalidad:</strong> Taller práctico con presentación grupal
                         </div>
@@ -1994,14 +1973,14 @@
                 <section>
                     <h3>TA-1.3: Tarjeta de Color con Justificación</h3>
                     <div class="concept-box">
-                        <h4 style="color: var(--uide-secondary);">Trabajo Autónomo 1.3</h4>
+                        <h4 class="week3-style-308">Trabajo Autónomo 1.3</h4>
                         <p><strong>Actividad:</strong> Creación de tarjeta de color con justificación teórica</p>
                         <p><strong>Enfoque:</strong> Aplicación práctica de psicología del color en diseño</p>
                         <div class="r-hstack">
                             <div class="column">
                                 <div class="concept-box">
                                     <h4>Componentes de la Tarjeta</h4>
-                                    <ul style="text-align: left; font-size: 0.9em;">
+                                    <ul class="week3-style-307">
                                         <li>Paleta de colores seleccionada</li>
                                         <li>Aplicación en contexto específico</li>
                                         <li>Consideraciones de accesibilidad</li>
@@ -2012,7 +1991,7 @@
                             <div class="column">
                                 <div class="concept-box">
                                     <h4>Justificación Teórica</h4>
-                                    <ul style="text-align: left; font-size: 0.9em;">
+                                    <ul class="week3-style-307">
                                         <li>Fundamentos de psicología del color</li>
                                         <li>Impacto cognitivo y perceptual</li>
                                         <li>Consideraciones culturales</li>
@@ -2021,7 +2000,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="background: rgba(145, 0, 72, 0.1); padding: 1em; border-radius: 8px; margin: 1em 0; text-align: center;">
+                        <div class="week3-style-309">
                             <strong>Puntaje:</strong> 3.0 puntos<br>
                             <strong>Modalidad:</strong> Individual con justificación escrita
                         </div>
@@ -2036,10 +2015,10 @@
                 </div>
 
                 <div class="title-slide">
-                    <h1 style="color: var(--uide-primary);">¡Gracias!</h1>
+                    <h1 class="week3-style-306">¡Gracias!</h1>
                     <h3>¿Preguntas?</h3>
 
-                    <div style="margin-top: 2em; font-size: 0.9em;">
+                    <div class="week3-style-310">
                         <strong>Universidad Internacional del Ecuador</strong><br>
                         <em>Semana 3 - Diseño Centrado en el Usuario</em>
                     </div>
@@ -2058,102 +2037,7 @@
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/zoom/zoom.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/search/search.js"></script>
 
-    <script>
-        Reveal.initialize({
-            hash: true,
-            controls: true,
-            progress: true,
-            history: true,
-            center: true,
-
-            // Advanced transitions and animations
-            transition: 'slide',
-            transitionSpeed: 'default',
-            backgroundTransition: 'fade',
-
-            // Auto-animate support
-            autoAnimateEasing: 'ease',
-            autoAnimateDuration: 1.0,
-            autoAnimateUnmatched: true,
-
-            // Math rendering
-            math: {
-                mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
-                config: 'TeX-AMS_HTML-full',
-            },
-
-            // Zoom functionality
-            zoom: {
-                mouseWheel: false,
-                maxZoom: 3,
-                controls: true
-            },
-
-            // Search functionality
-            search: {
-                caseSensitive: false,
-                showIcon: true
-            },
-
-            // Keyboard shortcuts
-            keyboard: {
-                70: 'fullscreen', // f
-                83: 'next', // s
-                65: 'prev', // a
-                66: 'pause', // b
-                90: 'zoom', // z
-                191: 'search' // /
-            },
-
-            plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX, RevealZoom, RevealSearch]
-        });
-
-        // Simple Flashcard System
-        function flipCard(card) {
-            card.classList.toggle('flipped');
-        }
-
-        // Email Validation Functions for Accessibility Examples
-        function validateEmailBad(input) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            const isValid = emailRegex.test(input.value);
-            const errorDiv = document.getElementById('error-bad');
-
-            if (input.value === '') {
-                input.style.border = '2px solid #6c757d';
-                errorDiv.style.display = 'none';
-            } else if (isValid) {
-                input.style.border = '2px solid #198754';
-                errorDiv.style.display = 'none';
-            } else {
-                input.style.border = '2px solid #dc3545';
-                errorDiv.style.display = 'block';
-            }
-        }
-
-        function validateEmailGood(input) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            const isValid = emailRegex.test(input.value);
-            const errorDiv = document.getElementById('error-good');
-            const successDiv = document.getElementById('success-good');
-
-            if (input.value === '') {
-                input.style.border = '2px solid #6c757d';
-                errorDiv.style.display = 'none';
-                successDiv.style.display = 'none';
-            } else if (isValid) {
-                input.style.border = '2px solid #198754';
-                input.style.backgroundColor = '#f8fff9';
-                errorDiv.style.display = 'none';
-                successDiv.style.display = 'block';
-            } else {
-                input.style.border = '2px solid #dc3545';
-                input.style.backgroundColor = '#fff5f5';
-                errorDiv.style.display = 'block';
-                successDiv.style.display = 'none';
-            }
-        }
-    </script>
+    <script src="./compendio-hci-semana3.js"></script>
 
 </body>
 
