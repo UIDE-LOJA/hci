@@ -12,7 +12,7 @@ Los cursos indicados con el logotipo de **ASU** indican cursos que se complement
 
 ---
 
-## Facultad de Ciencias Técnicas
+## Escuela de Ciencias de la Computación
 
 ### Ingeniería en Tecnologías de la Información
 
@@ -40,7 +40,7 @@ Los cursos indicados con el logotipo de **ASU** indican cursos que se complement
 **Correquisito(s):** Ninguno
 **Número de sesiones:** 48 horas / 16 semanas
 **Horario de clases:** Miércoles, 10:00 a 13:00
-**Horario de tutorías:** Viernes, 10:00 a 11:00
+**Horario de tutorías:** Viernes, 08:00 a 09:00
 
 ---
 
@@ -65,7 +65,7 @@ La asignatura de Interacción Hombre-Computadora (HCI) introduce a los estudiant
 **Nombre:** Charlie Alexander Cárdenas Toledo
 **Grado Académico:** Magister en Ciencias y Tecnologías de la Computación
 **Correo:** [chcardenasto@uide.edu.ec](mailto:chcardenasto@uide.edu.ec)
-**Teléfono fijo:** +593 22985600 Ext. 6008
+**Teléfono fijo:** (07) 258-4567
 **Teléfono móvil:** +593980762456
 
 ---
@@ -73,7 +73,7 @@ La asignatura de Interacción Hombre-Computadora (HCI) introduce a los estudiant
 ## LUGAR DONDE SE EMITE EL DOCUMENTO
 
 **Coordinador Académico:** Mgs. Darío Javier Valarezo León
-**Ubicación / Dirección:** Calle Agustín Carrión Palacios, Loja
+**Ubicación / Dirección:** Calle Agustín Carrión Palacios entre Av. Salvador Bustamante Celi y Beethoven. Sector Jipiro
 **Teléfono:** +593 22985600 Ext. 6008
 
 ---
