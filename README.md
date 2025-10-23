@@ -40,7 +40,7 @@ Los cursos indicados con el logotipo de **ASU** indican cursos que se complement
 **Correquisito(s):** Ninguno
 **Número de sesiones:** 48 horas / 16 semanas
 **Horario de clases:** Miércoles, 10:00 a 13:00
-**Horario de tutorías:** Viernes, 08:00 a 09:00
+**Horario de tutorías:** lunes, 10:00 – 12:00; viernes, 08:00 – 09:00
 
 ---
 
