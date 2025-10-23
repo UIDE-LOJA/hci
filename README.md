@@ -22,7 +22,7 @@ Los cursos indicados con el logotipo de **ASU** indican cursos que se complement
 
 ## DATOS INFORMATIVOS
 
-**Código y Nombre de la Asignatura:** PP - 07 - HCI Interacción Hombre Computador
+**Código y Nombre de la Asignatura:** PP-07-HCI Interacción Hombre Computador
 **Número de horas componente docencia:** 3
 **Número de horas componente de prácticas de aplicación y experimentación de los aprendizajes:** 0
 **Número de horas de aprendizaje autónomo:** 6
