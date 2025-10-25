@@ -25,6 +25,9 @@
         href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
     <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
 
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Custom Timeline Styles -->
     <style>
         /* Timeline.js custom styling */
@@ -500,6 +503,152 @@
                             ser <strong>autoexplicativo</strong>.</p>
                     </div>
                     <p class="fragment"><em>(Krug, 2014)</em></p>
+                </section>
+
+                <section>
+                    <h3>Ejemplos Visuales: "No me hagas pensar"</h3>
+                    <div class="r-hstack" style="align-items: flex-start;">
+                        <!-- Columna Izquierda: MAL EJEMPLO - Portal universitario confuso -->
+                        <div class="column">
+                            <h4 style="color: #dc3545; text-align: center; margin-bottom: 1rem;">❌ Hace Pensar</h4>
+                            <div
+                                style="border: 2px solid #dc3545; border-radius: 8px; padding: 1rem; background: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                                <!-- Mockup de portal universitario confuso -->
+                                <div
+                                    style="background: var(--uide-primary); color: white; padding: 0.4rem; font-size: 0.6em; text-align: center; font-weight: bold;">
+                                    UNIVERSIDAD INTERNACIONAL DEL ECUADOR - SISTEMA ACADÉMICO
+                                </div>
+                                <div
+                                    style="background: #f0f0f0; padding: 0.3rem; border-bottom: 1px solid #ccc; font-size: 0.45em;">
+                                    Inicio | Académico | Estudiantes | Docentes | Admin | Servicios | Ayuda | Contacto
+                                </div>
+                                <div style="padding: 0.8rem; font-size: 0.55em;">
+                                    <div
+                                        style="background: #ffffcc; padding: 0.3rem; margin-bottom: 0.4rem; border: 1px solid #ffcc00; font-size: 0.9em;">
+                                        <i class="fas fa-exclamation-triangle"></i> IMPORTANTE: Seleccione el portal
+                                        según su modalidad de estudio
+                                    </div>
+                                    <div
+                                        style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.2rem; margin-bottom: 0.4rem;">
+                                        <button
+                                            style="background: #0066cc; color: white; border: none; padding: 0.25rem; font-size: 0.8em;">Portal
+                                            Presencial</button>
+                                        <button
+                                            style="background: #cc6600; color: white; border: none; padding: 0.25rem; font-size: 0.8em;">Sistema
+                                            Virtual</button>
+                                        <button
+                                            style="background: #009900; color: white; border: none; padding: 0.25rem; font-size: 0.8em;">Plataforma
+                                            Híbrida</button>
+                                        <button
+                                            style="background: #cc0066; color: white; border: none; padding: 0.25rem; font-size: 0.8em;">Acceso
+                                            Docentes</button>
+                                    </div>
+                                    <div style="font-size: 0.85em; color: #666; line-height: 1.1;">
+                                        Los estudiantes de pregrado deben usar el portal presencial. Los de posgrado el
+                                        sistema virtual.
+                                        Para acceso a calificaciones usar la plataforma híbrida...
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 0.5rem; font-size: 0.7em; color: #dc3545;">
+                                <strong>Problemas:</strong>
+                                <ul style="font-size: 0.85em; margin: 0.3rem 0; line-height: 1.2;">
+                                    <li>Múltiples opciones sin diferenciación clara</li>
+                                    <li>Terminología técnica confusa</li>
+                                    <li>Usuario debe adivinar cuál elegir</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Columna Derecha: BUEN EJEMPLO - Estilo Google/moderno -->
+                        <div class="column">
+                            <h4 style="color: #28a745; text-align: center; margin-bottom: 1rem;">✅ Autoexplicativo</h4>
+                            <div
+                                style="border: 2px solid #28a745; border-radius: 8px; padding: 1rem; background: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                                <!-- Mockup de portal UIDE bien diseñado -->
+                                <div
+                                    style="background: var(--uide-primary); color: white; padding: 0.4rem; font-size: 0.6em; text-align: center; font-weight: bold;">
+                                    UNIVERSIDAD INTERNACIONAL DEL ECUADOR - PORTAL ESTUDIANTIL
+                                </div>
+                                <div
+                                    style="background: #f8f9fa; padding: 0.3rem; border-bottom: 1px solid #e0e0e0; font-size: 0.45em; text-align: center; color: #666;">
+                                    Acceso único para todos los servicios académicos
+                                </div>
+                                <div style="padding: 1rem; text-align: center;">
+                                    <div
+                                        style="font-size: 0.7em; font-weight: 500; margin-bottom: 0.8rem; color: var(--uide-primary);">
+                                        Iniciar Sesión
+                                    </div>
+                                    <div style="margin-bottom: 0.6rem;">
+                                        <label
+                                            style="display: block; font-size: 0.5em; margin-bottom: 0.2rem; color: #555; text-align: left;">
+                                            Correo institucional:
+                                        </label>
+                                        <input type="email" placeholder="nombre.apellido@uide.edu.ec"
+                                            style="width: 100%; padding: 0.5rem; font-size: 0.55em; border: 1px solid #dadce0; border-radius: 4px;">
+                                    </div>
+                                    <div style="margin-bottom: 0.8rem;">
+                                        <label
+                                            style="display: block; font-size: 0.5em; margin-bottom: 0.2rem; color: #555; text-align: left;">
+                                            Contraseña:
+                                        </label>
+                                        <input type="password" placeholder="Tu contraseña"
+                                            style="width: 100%; padding: 0.5rem; font-size: 0.55em; border: 1px solid #dadce0; border-radius: 4px;">
+                                    </div>
+                                    <button
+                                        style="width: 100%; background: var(--uide-primary); color: white; border: none; padding: 0.6rem; font-size: 0.6em; border-radius: 4px; font-weight: 500;">
+                                        Acceder al Portal
+                                    </button>
+                                    <div style="margin-top: 0.8rem; font-size: 0.45em; color: #666;">
+                                        <a href="#"
+                                            style="color: var(--uide-primary); text-decoration: none;">¿Olvidaste tu
+                                            contraseña?</a>
+                                        <br><br>
+                                        <div
+                                            style="background: rgba(233, 171, 33, 0.1); padding: 0.4rem; border-radius: 4px; font-size: 0.9em; border-left: 3px solid var(--uide-accent);">
+                                            <i class="fas fa-info-circle"></i> <strong>Nuevo estudiante?</strong> Usa tu
+                                            cédula como contraseña inicial
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 0.5rem; font-size: 0.7em; color: #28a745;">
+                                <strong>Ventajas:</strong>
+                                <ul style="font-size: 0.85em; margin: 0.3rem 0; line-height: 1.2;">
+                                    <li>Una sola opción de acceso clara</li>
+                                    <li>Campos etiquetados específicamente</li>
+                                    <li>Ayuda contextual visible</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section>
+                    <h3>Principio Fundamental de Krug</h3>
+                    <div
+                        style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 60vh;">
+                        <div style="text-align: center; max-width: 800px;">
+                            <div style="font-size: 3rem; color: var(--uide-accent); margin-bottom: 2rem;">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div
+                                style="background: rgba(233, 171, 33, 0.1); padding: 2rem; border-radius: 12px; border-left: 6px solid var(--uide-accent);">
+                                <h4 style="color: var(--uide-primary); font-size: 1.5em; margin-bottom: 1rem;">Principio
+                                    Clave</h4>
+                                <p style="font-size: 1.3em; line-height: 1.4; color: #2c3e50; font-weight: 500;">
+                                    <em>El usuario no debería necesitar instrucciones para entender cómo usar una
+                                        interfaz</em>
+                                </p>
+                            </div>
+                            <div class="fragment"
+                                style="margin-top: 2rem; font-size: 1.1em; color: var(--uide-secondary);">
+                                <p><strong>Implicación:</strong> Si necesitas un manual de usuario para tu interfaz,
+                                    probablemente necesitas rediseñarla</p>
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
                 <section>
