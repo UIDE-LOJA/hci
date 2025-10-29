@@ -1,0 +1,1165 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Semana 1 - Introducción a HCI</title>
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css" id="theme">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/monokai.css">
+
+    <!-- UIDE Theme CSS -->
+    <link rel="stylesheet" href="../../assets/css/uide-theme.css">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        .concept-box {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--uide-primary);
+        }
+
+        .interactive-box {
+            background: rgba(233, 171, 33, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--uide-accent);
+        }
+
+        .timer-box {
+            background: rgba(40, 167, 69, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid var(--uide-primary);
+            text-align: center;
+        }
+
+        .r-hstack {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .column {
+            flex: 1;
+        }
+
+        .title-slide {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .course-info {
+            background: rgba(35, 53, 110, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-size: 0.9em;
+        }
+
+        .pe-highlight {
+            background: rgba(40, 167, 69, 0.2);
+            border: 2px solid var(--uide-primary);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .principle-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--uide-accent);
+        }
+
+        .example-good {
+            background: rgba(40, 167, 69, 0.1);
+            border-left: 4px solid #28a745;
+        }
+
+        .example-bad {
+            background: rgba(220, 53, 69, 0.1);
+            border-left: 4px solid #dc3545;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Title Slide -->
+            <section data-background-color="#f8f8f8" data-transition="convex">
+                <div class="title-slide">
+                    <h1>Introducción a HCI</h1>
+                    <h2>¡Bienvenidos! - Semana 1</h2>
+
+                    <div class="course-info">
+                        <strong>PP-07-HCI</strong> • Séptimo Nivel<br>
+                        <strong>Interacción Hombre Computador</strong><br>
+                        <em>Prof. Charlie Alexander Cárdenas Toledo, M.Sc.</em><br>
+                        Universidad Internacional del Ecuador • Octubre 2025 - Febrero 2026
+                    </div>
+
+                    <div
+                        style="background: rgba(233, 171, 33, 0.1); border-radius: 8px; padding: 1em; margin: 1em 0; font-size: 0.9em;">
+                        <strong>Fundamentos de HCI</strong><br>
+                        <em>Semana 1 • Primer día de clases</em>
+                    </div>
+
+                    <div style="margin-top: 2em; font-size: 0.9em; font-style: italic; color: var(--uide-secondary);">
+                        Introducción a la asignatura y conceptos fundamentales
+                    </div>
+                </div>
+            </section>
+
+            <!-- Presentación del Sílabo -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-scroll"></i> Presentación del Sílabo</h2>
+
+                <section>
+                    <h3>Información General del Curso</h3>
+                    <div class="concept-box">
+                        <h4 style="color: var(--uide-primary); text-align: center;"><i class="fas fa-info-circle"></i>
+                            PP-07-HCI Interacción Hombre Computador</h4>
+
+                        <div class="r-hstack">
+                            <div class="column">
+                                <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-clock"></i> Horas Semanales</h5>
+                                    <ul style="font-size: 0.9em; text-align: left;">
+                                        <li><strong>Docencia:</strong> 3 horas</li>
+                                        <li><strong>Autónomo:</strong> 6 horas</li>
+                                        <li><strong>Créditos:</strong> 3</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-calendar"></i> Información Académica</h5>
+                                    <ul style="font-size: 0.9em; text-align: left;">
+                                        <li><strong>Duración:</strong> 16 semanas (48 horas)</li>
+                                        <li><strong>Periodo:</strong> Oct 2025 - Feb 2026</li>
+                                        <li><strong>Horario:</strong> Miércoles 10:00-13:00</li>
+                                        <li><strong>Tutorías:</strong> Lunes 10:00-12:00, Viernes 08:00-09:00</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="interactive-box" style="margin-top: 1rem;">
+                            <p><i class="fas fa-graduation-cap"></i> <strong>Nivel 7 • Unidad Profesional • Ingeniería
+                                    en Tecnologías de la Información</strong></p>
+                            <p><i class="fas fa-star"></i> <strong>Curso enriquecido con material ASU:</strong> HSE 325
+                                - Human Computer Interaction</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Semana 1: Fundamentos de HCI</h3>
+                    <div class="concept-box">
+                        <h4 style="color: var(--uide-primary); text-align: center;"><i class="fas fa-foundation"></i>
+                            Unidad 1</h4>
+
+                        <div
+                            style="background: rgba(40, 167, 69, 0.1); padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                            <h5><i class="fas fa-book-open"></i> Temas de la Semana</h5>
+                            <ul style="font-size: 0.9em; text-align: left;">
+                                <li>Definición e historia de HCI</li>
+                                <li>Los tres elementos fundamentales</li>
+                                <li>Principios de usabilidad y diseño</li>
+                            </ul>
+                        </div>
+
+                        <div class="r-hstack">
+                            <div class="column">
+                                <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-tasks"></i> Actividades Calificadas</h5>
+                                    <ul style="font-size: 0.8em; text-align: left;">
+                                        <li><strong>PE-1.1:</strong> Análisis guiado de una app (3 heurísticas) (2.25)
+                                        </li>
+                                        <li><strong>TA-1.1:</strong> Análisis guiado de una app (heurísticas restantes)
+                                            (3.0)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(145, 0, 72, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-target"></i> Resultado Aprendizaje</h5>
+                                    <p style="font-size: 0.8em;">Aplicar principios fundamentales de HCI en análisis de
+                                        interfaces</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Descripción del Curso</h3>
+                    <div class="concept-box">
+                        <p style="font-size: 1.1em; text-align: center; margin-bottom: 1.5rem;">
+                            <strong>Interacción Hombre-Computadora (HCI)</strong> introduce a los estudiantes a los
+                            principios y teorías clave del <strong>diseño de interfaces centradas en el usuario</strong>
+                        </p>
+
+                        <div class="r-hstack">
+                            <div class="column">
+                                <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-brain"></i> Conceptos Clave</h5>
+                                    <ul style="font-size: 0.9em; text-align: left;">
+                                        <li>Usabilidad y accesibilidad</li>
+                                        <li>Cognición distribuida</li>
+                                        <li>Leyes de Fitts y Hick</li>
+                                        <li>Principios de Gestalt</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-rocket"></i> Tecnologías Emergentes</h5>
+                                    <ul style="font-size: 0.9em; text-align: left;">
+                                        <li>Realidad aumentada y virtual</li>
+                                        <li>Computación afectiva</li>
+                                        <li>Interfaces cerebro-computadora</li>
+                                        <li>IoT y sistemas interactivos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="interactive-box" style="margin-top: 1rem;">
+                            <p><i class="fas fa-hands-helping"></i> <strong>Enfoque práctico:</strong> Desarrollo de
+                                proyectos colaborativos y análisis de casos reales</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Competencias a Desarrollar</h3>
+                    <div class="concept-box">
+                        <h4 style="color: var(--uide-primary); text-align: center;">Al finalizar la asignatura, el
+                            estudiante estará en capacidad de:</h4>
+
+                        <div class="r-hstack" style="margin-top: 1.5rem;">
+                            <div class="column">
+                                <div class="principle-card">
+                                    <h5><i class="fas fa-foundation"></i> Fundamentos</h5>
+                                    <p style="font-size: 0.9em;">Comprender principios fundamentales de HCI, usabilidad
+                                        y diseño centrado en el usuario</p>
+                                </div>
+                                <div class="principle-card">
+                                    <h5><i class="fas fa-cogs"></i> Aplicación</h5>
+                                    <p style="font-size: 0.9em;">Aplicar técnicas de diseño basadas en leyes cognitivas
+                                        y principios de Gestalt</p>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="principle-card">
+                                    <h5><i class="fas fa-search"></i> Evaluación</h5>
+                                    <p style="font-size: 0.9em;">Evaluar interfaces usando heurísticas de Nielsen y
+                                        Shneiderman</p>
+                                </div>
+                                <div class="principle-card">
+                                    <h5><i class="fas fa-laptop-code"></i> Desarrollo</h5>
+                                    <p style="font-size: 0.9em;">Desarrollar prototipos con tecnologías emergentes (AR,
+                                        VR, IoT)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timer-box" style="margin-top: 1rem;">
+                            <p><i class="fas fa-research"></i> <strong>Investigación:</strong> Analizar tendencias en
+                                HCI, incluyendo interfaces cerebro-computadora y computación afectiva</p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- ¿Qué es HCI? - Introducción Rápida -->
+            <section data-transition="convex">
+                <h2>¿Qué es HCI?</h2>
+
+                <section>
+                    <h3>Definición Esencial</h3>
+                    <div class="concept-box">
+                        <blockquote style="font-size: 1.1em; text-align: center; margin: 2rem 0;">
+                            <p><strong>"Campo interdisciplinario que se preocupa por el diseño, evaluación e
+                                    implementación de sistemas computacionales interactivos para uso humano"</strong>
+                            </p>
+                            <footer style="margin-top: 1em; color: var(--uide-secondary);">
+                                — MacKenzie (2013)
+                            </footer>
+                        </blockquote>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Los Tres Elementos Fundamentales</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <div class="principle-card">
+                                <h4 style="color: var(--uide-primary);"><i class="fas fa-users"></i> Humanos</h4>
+                                <p style="font-size: 0.9em;">Usuarios únicos o múltiples, con habilidades diversas</p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="principle-card">
+                                <h4 style="color: var(--uide-secondary);"><i class="fas fa-laptop"></i> Ordenadores</h4>
+                                <p style="font-size: 0.9em;">No solo PC: dispositivos con chips programables</p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="principle-card">
+                                <h4 style="color: var(--uide-accent);"><i class="fas fa-exchange-alt"></i> Interacción
+                                </h4>
+                                <p style="font-size: 0.9em;">Comunicación bidireccional mediante diversas modalidades
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Principios de Usabilidad - Enfoque PE -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-star"></i> Principios de Usabilidad</h2>
+
+                <section>
+                    <h3>Primera Norma de Krug</h3>
+                    <div class="pe-highlight">
+                        <h4 style="color: var(--uide-primary); text-align: center; font-size: 1.5em;">
+                            <i class="fas fa-lightbulb"></i> "¡No me hagas pensar!"
+                        </h4>
+                        <p style="text-align: center; font-size: 1.1em; margin: 1rem 0;">
+                            El usuario debe poder <strong>mirar una página</strong> y entender de qué se trata y cómo
+                            usarla <strong>sin esfuerzo cognitivo</strong>
+                        </p>
+                    </div>
+                    <div class="timer-box">
+                        <p><i class="fas fa-exclamation-triangle"></i> <strong>Clave para PE-1.1:</strong> Identificar
+                            violaciones a este principio</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-times-circle" style="color: #dc3545;"></i> Ejemplo: "Hace Pensar"</h3>
+                    <div
+                        style="width: 100%; height: 90vh; display: flex; justify-content: center; align-items: center;">
+                        <div style="width: 95%; height: 90%; max-width: 1400px;">
+                            <div
+                                style="border: 3px solid #dc3545; border-radius: 12px; background: #fff; box-shadow: 0 8px 25px rgba(0,0,0,0.15); display: flex; flex-direction: column;">
+                                <!-- Mockup de portal universitario confuso -->
+                                <div
+                                    style="background: var(--uide-primary); color: white; padding: 1.2rem; font-size: 1em; text-align: center; font-weight: bold; border-radius: 8px 8px 0 0;">
+                                    UNIVERSIDAD INTERNACIONAL DEL ECUADOR - SISTEMA ACADÉMICO
+                                </div>
+                                <div
+                                    style="background: #f0f0f0; padding: 1rem; border-bottom: 2px solid #ccc; font-size: 0.9em; text-align: center; cursor: pointer;">
+                                    Inicio | Académico | Estudiantes | Docentes | Admin | Servicios | Ayuda |
+                                    Contacto
+                                </div>
+                                <div
+                                    style="padding: 1rem 2rem; font-size: 1em; display: flex; flex-direction: column; justify-content: center;">
+                                    <div
+                                        style="background: #ffffcc; padding: 1rem; margin-bottom: 1rem; border: 2px solid #ffcc00; font-size: 1em; border-radius: 6px;">
+                                        <i class="fas fa-exclamation-triangle"></i> IMPORTANTE: Seleccione el portal
+                                        según su modalidad de estudio
+                                    </div>
+                                    <div
+                                        style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 1rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                                        <button
+                                            style="background: #0066cc; color: white; border: none; padding: 1.5rem; font-size: 1em; border-radius: 8px; cursor: pointer;">Portal
+                                            Presencial</button>
+                                        <button
+                                            style="background: #cc6600; color: white; border: none; padding: 1.5rem; font-size: 1em; border-radius: 8px; cursor: pointer;">Sistema
+                                            Virtual</button>
+                                        <button
+                                            style="background: #009900; color: white; border: none; padding: 1.5rem; font-size: 1em; border-radius: 8px; cursor: pointer;">Plataforma
+                                            Híbrida</button>
+                                        <button
+                                            style="background: #cc0066; color: white; border: none; padding: 1.5rem; font-size: 1em; border-radius: 8px; cursor: pointer;">Acceso
+                                            Docentes</button>
+                                    </div>
+                                    <div
+                                        style="font-size: 0.9em; color: #666; line-height: 1.4; text-align: center; max-width: 700px; margin: 0 auto;">
+                                        Los estudiantes de pregrado deben usar el portal presencial. Los de posgrado
+                                        el sistema virtual.
+                                        Para acceso a calificaciones usar la plataforma híbrida. Los docentes tienen
+                                        su propio acceso...
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-times-circle" style="color: #dc3545;"></i> Problemas Identificados</h3>
+                    <div style="display: flex; justify-content: center; align-items: center; height: 70vh;">
+                        <div style="max-width: 800px; width: 100%;">
+                            <div
+                                style="padding: 2rem; background: rgba(220, 53, 69, 0.1); border-radius: 12px; border-left: 6px solid #dc3545;">
+                                <h4
+                                    style="color: #dc3545; margin-bottom: 1.5rem; font-size: 1.5em; text-align: center;">
+                                    <i class="fas fa-times-circle"></i> ¿Por qué este diseño "hace pensar"?
+                                </h4>
+                                <ul
+                                    style="font-size: 1.2em; line-height: 1.8; color: #333; list-style: none; padding: 0;">
+                                    <li
+                                        style="margin-bottom: 1rem; padding: 0.8rem; background: rgba(255,255,255,0.7); border-radius: 8px;">
+                                        <i class="fas fa-exclamation-triangle"
+                                            style="color: #dc3545; margin-right: 0.5rem;"></i>
+                                        <strong>Múltiples opciones sin diferenciación clara</strong>
+                                    </li>
+                                    <li
+                                        style="margin-bottom: 1rem; padding: 0.8rem; background: rgba(255,255,255,0.7); border-radius: 8px;">
+                                        <i class="fas fa-question-circle"
+                                            style="color: #dc3545; margin-right: 0.5rem;"></i>
+                                        <strong>Terminología técnica confusa</strong>
+                                    </li>
+                                    <li
+                                        style="margin-bottom: 1rem; padding: 0.8rem; background: rgba(255,255,255,0.7); border-radius: 8px;">
+                                        <i class="fas fa-search" style="color: #dc3545; margin-right: 0.5rem;"></i>
+                                        <strong>Usuario debe adivinar cuál elegir</strong>
+                                    </li>
+                                    <li
+                                        style="margin-bottom: 1rem; padding: 0.8rem; background: rgba(255,255,255,0.7); border-radius: 8px;">
+                                        <i class="fas fa-brain" style="color: #dc3545; margin-right: 0.5rem;"></i>
+                                        <strong>Sobrecarga cognitiva innecesaria</strong>
+                                    </li>
+                                </ul>
+
+                                <div
+                                    style="margin-top: 2rem; padding: 1rem; background: rgba(255,255,255,0.9); border-radius: 8px; text-align: center;">
+                                    <p style="font-size: 1.1em; color: #666; margin: 0;">
+                                        <i class="fas fa-lightbulb" style="color: #ffc107;"></i>
+                                        <strong>Resultado:</strong> El usuario pierde tiempo y se frustra antes de
+                                        completar su tarea
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-check-circle" style="color: #28a745;"></i> Ejemplo: "Autoexplicativo"</h3>
+                    <div style="display: flex; justify-content: center;">
+                        <div style="max-width: 600px; width: 100%;">
+                            <div
+                                style="border: 2px solid #28a745; border-radius: 8px; padding: 1.5rem; background: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                                <!-- Mockup de portal UIDE bien diseñado -->
+                                <div
+                                    style="background: var(--uide-primary); color: white; padding: 0.6rem; font-size: 0.8em; text-align: center; font-weight: bold;">
+                                    UNIVERSIDAD INTERNACIONAL DEL ECUADOR - PORTAL ESTUDIANTIL
+                                </div>
+                                <div
+                                    style="background: #f8f9fa; padding: 0.5rem; border-bottom: 1px solid #e0e0e0; font-size: 0.7em; text-align: center; color: #666;">
+                                    Acceso único para todos los servicios académicos
+                                </div>
+                                <div style="padding: 1.5rem; text-align: center;">
+                                    <div
+                                        style="font-size: 1em; font-weight: 500; margin-bottom: 1.2rem; color: var(--uide-primary);">
+                                        Ingresa con tu correo institucional
+                                    </div>
+                                    <div style="margin-bottom: 1rem;">
+                                        <label
+                                            style="display: block; font-size: 0.8em; margin-bottom: 0.3rem; color: #555; text-align: left;">
+                                            Correo institucional:
+                                        </label>
+                                        <input type="email" placeholder="nombre.apellido@uide.edu.ec"
+                                            style="width: 100%; padding: 0.8rem; font-size: 0.9em; border: 1px solid #dadce0; border-radius: 4px;">
+                                    </div>
+                                    <div style="margin-bottom: 1.2rem;">
+                                        <label
+                                            style="display: block; font-size: 0.8em; margin-bottom: 0.3rem; color: #555; text-align: left;">
+                                            Contraseña:
+                                        </label>
+                                        <input type="password" placeholder="Tu contraseña"
+                                            style="width: 100%; padding: 0.8rem; font-size: 0.9em; border: 1px solid #dadce0; border-radius: 4px;">
+                                    </div>
+                                    <button
+                                        style="width: 100%; background: var(--uide-primary); color: white; border: none; padding: 0.8rem; font-size: 1em; border-radius: 4px; font-weight: 500;">
+                                        Acceder al Portal
+                                    </button>
+                                    <div style="margin-top: 1.2rem; font-size: 0.8em; color: #666;">
+                                        <a href="#"
+                                            style="color: var(--uide-primary); text-decoration: none;">¿Olvidaste tu
+                                            contraseña?</a>
+                                        <br><br>
+                                        <div
+                                            style="background: rgba(233, 171, 33, 0.1); padding: 0.6rem; border-radius: 4px; font-size: 0.9em; border-left: 3px solid var(--uide-accent);">
+                                            <i class="fas fa-info-circle"></i> <strong>Nuevo estudiante?</strong> Usa tu
+                                            cédula como contraseña inicial
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                style="margin-top: 1rem; padding: 1rem; background: rgba(40, 167, 69, 0.1); border-radius: 8px; border-left: 4px solid #28a745;">
+                                <h4 style="color: #28a745; margin-bottom: 0.5rem;"><i class="fas fa-check-circle"></i>
+                                    Ventajas del Diseño:</h4>
+                                <ul style="font-size: 0.9em; line-height: 1.4; color: #333;">
+                                    <li>Una sola opción de acceso clara</li>
+                                    <li>Campos etiquetados específicamente</li>
+                                    <li>Ayuda contextual visible</li>
+                                    <li>Flujo intuitivo y sin confusión</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Las Tres "U" del Diseño</h3>
+                    <div class="r-hstack">
+                        <div class="column">
+                            <div class="principle-card">
+                                <h4 style="color: var(--uide-primary);"><i class="fas fa-check"></i> Útil</h4>
+                                <p>Lograr una tarea que el usuario requiere</p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="principle-card">
+                                <h4 style="color: var(--uide-secondary);"><i class="fas fa-cog"></i> Utilizable</h4>
+                                <p>Realizar la tarea de forma fácil y segura</p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="principle-card">
+                                <h4 style="color: var(--uide-accent);"><i class="fas fa-heart"></i> Usado</h4>
+                                <p>Experiencia atractiva y divertida</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Reglas de Oro de Shneiderman - Enfoque PE -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-medal"></i> Reglas de Oro de Shneiderman</h2>
+
+                <section>
+                    <h3>Las 8 Reglas Fundamentales</h3>
+                    <div class="pe-highlight">
+                        <h4 style="color: var(--uide-primary); text-align: center;">
+                            <i class="fas fa-info-circle"></i> Para PE-1.1: Enfócate en estas 3 reglas
+                        </h4>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>1. Consistencia</h3>
+                    <div class="concept-box">
+                        <h4 style="color: var(--uide-primary);"><i class="fas fa-sync"></i> "Esfuérzate por la
+                            consistencia"</h4>
+                        <p><strong>La regla más frecuentemente violada</strong></p>
+
+                        <div class="r-hstack" style="margin-top: 1rem;">
+                            <div class="column">
+                                <div class="principle-card example-good">
+                                    <h5><i class="fas fa-check-circle" style="color: #28a745;"></i> Buena Consistencia
+                                    </h5>
+
+                                    <!-- Ejemplo visual de consistencia -->
+                                    <div
+                                        style="background: #f8f9fa; padding: 0.8rem; border-radius: 6px; margin: 0.5rem 0;">
+                                        <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                            <button
+                                                style="background: #007bff; color: white; border: none; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.7em;">Guardar</button>
+                                            <button
+                                                style="background: #007bff; color: white; border: none; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.7em;">Editar</button>
+                                            <button
+                                                style="background: #007bff; color: white; border: none; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.7em;">Eliminar</button>
+                                        </div>
+                                        <small style="color: #666; font-size: 0.7em;">Mismo estilo, color y
+                                            tamaño</small>
+                                    </div>
+
+                                    <ul style="font-size: 0.8em;">
+                                        <li>Botones del mismo color y forma</li>
+                                        <li>Navegación en la misma posición</li>
+                                        <li>Terminología uniforme</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="principle-card example-bad">
+                                    <h5><i class="fas fa-times-circle" style="color: #dc3545;"></i> Inconsistencia</h5>
+
+                                    <!-- Ejemplo visual de inconsistencia -->
+                                    <div
+                                        style="background: #f8f9fa; padding: 0.8rem; border-radius: 6px; margin: 0.5rem 0;">
+                                        <div
+                                            style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem; align-items: center;">
+                                            <button
+                                                style="background: #28a745; color: white; border: none; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.6em;">Save</button>
+                                            <button
+                                                style="background: #ffc107; color: black; border: 2px solid #000; padding: 0.4rem 1rem; border-radius: 0; font-size: 0.8em;">EDIT</button>
+                                            <a href="#"
+                                                style="color: #dc3545; text-decoration: underline; font-size: 0.7em;">Delete</a>
+                                        </div>
+                                        <small style="color: #666; font-size: 0.7em;">Diferentes estilos y
+                                            términos</small>
+                                    </div>
+
+                                    <ul style="font-size: 0.8em;">
+                                        <li>Botones cambian de lugar</li>
+                                        <li>Colores diferentes sin razón</li>
+                                        <li>Términos confusos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>2. Feedback Informativo</h3>
+                    <div class="concept-box">
+                        <h4 style="color: var(--uide-secondary);"><i class="fas fa-comment"></i> Retroalimentación
+                            Continua</h4>
+                        <p>El sistema debe proporcionar <strong>feedback</strong> para cada acción del usuario</p>
+
+                        <div class="r-hstack" style="margin-top: 1rem;">
+                            <div class="column">
+                                <div class="principle-card example-good">
+                                    <h5><i class="fas fa-check-circle" style="color: #28a745;"></i> Buen Feedback</h5>
+
+                                    <!-- Ejemplo visual de buen feedback -->
+                                    <div
+                                        style="background: #f8f9fa; padding: 0.8rem; border-radius: 6px; margin: 0.5rem 0;">
+                                        <button
+                                            style="background: #28a745; color: white; border: none; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.7em; margin-bottom: 0.3rem;">Guardar</button>
+                                        <div
+                                            style="background: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 0.3rem; border-radius: 4px; font-size: 0.6em;">
+                                            <i class="fas fa-check"></i> Archivo guardado exitosamente
+                                        </div>
+                                        <div
+                                            style="margin-top: 0.3rem; background: #e9ecef; border-radius: 10px; height: 8px;">
+                                            <div
+                                                style="background: #007bff; height: 8px; width: 75%; border-radius: 10px;">
+                                            </div>
+                                        </div>
+                                        <small style="color: #666; font-size: 0.6em;">Progreso: 75%</small>
+                                    </div>
+
+                                    <ul style="font-size: 0.8em;">
+                                        <li>Confirmación de acciones</li>
+                                        <li>Indicadores de progreso</li>
+                                        <li>Mensajes de error claros</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="principle-card example-bad">
+                                    <h5><i class="fas fa-times-circle" style="color: #dc3545;"></i> Sin Feedback</h5>
+
+                                    <!-- Ejemplo visual de sin feedback -->
+                                    <div
+                                        style="background: #f8f9fa; padding: 0.8rem; border-radius: 6px; margin: 0.5rem 0;">
+                                        <button
+                                            style="background: #6c757d; color: white; border: none; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.7em; margin-bottom: 0.3rem;">Guardar</button>
+                                        <div
+                                            style="color: #666; font-size: 0.6em; font-style: italic; margin: 0.3rem 0;">
+                                            (Sin respuesta visual...)
+                                        </div>
+                                        <div
+                                            style="margin-top: 0.3rem; background: #e9ecef; border-radius: 10px; height: 8px;">
+                                            <div
+                                                style="background: #e9ecef; height: 8px; width: 100%; border-radius: 10px;">
+                                            </div>
+                                        </div>
+                                        <small style="color: #666; font-size: 0.6em;">¿Qué está pasando?</small>
+                                    </div>
+
+                                    <ul style="font-size: 0.8em;">
+                                        <li>Botones sin respuesta</li>
+                                        <li>Procesos silenciosos</li>
+                                        <li>Errores sin explicación</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>3. Prevención de Errores</h3>
+                    <div class="concept-box">
+                        <h4 style="color: var(--uide-accent);"><i class="fas fa-shield-alt"></i> Diseño Preventivo</h4>
+                        <p>El sistema debe diseñarse para que los usuarios <strong>no puedan cometer errores
+                                graves</strong></p>
+
+                        <div class="r-hstack" style="margin-top: 1rem;">
+                            <div class="column">
+                                <div class="principle-card example-good">
+                                    <h5><i class="fas fa-check-circle" style="color: #28a745;"></i> Prevención Efectiva
+                                    </h5>
+
+                                    <!-- Ejemplo visual de prevención efectiva -->
+                                    <div
+                                        style="background: #f8f9fa; padding: 0.8rem; border-radius: 6px; margin: 0.5rem 0;">
+                                        <div style="margin-bottom: 0.5rem;">
+                                            <label style="font-size: 0.6em; color: #333;">Email:</label>
+                                            <input type="email" id="emailInput1" value="estudiante@uide.edu.ec"
+                                                oninput="validateEmail1()"
+                                                style="width: 100%; padding: 0.2rem; border: 2px solid #28a745; border-radius: 3px; font-size: 0.6em;">
+                                            <small id="emailFeedback1" style="color: #28a745; font-size: 0.5em;"><i
+                                                    class="fas fa-check"></i> Email válido</small>
+                                        </div>
+                                        <div style="display: flex; gap: 0.3rem; align-items: center;">
+                                            <button id="deleteBtn1" onclick="showConfirmation1()"
+                                                style="background: #dc3545; color: white; border: none; padding: 0.2rem 0.5rem; border-radius: 3px; font-size: 0.6em; cursor: pointer;">
+                                                <i class="fas fa-trash"></i> Eliminar
+                                            </button>
+                                            <div id="confirmation1" style="display: none;">
+                                                <div
+                                                    style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 0.2rem; border-radius: 3px; font-size: 0.5em; display: flex; gap: 0.2rem; align-items: center;">
+                                                    <span>¿Confirmar?</span>
+                                                    <button onclick="confirmDelete1()"
+                                                        style="background: #dc3545; color: white; border: none; padding: 0.1rem 0.3rem; border-radius: 2px; font-size: 0.4em; cursor: pointer;">Sí</button>
+                                                    <button onclick="cancelDelete1()"
+                                                        style="background: #6c757d; color: white; border: none; padding: 0.1rem 0.3rem; border-radius: 2px; font-size: 0.4em; cursor: pointer;">No</button>
+                                                </div>
+                                            </div>
+                                            <div id="deleted1" style="display: none; color: #28a745; font-size: 0.5em;">
+                                                <i class="fas fa-check"></i> Eliminado de forma segura
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <ul style="font-size: 0.8em;">
+                                        <li>Validación en tiempo real</li>
+                                        <li>Confirmaciones para acciones críticas</li>
+                                        <li>Campos con formato automático</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="principle-card example-bad">
+                                    <h5><i class="fas fa-times-circle" style="color: #dc3545;"></i> Sin Prevención</h5>
+
+                                    <!-- Ejemplo visual de sin prevención -->
+                                    <div
+                                        style="background: #f8f9fa; padding: 0.8rem; border-radius: 6px; margin: 0.5rem 0;">
+                                        <div style="margin-bottom: 0.5rem;">
+                                            <label style="font-size: 0.6em; color: #333;">Email:</label>
+                                            <input type="text" value="estudiante@uide"
+                                                style="width: 100%; padding: 0.2rem; border: 1px solid #ccc; border-radius: 3px; font-size: 0.6em;">
+                                            <small style="color: #666; font-size: 0.5em;">(Sin validación)</small>
+                                        </div>
+                                        <div style="display: flex; gap: 0.3rem; align-items: center;">
+                                            <button id="deleteBtn2" onclick="deleteImmediately2()"
+                                                style="background: #dc3545; color: white; border: none; padding: 0.2rem 0.5rem; border-radius: 3px; font-size: 0.6em; cursor: pointer;">
+                                                <i class="fas fa-trash"></i> Eliminar
+                                            </button>
+                                            <div id="deletedBad2" style="display: none;">
+                                                <span style="font-size: 0.5em; color: #dc3545;">
+                                                    <i class="fas fa-exclamation-triangle"></i> ¡Eliminado sin
+                                                    confirmación!
+                                                </span>
+                                            </div>
+                                            <div id="regret2" style="display: none;">
+                                                <span style="font-size: 0.5em; color: #dc3545;">
+                                                    <i class="fas fa-sad-tear"></i> ¿Era importante?
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <small id="warningText2" style="color: #dc3545; font-size: 0.5em;">Sin
+                                            confirmación ni validación - ¡Peligroso!</small>
+                                    </div>
+
+                                    <ul style="font-size: 0.8em;">
+                                        <li>Eliminación sin confirmación</li>
+                                        <li>Campos sin validación</li>
+                                        <li>Acciones irreversibles fáciles</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- PE-1.1 Instrucciones Específicas -->
+            <section data-background-color="#e8f5e8" data-transition="convex">
+                <section>
+                    <h2><i class="fas fa-flask"></i> PE-1.1: Análisis de Principios</h2>
+                    <div class="pe-highlight">
+                        <h3 style="color: var(--uide-primary); text-align: center;">
+                            <i class="fas fa-mobile-alt"></i> Análisis de Interfaz Móvil
+                        </h3>
+                        <p style="text-align: center; font-size: 1.1em;">
+                            Aplicación de las 3 Reglas de Oro de Shneiderman
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-tasks"></i> Metodología de Trabajo</h3>
+                    <div class="concept-box">
+                        <div class="r-hstack">
+                            <div class="column">
+                                <h4 style="color: var(--uide-primary);">Proceso de Análisis</h4>
+                                <ol style="font-size: 0.9em; text-align: left;">
+                                    <li><strong>Selección:</strong> App móvil popular</li>
+                                    <li><strong>Análisis:</strong> Consistencia visual</li>
+                                    <li><strong>Evaluación:</strong> Feedback del sistema</li>
+                                    <li><strong>Identificación:</strong> Prevención de errores</li>
+                                    <li><strong>Documentación:</strong> Capturas y ejemplos</li>
+                                </ol>
+                            </div>
+                            <div class="column">
+                                <h4 style="color: var(--uide-secondary);">Criterios de Evaluación</h4>
+                                <ul style="font-size: 0.9em; text-align: left;">
+                                    <li><strong>40%:</strong> Aplicación correcta de principios</li>
+                                    <li><strong>30%:</strong> Identificación de problemas</li>
+                                    <li><strong>20%:</strong> Calidad de capturas</li>
+                                    <li><strong>10%:</strong> Claridad en presentación</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-lightbulb"></i> Tips para el Análisis</h3>
+                    <div class="concept-box">
+                        <div class="r-hstack">
+                            <div class="column">
+                                <div class="principle-card">
+                                    <h4><i class="fas fa-sync"></i> Consistencia</h4>
+                                    <ul style="font-size: 0.9em;">
+                                        <li>Compara pantallas similares</li>
+                                        <li>Revisa colores y tipografías</li>
+                                        <li>Verifica posición de elementos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="principle-card">
+                                    <h4><i class="fas fa-comment"></i> Feedback</h4>
+                                    <ul style="font-size: 0.9em;">
+                                        <li>Prueba botones y enlaces</li>
+                                        <li>Observa indicadores de carga</li>
+                                        <li>Revisa mensajes de error</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="principle-card">
+                                    <h4><i class="fas fa-shield-alt"></i> Prevención</h4>
+                                    <ul style="font-size: 0.9em;">
+                                        <li>Busca validaciones de formularios</li>
+                                        <li>Identifica confirmaciones</li>
+                                        <li>Prueba acciones críticas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-clock"></i> Cronograma de Trabajo</h3>
+                    <div class="concept-box">
+                        <div class="timer-box">
+                            <h4 style="color: var(--uide-primary);">Modalidad: Individual con retroalimentación grupal
+                            </h4>
+                        </div>
+
+                        <div class="r-hstack">
+                            <div class="column">
+                                <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-calendar-day"></i> Hoy en Clase</h5>
+                                    <ul style="font-size: 0.9em; text-align: left;">
+                                        <li>Selección de app</li>
+                                        <li>Análisis inicial</li>
+                                        <li>Primeras capturas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-home"></i> Para Casa</h5>
+                                    <ul style="font-size: 0.9em; text-align: left;">
+                                        <li>Completar análisis</li>
+                                        <li>Documentar hallazgos</li>
+                                        <li>Preparar presentación</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="interactive-box" style="margin-top: 1rem;">
+                            <p><i class="fas fa-trophy"></i> <strong>Puntaje:</strong> 2.25 puntos •
+                                <strong>Entrega:</strong> Próxima clase
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Recordatorio Metodología -->
+            <section>
+                <h2><i class="fas fa-sync-alt"></i> Recordatorio: Metodología de Clase</h2>
+
+                <section>
+                    <h3><i class="fas fa-book-reader"></i> Flipped Classroom</h3>
+                    <div class="concept-box">
+                        <div class="r-hstack">
+                            <div class="column">
+                                <div style="background: rgba(233, 171, 33, 0.1); padding: 1.5rem; border-radius: 8px;">
+                                    <h4><i class="fas fa-home"></i> En Casa</h4>
+                                    <p style="font-size: 0.9em;">Estudias el <strong>compendio</strong> con todos los
+                                        conceptos teóricos</p>
+                                    <ul style="font-size: 0.8em; text-align: left;">
+                                        <li>Definiciones completas</li>
+                                        <li>Ejemplos detallados</li>
+                                        <li>Autoevaluaciones</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(40, 167, 69, 0.1); padding: 1.5rem; border-radius: 8px;">
+                                    <h4><i class="fas fa-users"></i> En Clase</h4>
+                                    <p style="font-size: 0.9em;">Aplicamos los conceptos en <strong>actividades
+                                            prácticas</strong></p>
+                                    <ul style="font-size: 0.8em; text-align: left;">
+                                        <li>Análisis de casos</li>
+                                        <li>Trabajo colaborativo</li>
+                                        <li>Resolución de dudas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-question-circle"></i> ¿Cómo Aprovechar Mejor la Clase?</h3>
+                    <div class="concept-box">
+                        <div class="timer-box">
+                            <h4 style="color: var(--uide-primary);">Preparación Previa = Mejor Aprendizaje</h4>
+                        </div>
+
+                        <div class="r-hstack">
+                            <div class="column">
+                                <div class="principle-card example-good">
+                                    <h5><i class="fas fa-check-circle" style="color: #28a745;"></i> Estudiante Preparado
+                                    </h5>
+                                    <ul style="font-size: 0.9em;">
+                                        <li>Leyó el compendio</li>
+                                        <li>Hizo las autoevaluaciones</li>
+                                        <li>Trae dudas específicas</li>
+                                        <li>Participa activamente</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="principle-card example-bad">
+                                    <h5><i class="fas fa-times-circle" style="color: #dc3545;"></i> Estudiante No
+                                        Preparado</h5>
+                                    <ul style="font-size: 0.9em;">
+                                        <li>No leyó el material</li>
+                                        <li>Se pierde en las actividades</li>
+                                        <li>No puede contribuir al grupo</li>
+                                        <li>Aprovecha menos la clase</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Resumen y Próximos Pasos -->
+            <section data-background-color="#f8f8f8">
+                <h2><i class="fas fa-clipboard-check"></i> Resumen y Próximos Pasos</h2>
+
+                <section>
+                    <h3><i class="fas fa-key"></i> Conceptos Clave para PE-1.1</h3>
+                    <div class="concept-box">
+                        <div class="r-hstack">
+                            <div class="column">
+                                <h4 style="color: var(--uide-primary);">Principios a Aplicar</h4>
+                                <ul style="font-size: 0.9em; text-align: left;">
+                                    <li><strong>Consistencia:</strong> Elementos uniformes</li>
+                                    <li><strong>Feedback:</strong> Respuesta del sistema</li>
+                                    <li><strong>Prevención:</strong> Evitar errores</li>
+                                </ul>
+                            </div>
+                            <div class="column">
+                                <h4 style="color: var(--uide-secondary);">Qué Buscar</h4>
+                                <ul style="font-size: 0.9em; text-align: left;">
+                                    <li>Violaciones a los principios</li>
+                                    <li>Ejemplos de buenas prácticas</li>
+                                    <li>Impacto en la experiencia del usuario</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-arrow-right"></i> Para la Próxima Clase</h3>
+                    <div class="concept-box">
+                        <div class="interactive-box">
+                            <h4><i class="fas fa-tasks"></i> Tareas Pendientes</h4>
+                            <ul style="font-size: 0.9em; text-align: left;">
+                                <li><strong>Completar PE-1.1:</strong> Análisis de principios de Shneiderman</li>
+                                <li><strong>Iniciar TA-1.1:</strong> Investigación para línea de tiempo histórica</li>
+                                <li><strong>Estudiar:</strong> Compendio Semana 2 (Factores humanos)</li>
+                            </ul>
+                        </div>
+
+                        <div class="timer-box">
+                            <p><i class="fas fa-calendar-alt"></i> <strong>Próxima semana:</strong> Factores humanos y
+                                computación ubicua</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section data-background-color="#f8f8f8">
+                    <div class="title-slide">
+                        <h1 style="color: var(--uide-primary);">¡A Trabajar!</h1>
+                        <h3>Apliquemos HCI en interfaces reales</h3>
+
+                        <div style="margin-top: 2em; font-size: 0.9em;">
+                            <strong>Universidad Internacional del Ecuador</strong><br>
+                            <strong>Escuela de Ciencias de la Computación</strong><br>
+                            <em>Ingeniería en Tecnologías de la Información</em><br>
+                            <strong>PE-1.1:</strong> 2.25 puntos • <strong>TA-1.1:</strong> 3.0 puntos
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/highlight.js"></script>
+
+    <script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+
+            plugins: [RevealHighlight, RevealNotes]
+        });
+
+        // Funciones para el ejemplo interactivo de prevención de errores
+        function validateEmail1() {
+            const emailInput = document.getElementById('emailInput1');
+            const feedback = document.getElementById('emailFeedback1');
+            const email = emailInput.value;
+
+            // Validación de email UIDE
+            const uideEmailRegex = /^[a-zA-Z0-9._%+-]+@uide\.edu\.ec$/;
+            const generalEmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            if (uideEmailRegex.test(email)) {
+                // Email UIDE válido
+                emailInput.style.border = '2px solid #28a745';
+                feedback.style.color = '#28a745';
+                feedback.innerHTML = '<i class="fas fa-check"></i> Email UIDE válido';
+            } else if (generalEmailRegex.test(email)) {
+                // Email válido pero no UIDE
+                emailInput.style.border = '2px solid #ffc107';
+                feedback.style.color = '#856404';
+                feedback.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Usar email institucional @uide.edu.ec';
+            } else if (email.length === 0) {
+                // Campo vacío
+                emailInput.style.border = '1px solid #ccc';
+                feedback.style.color = '#666';
+                feedback.innerHTML = 'Ingrese su email institucional';
+            } else {
+                // Email inválido
+                emailInput.style.border = '2px solid #dc3545';
+                feedback.style.color = '#dc3545';
+                feedback.innerHTML = '<i class="fas fa-times"></i> Email inválido';
+            }
+        }
+
+        function showConfirmation1() {
+            document.getElementById('deleteBtn1').style.display = 'none';
+            document.getElementById('confirmation1').style.display = 'block';
+        }
+
+        function confirmDelete1() {
+            document.getElementById('confirmation1').style.display = 'none';
+            document.getElementById('deleted1').style.display = 'block';
+            setTimeout(() => {
+                // Resetear después de 3 segundos
+                document.getElementById('deleted1').style.display = 'none';
+                document.getElementById('deleteBtn1').style.display = 'inline-block';
+            }, 3000);
+        }
+
+        function cancelDelete1() {
+            document.getElementById('confirmation1').style.display = 'none';
+            document.getElementById('deleteBtn1').style.display = 'inline-block';
+        }
+
+        // Función para el ejemplo de eliminación sin prevención (malo)
+        function deleteImmediately2() {
+            const deleteBtn = document.getElementById('deleteBtn2');
+            const deletedBad = document.getElementById('deletedBad2');
+            const regret = document.getElementById('regret2');
+            const warningText = document.getElementById('warningText2');
+
+            // Eliminar inmediatamente sin confirmación
+            deleteBtn.style.display = 'none';
+            deletedBad.style.display = 'block';
+            warningText.innerHTML = '<i class="fas fa-exclamation-triangle"></i> ¡Ups! No hay forma de deshacer...';
+
+            // Mostrar arrepentimiento después de 1.5 segundos
+            setTimeout(() => {
+                deletedBad.style.display = 'none';
+                regret.style.display = 'block';
+                warningText.innerHTML = '<i class="fas fa-times-circle"></i> Datos perdidos para siempre';
+            }, 1500);
+
+            // Resetear después de 4 segundos
+            setTimeout(() => {
+                regret.style.display = 'none';
+                deleteBtn.style.display = 'inline-block';
+                warningText.innerHTML = 'Sin confirmación ni validación - ¡Peligroso!';
+            }, 4000);
+        }
+    </script>
+</body>
+
+</html>
