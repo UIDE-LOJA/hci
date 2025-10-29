@@ -1096,158 +1096,225 @@
                         <h4 style="color: var(--uide-accent);"><i class="fas fa-undo"></i> Fácil Reversibilidad</h4>
                         <p>Permite <strong>fácil reversibilidad</strong> de las acciones (<strong>undo</strong>). Alivia
                             la ansiedad</p>
+                    </div>
+                </section>
 
-                        <div class="r-hstack" style="margin-top: 1rem;">
-                            <div class="column">
-                                <div class="principle-card example-good">
-                                    <h5><i class="fas fa-check-circle" style="color: #28a745;"></i> Reversibilidad
-                                        Efectiva</h5>
+                <section>
+                    <h3>6. Reversibilidad - Ejemplo Bueno</h3>
+                    <div class="concept-box">
+                        <h4 style="color: var(--uide-accent);"><i class="fas fa-undo"></i> Reversibilidad Efectiva</h4>
+                        <p>Permite <strong>fácil reversibilidad</strong> de las acciones (<strong>undo</strong>). Alivia
+                            la ansiedad</p>
 
-                                    <!-- Ejemplo visual de reversibilidad efectiva -->
+                        <div style="margin-top: 1rem;">
+                            <div class="principle-card example-good">
+                                <h5><i class="fas fa-check-circle" style="color: #28a745;"></i> Reversibilidad
+                                    Efectiva</h5>
+
+                                <!-- Ejemplo visual de reversibilidad efectiva MEJORADO -->
+                                <div
+                                    style="background: #f8f9fa; padding: 0.8rem; border-radius: 6px; margin: 0.5rem 0;">
                                     <div
-                                        style="background: #f8f9fa; padding: 0.8rem; border-radius: 6px; margin: 0.5rem 0;">
+                                        style="border: 1px solid #dee2e6; padding: 0.5rem; border-radius: 4px; background: white;">
+                                        <!-- Título del editor -->
                                         <div
-                                            style="border: 1px solid #dee2e6; padding: 0.5rem; border-radius: 4px; background: white;">
-                                            <!-- Barra de herramientas con undo/redo -->
-                                            <div
-                                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; padding: 0.2rem; background: #f8f9fa; border-radius: 3px;">
-                                                <div style="display: flex; gap: 0.2rem;">
-                                                    <button onclick="undoAction6()" id="undoBtn6"
-                                                        style="background: #007bff; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.6em; cursor: pointer;">
-                                                        <i class="fas fa-undo"></i> Deshacer
-                                                    </button>
-                                                    <button onclick="redoAction6()" id="redoBtn6"
-                                                        style="background: #6c757d; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.6em; cursor: pointer;"
-                                                        disabled>
-                                                        <i class="fas fa-redo"></i> Rehacer
-                                                    </button>
+                                            style="text-align: center; margin-bottom: 0.5rem; padding: 0.3rem; background: #e3f2fd; border-radius: 3px;">
+                                            <h6 style="margin: 0; font-size: 0.7em; color: #1976d2;">
+                                                <i class="fas fa-edit"></i> Editor Simple con Undo/Redo
+                                            </h6>
+                                            <small style="font-size: 0.5em; color: #666;">Solo 3 acciones: Agregar,
+                                                Cambiar Color, Borrar</small>
+                                        </div>
+
+                                        <!-- Barra de herramientas mejorada -->
+                                        <div
+                                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; padding: 0.3rem; background: #f8f9fa; border-radius: 3px; border: 1px solid #e0e0e0;">
+                                            <div style="display: flex; gap: 0.2rem; align-items: center;">
+                                                <button onclick="undoAction6()" id="undoBtn6"
+                                                    style="background: #007bff; color: white; border: none; padding: 0.3rem 0.5rem; border-radius: 3px; font-size: 0.6em; cursor: pointer; transition: all 0.2s;">
+                                                    <i class="fas fa-undo"></i> Deshacer
+                                                </button>
+                                                <button onclick="redoAction6()" id="redoBtn6"
+                                                    style="background: #6c757d; color: white; border: none; padding: 0.3rem 0.5rem; border-radius: 3px; font-size: 0.6em; cursor: pointer; transition: all 0.2s;"
+                                                    disabled>
+                                                    <i class="fas fa-redo"></i> Rehacer
+                                                </button>
+                                                <div
+                                                    style="border-left: 1px solid #ccc; height: 20px; margin: 0 0.3rem;">
                                                 </div>
-                                                <button onclick="showHistory6()"
-                                                    style="background: #17a2b8; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.6em; cursor: pointer;">
+                                                <span id="actionCount6"
+                                                    style="font-size: 0.5em; color: #666; background: #e9ecef; padding: 0.2rem 0.4rem; border-radius: 2px;">
+                                                    Acciones: 1
+                                                </span>
+                                            </div>
+                                            <div style="display: flex; gap: 0.2rem; align-items: center;">
+                                                <button onclick="showHistory6()" id="historyBtn6"
+                                                    style="background: #17a2b8; color: white; border: none; padding: 0.3rem 0.5rem; border-radius: 3px; font-size: 0.6em; cursor: pointer;">
                                                     <i class="fas fa-history"></i> Historial
                                                 </button>
+                                                <button onclick="resetEditor6()"
+                                                    style="background: #6c757d; color: white; border: none; padding: 0.3rem 0.5rem; border-radius: 3px; font-size: 0.6em; cursor: pointer;">
+                                                    <i class="fas fa-refresh"></i> Reset
+                                                </button>
                                             </div>
+                                        </div>
 
-                                            <!-- Área de trabajo -->
+                                        <!-- Área de trabajo simple -->
+                                        <div
+                                            style="border: 2px solid #e0e0e0; padding: 0.5rem; border-radius: 4px; min-height: 60px; background: white; margin-bottom: 0.5rem;">
+                                            <div id="textContent6" style="font-size: 0.7em; line-height: 1.4;">
+                                                Mi documento importante
+                                            </div>
+                                        </div>
+
+                                        <!-- Acciones simples -->
+                                        <div
+                                            style="display: flex; gap: 0.3rem; justify-content: center; margin-bottom: 0.5rem;">
+                                            <button onclick="addText6()"
+                                                style="background: #28a745; color: white; border: none; padding: 0.3rem 0.5rem; border-radius: 3px; font-size: 0.6em; cursor: pointer;">
+                                                <i class="fas fa-plus"></i> Agregar
+                                            </button>
+                                            <button onclick="changeColor6()"
+                                                style="background: #ffc107; color: black; border: none; padding: 0.3rem 0.5rem; border-radius: 3px; font-size: 0.6em; cursor: pointer;">
+                                                <i class="fas fa-palette"></i> Color
+                                            </button>
+                                            <button onclick="deleteAll6()"
+                                                style="background: #dc3545; color: white; border: none; padding: 0.3rem 0.5rem; border-radius: 3px; font-size: 0.6em; cursor: pointer;">
+                                                <i class="fas fa-trash"></i> Borrar
+                                            </button>
+                                        </div>
+
+                                        <!-- Historial mejorado -->
+                                        <div id="history6"
+                                            style="display: none; margin-top: 0.5rem; padding: 0.4rem; background: #f8f9fa; border-radius: 4px; border: 1px solid #e0e0e0; max-height: 120px; overflow-y: auto;">
                                             <div
-                                                style="border: 1px solid #e0e0e0; padding: 0.3rem; border-radius: 3px; min-height: 60px; background: white;">
-                                                <div id="workArea6" style="font-size: 0.6em;">
-                                                    <div id="text6">Texto original</div>
+                                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem;">
+                                                <div style="font-size: 0.6em; font-weight: bold; color: #495057;">
+                                                    <i class="fas fa-history"></i> Historial de Acciones
                                                 </div>
-                                            </div>
-
-                                            <!-- Acciones disponibles -->
-                                            <div style="display: flex; gap: 0.2rem; margin-top: 0.3rem;">
-                                                <button onclick="addText6()"
-                                                    style="background: #28a745; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.6em; cursor: pointer;">
-                                                    Agregar texto
-                                                </button>
-                                                <button onclick="changeColor6()"
-                                                    style="background: #ffc107; color: black; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.6em; cursor: pointer;">
-                                                    Cambiar color
-                                                </button>
-                                                <button onclick="deleteText6()"
-                                                    style="background: #dc3545; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.6em; cursor: pointer;">
-                                                    Eliminar
+                                                <button onclick="clearHistory6()"
+                                                    style="background: #dc3545; color: white; border: none; padding: 0.1rem 0.3rem; border-radius: 2px; font-size: 0.5em; cursor: pointer;">
+                                                    Limpiar
                                                 </button>
                                             </div>
-
-                                            <!-- Historial (oculto inicialmente) -->
-                                            <div id="history6"
-                                                style="display: none; margin-top: 0.3rem; padding: 0.3rem; background: #f8f9fa; border-radius: 3px; border: 1px solid #e0e0e0;">
+                                            <div id="historyList6"
+                                                style="font-size: 0.5em; color: #666; line-height: 1.3;">
                                                 <div
-                                                    style="font-size: 0.6em; font-weight: bold; margin-bottom: 0.2rem;">
-                                                    Historial de acciones:</div>
-                                                <div id="historyList6" style="font-size: 0.5em; color: #666;">
-                                                    1. Texto inicial creado
+                                                    style="padding: 0.2rem; background: #e3f2fd; border-radius: 2px; margin-bottom: 0.1rem; border-left: 3px solid #2196f3;">
+                                                    <strong>1.</strong> Documento inicial creado <span
+                                                        style="color: #999; float: right;">Actual</span>
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <!-- Mensaje de confianza -->
                                         <div
-                                            style="text-align: center; font-size: 0.6em; color: #666; margin-top: 0.3rem;">
-                                            Todas las acciones son reversibles
+                                            style="text-align: center; margin-top: 0.5rem; padding: 0.3rem; background: rgba(40, 167, 69, 0.1); border-radius: 3px; border: 1px solid rgba(40, 167, 69, 0.3);">
+                                            <div style="font-size: 0.6em; color: #155724; font-weight: bold;">
+                                                <i class="fas fa-shield-alt"></i> ¡Experimenta sin miedo!
+                                            </div>
+                                            <div style="font-size: 0.5em; color: #155724;">
+                                                Todas las acciones son completamente reversibles
+                                            </div>
                                         </div>
                                     </div>
+                                </div>
 
-                                    <ul style="font-size: 0.8em;">
-                                        <li>Botón "Deshacer" visible</li>
-                                        <li>Historial de acciones</li>
-                                        <li>Múltiples niveles de undo</li>
-                                        <li>Recuperación de datos</li>
-                                    </ul>
+                                <div class="r-hstack" style="font-size: 0.8em;">
+                                    <div class="column">
+                                        <ul style="margin: 0; padding-left: 1rem;">
+                                            <li>Botón "Deshacer" visible</li>
+                                            <li>Historial de acciones</li>
+                                        </ul>
+                                    </div>
+                                    <div class="column">
+                                        <ul style="margin: 0; padding-left: 1rem;">
+                                            <li>Múltiples niveles de undo</li>
+                                            <li>Recuperación de datos</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="column">
-                                <div class="principle-card example-bad">
-                                    <h5><i class="fas fa-times-circle" style="color: #dc3545;"></i> Sin Reversibilidad
-                                    </h5>
+                        </div>
+                    </div>
+                </section>
 
-                                    <!-- Ejemplo visual sin reversibilidad -->
+                <section>
+                    <h3>6. Reversibilidad - Ejemplo Malo</h3>
+                    <div class="concept-box">
+                        <h4 style="color: var(--uide-accent);"><i class="fas fa-times"></i> Sin Reversibilidad</h4>
+                        <p>Acciones <strong>permanentes</strong> que generan <strong>ansiedad</strong> en el usuario</p>
+
+                        <div style="margin-top: 1rem;">
+                            <div class="principle-card example-bad">
+                                <h5><i class="fas fa-times-circle" style="color: #dc3545;"></i> Sin Reversibilidad
+                                </h5>
+
+                                <!-- Ejemplo visual sin reversibilidad -->
+                                <div
+                                    style="background: #f8f9fa; padding: 0.8rem; border-radius: 6px; margin: 0.5rem 0;">
                                     <div
-                                        style="background: #f8f9fa; padding: 0.8rem; border-radius: 6px; margin: 0.5rem 0;">
+                                        style="border: 1px solid #dee2e6; padding: 0.5rem; border-radius: 4px; background: white;">
+                                        <!-- Barra de herramientas sin undo -->
                                         <div
-                                            style="border: 1px solid #dee2e6; padding: 0.5rem; border-radius: 4px; background: white;">
-                                            <!-- Barra de herramientas sin undo -->
-                                            <div
-                                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; padding: 0.2rem; background: #f8f9fa; border-radius: 3px;">
-                                                <div style="font-size: 0.6em; color: #666;">
-                                                    Editor Simple
-                                                </div>
-                                                <div style="font-size: 0.5em; color: #999;">
-                                                    Sin opciones de deshacer
-                                                </div>
+                                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; padding: 0.2rem; background: #f8f9fa; border-radius: 3px;">
+                                            <div style="font-size: 0.6em; color: #666;">
+                                                Editor Simple
                                             </div>
-
-                                            <!-- Área de trabajo -->
-                                            <div
-                                                style="border: 1px solid #e0e0e0; padding: 0.3rem; border-radius: 3px; min-height: 60px; background: white;">
-                                                <div id="badWorkArea6" style="font-size: 0.6em;">
-                                                    <div id="badText6">Documento importante</div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Acciones peligrosas -->
-                                            <div style="display: flex; gap: 0.2rem; margin-top: 0.3rem;">
-                                                <button onclick="badDelete6()"
-                                                    style="background: #dc3545; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.6em; cursor: pointer;">
-                                                    Eliminar Todo
-                                                </button>
-                                                <button onclick="badFormat6()"
-                                                    style="background: #6c757d; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.6em; cursor: pointer;">
-                                                    Formatear
-                                                </button>
-                                                <button onclick="badOverwrite6()"
-                                                    style="background: #fd7e14; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.6em; cursor: pointer;">
-                                                    Sobrescribir
-                                                </button>
-                                            </div>
-
-                                            <!-- Mensaje de advertencia -->
-                                            <div id="warningMsg6"
-                                                style="display: none; margin-top: 0.3rem; padding: 0.3rem; background: #f8d7da; border: 1px solid #f5c6cb; border-radius: 3px; color: #721c24;">
-                                                <div style="font-size: 0.6em;">
-                                                    <i class="fas fa-exclamation-triangle"></i> ¡Acción irreversible!
-                                                </div>
-                                                <div style="font-size: 0.5em; margin-top: 0.2rem;">
-                                                    Los datos se han perdido permanentemente.<br>
-                                                    No hay forma de recuperarlos.
-                                                </div>
+                                            <div style="font-size: 0.5em; color: #999;">
+                                                Sin opciones de deshacer
                                             </div>
                                         </div>
+
+                                        <!-- Área de trabajo -->
                                         <div
-                                            style="text-align: center; font-size: 0.6em; color: #dc3545; margin-top: 0.3rem;">
-                                            <i class="fas fa-exclamation-triangle"></i> Acciones permanentes generan
-                                            ansiedad
+                                            style="border: 1px solid #e0e0e0; padding: 0.3rem; border-radius: 3px; min-height: 60px; background: white;">
+                                            <div id="badWorkArea6" style="font-size: 0.6em;">
+                                                <div id="badText6">Documento importante</div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Acciones peligrosas -->
+                                        <div style="display: flex; gap: 0.2rem; margin-top: 0.3rem;">
+                                            <button onclick="badDelete6()"
+                                                style="background: #dc3545; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.6em; cursor: pointer;">
+                                                Eliminar Todo
+                                            </button>
+                                            <button onclick="badFormat6()"
+                                                style="background: #6c757d; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.6em; cursor: pointer;">
+                                                Formatear
+                                            </button>
+                                            <button onclick="badOverwrite6()"
+                                                style="background: #fd7e14; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.6em; cursor: pointer;">
+                                                Sobrescribir
+                                            </button>
+                                        </div>
+
+                                        <!-- Mensaje de advertencia -->
+                                        <div id="warningMsg6"
+                                            style="display: none; margin-top: 0.3rem; padding: 0.3rem; background: #f8d7da; border: 1px solid #f5c6cb; border-radius: 3px; color: #721c24;">
+                                            <div style="font-size: 0.6em;">
+                                                <i class="fas fa-exclamation-triangle"></i> ¡Acción irreversible!
+                                            </div>
+                                            <div style="font-size: 0.5em; margin-top: 0.2rem;">
+                                                Los datos se han perdido permanentemente.<br>
+                                                No hay forma de recuperarlos.
+                                            </div>
                                         </div>
                                     </div>
-
-                                    <ul style="font-size: 0.8em;">
-                                        <li>Acciones permanentes</li>
-                                        <li>Sin opción de deshacer</li>
-                                        <li>Pérdida de datos irreversible</li>
-                                        <li>Ansiedad en el usuario</li>
-                                    </ul>
+                                    <div
+                                        style="text-align: center; font-size: 0.6em; color: #dc3545; margin-top: 0.3rem;">
+                                        <i class="fas fa-exclamation-triangle"></i> Acciones permanentes generan
+                                        ansiedad
+                                    </div>
                                 </div>
+
+                                <ul style="font-size: 0.8em;">
+                                    <li>Acciones permanentes</li>
+                                    <li>Sin opción de deshacer</li>
+                                    <li>Pérdida de datos irreversible</li>
+                                    <li>Ansiedad en el usuario</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -1259,182 +1326,181 @@
                         <h4 style="color: var(--uide-primary);"><i class="fas fa-user-cog"></i> Usuario en Control</h4>
                         <p>Los usuarios deben <strong>sentirse dueños</strong> de la interfaz</p>
 
-                        <div class="r-hstack" style="margin-top: 1rem;">
-                            <div class="column">
-                                <div class="principle-card example-good">
-                                    <h5><i class="fas fa-check-circle" style="color: #28a745;"></i> Control del Usuario
-                                    </h5>
+                    </div>
+                </section>
 
-                                    <!-- Ejemplo visual de control del usuario -->
+                <section>
+                    <h3><i class="fas fa-check-circle" style="color: #28a745;"></i> Control del Usuario</h3>
+                    <div class="concept-box">
+                        <div class="principle-card example-good">
+                            <h4 style="color: var(--uide-primary);"><i class="fas fa-user-cog"></i> Usuario en Control
+                            </h4>
+
+                            <!-- Ejemplo visual de control del usuario -->
+                            <div style="background: #f8f9fa; padding: 0.8rem; border-radius: 6px; margin: 0.5rem 0;">
+                                <div
+                                    style="border: 1px solid #dee2e6; padding: 0.5rem; border-radius: 4px; background: white;">
+                                    <!-- Panel de control del usuario -->
                                     <div
-                                        style="background: #f8f9fa; padding: 0.8rem; border-radius: 6px; margin: 0.5rem 0;">
+                                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; padding: 0.2rem; background: #e3f2fd; border-radius: 3px;">
+                                        <div style="font-size: 0.6em; font-weight: bold; color: #1976d2;">
+                                            <i class="fas fa-user"></i> Panel de Control
+                                        </div>
+                                        <button onclick="toggleSettings7()"
+                                            style="background: #007bff; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.6em; cursor: pointer;">
+                                            <i class="fas fa-cog"></i> Configurar
+                                        </button>
+                                    </div>
+
+                                    <!-- Proceso controlado por el usuario -->
+                                    <div
+                                        style="border: 1px solid #e0e0e0; padding: 0.3rem; border-radius: 3px; background: white; margin-bottom: 0.3rem;">
                                         <div
-                                            style="border: 1px solid #dee2e6; padding: 0.5rem; border-radius: 4px; background: white;">
-                                            <!-- Panel de control del usuario -->
-                                            <div
-                                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; padding: 0.2rem; background: #e3f2fd; border-radius: 3px;">
-                                                <div style="font-size: 0.6em; font-weight: bold; color: #1976d2;">
-                                                    <i class="fas fa-user"></i> Panel de Control
-                                                </div>
-                                                <button onclick="toggleSettings7()"
-                                                    style="background: #007bff; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.6em; cursor: pointer;">
-                                                    <i class="fas fa-cog"></i> Configurar
+                                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem;">
+                                            <span style="font-size: 0.6em;">Descarga de archivo:</span>
+                                            <div style="display: flex; gap: 0.2rem;">
+                                                <button onclick="startDownload7()" id="startBtn7"
+                                                    style="background: #28a745; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.5em; cursor: pointer;">
+                                                    <i class="fas fa-play"></i> Iniciar
+                                                </button>
+                                                <button onclick="pauseDownload7()" id="pauseBtn7"
+                                                    style="background: #ffc107; color: black; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.5em; cursor: pointer;"
+                                                    disabled>
+                                                    <i class="fas fa-pause"></i> Pausar
+                                                </button>
+                                                <button onclick="cancelDownload7()" id="cancelBtn7"
+                                                    style="background: #dc3545; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.5em; cursor: pointer;"
+                                                    disabled>
+                                                    <i class="fas fa-times"></i> Cancelar
                                                 </button>
                                             </div>
-
-                                            <!-- Proceso controlado por el usuario -->
-                                            <div
-                                                style="border: 1px solid #e0e0e0; padding: 0.3rem; border-radius: 3px; background: white; margin-bottom: 0.3rem;">
-                                                <div
-                                                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem;">
-                                                    <span style="font-size: 0.6em;">Descarga de archivo:</span>
-                                                    <div style="display: flex; gap: 0.2rem;">
-                                                        <button onclick="startDownload7()" id="startBtn7"
-                                                            style="background: #28a745; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.5em; cursor: pointer;">
-                                                            <i class="fas fa-play"></i> Iniciar
-                                                        </button>
-                                                        <button onclick="pauseDownload7()" id="pauseBtn7"
-                                                            style="background: #ffc107; color: black; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.5em; cursor: pointer;"
-                                                            disabled>
-                                                            <i class="fas fa-pause"></i> Pausar
-                                                        </button>
-                                                        <button onclick="cancelDownload7()" id="cancelBtn7"
-                                                            style="background: #dc3545; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.5em; cursor: pointer;"
-                                                            disabled>
-                                                            <i class="fas fa-times"></i> Cancelar
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <div
-                                                    style="background: #e0e0e0; border-radius: 10px; height: 6px; margin-bottom: 0.2rem;">
-                                                    <div id="progress7"
-                                                        style="background: #28a745; height: 6px; width: 0%; border-radius: 10px; transition: width 0.3s;">
-                                                    </div>
-                                                </div>
-                                                <div style="font-size: 0.5em; color: #666; text-align: center;">
-                                                    <span id="status7">Listo para iniciar</span>
-                                                </div>
-                                            </div>
-
-                                            <!-- Configuraciones personalizables -->
-                                            <div id="settings7"
-                                                style="display: none; border: 1px solid #e0e0e0; padding: 0.3rem; border-radius: 3px; background: #f8f9fa;">
-                                                <div
-                                                    style="font-size: 0.6em; font-weight: bold; margin-bottom: 0.3rem;">
-                                                    Personalización:</div>
-                                                <div style="display: flex; gap: 0.3rem; margin-bottom: 0.2rem;">
-                                                    <label style="font-size: 0.5em;">Velocidad:</label>
-                                                    <select style="font-size: 0.5em; padding: 0.1rem;">
-                                                        <option>Lenta</option>
-                                                        <option selected>Normal</option>
-                                                        <option>Rápida</option>
-                                                    </select>
-                                                </div>
-                                                <div style="display: flex; gap: 0.2rem; align-items: center;">
-                                                    <input type="checkbox" id="autoStart7"
-                                                        style="transform: scale(0.8);">
-                                                    <label for="autoStart7" style="font-size: 0.5em;">Auto-iniciar
-                                                        próximas descargas</label>
-                                                </div>
-                                            </div>
                                         </div>
                                         <div
-                                            style="text-align: center; font-size: 0.6em; color: #666; margin-top: 0.3rem;">
-                                            Usuario controla cuándo, cómo y a qué velocidad
+                                            style="background: #e0e0e0; border-radius: 10px; height: 6px; margin-bottom: 0.2rem;">
+                                            <div id="progress7"
+                                                style="background: #28a745; height: 6px; width: 0%; border-radius: 10px; transition: width 0.3s;">
+                                            </div>
+                                        </div>
+                                        <div style="font-size: 0.5em; color: #666; text-align: center;">
+                                            <span id="status7">Listo para iniciar</span>
                                         </div>
                                     </div>
 
-                                    <ul style="font-size: 0.8em;">
-                                        <li>Usuario inicia las acciones</li>
-                                        <li>Puede cancelar operaciones</li>
-                                        <li>Controla el ritmo</li>
-                                        <li>Personalización disponible</li>
-                                    </ul>
+                                    <!-- Configuraciones personalizables -->
+                                    <div id="settings7"
+                                        style="display: none; border: 1px solid #e0e0e0; padding: 0.3rem; border-radius: 3px; background: #f8f9fa;">
+                                        <div style="font-size: 0.6em; font-weight: bold; margin-bottom: 0.3rem;">
+                                            Personalización:</div>
+                                        <div style="display: flex; gap: 0.3rem; margin-bottom: 0.2rem;">
+                                            <label style="font-size: 0.5em;">Velocidad:</label>
+                                            <select style="font-size: 0.5em; padding: 0.1rem;">
+                                                <option>Lenta</option>
+                                                <option selected>Normal</option>
+                                                <option>Rápida</option>
+                                            </select>
+                                        </div>
+                                        <div style="display: flex; gap: 0.2rem; align-items: center;">
+                                            <input type="checkbox" id="autoStart7" style="transform: scale(0.8);">
+                                            <label for="autoStart7" style="font-size: 0.5em;">Auto-iniciar
+                                                próximas descargas</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="text-align: center; font-size: 0.6em; color: #666; margin-top: 0.3rem;">
+                                    Usuario controla cuándo, cómo y a qué velocidad
                                 </div>
                             </div>
-                            <div class="column">
-                                <div class="principle-card example-bad">
-                                    <h5><i class="fas fa-times-circle" style="color: #dc3545;"></i> Sistema en Control
-                                    </h5>
 
-                                    <!-- Ejemplo visual de sistema en control -->
+                            <ul style="font-size: 0.8em;">
+                                <li>Usuario inicia las acciones</li>
+                                <li>Puede cancelar operaciones</li>
+                                <li>Controla el ritmo</li>
+                                <li>Personalización disponible</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-times-circle" style="color: #dc3545;"></i> Sistema en Control</h3>
+                    <div class="concept-box">
+                        <div class="principle-card example-bad">
+                            <h4 style="color: #dc3545;"><i class="fas fa-robot"></i> Sistema Automático</h4>
+
+                            <!-- Ejemplo visual de sistema en control -->
+                            <div style="background: #f8f9fa; padding: 0.8rem; border-radius: 6px; margin: 0.5rem 0;">
+                                <div
+                                    style="border: 1px solid #dee2e6; padding: 0.5rem; border-radius: 4px; background: white;">
+                                    <!-- Panel del sistema (sin control del usuario) -->
                                     <div
-                                        style="background: #f8f9fa; padding: 0.8rem; border-radius: 6px; margin: 0.5rem 0;">
-                                        <div
-                                            style="border: 1px solid #dee2e6; padding: 0.5rem; border-radius: 4px; background: white;">
-                                            <!-- Panel del sistema (sin control del usuario) -->
-                                            <div
-                                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; padding: 0.2rem; background: #f8d7da; border-radius: 3px;">
-                                                <div style="font-size: 0.6em; font-weight: bold; color: #721c24;">
-                                                    <i class="fas fa-robot"></i> Sistema Automático
-                                                </div>
-                                                <div style="font-size: 0.5em; color: #721c24;">
-                                                    Sin configuración
-                                                </div>
-                                            </div>
-
-                                            <!-- Proceso automático sin control -->
-                                            <div
-                                                style="border: 1px solid #e0e0e0; padding: 0.3rem; border-radius: 3px; background: white; margin-bottom: 0.3rem;">
-                                                <div
-                                                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem;">
-                                                    <span style="font-size: 0.6em;">Actualizando sistema...</span>
-                                                    <div style="font-size: 0.5em; color: #dc3545;">
-                                                        <i class="fas fa-lock"></i> Bloqueado
-                                                    </div>
-                                                </div>
-                                                <div
-                                                    style="background: #e0e0e0; border-radius: 10px; height: 6px; margin-bottom: 0.2rem;">
-                                                    <div id="badProgress7"
-                                                        style="background: #dc3545; height: 6px; width: 60%; border-radius: 10px;">
-                                                    </div>
-                                                </div>
-                                                <div style="font-size: 0.5em; color: #666; text-align: center;">
-                                                    Proceso iniciado automáticamente
-                                                </div>
-                                            </div>
-
-                                            <!-- Notificaciones automáticas molestas -->
-                                            <div
-                                                style="border: 1px solid #ffc107; padding: 0.3rem; border-radius: 3px; background: #fff3cd; margin-bottom: 0.3rem;">
-                                                <div style="font-size: 0.6em; color: #856404; margin-bottom: 0.2rem;">
-                                                    <i class="fas fa-bell"></i> Notificación automática:
-                                                </div>
-                                                <div style="font-size: 0.5em; color: #856404;">
-                                                    "Se reiniciará en 30 segundos"<br>
-                                                    "Guardando configuración automáticamente"<br>
-                                                    "Aplicando cambios sin confirmación"
-                                                </div>
-                                            </div>
-
-                                            <!-- Mensaje de frustración -->
-                                            <div
-                                                style="text-align: center; padding: 0.3rem; background: #f8d7da; border-radius: 3px; border: 1px solid #f5c6cb;">
-                                                <div style="font-size: 0.6em; color: #721c24;">
-                                                    <i class="fas fa-user-times"></i> Usuario frustrado
-                                                </div>
-                                                <div style="font-size: 0.5em; color: #721c24; margin-top: 0.2rem;">
-                                                    "¡No puedo detener esto!"<br>
-                                                    "¿Por qué se inició solo?"<br>
-                                                    "¿Dónde están los controles?"
-                                                </div>
-                                            </div>
+                                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; padding: 0.2rem; background: #f8d7da; border-radius: 3px;">
+                                        <div style="font-size: 0.6em; font-weight: bold; color: #721c24;">
+                                            <i class="fas fa-robot"></i> Sistema Automático
                                         </div>
-                                        <div
-                                            style="text-align: center; font-size: 0.6em; color: #dc3545; margin-top: 0.3rem;">
-                                            <i class="fas fa-exclamation-triangle"></i> Sistema toma decisiones sin
-                                            consultar al usuario
+                                        <div style="font-size: 0.5em; color: #721c24;">
+                                            Sin configuración
                                         </div>
                                     </div>
 
-                                    <ul style="font-size: 0.8em;">
-                                        <li>Acciones automáticas inesperadas</li>
-                                        <li>No se puede cancelar</li>
-                                        <li>Ritmo impuesto por el sistema</li>
-                                        <li>Sin opciones de personalización</li>
-                                    </ul>
+                                    <!-- Proceso automático sin control -->
+                                    <div
+                                        style="border: 1px solid #e0e0e0; padding: 0.3rem; border-radius: 3px; background: white; margin-bottom: 0.3rem;">
+                                        <div
+                                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem;">
+                                            <span style="font-size: 0.6em;">Actualizando sistema...</span>
+                                            <div style="font-size: 0.5em; color: #dc3545;">
+                                                <i class="fas fa-lock"></i> Bloqueado
+                                            </div>
+                                        </div>
+                                        <div
+                                            style="background: #e0e0e0; border-radius: 10px; height: 6px; margin-bottom: 0.2rem;">
+                                            <div id="badProgress7"
+                                                style="background: #dc3545; height: 6px; width: 60%; border-radius: 10px;">
+                                            </div>
+                                        </div>
+                                        <div style="font-size: 0.5em; color: #666; text-align: center;">
+                                            Proceso iniciado automáticamente
+                                        </div>
+                                    </div>
+
+                                    <!-- Notificaciones automáticas molestas -->
+                                    <div
+                                        style="border: 1px solid #ffc107; padding: 0.3rem; border-radius: 3px; background: #fff3cd; margin-bottom: 0.3rem;">
+                                        <div style="font-size: 0.6em; color: #856404; margin-bottom: 0.2rem;">
+                                            <i class="fas fa-bell"></i> Notificación automática:
+                                        </div>
+                                        <div style="font-size: 0.5em; color: #856404;">
+                                            "Se reiniciará en 30 segundos"<br>
+                                            "Guardando configuración automáticamente"<br>
+                                            "Aplicando cambios sin confirmación"
+                                        </div>
+                                    </div>
+
+                                    <!-- Mensaje de frustración -->
+                                    <div
+                                        style="text-align: center; padding: 0.3rem; background: #f8d7da; border-radius: 3px; border: 1px solid #f5c6cb;">
+                                        <div style="font-size: 0.6em; color: #721c24;">
+                                            <i class="fas fa-user-times"></i> Usuario frustrado
+                                        </div>
+                                        <div style="font-size: 0.5em; color: #721c24; margin-top: 0.2rem;">
+                                            "¡No puedo detener esto!"<br>
+                                            "¿Por qué se inició solo?"<br>
+                                            "¿Dónde están los controles?"
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="text-align: center; font-size: 0.6em; color: #dc3545; margin-top: 0.3rem;">
+                                    <i class="fas fa-exclamation-triangle"></i> Sistema toma decisiones sin
+                                    consultar al usuario
                                 </div>
                             </div>
+
+                            <ul style="font-size: 0.8em;">
+                                <li>Acciones automáticas inesperadas</li>
+                                <li>No se puede cancelar</li>
+                                <li>Ritmo impuesto por el sistema</li>
+                                <li>Sin opciones de personalización</li>
+                            </ul>
                         </div>
                     </div>
                 </section>
@@ -1646,6 +1712,203 @@
                 </section>
 
                 <section>
+                    <h3><i class="fas fa-check-circle" style="color: #28a745;"></i> Carga Reducida</h3>
+                    <div class="concept-box">
+                        <div class="principle-card example-good">
+                            <h4 style="color: var(--uide-secondary);"><i class="fas fa-brain"></i> Información Visible
+                            </h4>
+
+                            <!-- Ejemplo visual de carga de memoria reducida -->
+                            <div style="background: #f8f9fa; padding: 0.8rem; border-radius: 6px; margin: 0.5rem 0;">
+                                <div
+                                    style="border: 1px solid #dee2e6; padding: 0.5rem; border-radius: 4px; background: white;">
+                                    <!-- Navegación con contexto visible -->
+                                    <div
+                                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; padding: 0.2rem; background: #e8f5e9; border-radius: 3px;">
+                                        <div style="font-size: 0.6em; color: #2e7d32;">
+                                            <i class="fas fa-home"></i> Inicio >
+                                            <i class="fas fa-folder"></i> Documentos >
+                                            <i class="fas fa-file"></i> <strong>mi-archivo.pdf</strong>
+                                        </div>
+                                        <div style="font-size: 0.5em; color: #666;">
+                                            Paso 2 de 3
+                                        </div>
+                                    </div>
+
+                                    <!-- Formulario con información contextual -->
+                                    <div
+                                        style="border: 1px solid #e0e0e0; padding: 0.3rem; border-radius: 3px; background: white; margin-bottom: 0.3rem;">
+                                        <div
+                                            style="font-size: 0.6em; font-weight: bold; margin-bottom: 0.3rem; color: #007bff;">
+                                            <i class="fas fa-edit"></i> Editar Documento
+                                        </div>
+
+                                        <div style="margin-bottom: 0.3rem;">
+                                            <label style="font-size: 0.5em; color: #666;">Título:</label>
+                                            <input type="text" value="Informe Mensual"
+                                                style="width: 100%; padding: 0.1rem; font-size: 0.6em; border: 1px solid #ccc; border-radius: 2px;">
+                                            <small style="font-size: 0.4em; color: #28a745;">✓ Título
+                                                válido</small>
+                                        </div>
+
+                                        <div style="margin-bottom: 0.3rem;">
+                                            <label style="font-size: 0.5em; color: #666;">Categoría:</label>
+                                            <select
+                                                style="width: 100%; padding: 0.1rem; font-size: 0.6em; border: 1px solid #ccc; border-radius: 2px;">
+                                                <option>📊 Reportes</option>
+                                                <option>📝 Documentos</option>
+                                                <option>📋 Formularios</option>
+                                            </select>
+                                            <small style="font-size: 0.4em; color: #666;">Iconos ayudan a
+                                                reconocer</small>
+                                        </div>
+
+                                        <!-- Información de ayuda contextual -->
+                                        <div
+                                            style="background: #e3f2fd; padding: 0.2rem; border-radius: 3px; margin-bottom: 0.3rem;">
+                                            <div style="font-size: 0.5em; color: #1976d2;">
+                                                <i class="fas fa-info-circle"></i> Información útil:
+                                            </div>
+                                            <div style="font-size: 0.4em; color: #1976d2;">
+                                                • Archivo creado: 15 Oct 2025<br>
+                                                • Última modificación: Hoy<br>
+                                                • Tamaño: 2.3 MB
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Botones con iconos descriptivos -->
+                                    <div style="display: flex; gap: 0.2rem; justify-content: space-between;">
+                                        <button
+                                            style="background: #6c757d; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.5em; cursor: pointer;">
+                                            <i class="fas fa-arrow-left"></i> Anterior
+                                        </button>
+                                        <button
+                                            style="background: #28a745; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.5em; cursor: pointer;">
+                                            <i class="fas fa-save"></i> Guardar y Continuar
+                                        </button>
+                                    </div>
+                                </div>
+                                <div style="text-align: center; font-size: 0.6em; color: #666; margin-top: 0.3rem;">
+                                    Toda la información necesaria está visible
+                                </div>
+                            </div>
+
+                            <ul style="font-size: 0.8em;">
+                                <li>Información visible cuando se necesita</li>
+                                <li>Reconocimiento vs. recordar</li>
+                                <li>Contexto siempre disponible</li>
+                                <li>Navegación clara</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-times-circle" style="color: #dc3545;"></i> Alta Carga Mental</h3>
+                    <div class="concept-box">
+                        <div class="principle-card example-bad">
+                            <h4 style="color: #dc3545;"><i class="fas fa-brain"></i> Información Oculta</h4>
+
+                            <!-- Ejemplo visual de alta carga de memoria -->
+                            <div style="background: #f8f9fa; padding: 0.8rem; border-radius: 6px; margin: 0.5rem 0;">
+                                <div
+                                    style="border: 1px solid #dee2e6; padding: 0.5rem; border-radius: 4px; background: white;">
+                                    <!-- Navegación sin contexto -->
+                                    <div
+                                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; padding: 0.2rem; background: #f8d7da; border-radius: 3px;">
+                                        <div style="font-size: 0.6em; color: #721c24;">
+                                            <i class="fas fa-question-circle"></i> Página 3
+                                        </div>
+                                        <div style="font-size: 0.5em; color: #721c24;">
+                                            ¿De qué proceso?
+                                        </div>
+                                    </div>
+
+                                    <!-- Formulario sin contexto -->
+                                    <div
+                                        style="border: 1px solid #e0e0e0; padding: 0.3rem; border-radius: 3px; background: white; margin-bottom: 0.3rem;">
+                                        <div
+                                            style="font-size: 0.6em; font-weight: bold; margin-bottom: 0.3rem; color: #666;">
+                                            Completar información
+                                        </div>
+
+                                        <div style="margin-bottom: 0.3rem;">
+                                            <label style="font-size: 0.5em; color: #666;">Campo A:</label>
+                                            <input type="text" placeholder="Ingrese el valor de la página anterior"
+                                                style="width: 100%; padding: 0.1rem; font-size: 0.6em; border: 1px solid #ccc; border-radius: 2px;">
+                                            <small style="font-size: 0.4em; color: #dc3545;">¿Cuál era el
+                                                valor?</small>
+                                        </div>
+
+                                        <div style="margin-bottom: 0.3rem;">
+                                            <label style="font-size: 0.5em; color: #666;">Opción B:</label>
+                                            <select
+                                                style="width: 100%; padding: 0.1rem; font-size: 0.6em; border: 1px solid #ccc; border-radius: 2px;">
+                                                <option>Opción 1</option>
+                                                <option>Opción 2</option>
+                                                <option>Opción 3</option>
+                                                <option>Opción 4</option>
+                                                <option>Opción 5</option>
+                                            </select>
+                                            <small style="font-size: 0.4em; color: #dc3545;">¿Cuál elegí
+                                                antes?</small>
+                                        </div>
+
+                                        <!-- Código críptico que debe recordar -->
+                                        <div
+                                            style="background: #fff3cd; padding: 0.2rem; border-radius: 3px; margin-bottom: 0.3rem; border: 1px solid #ffeaa7;">
+                                            <div style="font-size: 0.5em; color: #856404;">
+                                                <i class="fas fa-exclamation-triangle"></i> Recordatorio:
+                                            </div>
+                                            <div style="font-size: 0.4em; color: #856404;">
+                                                Ingrese el código de 8 dígitos que se mostró en el paso 1<br>
+                                                (No se puede volver a ver)
+                                            </div>
+                                            <input type="text" placeholder="????????"
+                                                style="width: 100%; padding: 0.1rem; font-size: 0.5em; border: 1px solid #ffc107; border-radius: 2px; margin-top: 0.2rem;">
+                                        </div>
+                                    </div>
+
+                                    <!-- Botones confusos -->
+                                    <div style="display: flex; gap: 0.2rem; justify-content: space-between;">
+                                        <button
+                                            style="background: #6c757d; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.5em; cursor: pointer;">
+                                            Atrás
+                                        </button>
+                                        <button
+                                            style="background: #dc3545; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.5em; cursor: pointer;">
+                                            Continuar
+                                        </button>
+                                    </div>
+
+                                    <!-- Usuario confundido -->
+                                    <div
+                                        style="text-align: center; padding: 0.3rem; background: #f8d7da; border-radius: 3px; border: 1px solid #f5c6cb; margin-top: 0.3rem;">
+                                        <div style="font-size: 0.5em; color: #721c24;">
+                                            <i class="fas fa-user-times"></i> "¿Qué tenía que hacer aquí?"<br>
+                                            "¿Cuál era el código?"<br>
+                                            "¿En qué paso estoy?"
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="text-align: center; font-size: 0.6em; color: #dc3545; margin-top: 0.3rem;">
+                                    <i class="fas fa-brain"></i> Usuario debe recordar información de pasos
+                                    anteriores
+                                </div>
+                            </div>
+
+                            <ul style="font-size: 0.8em;">
+                                <li>Información oculta</li>
+                                <li>Debe recordar pasos anteriores</li>
+                                <li>Sin contexto visible</li>
+                                <li>Navegación confusa</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
                     <h3><i class="fas fa-medal"></i> Resumen: Las 8 Reglas de Oro</h3>
                     <div class="concept-box">
                         <div class="r-hstack">
@@ -1690,8 +1953,7 @@
                         </h3>
                         <p style="text-align: center; font-size: 1.1em;">
                             Aplicación de las 8 Reglas de Oro de Shneiderman<br>
-                            <small style="color: var(--uide-secondary);">(Enfoque PE-1.1: Consistencia, Feedback,
-                                Prevención)</small>
+                            <small style="color: var(--uide-secondary);">(Análisis completo de todas las reglas)</small>
                         </p>
                     </div>
                 </section>
@@ -2120,96 +2382,363 @@
             }, 3000);
         }
 
-        // Funciones para Reversibilidad (Regla 6)
-        let actions6 = ['Texto inicial creado'];
-        let currentAction6 = 0;
+        // Funciones SIMPLES para Reversibilidad (Regla 6)
+        let textHistory6 = ['Mi documento importante'];
+        let currentIndex6 = 0;
 
+        // Agregar texto
         function addText6() {
-            const text = document.getElementById('text6');
-            text.innerHTML += '<br><span style="color: #007bff;">Texto agregado</span>';
-            actions6.push('Texto agregado');
-            currentAction6++;
-            updateButtons6();
-            updateHistory6();
+            const textElement = document.getElementById('textContent6');
+            const currentText = textElement.innerHTML;
+            const newText = currentText + '<br><span style="color: #007bff;">Nuevo párrafo agregado</span>';
+
+            textElement.innerHTML = newText;
+            saveToHistory6(newText);
         }
 
+        // Cambiar color
         function changeColor6() {
-            const text = document.getElementById('text6');
-            text.style.color = text.style.color === 'red' ? 'black' : 'red';
-            actions6.push('Color cambiado');
-            currentAction6++;
-            updateButtons6();
-            updateHistory6();
+            const textElement = document.getElementById('textContent6');
+            const currentColor = textElement.style.color;
+            const newColor = currentColor === 'red' ? 'blue' : 'red';
+
+            textElement.style.color = newColor;
+            saveToHistory6(textElement.innerHTML, newColor);
         }
 
-        function deleteText6() {
-            const text = document.getElementById('text6');
-            text.innerHTML = '';
-            actions6.push('Texto eliminado');
-            currentAction6++;
-            updateButtons6();
-            updateHistory6();
+        // Borrar todo
+        function deleteAll6() {
+            const textElement = document.getElementById('textContent6');
+            textElement.innerHTML = '<em style="color: #999;">Documento vacío</em>';
+            textElement.style.color = '';
+            saveToHistory6(textElement.innerHTML);
         }
 
+        // Guardar en historial
+        function saveToHistory6(content, color = '') {
+            // Eliminar estados futuros si estamos en el medio
+            textHistory6 = textHistory6.slice(0, currentIndex6 + 1);
+
+            // Agregar nuevo estado
+            textHistory6.push({ content: content, color: color });
+            currentIndex6++;
+
+            updateButtons6();
+        }
+
+        // Deshacer
         function undoAction6() {
-            if (currentAction6 > 0) {
-                currentAction6--;
-                // Simular deshacer
-                const text = document.getElementById('text6');
-                if (actions6[currentAction6 + 1] === 'Texto eliminado') {
-                    text.innerHTML = 'Texto original<br><span style="color: #007bff;">Texto agregado</span>';
-                } else if (actions6[currentAction6 + 1] === 'Color cambiado') {
-                    text.style.color = 'black';
-                } else if (actions6[currentAction6 + 1] === 'Texto agregado') {
-                    text.innerHTML = 'Texto original';
-                }
+            if (currentIndex6 > 0) {
+                currentIndex6--;
+                const textElement = document.getElementById('textContent6');
+                const state = textHistory6[currentIndex6];
+
+                textElement.innerHTML = state.content || state;
+                textElement.style.color = state.color || '';
+
                 updateButtons6();
-                updateHistory6();
             }
         }
 
+        // Rehacer
         function redoAction6() {
-            if (currentAction6 < actions6.length - 1) {
-                currentAction6++;
-                // Simular rehacer
-                const text = document.getElementById('text6');
-                if (actions6[currentAction6] === 'Texto agregado') {
-                    text.innerHTML += '<br><span style="color: #007bff;">Texto agregado</span>';
-                } else if (actions6[currentAction6] === 'Color cambiado') {
-                    text.style.color = 'red';
-                } else if (actions6[currentAction6] === 'Texto eliminado') {
-                    text.innerHTML = '';
-                }
+            if (currentIndex6 < textHistory6.length - 1) {
+                currentIndex6++;
+                const textElement = document.getElementById('textContent6');
+                const state = textHistory6[currentIndex6];
+
+                textElement.innerHTML = state.content || state;
+                textElement.style.color = state.color || '';
+
                 updateButtons6();
-                updateHistory6();
             }
         }
 
+        // Actualizar botones
         function updateButtons6() {
             const undoBtn = document.getElementById('undoBtn6');
             const redoBtn = document.getElementById('redoBtn6');
 
-            undoBtn.disabled = currentAction6 <= 0;
-            redoBtn.disabled = currentAction6 >= actions6.length - 1;
+            if (undoBtn && redoBtn) {
+                undoBtn.disabled = currentIndex6 <= 0;
+                redoBtn.disabled = currentIndex6 >= textHistory6.length - 1;
 
-            undoBtn.style.background = undoBtn.disabled ? '#6c757d' : '#007bff';
-            redoBtn.style.background = redoBtn.disabled ? '#6c757d' : '#007bff';
+                undoBtn.style.background = undoBtn.disabled ? '#6c757d' : '#007bff';
+                redoBtn.style.background = redoBtn.disabled ? '#6c757d' : '#007bff';
+            }
         }
 
+        // Inicializar el editor
+        function initEditor6() {
+            const editor = document.getElementById('richEditor6');
+            if (editor) {
+                saveState6(); // Guardar estado inicial
+                updateButtons6();
+                updateActionCounter6();
+            }
+        }
+
+        // Guardar estado actual del editor
+        function saveState6() {
+            if (isUndoRedo6) return; // No guardar durante undo/redo
+
+            const editor = document.getElementById('richEditor6');
+            if (!editor) return;
+
+            const currentContent = editor.innerHTML;
+
+            // Si el contenido es diferente al último estado guardado
+            if (currentHistoryIndex6 === -1 || editorHistory6[currentHistoryIndex6] !== currentContent) {
+                // Eliminar estados futuros si estamos en el medio del historial
+                editorHistory6 = editorHistory6.slice(0, currentHistoryIndex6 + 1);
+
+                // Agregar nuevo estado
+                editorHistory6.push(currentContent);
+                currentHistoryIndex6++;
+
+                // Limitar historial a 20 estados
+                if (editorHistory6.length > 20) {
+                    editorHistory6.shift();
+                    currentHistoryIndex6--;
+                }
+
+                updateButtons6();
+                updateActionCounter6();
+                updateHistory6();
+                showAutoSaveIndicator6();
+            }
+        }
+
+        // Deshacer acción
+        function undoAction6() {
+            if (currentHistoryIndex6 > 0) {
+                isUndoRedo6 = true;
+                currentHistoryIndex6--;
+                const editor = document.getElementById('richEditor6');
+                editor.innerHTML = editorHistory6[currentHistoryIndex6];
+                updateButtons6();
+                updateActionCounter6();
+                updateHistory6();
+                setTimeout(() => { isUndoRedo6 = false; }, 100);
+            }
+        }
+
+        // Rehacer acción
+        function redoAction6() {
+            if (currentHistoryIndex6 < editorHistory6.length - 1) {
+                isUndoRedo6 = true;
+                currentHistoryIndex6++;
+                const editor = document.getElementById('richEditor6');
+                editor.innerHTML = editorHistory6[currentHistoryIndex6];
+                updateButtons6();
+                updateActionCounter6();
+                updateHistory6();
+                setTimeout(() => { isUndoRedo6 = false; }, 100);
+            }
+        }
+
+        // Actualizar botones de undo/redo
+        function updateButtons6() {
+            const undoBtn = document.getElementById('undoBtn6');
+            const redoBtn = document.getElementById('redoBtn6');
+
+            if (undoBtn && redoBtn) {
+                undoBtn.disabled = currentHistoryIndex6 <= 0;
+                redoBtn.disabled = currentHistoryIndex6 >= editorHistory6.length - 1;
+
+                undoBtn.style.background = undoBtn.disabled ? '#6c757d' : '#007bff';
+                redoBtn.style.background = redoBtn.disabled ? '#6c757d' : '#007bff';
+
+                // Actualizar tooltips
+                undoBtn.title = undoBtn.disabled ? 'No hay acciones para deshacer' : 'Deshacer última acción (Ctrl+Z)';
+                redoBtn.title = redoBtn.disabled ? 'No hay acciones para rehacer' : 'Rehacer acción (Ctrl+Y)';
+            }
+        }
+
+        // Actualizar contador de acciones
+        function updateActionCounter6() {
+            const counter = document.getElementById('actionCount6');
+            if (counter) {
+                counter.textContent = `Acciones: ${editorHistory6.length}`;
+            }
+        }
+
+        // Mostrar/ocultar historial
         function showHistory6() {
             const history = document.getElementById('history6');
-            history.style.display = history.style.display === 'none' ? 'block' : 'none';
+            const btn = document.getElementById('historyBtn6');
+            if (history && btn) {
+                const isVisible = history.style.display !== 'none';
+                history.style.display = isVisible ? 'none' : 'block';
+                btn.innerHTML = isVisible ? '<i class="fas fa-history"></i> Historial' : '<i class="fas fa-eye-slash"></i> Ocultar';
+            }
         }
 
+        // Actualizar lista del historial
         function updateHistory6() {
             const historyList = document.getElementById('historyList6');
+            if (!historyList) return;
+
             let html = '';
-            actions6.forEach((action, index) => {
-                const style = index <= currentAction6 ? 'color: #333; font-weight: bold;' : 'color: #999; text-decoration: line-through;';
-                html += `<div style="${style}">${index + 1}. ${action}</div>`;
+            editorHistory6.forEach((state, index) => {
+                const isCurrent = index === currentHistoryIndex6;
+                const preview = state.replace(/<[^>]*>/g, '').substring(0, 30) + '...';
+                const bgColor = isCurrent ? '#e3f2fd' : '#f8f9fa';
+                const borderColor = isCurrent ? '#2196f3' : '#e0e0e0';
+                const textColor = isCurrent ? '#1976d2' : '#666';
+
+                html += `
+                    <div style="padding: 0.2rem; background: ${bgColor}; border-radius: 2px; margin-bottom: 0.1rem; border-left: 3px solid ${borderColor}; cursor: pointer;" onclick="goToHistoryState6(${index})">
+                        <div style="font-size: 0.5em; color: ${textColor}; font-weight: ${isCurrent ? 'bold' : 'normal'};">
+                            <strong>${index + 1}.</strong> ${preview}
+                            ${isCurrent ? '<span style="float: right;">← Actual</span>' : ''}
+                        </div>
+                    </div>
+                `;
             });
             historyList.innerHTML = html;
         }
+
+        // Ir a un estado específico del historial
+        function goToHistoryState6(index) {
+            if (index >= 0 && index < editorHistory6.length) {
+                isUndoRedo6 = true;
+                currentHistoryIndex6 = index;
+                const editor = document.getElementById('richEditor6');
+                editor.innerHTML = editorHistory6[index];
+                updateButtons6();
+                updateActionCounter6();
+                updateHistory6();
+                setTimeout(() => { isUndoRedo6 = false; }, 100);
+            }
+        }
+
+        // Funciones de formato de texto
+        function formatText6(command) {
+            document.execCommand(command, false, null);
+            setTimeout(saveState6, 100); // Guardar estado después del formato
+        }
+
+        function changeTextColor6(color) {
+            document.execCommand('foreColor', false, color);
+            setTimeout(saveState6, 100);
+        }
+
+        function insertText6(text) {
+            document.execCommand('insertText', false, text);
+            setTimeout(saveState6, 100);
+        }
+
+        function addList6() {
+            document.execCommand('insertUnorderedList', false, null);
+            setTimeout(saveState6, 100);
+        }
+
+        // Insertar plantillas
+        function insertTemplate6(type) {
+            const editor = document.getElementById('richEditor6');
+            let template = '';
+
+            if (type === 'carta') {
+                template = `
+                    <p><strong>Estimado/a [Nombre],</strong></p>
+                    <p>Espero que este mensaje le encuentre bien. Le escribo para...</p>
+                    <p>Atentamente,<br><em>[Su nombre]</em></p>
+                `;
+            } else if (type === 'lista') {
+                template = `
+                    <p><strong>Lista de tareas:</strong></p>
+                    <ul>
+                        <li>Tarea 1</li>
+                        <li>Tarea 2</li>
+                        <li>Tarea 3</li>
+                    </ul>
+                `;
+            }
+
+            editor.innerHTML += template;
+            setTimeout(saveState6, 100);
+        }
+
+        // Limpiar editor
+        function clearEditor6() {
+            const editor = document.getElementById('richEditor6');
+            editor.innerHTML = '<p>Editor limpio - ¡Empieza a escribir!</p>';
+            setTimeout(saveState6, 100);
+        }
+
+        // Mezclar texto (función divertida)
+        function scrambleText6() {
+            const editor = document.getElementById('richEditor6');
+            const text = editor.textContent;
+            const words = text.split(' ');
+            const scrambled = words.sort(() => Math.random() - 0.5).join(' ');
+            editor.innerHTML = `<p style="color: #e83e8c;"><em>${scrambled}</em></p>`;
+            setTimeout(saveState6, 100);
+        }
+
+        // Resetear editor completamente
+        function resetEditor6() {
+            const editor = document.getElementById('richEditor6');
+            editor.innerHTML = `
+                <p>Este es un <strong>editor de texto enriquecido</strong> donde puedes experimentar con formato.</p>
+                <p>Prueba las herramientas de arriba y observa cómo cada cambio se puede <em>deshacer</em> completamente.</p>
+            `;
+            editorHistory6 = [];
+            currentHistoryIndex6 = -1;
+            setTimeout(() => {
+                saveState6();
+                updateButtons6();
+                updateActionCounter6();
+                updateHistory6();
+            }, 100);
+        }
+
+        // Limpiar historial
+        function clearHistory6() {
+            if (confirm('¿Estás seguro de que quieres limpiar el historial? Esta acción no se puede deshacer.')) {
+                const currentContent = document.getElementById('richEditor6').innerHTML;
+                editorHistory6 = [currentContent];
+                currentHistoryIndex6 = 0;
+                updateButtons6();
+                updateActionCounter6();
+                updateHistory6();
+            }
+        }
+
+        // Mostrar indicador de auto-guardado
+        function showAutoSaveIndicator6() {
+            const indicator = document.getElementById('statusIndicator6');
+            if (indicator) {
+                indicator.innerHTML = '<i class="fas fa-save"></i> Guardando...';
+                indicator.style.color = '#ffc107';
+                indicator.style.background = 'rgba(255, 193, 7, 0.1)';
+
+                setTimeout(() => {
+                    indicator.innerHTML = '<i class="fas fa-check-circle"></i> Auto-guardado';
+                    indicator.style.color = '#28a745';
+                    indicator.style.background = 'rgba(40, 167, 69, 0.1)';
+                }, 500);
+            }
+        }
+
+        // Atajos de teclado
+        document.addEventListener('keydown', function (e) {
+            if (e.target.id === 'richEditor6') {
+                if (e.ctrlKey && e.key === 'z' && !e.shiftKey) {
+                    e.preventDefault();
+                    undoAction6();
+                } else if ((e.ctrlKey && e.key === 'y') || (e.ctrlKey && e.shiftKey && e.key === 'Z')) {
+                    e.preventDefault();
+                    redoAction6();
+                }
+            }
+        });
+
+        // Inicializar cuando se carga la página
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(initEditor6, 1000);
+        });
 
         // Funciones para ejemplos "malos" de Reversibilidad
         function badDelete6() {
