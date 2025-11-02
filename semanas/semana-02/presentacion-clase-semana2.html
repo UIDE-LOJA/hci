@@ -1,0 +1,1289 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Semana 2 - Fundamentos Avanzados de HCI</title>
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/theme/white.css" id="theme">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/monokai.css">
+
+    <!-- UIDE Theme CSS -->
+    <link rel="stylesheet" href="../../assets/css/uide-theme.css">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/aipti-diagrams.css">
+    <link rel="stylesheet" href="presentacion-clase-semana2.css">
+
+    <!-- Mermaid.js -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+
+    <!-- D3.js for advanced visualizations -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Floating Help Icon -->
+    <div class="floating-help-emoji" onclick="showClassificationCheatSheet()" title="Guía de Clasificación">
+        <i class="fas fa-question-circle"></i>
+    </div>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Title Slide -->
+            <section data-background-color="#f8f8f8" data-transition="convex">
+                <div class="title-slide">
+                    <h1><i class="fas fa-brain"></i> Presentación Semana 2</h1>
+                    <h2>Fundamentos Avanzados de HCI</h2>
+
+                    <div class="course-info">
+                        <strong>PP-07-HCI-ASC</strong> • Cuarto Nivel<br>
+                        <strong>Interacción Persona-Ordenador</strong><br>
+                        <em>Prof. Charlie Cárdenas Toledo, M.Sc.</em><br>
+                        Universidad Internacional del Ecuador • Octubre 2025
+                    </div>
+
+                    <div
+                        style="background: rgba(233, 171, 33, 0.1); border-radius: 8px; padding: 1em; margin: 1em 0; font-size: 0.9em;">
+                        <strong>Factores Humanos, Cognición Distribuida y Computación Ubicua</strong><br>
+                        <em>Semana 2 • Fundamentos Teóricos y Aplicaciones en HCI</em>
+                    </div>
+
+                    <div style="margin-top: 2em; font-size: 0.9em; font-style: italic; color: var(--uide-secondary);">
+                        Explorando las bases científicas de la interacción humano-computadora
+                    </div>
+                </div>
+            </section>
+
+            <!-- Objetivos de la Presentación -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-bullseye"></i> Objetivos de la Presentación</h2>
+
+                <div class="concept-box">
+                    <div class="r-hstack">
+                        <div class="column">
+                            <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-brain"></i> Comprender</h5>
+                                <p style="font-size: 0.9em;">Los <strong>Factores Humanos</strong> como base fundamental de HCI</p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-share-alt"></i> Explorar</h5>
+                                <p style="font-size: 0.9em;">La <strong>Cognición Distribuida</strong> y <strong>Teoría de la Actividad</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="r-hstack" style="margin-top: 1rem;">
+                        <div class="column">
+                            <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-globe"></i> Analizar</h5>
+                                <p style="font-size: 0.9em;">El paradigma de la <strong>Computación Ubicua</strong> (UbiCom)</p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div style="background: rgba(145, 0, 72, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-rocket"></i> Conocer</h5>
+                                <p style="font-size: 0.9em;">El rol de <strong>NASA</strong> en el desarrollo de metodologías HCI</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                <section>
+                    <h3><i class="fas fa-list-ul"></i> Agenda</h3>
+                    <div class="concept-box">
+                        <div class="r-hstack">
+                            <div class="column">
+                                <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-brain"></i> 1. Factores Humanos en HCI</h5>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-share-alt"></i> 2. Cognición Distribuida y Teoría de la Actividad</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="r-hstack" style="margin-top: 1rem;">
+                            <div class="column">
+                                <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-globe"></i> 3. Computación Ubicua (UbiCom)</h5>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(145, 0, 72, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-rocket"></i> 4. Contribuciones de NASA a HCI</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: center;">
+                            <h5><i class="fas fa-puzzle-piece"></i> 5. Síntesis e Implicaciones</h5>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <!-- Factores Humanos: La Base de HCI -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-user-cog"></i> Factores Humanos: La Base de HCI</h2>
+
+                <section>
+                    <h3>Definición Central</h3>
+                    <div class="concept-box">
+                        <blockquote style="background: rgba(40, 167, 69, 0.1); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--uide-primary); font-style: italic; font-size: 1.1em;">
+                            "Los Factores Humanos, o Ergonomía, son una de las disciplinas más centrales y fundamentales para la Interacción Persona-Ordenador (HCI)"
+                        </blockquote>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Características Clave</h3>
+                    <div class="concept-box">
+                        <div class="r-hstack">
+                            <div class="column">
+                                <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-flask"></i> Ciencia e Ingeniería</h5>
+                                    <p style="font-size: 0.9em;">Se encarga de capacidades, limitaciones y rendimiento humanos</p>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-target"></i> Objetivo</h5>
+                                    <p style="font-size: 0.9em;">Diseñar sistemas eficientes, seguros, cómodos y agradables</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="background: rgba(145, 0, 72, 0.1); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                            <h5><i class="fas fa-computer"></i> Enfoque HCI</h5>
+                            <p style="font-size: 0.9em;">Factores humanos específicos para tecnología informática</p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- El Desafío de la Variabilidad Humana -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-users"></i> El Desafío de la Variabilidad Humana</h2>
+
+                <section>
+                    <h3>Factores de Diversidad Humana</h3>
+                    <div class="concept-box">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-users"></i> Edad y Género</h5>
+                            </div>
+                            <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-graduation-cap"></i> Experiencia previa</h5>
+                            </div>
+                            <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-hand-paper"></i> Lateralidad (zurdos/diestros)</h5>
+                            </div>
+                            <div style="background: rgba(145, 0, 72, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-universal-access"></i> Discapacidades</h5>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Implicación Clave</h3>
+                    <div class="concept-box">
+                        <blockquote style="background: rgba(233, 171, 33, 0.1); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--uide-accent); font-style: italic; font-size: 1.1em;">
+                            "Esta variabilidad implica que el diseño nunca es preciso, sino siempre aproximado"
+                        </blockquote>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Disciplinas que Nutren HCI -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-puzzle-piece"></i> Disciplinas que Nutren HCI</h2>
+
+                <section>
+                    <h3>Campos Interdisciplinarios</h3>
+                    <div class="concept-box">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-brain"></i> Psicología</h5>
+                                <p style="font-size: 0.8em;">(cognitiva y experimental)</p>
+                            </div>
+                            <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-users"></i> Sociología y Antropología</h5>
+                            </div>
+                            <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-lightbulb"></i> Ciencia Cognitiva</h5>
+                            </div>
+                            <div style="background: rgba(145, 0, 72, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-code"></i> Informática y Lingüística</h5>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Modelo del Procesador Humano -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-cogs"></i> Modelo del Procesador Humano (MHP)</h2>
+
+                <section>
+                    <h3>Desarrollado por Card, Moran y Newell (1983)</h3>
+                    <div class="concept-box">
+                        <h4 style="color: var(--uide-primary); text-align: center;">Componentes Clave:</h4>
+                        <div class="r-hstack">
+                            <div class="column">
+                                <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-eye"></i> 1. Entrada Perceptual</h5>
+                                    <p style="font-size: 0.9em;">→ Procesamiento sensorial</p>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-brain"></i> 2. Cognición</h5>
+                                    <p style="font-size: 0.9em;">→ Actividad intelectual consciente</p>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-hand-paper"></i> 3. Salida Motora</h5>
+                                    <p style="font-size: 0.9em;">→ Control del movimiento</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Referencia Histórica</h3>
+                    <div class="concept-box">
+                        <div style="background: rgba(145, 0, 72, 0.1); padding: 1.5rem; border-radius: 8px;">
+                            <p style="font-style: italic; font-size: 0.95em; margin: 0;">
+                                <i class="fas fa-quote-left"></i> 
+                                "The Psychology of Human-Computer Interaction (1983) formalizó la entrada perceptual, la cognición y la salida motora humanas, vinculándolas a las interacciones informáticas"
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Respuesta y Control Motor -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-hand-paper"></i> Respuesta y Control Motor</h2>
+
+                <section>
+                    <h3>Responders Humanos</h3>
+                    <div class="concept-box">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-hand-paper"></i> Dedos y manos</h5>
+                                <p style="font-size: 0.8em;">(primarios en HCI)</p>
+                            </div>
+                            <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-shoe-prints"></i> Pies</h5>
+                            </div>
+                            <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-microphone"></i> Cuerdas vocales</h5>
+                            </div>
+                            <div style="background: rgba(145, 0, 72, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-eye"></i> Ojos</h5>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Dato Neurológico</h3>
+                    <div class="concept-box">
+                        <blockquote style="background: rgba(35, 53, 110, 0.1); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--uide-secondary); font-style: italic; font-size: 1.0em;">
+                            "El homúnculo motor de Penfield ilustra que los músculos que controlan la mano y los dedos están altamente representados en la corteza motora cerebral"
+                        </blockquote>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Cognición y Percepción -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-brain"></i> Cognición y Percepción</h2>
+
+                <section>
+                    <div class="concept-box">
+                        <div class="r-hstack">
+                            <div class="column">
+                                <div style="background: rgba(40, 167, 69, 0.1); padding: 1.5rem; border-radius: 8px;">
+                                    <h4><i class="fas fa-brain"></i> Cognición</h4>
+                                    <p style="font-size: 0.9em;"><strong>Actividad intelectual consciente</strong></p>
+                                    <p style="font-size: 0.8em;">Incluye: pensar, razonar, decidir</p>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(35, 53, 110, 0.1); padding: 1.5rem; border-radius: 8px;">
+                                    <h4><i class="fas fa-eye"></i> Percepción</h4>
+                                    <p style="font-size: 0.9em;"><strong>Primera etapa de procesamiento cerebral</strong></p>
+                                    <p style="font-size: 0.8em;">Recibe señales sensoriales<br>Crea asociaciones y significados</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Cognición Distribuida y Teoría de la Actividad -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-share-alt"></i> Cognición Distribuida y Teoría de la Actividad</h2>
+
+                <section>
+                    <h3>Teoría de la Actividad (AT)</h3>
+                    <div class="concept-box">
+                        <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h5><i class="fas fa-history"></i> Origen</h5>
+                            <p style="font-size: 0.9em;">Teoría psicológica rusa de la era soviética</p>
+                        </div>
+                        <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h5><i class="fas fa-lightbulb"></i> Principio</h5>
+                            <p style="font-size: 0.9em;">Comprender a las personas a través de cómo interactúan con el mundo</p>
+                        </div>
+                        <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                            <h5><i class="fas fa-user"></i> Defensor</h5>
+                            <p style="font-size: 0.9em;">Donald Norman y el Diseño Centrado en la Actividad (ACD)</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Filosofía Central</h3>
+                    <div class="concept-box">
+                        <blockquote style="background: rgba(145, 0, 72, 0.1); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--uide-accent); font-style: italic; font-size: 1.0em;">
+                            "Los humanos se adaptan a las herramientas disponibles y la comprensión de las actividades que realizan puede influir favorablemente en el diseño"
+                        </blockquote>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Acción Situada -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-map-marker-alt"></i> Acción Situada (Suchman, 1987)</h2>
+
+                <section>
+                    <h3>Crítica al Modelo Cognitivo Tradicional</h3>
+                    <div class="concept-box">
+                        <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h5><i class="fas fa-exclamation-triangle"></i> Problema</h5>
+                            <p style="font-size: 0.9em;">Presupone planes humanos preordenados</p>
+                        </div>
+                        <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h5><i class="fas fa-lightbulb"></i> Propuesta</h5>
+                            <p style="font-size: 0.9em;">Las acciones están <em>"situadas en el tiempo y el lugar"</em></p>
+                        </div>
+                        <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                            <h5><i class="fas fa-users"></i> Característica</h5>
+                            <p style="font-size: 0.9em;">Altamente sensibles a otras personas y contingencias ambientales</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Implicación</h3>
+                    <div class="concept-box">
+                        <div style="background: rgba(145, 0, 72, 0.1); padding: 1.5rem; border-radius: 8px; text-align: center;">
+                            <p style="font-size: 1.1em; margin: 0; font-weight: bold;">
+                                Las acciones dependen del <strong>contexto inmediato</strong>, no solo de planes previos
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Cognición Distribuida -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-sync-alt"></i> Cognición Distribuida</h2>
+
+                <section>
+                    <h3>Concepto Central</h3>
+                    <div class="concept-box">
+                        <blockquote style="background: rgba(40, 167, 69, 0.1); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--uide-primary); font-style: italic; font-size: 1.1em;">
+                            "El conocimiento no reside únicamente en la mente del usuario, sino que está distribuido en el entorno"
+                        </blockquote>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Distribución del Conocimiento</h3>
+                    <div class="concept-box">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-file-alt"></i> Documentos en papel</h5>
+                            </div>
+                            <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-computer"></i> Sistemas computarizados</h5>
+                            </div>
+                            <div style="background: rgba(145, 0, 72, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-users"></i> Colegas y colaboradores</h5>
+                            </div>
+                            <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-globe"></i> Objetos del mundo real</h5>
+                                <p style="font-size: 0.8em;">(libros, mapas, dispositivos)</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Modelo de Interfaz Objeto-Acción -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-star"></i> Modelo de Interfaz Objeto-Acción (OAI)</h2>
+
+                <section>
+                    <h3>Incorpora:</h3>
+                    <div class="concept-box">
+                        <div class="r-hstack">
+                            <div class="column">
+                                <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-map-marker-alt"></i> Acción situada</h5>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-share-alt"></i> Cognición distribuida</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Elementos Expandidos:</h3>
+                    <div class="concept-box">
+                        <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h5><i class="fas fa-cube"></i> Objetos</h5>
+                            <p style="font-size: 0.9em;">Incluyen elementos del mundo real</p>
+                        </div>
+                        <div style="background: rgba(145, 0, 72, 0.1); padding: 1rem; border-radius: 8px;">
+                            <h5><i class="fas fa-play"></i> Acciones</h5>
+                            <p style="font-size: 0.9em;">Incluyen actividades comunes (hablar con colegas, manejar interrupciones)</p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Computación Ubicua -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-globe"></i> Computación Ubicua (UbiCom)</h2>
+
+                <section>
+                    <h3>Visión de Mark Weiser (1991)</h3>
+                    <div class="concept-box">
+                        <blockquote style="background: rgba(40, 167, 69, 0.1); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--uide-primary); font-style: italic; font-size: 1.1em;">
+                            "Las computadoras desaparecerían en el fondo del entorno"
+                        </blockquote>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Objetivo Principal</h3>
+                    <div class="concept-box">
+                        <div class="r-hstack">
+                            <div class="column">
+                                <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-eye-slash"></i> Tecnología invisible</h5>
+                                    <p style="font-size: 0.9em;">para el usuario</p>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-globe"></i> Entorno sin fisuras</h5>
+                                    <p style="font-size: 0.9em;">(seamless)</p>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(145, 0, 72, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-universal-access"></i> Accesibilidad y usabilidad</h5>
+                                    <p style="font-size: 0.9em;">máximas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Las 5 Propiedades Fundamentales de UbiCom -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-building"></i> Las 5 Propiedades Fundamentales de UbiCom</h2>
+
+                <section>
+                    <div class="concept-box">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                            <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-network-wired"></i> 1. Sistemas TIC Distribuidos</h5>
+                                <p style="font-size: 0.8em;">→ Interconectados y transparentes</p>
+                            </div>
+                            <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-eye-slash"></i> 2. Interacción Implícita (iHCI)</h5>
+                                <p style="font-size: 0.8em;">→ Interacción oculta</p>
+                            </div>
+                            <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-map-marker-alt"></i> 3. Conciencia del Contexto</h5>
+                                <p style="font-size: 0.8em;">→ Sistemas conscientes del entorno</p>
+                            </div>
+                            <div style="background: rgba(145, 0, 72, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h5><i class="fas fa-robot"></i> 4. Autonomía</h5>
+                                <p style="font-size: 0.8em;">→ Operación sin intervención humana</p>
+                            </div>
+                        </div>
+                        <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px; text-align: center;">
+                            <h5><i class="fas fa-brain"></i> 5. Inteligencia</h5>
+                            <p style="font-size: 0.8em;">→ Manejo de múltiples acciones dinámicas</p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Tipos de Interacción en UbiCom -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-exchange-alt"></i> Tipos de Interacción en UbiCom</h2>
+
+                <section>
+                    <div class="concept-box">
+                        <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h5><i class="fas fa-user"></i> 1. Interacción Persona-Dispositivo (HCI/eHCI)</h5>
+                            <p style="font-size: 0.9em;">Humanos usan modelo explícito del sistema</p>
+                        </div>
+                        
+                        <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h5><i class="fas fa-sync-alt"></i> 2. Interacción Dispositivo-Humano (C2H/iHCI)</h5>
+                            <p style="font-size: 0.9em;">Sistema consciente del contexto humano</p>
+                            <p style="font-size: 0.8em; font-weight: bold;">**Se adapta automáticamente**</p>
+                        </div>
+                        
+                        <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                            <h5><i class="fas fa-globe"></i> 3. Interacción Dispositivo-Mundo Físico (CPI)</h5>
+                            <p style="font-size: 0.9em;">Detección y control del mundo físico</p>
+                            <p style="font-size: 0.8em; font-weight: bold;">**Realidad Aumentada/Mediada**</p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Formas de Dispositivos Ubicuos -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-mobile-alt"></i> Formas de Dispositivos Ubicuos (Weiser)</h2>
+
+                <section>
+                    <h3>Formas Originales</h3>
+                    <div class="concept-box">
+                        <div class="r-hstack">
+                            <div class="column">
+                                <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-tablet-alt"></i> Tabs</h5>
+                                    <p style="font-size: 0.9em;">Pequeños (tamaño palma)</p>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-book"></i> Pads</h5>
+                                    <p style="font-size: 0.9em;">Medianos (tamaño libro)</p>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-tv"></i> Boards</h5>
+                                    <p style="font-size: 0.9em;">Grandes (pizarras/pantallas de pared)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Extensiones Modernas</h3>
+                    <div class="concept-box">
+                        <div class="r-hstack">
+                            <div class="column">
+                                <div style="background: rgba(145, 0, 72, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-dot-circle"></i> Dust</h5>
+                                    <p style="font-size: 0.9em;">Polvo inteligente/MEMS</p>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-tshirt"></i> Skins</h5>
+                                    <p style="font-size: 0.9em;">Telas conductoras</p>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-cube"></i> Clay</h5>
+                                    <p style="font-size: 0.9em;">Materia programable 3D</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Implicaciones Sociales -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-exclamation-triangle"></i> Implicaciones Sociales: Capitalismo de Vigilancia</h2>
+
+                <section>
+                    <h3>Concepto de "Aparato"</h3>
+                    <div class="concept-box">
+                        <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h5><i class="fas fa-cogs"></i> Funciones del Aparato</h5>
+                            <p style="font-size: 0.9em;"><strong>Instrumenta, conecta, comunica y computa</strong> continuamente</p>
+                        </div>
+                        <div style="background: rgba(145, 0, 72, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h5><i class="fas fa-exchange-alt"></i> Transformación</h5>
+                            <p style="font-size: 0.9em;"><strong>Transforma actividad del mundo real</strong> en datos</p>
+                        </div>
+                        <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                            <h5><i class="fas fa-chart-line"></i> Resultado</h5>
+                            <p style="font-size: 0.9em;"><strong>Genera predicciones</strong> comerciales</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Términos Asociados</h3>
+                    <div class="concept-box">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+                            <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px; text-align: center;">
+                                <p style="font-size: 0.9em; margin: 0;">Ambient computing</p>
+                            </div>
+                            <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px; text-align: center;">
+                                <p style="font-size: 0.9em; margin: 0;">Internet de las cosas</p>
+                            </div>
+                            <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px; text-align: center;">
+                                <p style="font-size: 0.9em; margin: 0;">Vigilancia continua</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Rol de NASA en HCI -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-rocket"></i> Rol de NASA en HCI</h2>
+
+                <section>
+                    <h3>NASA-TLX (Task Load Index)</h3>
+                    <div class="concept-box">
+                        <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h5><i class="fas fa-tools"></i> Herramienta de evaluación</h5>
+                            <p style="font-size: 0.9em;">de carga de trabajo mental</p>
+                        </div>
+                        <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h5><i class="fas fa-flask"></i> Basado en investigación empírica</h5>
+                            <p style="font-size: 0.9em;">y teórica</p>
+                        </div>
+                        <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                            <h5><i class="fas fa-clipboard-list"></i> Usado comúnmente</h5>
+                            <p style="font-size: 0.9em;">en diseño de cuestionarios HCI</p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Directrices NASA para Interfaces -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-clipboard-list"></i> Directrices NASA para Interfaces</h2>
+
+                <section>
+                    <h3>Directrices de Interfaz de Usuario (1996)</h3>
+                    <div class="concept-box">
+                        <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h5><i class="fas fa-building"></i> Publicadas por</h5>
+                            <p style="font-size: 0.9em;">Goddard Space Flight Center</p>
+                        </div>
+                        <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h5><i class="fas fa-desktop"></i> Enfoque</h5>
+                            <p style="font-size: 0.9em;">Interfaces gráficas y orientadas a objetos</p>
+                        </div>
+                        <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h5><i class="fas fa-network-wired"></i> Sistemas</h5>
+                            <p style="font-size: 0.9em;">Distribuidos o independientes</p>
+                        </div>
+                        <div style="background: rgba(145, 0, 72, 0.1); padding: 1rem; border-radius: 8px;">
+                            <h5><i class="fas fa-book"></i> Incluye</h5>
+                            <p style="font-size: 0.9em;">Principios, guía general y ejemplos</p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Sistemas Críticos y Usabilidad -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-satellite"></i> Sistemas Críticos y Usabilidad</h2>
+
+                <section>
+                    <h3>Importancia en Sistemas Life-Critical</h3>
+                    <div class="concept-box">
+                        <div class="r-hstack">
+                            <div class="column">
+                                <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-plane"></i> Control de tráfico aéreo</h5>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-fighter-jet"></i> Aeronaves</h5>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-rocket"></i> Vehículos espaciales</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Estudio de Caso: Transbordador Espacial</h3>
+                    <div class="concept-box">
+                        <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h5><i class="fas fa-wrench"></i> Mejoras implementadas:</h5>
+                            <ul style="font-size: 0.9em;">
+                                <li>Etiquetas de datos mejoradas</li>
+                                <li>Agrupación de información</li>
+                                <li>Eliminación de caracteres extraños</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                            <h5><i class="fas fa-chart-line"></i> Resultados:</h5>
+                            <div class="r-hstack">
+                                <div class="column">
+                                    <p style="font-size: 0.9em; margin: 0;"><i class="fas fa-arrow-down" style="color: green;"></i> <strong>31%</strong> reducción en tiempos de tarea</p>
+                                </div>
+                                <div class="column">
+                                    <p style="font-size: 0.9em; margin: 0;"><i class="fas fa-arrow-down" style="color: green;"></i> <strong>28%</strong> reducción en tasas de error</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Teleoperación Espacial -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-crosshairs"></i> Teleoperación Espacial</h2>
+
+                <section>
+                    <div class="concept-box">
+                        <div style="background: rgba(233, 171, 33, 0.1); padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h4><i class="fas fa-satellite"></i> Definición</h4>
+                            <p style="font-size: 1.0em; margin: 0;"><strong>Control remoto de procesos físicos</strong> en entornos complejos</p>
+                        </div>
+                        
+                        <div class="r-hstack">
+                            <div class="column">
+                                <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-rocket"></i> Misiones espaciales</h5>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-robot"></i> Robótica espacial</h5>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(145, 0, 72, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-search"></i> Exploración remota</h5>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: center;">
+                            <h5><i class="fas fa-code"></i> Relevancia</h5>
+                            <p style="font-size: 0.9em; margin: 0;">Campo clave en <strong>ingeniería de software</strong> y <strong>HCI</strong></p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Referencias Clave -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-book"></i> Referencias Clave</h2>
+
+                <section>
+                    <h3>Fundamentos Teóricos</h3>
+                    <div class="concept-box" style="font-size: 0.8em;">
+                        <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 0.5rem;">
+                            <p style="margin: 0;"><strong>Card, S. K., Moran, T. P., y Newell, A. (1983)</strong>. <em>The Psychology of Human-Computer Interaction</em></p>
+                        </div>
+                        <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 0.5rem;">
+                            <p style="margin: 0;"><strong>Suchman, L. A. (1987)</strong>. <em>Plans and Situated Actions: The Problem of Human-Machine Communication</em></p>
+                        </div>
+                        <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                            <p style="margin: 0;"><strong>Weiser, M. (1991)</strong>. <em>The computer for the twenty first century</em>. Scientific American</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Cognición y Actividad</h3>
+                    <div class="concept-box" style="font-size: 0.8em;">
+                        <div style="background: rgba(145, 0, 72, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 0.5rem;">
+                            <p style="margin: 0;"><strong>Norman, D. A. (1988)</strong>. <em>The Psychology of Everyday Things</em></p>
+                        </div>
+                        <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px;">
+                            <p style="margin: 0;"><strong>Nardi, B. A. (1997)</strong>. <em>Context and Consciousness: Activity Theory and Human-Computer Interaction</em></p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Referencias Técnicas -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-microscope"></i> Referencias Técnicas y Metodológicas</h2>
+
+                <section>
+                    <h3>Evaluación y Medición</h3>
+                    <div class="concept-box" style="font-size: 0.8em;">
+                        <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 0.5rem;">
+                            <p style="margin: 0;"><strong>Hart, S. y Staveland, L. (1988)</strong>. Development of NASA-TLX: Results of empirical and theoretical research</p>
+                        </div>
+                        <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                            <p style="margin: 0;"><strong>NASA Goddard Space Flight Center (1996)</strong>. NASA User-Interface Guidelines</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Computación Ubicua</h3>
+                    <div class="concept-box" style="font-size: 0.8em;">
+                        <div style="background: rgba(145, 0, 72, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 0.5rem;">
+                            <p style="margin: 0;"><strong>Poslad, S. (2009)</strong>. <em>Ubiquitous Computing: Smart Devices, Environments and Interactions</em></p>
+                        </div>
+                        <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px;">
+                            <p style="margin: 0;"><strong>Abowd, G. D. y Mynatt, E. D. (2000)</strong>. Charting past, present, and future research in ubiquitous computing</p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Síntesis -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-puzzle-piece"></i> Síntesis: Integrando los Conceptos</h2>
+
+                <section>
+                    <div class="concept-box">
+                        <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h4><i class="fas fa-foundation"></i> Factores Humanos como Base</h4>
+                            <ul style="font-size: 0.9em;">
+                                <li><strong>Variabilidad humana</strong> requiere diseño aproximado</li>
+                                <li><strong>Interdisciplinariedad</strong> esencial para HCI efectiva</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h4><i class="fas fa-map-marker-alt"></i> Cognición en Contexto</h4>
+                            <ul style="font-size: 0.9em;">
+                                <li><strong>Conocimiento distribuido</strong> en el entorno</li>
+                                <li><strong>Acciones situadas</strong> en tiempo y lugar específicos</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                            <h4><i class="fas fa-globe"></i> Futuro Ubicuo</h4>
+                            <ul style="font-size: 0.9em;">
+                                <li><strong>Tecnología invisible</strong> pero omnipresente</li>
+                                <li><strong>Consideraciones éticas</strong> del capitalismo de vigilancia</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Implicaciones para el Diseño -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-bullseye"></i> Implicaciones para el Diseño</h2>
+
+                <section>
+                    <h3>Principios de Diseño Emergentes</h3>
+                    <div class="concept-box">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h6>1. Reconocer variabilidad humana</h6>
+                            </div>
+                            <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h6>2. Diseñar para cognición distribuida</h6>
+                            </div>
+                            <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h6>3. Considerar contexto y situación</h6>
+                            </div>
+                            <div style="background: rgba(145, 0, 72, 0.1); padding: 1rem; border-radius: 8px;">
+                                <h6>4. Evaluar carga de trabajo mental</h6>
+                            </div>
+                        </div>
+                        <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: center;">
+                            <h6>5. Anticipar implicaciones sociales</h6>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Hacia el Futuro</h3>
+                    <div class="concept-box">
+                        <div class="r-hstack">
+                            <div class="column">
+                                <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-hand-paper"></i> Interfaces más naturales</h5>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-map-marker-alt"></i> Sistemas context-aware</h5>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(145, 0, 72, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h5><i class="fas fa-shield-alt"></i> Diseño ético responsable</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Reflexiones Finales -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-lightbulb"></i> Reflexiones Finales</h2>
+
+                <section>
+                    <h3>Preguntas para Considerar</h3>
+                    <div class="concept-box">
+                        <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <p style="font-size: 0.9em; margin: 0;">¿Cómo equilibrar <strong>funcionalidad</strong> y <strong>simplicidad</strong>?</p>
+                        </div>
+                        <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <p style="font-size: 0.9em; margin: 0;">¿Qué papel juega la <strong>privacidad</strong> en sistemas ubicuos?</p>
+                        </div>
+                        <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                            <p style="font-size: 0.9em; margin: 0;">¿Cómo <strong>evaluar efectivamente</strong> sistemas complejos?</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Desafío Profesional</h3>
+                    <div class="concept-box">
+                        <blockquote style="background: rgba(145, 0, 72, 0.1); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--uide-accent); font-style: italic; font-size: 1.1em;">
+                            "Los desafíos más profundos en HCI residen en el factor humano, ya que los seres humanos son complicados"
+                        </blockquote>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Para Profundizar -->
+            <section data-transition="convex">
+                <h2><i class="fas fa-book-open"></i> Para Profundizar</h2>
+
+                <section>
+                    <h3>Lecturas Recomendadas</h3>
+                    <div class="concept-box" style="font-size: 0.8em;">
+                        <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 0.5rem;">
+                            <p style="margin: 0;">MacKenzie, I. S. (2013). <em>Human-Computer Interaction: An Empirical Research Perspective</em></p>
+                        </div>
+                        <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 0.5rem;">
+                            <p style="margin: 0;">Shneiderman, B., y Plaisant, C. (2004). <em>Designing the User Interface: Strategies for Effective Human Computer Interaction</em></p>
+                        </div>
+                        <div style="background: rgba(233, 171, 33, 0.1); padding: 1rem; border-radius: 8px;">
+                            <p style="margin: 0;">Dourish, P. (2002). <em>Where the Action Is: The Foundations of Embodied Interaction</em></p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Recursos NASA</h3>
+                    <div class="concept-box" style="font-size: 0.9em;">
+                        <div class="r-hstack">
+                            <div class="column">
+                                <div style="background: rgba(145, 0, 72, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h6>NASA User-Interface Guidelines</h6>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(40, 167, 69, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h6>NASA-TLX Methodology</h6>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div style="background: rgba(35, 53, 110, 0.1); padding: 1rem; border-radius: 8px;">
+                                    <h6>Human Factors Research en NASA</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Final slide with attribution -->
+            <section data-background-color="#f8f8f8" data-transition="convex">
+                <div class="title-slide">
+                    <h2>¡Gracias por su atención!</h2>
+                    <div style="margin-top: 2em; font-size: 0.8em; font-style: italic; color: var(--uide-secondary);">
+                        <em>Presentación basada en el compendio de Semana 2 - HCI:<br>
+                        Factores Humanos, Cognición Distribuida y Teoría de la Actividad,<br>
+                        HCI Ubicua, y el Rol de NASA</em>
+                    </div>
+                    
+                    <div style="margin-top: 2em; font-size: 0.9em;">
+                        <strong>PP-07-HCI-ASC</strong> • Universidad Internacional del Ecuador<br>
+                        <em>Prof. Charlie Cárdenas Toledo, M.Sc.</em>
+                    </div>
+                </div>
+            </section>
+
+        </div>    </div>
+
+    <!-- Reveal.js JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/highlight/highlight.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="presentacion-clase-semana2.js"></script>
+
+    <!-- Responsive handling script -->
+    <script>
+        // Responsive handling for presentation
+        function handleResize() {
+            // Trigger Reveal.js layout recalculation
+            if (typeof Reveal !== 'undefined') {
+                Reveal.layout();
+            }
+
+            // Re-render Mermaid diagrams if needed
+            if (typeof mermaid !== 'undefined') {
+                try {
+                    mermaid.init();
+                } catch (e) {
+                    console.log('Mermaid re-initialization skipped');
+                }
+            }
+        }
+
+        // Debounced resize handler
+        let resizeTimeout;
+        window.addEventListener('resize', function () {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(handleResize, 250);
+        });
+
+        // Orientation change handler for mobile
+        window.addEventListener('orientationchange', function () {
+            setTimeout(handleResize, 500);
+        });
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('DOM loaded, initializing presentation...');
+            handleResize();
+        });
+
+        // Performance optimization for mobile
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            // Reduce animations on mobile for better performance
+            document.documentElement.style.setProperty('--reveal-transition-speed', '0.3s');
+        }
+    </script>
+
+    <script>
+        // Initialize Reveal.js with responsive settings
+        console.log('Initializing Reveal.js...');
+
+        Reveal.initialize({
+            hash: true,
+            transition: 'convex',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+
+            // Responsive settings
+            width: '100%',
+            height: '100%',
+            margin: 0.04,
+            minScale: 0.2,
+            maxScale: 2.0,
+
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+
+            // Display controls
+            controls: true,
+            progress: true,
+            center: true,
+            touch: true,
+            loop: false,
+
+            // Keyboard navigation
+            keyboard: true,
+
+            // Overview mode
+            overview: true,
+
+            // Vertical centering of slides
+            center: true,
+
+            // Enables touch navigation on devices with touch input
+            touch: true,
+
+            // Loop the presentation
+            loop: false,
+
+            // Change the presentation direction to be RTL
+            rtl: false,
+
+            // Randomizes the order of slides each time the presentation loads
+            shuffle: false,
+
+            // Turns fragments on and off globally
+            fragments: true,
+
+            // Flags whether to include the current fragment in the URL,
+            // so that reloading brings you to the same fragment position
+            fragmentInURL: true,
+
+            // Flags if the presentation is running in an embedded mode,
+            // i.e. contained within a limited portion of the screen
+            embedded: false,
+
+            // Flags if we should show a help overlay when the questionmark
+            // key is pressed
+            help: true,
+
+            // Flags if it should be possible to pause the presentation (blackout)
+            pause: true,
+
+            // Flags if speaker notes should be visible to all viewers
+            showNotes: false,
+
+            // Global override for autoplaying embedded media (null/true/false)
+            autoPlayMedia: null,
+
+            // Global override for preloading lazy-loaded iframes (null/true/false)
+            preloadIframes: null,
+
+            // Number of milliseconds between automatically proceeding to the
+            // next slide, disabled when set to 0, this value can be overwritten
+            // by using a data-autoslide attribute on your slides
+            autoSlide: 0,
+
+            // Stop auto-sliding after user input
+            autoSlideStoppable: true,
+
+            // Use this method for navigation when auto-sliding
+            autoSlideMethod: null,
+
+            // Specify the average time in seconds that you think you'll spend
+            // presenting each slide. This is used to show a pacing timer in the
+            // speaker view
+            defaultTiming: null,
+
+            // Enable slide navigation via mouse wheel
+            mouseWheel: false,
+
+            // The display mode that will be used to show slides
+            display: 'block',
+
+            // Hide cursor if inactive
+            hideInactiveCursor: true,
+
+            // Time before the cursor is hidden (in ms)
+            hideCursorTime: 5000,
+
+            // Opens links in an iframe preview overlay
+            previewLinks: false,
+
+            // Exposes the reveal.js API through window.postMessage
+            postMessage: true,
+
+            // Dispatches all reveal.js events to the parent window through postMessage
+            postMessageEvents: false,
+
+            // Focuses body when page changes visibility to ensure keyboard shortcuts work
+            focusBodyOnPageVisibilityChange: true,
+
+            // Transition style
+            transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+            // Transition speed
+            transitionSpeed: 'default', // default/fast/slow
+
+            // Transition style for full page slide backgrounds
+            backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+
+            // Number of slides away from the current that are visible
+            viewDistance: 3,
+
+            // Number of slides away from the current that are visible on mobile
+            // devices. It is advisable to set this to a lower number than
+            // viewDistance in order to save resources.
+            mobileViewDistance: 2,
+
+            // Parallax background image
+            parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+            // Parallax background size
+            parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+
+            // Number of pixels to move the parallax background per slide
+            // - Calculated automatically unless specified
+            // - Set to 0 to disable movement along an axis
+            parallaxBackgroundHorizontal: null,
+            parallaxBackgroundVertical: null,
+
+            // The maximum number of pages a single slide can expand onto when printing
+            // to PDF, unlimited by default
+            pdfMaxPagesPerSlide: Number.POSITIVE_INFINITY,
+
+            // Prints each fragment on a separate slide
+            pdfSeparateFragments: true,
+
+            // Offset used to reduce the height of content within exported PDF pages.
+            // This exists to account for environment differences based on how you
+            // print to PDF. CLI printing options, like phantomjs and wkpdf, can end
+            // on precisely the total height of the document whereas in-browser
+            // printing has to end one pixel before.
+            pdfPageHeightOffset: -1,
+
+            // Number of slides away from the current that will be preloaded
+            preloadIframes: null,
+
+            // Can be used to globally disable auto-animation
+            autoAnimate: true,
+
+            // Optionally provide a custom element matcher that will be
+            // used to dictate which elements we can animate between.
+            autoAnimateEasing: 'ease',
+
+            // Default settings for our auto-animate transitions, can be
+            // overridden per-slide or per-element via data arguments
+            autoAnimateDuration: 1.0,
+            autoAnimateUnmatched: true
+        });
+
+        // Log when Reveal is ready
+        Reveal.on('ready', function () {
+            console.log('Reveal.js is ready!');
+        });
+    </script>
+
+</body>
+
+</html>
