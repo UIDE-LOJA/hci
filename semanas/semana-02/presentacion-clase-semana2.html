@@ -34,8 +34,8 @@
 <body>
 
     <!-- Floating Help Icon -->
-    <div class="floating-help-emoji" onclick="showClassificationCheatSheet()" title="Guía de Clasificación">
-        <i class="fas fa-question-circle"></i>
+    <div class="floating-help-emoji" onclick="showHCIReference()" title="Guía Rápida de HCI">
+        <i class="fas fa-info-circle"></i>
     </div>
 
     <div class="reveal">
@@ -1282,6 +1282,83 @@
         Reveal.on('ready', function () {
             console.log('Reveal.js is ready!');
         });
+
+        // HCI Reference Guide Function
+        function showHCIReference() {
+            const hciInfo = `
+                <div style="max-width: 500px; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                    <h3 style="color: #2c5282; margin-top: 0; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px;">
+                        <i class="fas fa-brain" style="margin-right: 8px;"></i>Guía Rápida: Fundamentos de HCI
+                    </h3>
+                    
+                    <div style="margin: 15px 0;">
+                        <h4 style="color: #2d3748; margin: 10px 0 5px 0; font-size: 14px;">
+                            <i class="fas fa-user-cog" style="color: #4299e1;"></i> Factores Humanos
+                        </h4>
+                        <p style="margin: 0; font-size: 12px; color: #4a5568;">• Variabilidad humana requiere diseño aproximado<br>• MHP: Entrada → Cognición → Salida motora</p>
+                    </div>
+                    
+                    <div style="margin: 15px 0;">
+                        <h4 style="color: #2d3748; margin: 10px 0 5px 0; font-size: 14px;">
+                            <i class="fas fa-share-alt" style="color: #48bb78;"></i> Cognición Distribuida
+                        </h4>
+                        <p style="margin: 0; font-size: 12px; color: #4a5568;">• Conocimiento distribuido en el entorno<br>• Acciones situadas en tiempo y lugar</p>
+                    </div>
+                    
+                    <div style="margin: 15px 0;">
+                        <h4 style="color: #2d3748; margin: 10px 0 5px 0; font-size: 14px;">
+                            <i class="fas fa-globe" style="color: #ed8936;"></i> Computación Ubicua
+                        </h4>
+                        <p style="margin: 0; font-size: 12px; color: #4a5568;">• Tecnología invisible y omnipresente<br>• 5 propiedades: Distribuida, Implícita, Context-aware, Autónoma, Inteligente</p>
+                    </div>
+                    
+                    <div style="margin: 15px 0;">
+                        <h4 style="color: #2d3748; margin: 10px 0 5px 0; font-size: 14px;">
+                            <i class="fas fa-rocket" style="color: #9f7aea;"></i> NASA-TLX
+                        </h4>
+                        <p style="margin: 0; font-size: 12px; color: #4a5568;">• Evaluación de carga de trabajo mental<br>• Directrices para sistemas críticos</p>
+                    </div>
+                    
+                    <div style="margin-top: 20px; text-align: center;">
+                        <button onclick="this.parentElement.parentElement.parentElement.remove()" 
+                                style="background: #4299e1; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 12px;">
+                            <i class="fas fa-times"></i> Cerrar
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // Remove existing overlay if any
+            const existingOverlay = document.getElementById('hci-overlay');
+            if (existingOverlay) {
+                existingOverlay.remove();
+            }
+            
+            // Create overlay
+            const overlay = document.createElement('div');
+            overlay.id = 'hci-overlay';
+            overlay.style.cssText = `
+                position: fixed; 
+                top: 0; left: 0; 
+                width: 100%; height: 100%; 
+                background: rgba(0,0,0,0.7); 
+                display: flex; 
+                justify-content: center; 
+                align-items: center; 
+                z-index: 10000;
+                backdrop-filter: blur(3px);
+            `;
+            overlay.innerHTML = hciInfo;
+            
+            // Close on overlay click
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) {
+                    overlay.remove();
+                }
+            });
+            
+            document.body.appendChild(overlay);
+        }
     </script>
 
 </body>
