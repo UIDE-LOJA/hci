@@ -1,12 +1,8 @@
-// Custom JavaScript for Semana 2 - Paradigmas de Simulación
-
-// ===== FUNCIONES GLOBALES PARA AGENTE ASPIRADORA =====
-// Declarar funciones globales temprano para evitar errores de referencia
-let startVacuumSimulation, resetVacuumSimulation, closeResultsModal;
+// Custom JavaScript for Semana 3 - Diseño y Psicología en HCI
 
 // Initialize presentation when DOM is loaded
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('Presentación Semana 2 - Paradigmas de Simulación cargada');
+    console.log('Presentación Semana 3 - Diseño y Psicología en HCI cargada');
 
     // Add interactive behaviors
     initializeInteractiveElements();
@@ -100,27 +96,45 @@ function showHelp() {
     });
 }
 
-// Show classification cheat sheet
-function showClassificationCheatSheet() {
-    const cheatSheetContent = `
+// Show HCI information
+function showHCIInfo() {
+    const hciInfoContent = `
         <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
                     background: rgba(0,0,0,0.8); z-index: 9999; display: flex; 
-                    align-items: center; justify-content: center;" id="cheatSheetOverlay">
-            <div style="background: white; padding: 2rem; border-radius: 10px; max-width: 600px;">
-                <h3>Guía Rápida de Clasificación</h3>
+                    align-items: center; justify-content: center;" id="hciInfoOverlay">
+            <div style="background: white; padding: 2rem; border-radius: 10px; max-width: 700px;">
+                <h3>Guía Rápida de HCI y Diseño</h3>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: left;">
                     <div>
-                        <h4 style="color: #28a745;">Temporal</h4>
-                        <p><strong>Discreto:</strong> Cambios instantáneos en puntos específicos</p>
-                        <p><strong>Continuo:</strong> Cambios graduales y constantes</p>
+                        <h4 style="color: #28a745;">Don Norman</h4>
+                        <p><strong>7 Etapas:</strong> Ciclo de interacción</p>
+                        <p><strong>4 Principios:</strong> Visibilidad, modelo conceptual, mapeos, feedback</p>
+                        <p><strong>3 Niveles:</strong> Visceral, conductual, reflexivo</p>
                     </div>
                     <div>
-                        <h4 style="color: #910048;">Aleatoriedad</h4>
-                        <p><strong>Determinístico:</strong> Mismas entradas = mismas salidas</p>
-                        <p><strong>Estocástico:</strong> Interviene el azar</p>
+                        <h4 style="color: #910048;">Psicología del Color</h4>
+                        <p><strong>Valor:</strong> Claro/oscuro para contraste</p>
+                        <p><strong>Matiz:</strong> Color puro, usar con moderación</p>
+                        <p><strong>Saturación:</strong> Pureza para atención</p>
                     </div>
                 </div>
-                <button onclick="closeOverlay('cheatSheetOverlay')" 
+                <div style="margin-top: 1rem;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div>
+                            <h4 style="color: #23356E;">Gestalt</h4>
+                            <p><strong>Proximidad:</strong> Elementos cercanos se agrupan</p>
+                            <p><strong>Similitud:</strong> Elementos similares se relacionan</p>
+                            <p><strong>Cierre:</strong> Completar patrones faltantes</p>
+                        </div>
+                        <div>
+                            <h4 style="color: #E9AB21;">Affordances</h4>
+                            <p><strong>Gibson:</strong> Posibilidades reales del entorno</p>
+                            <p><strong>Norman:</strong> Percepción de lo que se puede hacer</p>
+                            <p><strong>Signifiers:</strong> Pistas visuales claras</p>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="closeOverlay('hciInfoOverlay')" 
                         style="margin-top: 1rem; padding: 0.5rem 1rem; 
                                background: #910048; color: white; border: none; 
                                border-radius: 5px; cursor: pointer;">
@@ -130,7 +144,12 @@ function showClassificationCheatSheet() {
         </div>
     `;
 
-    document.body.insertAdjacentHTML('beforeend', cheatSheetContent);
+    document.body.insertAdjacentHTML('beforeend', hciInfoContent);
+}
+
+// Mantener compatibilidad con función anterior
+function showClassificationCheatSheet() {
+    showHCIInfo();
 }
 
 // Close overlay function
@@ -249,16 +268,16 @@ function classifySystem(system, temporal, randomness) {
     };
 }
 
-// Example HCI concepts for reference
-const exampleHCIConcepts = [
-    {concept: 'Factores Humanos', tipo: 'Interdisciplinario', aplicacion: 'Interfaces accesibles'},
-    {concept: 'Cognición Distribuida', tipo: 'Teórico', aplicacion: 'Sistemas colaborativos'},
-    {concept: 'Computación Ubicua', tipo: 'Paradigma', aplicacion: 'IoT y sistemas inteligentes'},
-    {concept: 'NASA-TLX', tipo: 'Metodológico', aplicacion: 'Evaluación de carga mental'},
-    {concept: 'Acción Situada', tipo: 'Teórico', aplicacion: 'Interfaces adaptativas'}
+// Example classifications for reference
+const exampleClassifications = [
+    classifySystem('Cajero automático', 'discreto', 'estocástico'),
+    classifySystem('Llenado de tanque', 'continuo', 'determinístico'),
+    classifySystem('Llegada de clientes', 'discreto', 'estocástico'),
+    classifySystem('Crecimiento poblacional', 'continuo', 'estocástico'),
+    classifySystem('Cálculo de interés', 'discreto', 'determinístico')
 ];
 
-console.log('Ejemplos de conceptos HCI cargados:', exampleHCIConcepts);
+console.log('Ejemplos de clasificación cargados:', exampleClassifications);
 
 // Interactive Classification System
 function initializeClassificationSystem() {
@@ -430,82 +449,16 @@ document.addEventListener('DOMContentLoaded', function () {
         const slide = event.currentSlide;
 
         // Track progress based on slide content
-        const h2Element = slide.querySelector('h2');
-        if (h2Element && h2Element.textContent.includes('Factores Humanos')) {
-            updateProgress('factores');
-        } else if (h2Element && h2Element.textContent.includes('Cognición')) {
-            updateProgress('cognicion');
-        } else if (h2Element && h2Element.textContent.includes('UbiCom')) {
-            updateProgress('ubicom');
-        } else if (h2Element && h2Element.textContent.includes('NASA')) {
+        if (slide.querySelector('h2').textContent.includes('Temporal')) {
+            updateProgress('temporal');
+        } else if (slide.querySelector('h2').textContent.includes('Aleatoriedad')) {
+            updateProgress('aleatoriedad');
+        } else if (slide.querySelector('h2').textContent.includes('Agentes')) {
+            updateProgress('agentes');
+        } else if (slide.querySelector('h2').textContent.includes('Actividades')) {
             updateProgress('actividades');
         }
     });
-});
-
-// Video Modal Functions
-function openVideoModal(title, videoId, description) {
-    const modal = document.getElementById('video-modal');
-    const titleElement = document.getElementById('modal-title');
-    const descriptionElement = document.getElementById('modal-description');
-    const videoContainer = document.getElementById('modal-video-container');
-    
-    // Set content
-    titleElement.innerHTML = title;
-    descriptionElement.innerHTML = description;
-    
-    // Create video iframe
-    videoContainer.innerHTML = `
-        <iframe 
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
-            src="https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1&modestbranding=1&rel=0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-        </iframe>
-    `;
-    
-    // Show modal with animation
-    modal.style.display = 'block';
-    setTimeout(() => {
-        modal.style.opacity = '1';
-    }, 10);
-    
-    // Prevent body scroll
-    document.body.style.overflow = 'hidden';
-}
-
-function closeVideoModal() {
-    const modal = document.getElementById('video-modal');
-    const videoContainer = document.getElementById('modal-video-container');
-    
-    // Hide modal with animation
-    modal.style.opacity = '0';
-    setTimeout(() => {
-        modal.style.display = 'none';
-        // Stop video by clearing container
-        videoContainer.innerHTML = '';
-    }, 300);
-    
-    // Restore body scroll
-    document.body.style.overflow = '';
-}
-
-// Close modal when clicking outside content
-document.addEventListener('click', function(e) {
-    const modal = document.getElementById('video-modal');
-    if (e.target === modal) {
-        closeVideoModal();
-    }
-});
-
-// Close modal with ESC key
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        const modal = document.getElementById('video-modal');
-        if (modal && modal.style.display === 'block') {
-            closeVideoModal();
-        }
-    }
 });
 
 // Interactive Timer Functions for Activities

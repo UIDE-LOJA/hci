@@ -1535,498 +1535,450 @@ body.modal-open {
 
 #decision-table-container button[onclick*="resetDecisionTable"]:active {
     animation: resetPulse 0.3s ease-out;
+}/* ===== E
+STILOS ESPECÍFICOS PARA HCI-ASC SEMANA 3 ===== */
+
+/* Agenda container styling */
+.agenda-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
 }
 
-/* ===== ANIMACIONES PARA HCI ===== */
-
-/* 1. Animaciones para Cognición Distribuida - Transformación de datos */
-@keyframes dataFlow {
-    0% {
-        transform: translateX(-100%) scale(0.8);
-        opacity: 0;
-    }
-    50% {
-        transform: translateX(0) scale(1.1);
-        opacity: 0.8;
-    }
-    100% {
-        transform: translateX(100%) scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes distributeKnowledge {
-    0% {
-        transform: scale(0.5) rotate(-180deg);
-        opacity: 0;
-        background: rgba(35, 53, 110, 0.1);
-    }
-    50% {
-        transform: scale(1.2) rotate(0deg);
-        opacity: 0.8;
-        background: rgba(233, 171, 33, 0.3);
-    }
-    100% {
-        transform: scale(1) rotate(0deg);
-        opacity: 1;
-        background: rgba(40, 167, 69, 0.2);
-    }
-}
-
-@keyframes contextSpread {
-    0% {
-        width: 20%;
-        box-shadow: 0 0 5px rgba(35, 53, 110, 0.3);
-    }
-    100% {
-        width: 100%;
-        box-shadow: 0 0 20px rgba(35, 53, 110, 0.6);
-    }
-}
-
-/* Clases para aplicar animaciones de cognición distribuida */
-.distributed-cognition {
-    animation: distributeKnowledge 2s ease-in-out infinite alternate;
-}
-
-.data-transformation {
+.agenda-item {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid var(--uide-primary);
+    border-radius: 8px;
+    padding: 1.5rem;
     position: relative;
-    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.data-transformation::before {
-    content: '💭';
+.agenda-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    border-color: var(--uide-accent);
+}
+
+.agenda-item::before {
+    content: attr(data-number);
     position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    animation: dataFlow 3s ease-in-out infinite;
-    font-size: 1.5em;
+    top: -10px;
+    left: 20px;
+    background: var(--uide-primary);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9em;
 }
 
-.context-awareness {
+.agenda-item h4 {
+    color: var(--uide-primary);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1em;
+}
+
+.agenda-item p {
+    color: var(--uide-secondary);
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* HCI-specific color coding */
+.hci-norman {
+    border-color: var(--uide-primary);
+}
+
+.hci-color {
+    border-color: var(--uide-accent);
+}
+
+.hci-gestalt {
+    border-color: var(--uide-secondary);
+}
+
+.hci-affordances {
+    border-color: #28a745;
+}
+
+/* Code blocks with HCI styling */
+pre code.css,
+pre code.html {
+    background: #2d3748 !important;
+    color: #e2e8f0 !important;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace !important;
+    font-size: 0.8em !important;
+    line-height: 1.6 !important;
+    font-weight: 500 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* CSS syntax highlighting */
+pre code.css .hljs-selector-tag,
+pre code.css .hljs-selector-class {
+    color: #63b3ed !important;
+}
+
+pre code.css .hljs-attribute {
+    color: #f6ad55 !important;
+}
+
+pre code.css .hljs-string,
+pre code.css .hljs-number {
+    color: #9ae6b4 !important;
+}
+
+/* HTML syntax highlighting */
+pre code.html .hljs-tag {
+    color: #63b3ed !important;
+}
+
+pre code.html .hljs-name {
+    color: #f6ad55 !important;
+}
+
+pre code.html .hljs-attr {
+    color: #fbb6ce !important;
+}
+
+pre code.html .hljs-string {
+    color: #9ae6b4 !important;
+}
+
+/* Blockquotes with HCI styling */
+blockquote {
+    border-left: 4px solid var(--uide-primary);
+    padding-left: 1rem;
+    margin: 1rem 0;
+    font-style: italic;
+    background: rgba(145, 0, 72, 0.05);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1rem 1rem 2rem;
     position: relative;
-    background: linear-gradient(90deg, rgba(35, 53, 110, 0.1) 0%, rgba(233, 171, 33, 0.2) 50%, rgba(40, 167, 69, 0.1) 100%);
-    animation: contextSpread 2s ease-in-out infinite alternate;
 }
 
-/* 2. Animaciones para Computación Ubicua - Efectos de aparición "invisible" */
-@keyframes fadeInInvisible {
-    0% {
-        opacity: 0;
-        transform: scale(0.9) translateY(20px);
-        filter: blur(3px);
-    }
-    50% {
-        opacity: 0.3;
-        transform: scale(1) translateY(0);
-        filter: blur(1px);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-        filter: blur(0);
-    }
-}
-
-@keyframes shimmerEffect {
-    0% {
-        background-position: -200% 0;
-    }
-    100% {
-        background-position: 200% 0;
-    }
-}
-
-@keyframes ambientGlow {
-    0%, 100% {
-        box-shadow: 0 0 10px rgba(233, 171, 33, 0.3);
-    }
-    50% {
-        box-shadow: 0 0 25px rgba(233, 171, 33, 0.6), inset 0 0 15px rgba(233, 171, 33, 0.1);
-    }
-}
-
-@keyframes disappearReappear {
-    0%, 20% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    30%, 70% {
-        opacity: 0.1;
-        transform: scale(0.95);
-    }
-    80%, 100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Clases para efectos de computación ubicua */
-.ubiquitous-computing {
-    animation: fadeInInvisible 1.5s ease-out;
-}
-
-.invisible-technology {
-    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(233, 171, 33, 0.1) 50%, rgba(255,255,255,0) 100%);
-    background-size: 200% 100%;
-    animation: shimmerEffect 3s ease-in-out infinite;
-}
-
-.ambient-system {
-    animation: ambientGlow 2s ease-in-out infinite;
-}
-
-.seamless-integration {
-    animation: disappearReappear 4s ease-in-out infinite;
-}
-
-/* 3. Animaciones para NASA-TLX - Transiciones progresivas */
-@keyframes progressiveReveal {
-    0% {
-        width: 0%;
-        opacity: 0;
-    }
-    50% {
-        width: 50%;
-        opacity: 0.7;
-    }
-    100% {
-        width: 100%;
-        opacity: 1;
-    }
-}
-
-@keyframes workloadMeter {
-    0% {
-        transform: rotate(-45deg);
-        background: rgba(40, 167, 69, 0.8);
-    }
-    25% {
-        transform: rotate(-15deg);
-        background: rgba(233, 171, 33, 0.8);
-    }
-    50% {
-        transform: rotate(15deg);
-        background: rgba(255, 165, 0, 0.8);
-    }
-    75% {
-        transform: rotate(30deg);
-        background: rgba(220, 53, 69, 0.8);
-    }
-    100% {
-        transform: rotate(45deg);
-        background: rgba(145, 0, 72, 0.8);
-    }
-}
-
-@keyframes evaluationStep {
-    0% {
-        transform: translateX(-20px);
-        opacity: 0;
-        background: rgba(35, 53, 110, 0.1);
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-        background: rgba(40, 167, 69, 0.1);
-    }
-}
-
-/* Clases para animaciones NASA-TLX */
-.nasa-tlx-progress {
-    position: relative;
-    background: rgba(35, 53, 110, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.nasa-tlx-progress::before {
-    content: '';
+blockquote::before {
+    content: '"';
+    font-size: 3em;
+    color: var(--uide-primary);
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(40, 167, 69, 0.8), rgba(233, 171, 33, 0.8));
-    animation: progressiveReveal 3s ease-out;
+    margin-left: -1.5rem;
+    margin-top: -0.5rem;
+    opacity: 0.3;
 }
 
-.workload-indicator {
+/* Norman's principles styling */
+.norman-principle {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid var(--uide-primary);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    transition: all 0.3s ease;
+}
+
+.norman-principle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.norman-principle h5 {
+    color: var(--uide-primary);
+    margin: 0 0 0.5rem 0;
+    font-size: 1em;
+}
+
+/* Color psychology examples */
+.color-example {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0.2rem;
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.color-primary {
+    background-color: #28a745;
+}
+
+.color-secondary {
+    background-color: #6c757d;
+}
+
+.color-danger {
+    background-color: #dc3545;
+}
+
+.color-warning {
+    background-color: #ffc107;
+    color: #212529;
+    text-shadow: none;
+}
+
+.color-success {
+    background-color: #28a745;
+}
+
+/* Gestalt principles visualization */
+.gestalt-example {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid var(--uide-secondary);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    text-align: center;
+}
+
+.gestalt-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.gestalt-dot {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    margin: 0 auto;
-    transform-origin: center;
-    animation: workloadMeter 5s ease-in-out infinite;
+    background: var(--uide-secondary);
 }
 
-.evaluation-step {
-    animation: evaluationStep 0.8s ease-out;
+/* Affordance examples */
+.affordance-button {
+    background: linear-gradient(to bottom, #4CAF50, #45a049);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 0.8rem 1.5rem;
+    color: white;
+    font-weight: bold;
+    margin: 0.5rem;
 }
 
-.evaluation-step:nth-child(1) { animation-delay: 0.2s; }
-.evaluation-step:nth-child(2) { animation-delay: 0.4s; }
-.evaluation-step:nth-child(3) { animation-delay: 0.6s; }
-.evaluation-step:nth-child(4) { animation-delay: 0.8s; }
-.evaluation-step:nth-child(5) { animation-delay: 1.0s; }
-.evaluation-step:nth-child(6) { animation-delay: 1.2s; }
-
-/* Animaciones hover para elementos HCI */
-.hci-concept:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.affordance-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
 
-.factors-human:hover {
-    animation: distributeKnowledge 1s ease-in-out;
+.affordance-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-.ubicomp-property:hover {
-    animation: ambientGlow 1s ease-in-out;
+/* Accessibility indicators */
+.accessibility-good {
+    background: rgba(40, 167, 69, 0.1);
+    border-left: 4px solid #28a745;
+    padding: 1rem;
+    border-radius: 0 8px 8px 0;
 }
 
-.nasa-metric:hover {
-    animation: workloadMeter 2s ease-in-out;
+.accessibility-bad {
+    background: rgba(220, 53, 69, 0.1);
+    border-left: 4px solid #dc3545;
+    padding: 1rem;
+    border-radius: 0 8px 8px 0;
 }
 
-/* Responsive adjustments para animaciones */
+/* Floating help icon specific to HCI */
+.floating-help-emoji i.fa-user-cog {
+    color: white;
+    font-size: 20px;
+}
+
+/* Responsive adjustments for HCI */
 @media (max-width: 768px) {
-    .data-transformation::before {
-        font-size: 1.2em;
-        animation-duration: 2s;
+    .agenda-container {
+        gap: 0.8rem;
     }
     
-    .workload-indicator {
+    .agenda-item {
+        padding: 1.2rem;
+    }
+    
+    .agenda-item h4 {
+        font-size: 1em;
+    }
+    
+    .agenda-item p {
+        font-size: 0.8em;
+    }
+    
+    pre code.css,
+    pre code.html {
+        font-size: 0.7em !important;
+    }
+    
+    .gestalt-dots {
+        gap: 0.3rem;
+    }
+    
+    .gestalt-dot {
         width: 15px;
         height: 15px;
     }
-    
-    .hci-concept:hover {
-        transform: translateY(-2px) scale(1.01);
-    }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .distributed-cognition,
-    .ubiquitous-computing,
-    .nasa-tlx-progress::before,
-    .workload-indicator,
-    .evaluation-step,
-    .data-transformation::before,
-    .invisible-technology,
-    .ambient-system,
-    .seamless-integration {
-        animation: none;
+@media (max-width: 480px) {
+    .agenda-item {
+        padding: 1rem;
     }
     
-    .hci-concept:hover,
-    .factors-human:hover,
-    .ubicomp-property:hover,
-    .nasa-metric:hover {
-        animation: none;
-        transform: none;
+    .agenda-item::before {
+        width: 25px;
+        height: 25px;
+        font-size: 0.8em;
+        top: -8px;
+        left: 15px;
+    }
+    
+    .color-example {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8em;
+    }
+    
+    .affordance-button {
+        padding: 0.6rem 1rem;
+        font-size: 0.9em;
     }
 }
 
-/* ===== DISPOSITIVOS UBICUOS ESTILO MODERNO ===== */
-
-/* Base device styling inspirado en el ejemplo */
-.ubicomp-device {
-    border-radius: 20px;
-    position: relative;
-    box-sizing: border-box;
-    background: #fff;
-    box-shadow: 
-        inset 0 4px 7px 1px #fff,
-        inset 0 -5px 20px rgba(173, 186, 204, .25),
-        0 2px 6px rgba(0, 21, 64, .14),
-        0 10px 20px rgba(0, 21, 64, .05);
-    margin: 1rem auto;
-    display: inline-block;
+/* Animation for HCI concepts */
+@keyframes hci-highlight {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
-.ubicomp-device::before,
-.ubicomp-device::after {
-    content: "";
-    display: block;
-    position: absolute;
-    background: #fff;
-    box-shadow: 
-        inset 0 4px 7px 1px #fff,
-        inset 0 -5px 20px rgba(173, 186, 204, .25),
-        0 2px 6px rgba(0, 21, 64, .14),
-        0 10px 20px rgba(0, 21, 64, .05);
+.concept-box:hover {
+    animation: hci-highlight 0.3s ease-in-out;
 }
 
-/* Pantalla interna */
-.ubicomp-device .screen {
-    width: 100%;
+/* Integration section styling */
+.integration-phase {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid var(--uide-accent);
     border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, .24);
-    position: relative;
-    overflow: hidden;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    transition: all 0.3s ease;
 }
 
-/* Tab Device (pequeño - tamaño palma) */
-.ubicomp-tab {
-    padding: 12% 3%;
-    width: 90px;
-    height: 140px;
-    border-radius: 25px;
+.integration-phase:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.ubicomp-tab .screen {
-    background: linear-gradient(135deg, #4a90e2, #1a5490);
-    height: 100px;
-    border-radius: 12px;
+.integration-phase h5 {
+    color: var(--uide-primary);
+    margin: 0 0 0.5rem 0;
+    font-size: 1em;
 }
 
-/* Botón home del Tab */
-.ubicomp-tab::after {
-    border-radius: 50%;
-    margin: 0 auto 2%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 12%;
-    height: 0;
-    padding-top: 12%;
-    box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, .12);
-    background: #f8f9fa;
+.integration-phase ul {
+    margin: 0.5rem 0;
+    font-size: 0.8em;
 }
 
-/* Speaker/cámara del Tab */
-.ubicomp-tab::before {
-    border-radius: 50px;
-    margin: 5% auto 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    width: 25%;
-    height: 2%;
-    box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, .12);
-    background: #e9ecef;
+/* Case study styling */
+.case-study-box {
+    background: rgba(233, 171, 33, 0.1);
+    border: 2px solid var(--uide-accent);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
 }
 
-/* Pad Device (mediano - tamaño libro) */
-.ubicomp-pad {
-    padding: 8% 2%;
-    width: 120px;
-    height: 160px;
-    border-radius: 20px;
+.case-study-box h4 {
+    color: var(--uide-primary);
+    margin: 0 0 1rem 0;
 }
 
-.ubicomp-pad .screen {
-    background: linear-gradient(135deg, #5a7bc8, #23356E);
-    height: 120px;
-    border-radius: 10px;
-}
+.case-study-box pre {
+    margin: 1rem 0;
+    background: #2d3748;
+    border-radius: 8px;
+    padding: 1rem;
+}/* 
+===== ESTILOS RESPONSIVOS TEMA UIDE ===== */
 
-/* Botón home del Pad */
-.ubicomp-pad::after {
-    border-radius: 50%;
-    margin: 0 auto 2%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 8%;
-    height: 0;
-    padding-top: 8%;
-    box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, .12);
-    background: #f8f9fa;
-}
-
-/* Cámara del Pad */
-.ubicomp-pad::before {
-    border-radius: 50%;
-    margin: 3% auto 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    width: 3%;
-    height: 0;
-    padding-top: 3%;
-    background: #dee2e6;
-    box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, .12);
-}
-
-/* Board Device (grande - pantalla de pared) */
-.ubicomp-board {
-    padding: 2% 2% 8% 2%;
-    width: 160px;
-    height: 110px;
-    border-radius: 15px;
-    background: #2c3e50;
-    box-shadow: 
-        inset 0 2px 4px rgba(255, 255, 255, .1),
-        inset 0 -3px 15px rgba(0, 0, 0, .3),
-        0 4px 10px rgba(0, 21, 64, .2),
-        0 15px 30px rgba(0, 21, 64, .1);
-}
-
-.ubicomp-board .screen {
-    background: linear-gradient(135deg, #f4d03f, #E9AB21);
-    height: 80px;
-    border-radius: 6px;
-    border: 2px solid rgba(0, 0, 0, .3);
-}
-
-/* Base/soporte del Board */
-.ubicomp-board::after {
-    border-radius: 4px 4px 48px 48px;
-    left: 30%;
-    bottom: -6%;
-    width: 40%;
-    height: 8%;
-    background: #34495e;
-    box-shadow: 
-        0 2px 6px rgba(0, 21, 64, .14),
-        0 10px 20px rgba(0, 21, 64, .05);
-}
-
-/* Arm/poste del Board */
-.ubicomp-board::before {
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-    bottom: -12%;
-    width: 8%;
-    height: 15%;
-    background: #34495e;
-    z-index: -1;
-    border-radius: 2px;
-}
-
-/* Efectos hover mejorados */
-.ubicomp-device:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 
-        inset 0 4px 7px 1px #fff,
-        inset 0 -5px 20px rgba(173, 186, 204, .25),
-        0 4px 12px rgba(0, 21, 64, .2),
-        0 15px 35px rgba(0, 21, 64, .1);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Responsive adjustments */
+/* Responsive styles matching SGBD-ASC UIDE theme */
 @media (max-width: 768px) {
-    .ubicomp-tab {
-        width: 70px;
-        height: 110px;
+    .reveal {
+        font-size: min(4vw, 18px);
+    }
+
+    .r-hstack {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    /* Title slide adjustments */
+    .title-slide h1 {
+        font-size: min(10vw, 3em);
+    }
+
+    .title-slide h2 {
+        font-size: min(7vw, 2em);
+    }
+
+    /* Agenda responsive */
+    .agenda-item {
+        padding: 1rem;
     }
     
-    .ubicomp-pad {
-        width: 95px;
-        height: 125px;
+    .agenda-item h4 {
+        font-size: 1em;
     }
     
-    .ubicomp-board {
-        width: 130px;
-        height: 90px;
+    .agenda-item p {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .reveal {
+        font-size: min(5vw, 16px);
+    }
+
+    .reveal section {
+        padding: 3vh 3vw;
+    }
+
+    .title-slide h1 {
+        font-size: min(12vw, 2.5em);
+    }
+
+    .title-slide h2 {
+        font-size: min(8vw, 1.8em);
     }
     
-    .ubicomp-device {
-        border-radius: 1vw;
+    .agenda-item {
+        padding: 0.8rem;
+    }
+    
+    .agenda-item::before {
+        width: 25px;
+        height: 25px;
+        font-size: 0.8em;
+        left: -8px;
+    }
+}
+
+/* Touch-friendly interactions for mobile */
+@media (max-width: 768px) and (pointer: coarse) {
+    .reveal .controls {
+        font-size: 1.5em;
     }
 }
