@@ -1,0 +1,320 @@
+<!-- SLIDES INTERACTIVAS PARA AGREGAR A LA PRESENTACIÓN -->
+<!-- Copia estas slides dentro del <div class="presentation-container"> -->
+
+<!-- SLIDE INTERACTIVA 1: Psicología del Color -->
+<div class="slide">
+    <h2><i class="fas fa-palette"></i> Demo Interactiva: Psicología del Color</h2>
+    
+    <div style="display: grid; grid-template-columns: 45% 55%; gap: 25px; padding: 0 20px; height: calc(100vh - 200px);">
+        <!-- Columna Izquierda: Controles -->
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div style="background: rgba(15, 20, 25, 0.6); padding: 20px; border-radius: 12px; border: 2px solid var(--uide-accent);">
+                <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--uide-accent);">
+                    <i class="fas fa-sliders-h"></i> Experimenta con el Color
+                </h3>
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-size: 0.9rem; color: #e2e8f0;">
+                        <strong>Matiz (Hue):</strong> <span id="hueValue">120</span>°
+                    </label>
+                    <input type="range" id="hueSlider" min="0" max="360" value="120" 
+                           style="width: 100%; height: 8px; border-radius: 5px; background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000); cursor: pointer;">
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-size: 0.9rem; color: #e2e8f0;">
+                        <strong>Saturación:</strong> <span id="satValue">70</span>%
+                    </label>
+                    <input type="range" id="satSlider" min="0" max="100" value="70" 
+                           style="width: 100%; height: 8px; border-radius: 5px; cursor: pointer;">
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-size: 0.9rem; color: #e2e8f0;">
+                        <strong>Valor (Lightness):</strong> <span id="lightValue">45</span>%
+                    </label>
+                    <input type="range" id="lightSlider" min="0" max="100" value="45" 
+                           style="width: 100%; height: 8px; border-radius: 5px; cursor: pointer;">
+                </div>
+
+                <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; margin-top: 15px;">
+                    <p style="font-size: 0.85rem; margin: 0 0 8px 0; color: #cbd5e1;">
+                        <strong>Color HSL:</strong> <code id="hslCode" style="color: var(--uide-accent);">hsl(120, 70%, 45%)</code>
+                    </p>
+                    <p style="font-size: 0.85rem; margin: 0; color: #cbd5e1;">
+                        <strong>Color HEX:</strong> <code id="hexCode" style="color: var(--uide-accent);">#28a745</code>
+                    </p>
+                </div>
+            </div>
+
+            <div style="background: rgba(233, 171, 33, 0.1); padding: 15px; border-radius: 10px; border-left: 4px solid var(--uide-accent);">
+                <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; color: #e2e8f0;">
+                    <i class="fas fa-lightbulb"></i> <strong>Experimenta:</strong> Mueve los sliders para ver cómo el color afecta la percepción del botón
+                </p>
+            </div>
+        </div>
+
+        <!-- Columna Derecha: Vista Previa -->
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div style="background: rgba(35, 53, 110, 0.3); padding: 30px; border-radius: 12px; border: 2px solid rgba(74, 222, 128, 0.3); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <h3 style="font-size: 1.2rem; margin-bottom: 25px; color: #4ade80; text-align: center;">
+                    <i class="fas fa-eye"></i> Vista Previa en Contexto
+                </h3>
+                
+                <!-- Simulación de interfaz -->
+                <div style="background: white; padding: 30px; border-radius: 12px; width: 100%; max-width: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                    <h4 style="color: #333; margin: 0 0 10px 0; font-size: 1.3rem;">COAC Ciudad de Zamora</h4>
+                    <p style="color: #666; margin: 0 0 25px 0; font-size: 0.95rem;">¿Confirmar transferencia de $500.00 a cuenta de ahorros?</p>
+                    
+                    <div style="display: flex; gap: 12px; justify-content: flex-end;">
+                        <button style="background-color: #e0e0e0; color: #333; border: none; padding: 12px 24px; border-radius: 6px; font-size: 0.95rem; cursor: pointer; font-weight: 500;">
+                            Cancelar
+                        </button>
+                        <button id="previewButton" style="background-color: #28a745; color: white; border: none; padding: 12px 24px; border-radius: 6px; font-size: 0.95rem; cursor: pointer; font-weight: 600; box-shadow: 0 2px 8px rgba(0,0,0,0.15); transition: all 0.3s;">
+                            Confirmar Transferencia
+                        </button>
+                    </div>
+                </div>
+
+                <div id="colorFeedback" style="margin-top: 25px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px; text-align: center; min-height: 60px; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 400px;">
+                    <p style="margin: 0; font-size: 0.9rem; color: #cbd5e1;">
+                        <i class="fas fa-info-circle"></i> Ajusta los valores para ver el impacto psicológico
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE INTERACTIVA 2: Gestalt - Proximidad -->
+<div class="slide">
+    <h2><i class="fas fa-shapes"></i> Demo Interactiva: Principio de Proximidad (Gestalt)</h2>
+    
+    <div style="display: grid; grid-template-columns: 35% 65%; gap: 25px; padding: 0 20px;">
+        <!-- Columna Izquierda: Controles -->
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div style="background: rgba(15, 20, 25, 0.6); padding: 20px; border-radius: 12px; border: 2px solid var(--uide-accent);">
+                <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--uide-accent);">
+                    <i class="fas fa-sliders-h"></i> Ajusta el Espaciado
+                </h3>
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-size: 0.9rem; color: #e2e8f0;">
+                        <strong>Espacio entre grupos:</strong> <span id="spacingValue">50</span>px
+                    </label>
+                    <input type="range" id="spacingSlider" min="10" max="150" value="50" 
+                           style="width: 100%; height: 8px; border-radius: 5px; cursor: pointer;">
+                </div>
+
+                <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px;">
+                    <p style="font-size: 0.85rem; margin: 0; color: #cbd5e1; line-height: 1.6;">
+                        <strong>Observa:</strong> A mayor espaciado, más clara es la separación entre grupos. Los elementos cercanos se perciben como relacionados.
+                    </p>
+                </div>
+            </div>
+
+            <div style="background: rgba(35, 53, 110, 0.3); padding: 20px; border-radius: 12px; border: 2px solid rgba(74, 222, 128, 0.3);">
+                <h3 style="font-size: 1.1rem; margin-bottom: 12px; color: #4ade80;">
+                    <i class="fas fa-info-circle"></i> Principio de Proximidad
+                </h3>
+                <p style="font-size: 0.9rem; margin: 0; color: #e2e8f0; line-height: 1.6;">
+                    Los elementos que están <strong>cercanos entre sí</strong> se perciben como más relacionados que los elementos distantes.
+                </p>
+            </div>
+
+            <div style="background: rgba(233, 171, 33, 0.1); padding: 15px; border-radius: 10px; border-left: 4px solid var(--uide-accent);">
+                <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; color: #e2e8f0;">
+                    <i class="fas fa-lightbulb"></i> <strong>Aplicación:</strong> En la COAC Ciudad de Zamora, agrupa servicios relacionados: Ahorros, Créditos, Inversiones
+                </p>
+            </div>
+        </div>
+
+        <!-- Columna Derecha: Visualización -->
+        <div style="background: rgba(35, 53, 110, 0.3); padding: 30px; border-radius: 12px; border: 2px solid var(--uide-primary); display: flex; flex-direction: column; justify-content: center;">
+            <h3 style="font-size: 1.2rem; margin-bottom: 20px; color: var(--uide-primary); text-align: center;">
+                <i class="fas fa-eye"></i> Visualización del Espaciado
+            </h3>
+            
+            <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px;">
+                <canvas id="proximityCanvas" style="width: 100%; height: 300px;"></canvas>
+            </div>
+
+            <div style="margin-top: 20px; text-align: center; font-size: 0.9rem; color: #cbd5e1;">
+                Los círculos se agrupan visualmente según su proximidad
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE INTERACTIVA 3: Affordances - Comparación -->
+<div class="slide">
+    <h2><i class="fas fa-hand-pointer"></i> Demo Interactiva: Affordances - Diseño 3D vs Plano</h2>
+    
+    <div style="display: grid; grid-template-columns: 30% 70%; gap: 25px; padding: 0 20px;">
+        <!-- Columna Izquierda: Control -->
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div style="background: rgba(15, 20, 25, 0.6); padding: 20px; border-radius: 12px; border: 2px solid var(--uide-accent);">
+                <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--uide-accent);">
+                    <i class="fas fa-toggle-on"></i> Estilo de Diseño
+                </h3>
+                
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px;">
+                    <span style="font-size: 0.9rem; color: #e2e8f0;">3D (Skeuomorphic)</span>
+                    <label style="position: relative; display: inline-block; width: 60px; height: 30px;">
+                        <input type="checkbox" id="styleToggle" style="opacity: 0; width: 0; height: 0;">
+                        <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 30px;"></span>
+                    </label>
+                    <span style="font-size: 0.9rem; color: #e2e8f0;">Plano (Flat)</span>
+                </div>
+            </div>
+
+            <div style="background: rgba(35, 53, 110, 0.3); padding: 20px; border-radius: 12px; border: 2px solid rgba(74, 222, 128, 0.3);">
+                <h3 style="font-size: 1.1rem; margin-bottom: 12px; color: #4ade80;">
+                    <i class="fas fa-info-circle"></i> Affordances Visuales
+                </h3>
+                <p style="font-size: 0.85rem; margin: 0; color: #e2e8f0; line-height: 1.6;">
+                    <strong>3D:</strong> Sombras y gradientes sugieren que se puede presionar<br><br>
+                    <strong>Plano:</strong> Diseño minimalista, requiere otros indicadores
+                </p>
+            </div>
+
+            <div style="background: rgba(233, 171, 33, 0.1); padding: 15px; border-radius: 10px; border-left: 4px solid var(--uide-accent);">
+                <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; color: #e2e8f0;">
+                    <i class="fas fa-exclamation-triangle"></i> <strong>Caso COAC:</strong> Los botones de transacciones bancarias deben ser claramente identificables para evitar errores costosos
+                </p>
+            </div>
+        </div>
+
+        <!-- Columna Derecha: Comparación -->
+        <div style="background: rgba(35, 53, 110, 0.3); padding: 30px; border-radius: 12px; border: 2px solid var(--uide-primary);">
+            <h3 style="font-size: 1.2rem; margin-bottom: 25px; color: var(--uide-primary); text-align: center;">
+                <i class="fas fa-eye"></i> Comparación Visual
+            </h3>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+                <!-- Botón Primario -->
+                <div style="text-align: center;">
+                    <p style="font-size: 0.9rem; margin-bottom: 15px; color: #4ade80; font-weight: 600;">Acción Principal</p>
+                    <button class="demo-button" 
+                            data-gradient-color="linear-gradient(to bottom, #28a745, #218838)"
+                            data-flat-color="#28a745"
+                            style="background: linear-gradient(to bottom, #28a745, #218838); color: white; border: none; padding: 15px 30px; border-radius: 8px; font-size: 1rem; cursor: pointer; font-weight: 600; box-shadow: 0 4px 8px rgba(0,0,0,0.2), inset 0 -2px 4px rgba(0,0,0,0.1); transition: all 0.3s; width: 100%;">
+                        Solicitar Crédito
+                    </button>
+                </div>
+
+                <!-- Botón Secundario -->
+                <div style="text-align: center;">
+                    <p style="font-size: 0.9rem; margin-bottom: 15px; color: #60a5fa; font-weight: 600;">Acción Secundaria</p>
+                    <button class="demo-button"
+                            data-gradient-color="linear-gradient(to bottom, #6c757d, #5a6268)"
+                            data-flat-color="#6c757d"
+                            style="background: linear-gradient(to bottom, #6c757d, #5a6268); color: white; border: none; padding: 15px 30px; border-radius: 8px; font-size: 1rem; cursor: pointer; font-weight: 600; box-shadow: 0 4px 8px rgba(0,0,0,0.2), inset 0 -2px 4px rgba(0,0,0,0.1); transition: all 0.3s; width: 100%;">
+                        Ver Estado
+                    </button>
+                </div>
+
+                <!-- Botón Peligro -->
+                <div style="text-align: center;">
+                    <p style="font-size: 0.9rem; margin-bottom: 15px; color: #f87171; font-weight: 600;">Acción Destructiva</p>
+                    <button class="demo-button"
+                            data-gradient-color="linear-gradient(to bottom, #dc3545, #c82333)"
+                            data-flat-color="#dc3545"
+                            style="background: linear-gradient(to bottom, #dc3545, #c82333); color: white; border: none; padding: 15px 30px; border-radius: 8px; font-size: 1rem; cursor: pointer; font-weight: 600; box-shadow: 0 4px 8px rgba(0,0,0,0.2), inset 0 -2px 4px rgba(0,0,0,0.1); transition: all 0.3s; width: 100%;">
+                        Cancelar Cuenta
+                    </button>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; padding: 20px; background: rgba(0,0,0,0.3); border-radius: 8px;">
+                <p style="margin: 0; font-size: 0.9rem; color: #cbd5e1; line-height: 1.6; text-align: center;">
+                    <i class="fas fa-info-circle"></i> Observa cómo cambian las affordances visuales al alternar entre estilos
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE INTERACTIVA 4: Verificador de Contraste -->
+<div class="slide">
+    <h2><i class="fas fa-universal-access"></i> Demo Interactiva: Verificador de Contraste WCAG</h2>
+    
+    <div style="display: grid; grid-template-columns: 40% 60%; gap: 25px; padding: 0 20px;">
+        <!-- Columna Izquierda: Controles -->
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div style="background: rgba(15, 20, 25, 0.6); padding: 20px; border-radius: 12px; border: 2px solid var(--uide-accent);">
+                <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--uide-accent);">
+                    <i class="fas fa-palette"></i> Selecciona Colores
+                </h3>
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-size: 0.9rem; color: #e2e8f0;">
+                        <strong>Color de Texto:</strong>
+                    </label>
+                    <input type="color" id="fgColor" value="#212529" 
+                           style="width: 100%; height: 50px; border: 2px solid var(--uide-accent); border-radius: 8px; cursor: pointer;">
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-size: 0.9rem; color: #e2e8f0;">
+                        <strong>Color de Fondo:</strong>
+                    </label>
+                    <input type="color" id="bgColor" value="#ffffff" 
+                           style="width: 100%; height: 50px; border: 2px solid var(--uide-accent); border-radius: 8px; cursor: pointer;">
+                </div>
+
+                <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px;">
+                    <p style="font-size: 0.9rem; margin: 0 0 10px 0; color: #e2e8f0;">
+                        <strong>Ratio de Contraste:</strong>
+                    </p>
+                    <p id="contrastRatio" style="font-size: 1.8rem; margin: 0; color: var(--uide-accent); font-weight: 700; text-align: center;">
+                        16.73:1
+                    </p>
+                </div>
+            </div>
+
+            <div style="background: rgba(35, 53, 110, 0.3); padding: 20px; border-radius: 12px; border: 2px solid rgba(74, 222, 128, 0.3);">
+                <h3 style="font-size: 1.1rem; margin-bottom: 12px; color: #4ade80;">
+                    <i class="fas fa-check-circle"></i> Resultado WCAG
+                </h3>
+                <div id="wcagResult" style="font-size: 1rem; color: #e2e8f0; text-align: center; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px;">
+                    <span style="color: #4ade80;"><i class="fas fa-check-circle"></i> AAA (Excelente)</span>
+                </div>
+            </div>
+
+            <div style="background: rgba(233, 171, 33, 0.1); padding: 15px; border-radius: 10px; border-left: 4px solid var(--uide-accent);">
+                <p style="margin: 0; font-size: 0.8rem; line-height: 1.5; color: #e2e8f0;">
+                    <strong>Estándares WCAG:</strong><br>
+                    • AAA: ≥ 7:1 (Excelente)<br>
+                    • AA: ≥ 4.5:1 (Bueno)<br>
+                    • AA Large: ≥ 3:1 (Texto grande)
+                </p>
+            </div>
+        </div>
+
+        <!-- Columna Derecha: Vista Previa -->
+        <div style="background: rgba(35, 53, 110, 0.3); padding: 30px; border-radius: 12px; border: 2px solid var(--uide-primary); display: flex; flex-direction: column; justify-content: center;">
+            <h3 style="font-size: 1.2rem; margin-bottom: 25px; color: var(--uide-primary); text-align: center;">
+                <i class="fas fa-eye"></i> Vista Previa de Legibilidad
+            </h3>
+            
+            <div id="contrastPreview" style="padding: 40px; border-radius: 12px; background-color: #ffffff; color: #212529; transition: all 0.3s;">
+                <h4 style="font-size: 1.8rem; margin: 0 0 20px 0; font-weight: 700;">
+                    COAC Ciudad de Zamora
+                </h4>
+                <p style="font-size: 1.2rem; margin: 0 0 15px 0; line-height: 1.6;">
+                    Bienvenido a su banca en línea. Consulte sus saldos, realice transferencias y solicite créditos de manera segura.
+                </p>
+                <p style="font-size: 1rem; margin: 0; line-height: 1.6;">
+                    Saldo disponible: $2,450.00 | Último movimiento: Depósito $500.00 | La accesibilidad es fundamental para que todos nuestros socios puedan usar nuestros servicios digitales.
+                </p>
+            </div>
+
+            <div style="margin-top: 25px; padding: 20px; background: rgba(0,0,0,0.3); border-radius: 8px;">
+                <p style="margin: 0; font-size: 0.9rem; color: #cbd5e1; line-height: 1.6; text-align: center;">
+                    <i class="fas fa-info-circle"></i> Ajusta los colores para ver cómo afecta la legibilidad y cumplimiento WCAG
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
