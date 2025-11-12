@@ -29,7 +29,7 @@
                     Diseño y Psicología en HCI
                 </h2>
                 <p style="color: #ffffff; font-size: 1.4rem; font-weight: 500;">
-                    PP-07-HCI-ASC • Séptimo Nivel
+                    PP-07-HCI • Séptimo Nivel
                 </p>
                 <p style="color: #e2e8f0; font-size: 1.2rem; margin-top: 0.5rem;">
                     Interacción Hombre Computador
@@ -48,14 +48,13 @@
             <div
                 style="text-align: center; margin-top: 2.5rem; padding: 25px; background: rgba(15, 20, 25, 0.6); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
                 <h3 style="color: var(--uide-accent); font-size: 1.4rem; margin-bottom: 1rem;">
-                    <i class="fas fa-brain"></i> Unidad 1: Fundamentos Psicológicos del Diseño
+                    <i class="fas fa-palette"></i> Unidad 2: Principios de Diseño y Percepción
                 </h3>
                 <p style="color: #e2e8f0; font-size: 1.1rem; line-height: 1.4; margin: 0.5rem 0;">
-                    <strong>Semana 3</strong> • Don Norman • Psicología del Color • Gestalt • Affordances y
-                    Señalizadores
+                    <strong>Semana 3</strong> • Don Norman (diseño centrado en el usuario) • Psicología del color • Gestalt • Affordances y señalizadores
                 </p>
                 <p style="color: #cbd5e1; font-size: 1rem; margin-top: 1rem; font-style: italic;">
-                    Fundamentos psicológicos del diseño de interfaces
+                    Principios fundamentales para el diseño de interfaces centradas en el usuario
                 </p>
             </div>
         </div>
@@ -1186,19 +1185,19 @@
                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;">
                                 <div>
                                     <label style="display: block; margin-bottom: 5px; font-size: 0.75rem; color: #e2e8f0;">Texto</label>
-                                    <input type="color" id="fgColor" value="#212529"
+                                    <input type="color" id="fgColor" value="#000000"
                                         style="width: 100%; height: 40px; border: 2px solid var(--uide-accent); border-radius: 6px; cursor: pointer;">
                                 </div>
                                 <div>
                                     <label style="display: block; margin-bottom: 5px; font-size: 0.75rem; color: #e2e8f0;">Fondo</label>
-                                    <input type="color" id="bgColor" value="#ffffff"
+                                    <input type="color" id="bgColor" value="#00ff00"
                                         style="width: 100%; height: 40px; border: 2px solid var(--uide-accent); border-radius: 6px; cursor: pointer;">
                                 </div>
                             </div>
 
                             <div style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; text-align: center;">
                                 <p style="font-size: 0.75rem; margin: 0 0 5px 0; color: #cbd5e1;">Ratio de Contraste</p>
-                                <p id="contrastRatio" style="font-size: 1.5rem; margin: 0; color: var(--uide-accent); font-weight: 700;">16.73:1</p>
+                                <p id="contrastRatio" style="font-size: 1.5rem; margin: 0; color: var(--uide-accent); font-weight: 700;">15.30:1</p>
                             </div>
                         </div>
 
@@ -1213,7 +1212,8 @@
 
                         <div style="background: rgba(233, 171, 33, 0.1); padding: 12px; border-radius: 8px; border-left: 3px solid var(--uide-accent);">
                             <p style="margin: 0; font-size: 0.7rem; line-height: 1.4; color: #e2e8f0;">
-                                <strong>WCAG:</strong> AAA ≥7:1 • AA ≥4.5:1 • AA Large ≥3:1
+                                <strong>WCAG:</strong> AAA ≥7:1 • AA ≥4.5:1 • AA Large ≥3:1<br>
+                                <em style="color: #f87171;">Prueba con el verde brillante de COAC (#00ff00)</em>
                             </p>
                         </div>
                     </div>
@@ -1225,7 +1225,7 @@
                         </h3>
 
                         <div style="width: 280px; height: 450px; background: #f5f5f5; border-radius: 25px; padding: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); margin: 0 auto;">
-                            <div id="contrastPreview" style="background-color: #ffffff; color: #212529; height: 100%; border-radius: 18px; padding: 20px; overflow-y: auto; transition: all 0.3s;">
+                            <div id="contrastPreview" style="background-color: #00ff00; color: #000000; height: 100%; border-radius: 18px; padding: 20px; overflow-y: auto; transition: all 0.3s;">
                                 <h4 style="font-size: 1rem; margin: 0 0 10px 0; font-weight: 700;">
                                     <i class="fas fa-university"></i> COAC Ciudad de Zamora
                                 </h4>
@@ -1262,6 +1262,165 @@
                             <p style="margin: 0; font-size: 0.75rem; color: #cbd5e1;">
                                 <i class="fas fa-info-circle"></i> Ajusta los colores para verificar legibilidad
                             </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide: Introducción a WCAG -->
+            <div class="slide">
+                <h2><i class="fas fa-universal-access"></i> WCAG: Web Content Accessibility Guidelines</h2>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 0 40px;">
+                    <!-- Columna Izquierda: ¿Qué es WCAG? -->
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <div style="background: rgba(35, 53, 110, 0.3); padding: 25px; border-radius: 12px; border: 2px solid var(--uide-accent);">
+                            <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--uide-accent);">
+                                <i class="fas fa-info-circle"></i> ¿Qué es WCAG?
+                            </h3>
+                            <p style="font-size: 1rem; line-height: 1.7; color: #e2e8f0; margin: 0;">
+                                Las <strong>Pautas de Accesibilidad para el Contenido Web (WCAG)</strong> son un conjunto de recomendaciones internacionales desarrolladas por el W3C para hacer el contenido web más accesible para personas con discapacidades.
+                            </p>
+                        </div>
+
+                        <div style="background: rgba(233, 171, 33, 0.1); padding: 25px; border-radius: 12px; border-left: 4px solid var(--uide-accent);">
+                            <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--uide-accent);">
+                                <i class="fas fa-users"></i> ¿Para quién?
+                            </h3>
+                            <ul style="font-size: 0.95rem; line-height: 1.8; color: #e2e8f0; margin: 0; padding-left: 20px;">
+                                <li>Personas con discapacidad visual</li>
+                                <li>Personas con discapacidad auditiva</li>
+                                <li>Personas con discapacidad motriz</li>
+                                <li>Personas con discapacidad cognitiva</li>
+                                <li>Adultos mayores</li>
+                                <li><strong>Todos los usuarios</strong> se benefician</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Niveles de Conformidad -->
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <div style="background: rgba(35, 53, 110, 0.3); padding: 25px; border-radius: 12px; border: 2px solid var(--uide-primary);">
+                            <h3 style="font-size: 1.3rem; margin-bottom: 20px; color: var(--uide-primary); text-align: center;">
+                                <i class="fas fa-layer-group"></i> Niveles de Conformidad
+                            </h3>
+
+                            <div style="display: flex; flex-direction: column; gap: 15px;">
+                                <!-- Nivel A -->
+                                <div style="background: rgba(220, 53, 69, 0.2); padding: 15px; border-radius: 10px; border-left: 4px solid #dc3545;">
+                                    <h4 style="font-size: 1.1rem; margin: 0 0 8px 0; color: #f87171;">
+                                        <strong>Nivel A</strong> - Mínimo
+                                    </h4>
+                                    <p style="font-size: 0.9rem; margin: 0; color: #e2e8f0; line-height: 1.6;">
+                                        Requisitos básicos de accesibilidad. Si no se cumplen, algunos usuarios no podrán acceder al contenido.
+                                    </p>
+                                </div>
+
+                                <!-- Nivel AA -->
+                                <div style="background: rgba(233, 171, 33, 0.2); padding: 15px; border-radius: 10px; border-left: 4px solid var(--uide-accent);">
+                                    <h4 style="font-size: 1.1rem; margin: 0 0 8px 0; color: var(--uide-accent);">
+                                        <strong>Nivel AA</strong> - Recomendado
+                                    </h4>
+                                    <p style="font-size: 0.9rem; margin: 0; color: #e2e8f0; line-height: 1.6;">
+                                        <strong>Estándar legal en muchos países.</strong> Elimina barreras significativas de accesibilidad. Contraste mínimo 4.5:1.
+                                    </p>
+                                </div>
+
+                                <!-- Nivel AAA -->
+                                <div style="background: rgba(74, 222, 128, 0.2); padding: 15px; border-radius: 10px; border-left: 4px solid #4ade80;">
+                                    <h4 style="font-size: 1.1rem; margin: 0 0 8px 0; color: #4ade80;">
+                                        <strong>Nivel AAA</strong> - Óptimo
+                                    </h4>
+                                    <p style="font-size: 0.9rem; margin: 0; color: #e2e8f0; line-height: 1.6;">
+                                        Máximo nivel de accesibilidad. Contraste mínimo 7:1. Difícil de lograr en todo el sitio.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background: rgba(96, 165, 250, 0.1); padding: 20px; border-radius: 10px; border: 2px solid #60a5fa; text-align: center;">
+                            <p style="font-size: 0.95rem; margin: 0; color: #e2e8f0; line-height: 1.6;">
+                                <i class="fas fa-lightbulb"></i> <strong>Objetivo:</strong> Cumplir al menos con <strong style="color: var(--uide-accent);">Nivel AA</strong> en todos los proyectos
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide: Principios POUR de WCAG -->
+            <div class="slide">
+                <h2><i class="fas fa-hands-helping"></i> Los 4 Principios POUR de WCAG</h2>
+
+                <div style="padding: 0 40px;">
+                    <div style="background: rgba(233, 171, 33, 0.1); padding: 15px 20px; border-radius: 8px; margin-bottom: 25px; border-left: 4px solid var(--uide-accent); text-align: center;">
+                        <p style="margin: 0; font-size: 1.05rem; color: #e2e8f0;">
+                            <i class="fas fa-info-circle"></i> El contenido web debe ser <strong>Perceptible, Operable, Comprensible y Robusto</strong>
+                        </p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                        <!-- 1. Perceptible -->
+                        <div style="background: rgba(96, 165, 250, 0.1); padding: 25px; border-radius: 12px; border: 3px solid #60a5fa;">
+                            <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: #60a5fa;">
+                                <i class="fas fa-eye"></i> 1. Perceptible
+                            </h3>
+                            <p style="font-size: 0.95rem; margin-bottom: 12px; color: #e2e8f0; line-height: 1.6;">
+                                La información debe ser presentada de forma que los usuarios puedan percibirla
+                            </p>
+                            <ul style="font-size: 0.9rem; line-height: 1.7; color: #cbd5e1; margin: 0; padding-left: 20px;">
+                                <li><strong>Texto alternativo</strong> para imágenes</li>
+                                <li><strong>Subtítulos</strong> para videos</li>
+                                <li><strong>Contraste de color</strong> adecuado (4.5:1)</li>
+                                <li><strong>Contenido adaptable</strong> a diferentes dispositivos</li>
+                            </ul>
+                        </div>
+
+                        <!-- 2. Operable -->
+                        <div style="background: rgba(74, 222, 128, 0.1); padding: 25px; border-radius: 12px; border: 3px solid #4ade80;">
+                            <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: #4ade80;">
+                                <i class="fas fa-hand-pointer"></i> 2. Operable
+                            </h3>
+                            <p style="font-size: 0.95rem; margin-bottom: 12px; color: #e2e8f0; line-height: 1.6;">
+                                Los componentes de la interfaz deben ser operables por todos
+                            </p>
+                            <ul style="font-size: 0.9rem; line-height: 1.7; color: #cbd5e1; margin: 0; padding-left: 20px;">
+                                <li><strong>Navegación por teclado</strong> completa</li>
+                                <li><strong>Tiempo suficiente</strong> para leer/usar contenido</li>
+                                <li><strong>Sin contenido</strong> que cause convulsiones</li>
+                                <li><strong>Navegación clara</strong> y predecible</li>
+                            </ul>
+                        </div>
+
+                        <!-- 3. Comprensible -->
+                        <div style="background: rgba(233, 171, 33, 0.1); padding: 25px; border-radius: 12px; border: 3px solid var(--uide-accent);">
+                            <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--uide-accent);">
+                                <i class="fas fa-brain"></i> 3. Comprensible
+                            </h3>
+                            <p style="font-size: 0.95rem; margin-bottom: 12px; color: #e2e8f0; line-height: 1.6;">
+                                La información y operación de la interfaz deben ser comprensibles
+                            </p>
+                            <ul style="font-size: 0.9rem; line-height: 1.7; color: #cbd5e1; margin: 0; padding-left: 20px;">
+                                <li><strong>Texto legible</strong> y comprensible</li>
+                                <li><strong>Funcionamiento predecible</strong> de páginas</li>
+                                <li><strong>Ayuda para evitar</strong> y corregir errores</li>
+                                <li><strong>Instrucciones claras</strong> en formularios</li>
+                            </ul>
+                        </div>
+
+                        <!-- 4. Robusto -->
+                        <div style="background: rgba(220, 53, 69, 0.1); padding: 25px; border-radius: 12px; border: 3px solid var(--uide-primary);">
+                            <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--uide-primary);">
+                                <i class="fas fa-shield-alt"></i> 4. Robusto
+                            </h3>
+                            <p style="font-size: 0.95rem; margin-bottom: 12px; color: #e2e8f0; line-height: 1.6;">
+                                El contenido debe ser robusto para funcionar con tecnologías actuales y futuras
+                            </p>
+                            <ul style="font-size: 0.9rem; line-height: 1.7; color: #cbd5e1; margin: 0; padding-left: 20px;">
+                                <li><strong>HTML semántico</strong> válido</li>
+                                <li><strong>Compatible con lectores</strong> de pantalla</li>
+                                <li><strong>Funciona en múltiples</strong> navegadores</li>
+                                <li><strong>Tecnologías asistivas</strong> compatibles</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -1412,31 +1571,31 @@
             <div class="slide">
                 <h2><i class="fas fa-exchange-alt"></i> Resultado Final: Antes vs Después</h2>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; padding: 0 20px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 0 40px; align-items: center; height: calc(100vh - 180px);">
                     <!-- ANTES -->
-                    <div style="background: rgba(220, 53, 69, 0.1); padding: 20px; border-radius: 12px; border: 2px solid #dc3545;">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: #f87171; text-align: center;">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <h3 style="font-size: 1.4rem; margin-bottom: 20px; color: #f87171; text-align: center;">
                             <i class="fas fa-times-circle"></i> ANTES
                         </h3>
 
-                        <div style="width: 260px; height: 450px; background: #f5f5f5; border-radius: 25px; padding: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); margin: 0 auto 15px;">
+                        <div style="width: 300px; height: 550px; background: #f5f5f5; border-radius: 30px; padding: 15px; box-shadow: 0 10px 30px rgba(220, 53, 69, 0.4);">
                             <div style="background: white; height: 100%; border-radius: 20px; overflow: hidden;">
-                                <div style="background: #00ff00; padding: 12px; text-align: center; font-size: 0.65rem; font-weight: 600; color: #000;">
+                                <div style="background: #00ff00; padding: 15px; text-align: center; font-size: 0.7rem; font-weight: 600; color: #000;">
                                     COOPERATIVA DE AHORRO Y CRÉDITO CIUDAD DE ZAMORA
                                 </div>
-                                <div style="padding: 15px;">
-                                    <div style="text-align: right; color: #0066cc; font-size: 0.8rem; margin-bottom: 12px;">Hola Alex</div>
-                                    <div style="border: 2px solid #0066cc; border-radius: 6px; padding: 10px; margin-bottom: 12px; font-size: 0.75rem; color: #0066cc;">
+                                <div style="padding: 20px;">
+                                    <div style="text-align: right; color: #0066cc; font-size: 0.85rem; margin-bottom: 15px;">Hola Alex</div>
+                                    <div style="border: 2px solid #0066cc; border-radius: 6px; padding: 12px; margin-bottom: 15px; font-size: 0.8rem; color: #0066cc;">
                                         ****0901 | $30.01
                                     </div>
-                                    <div style="border: 2px solid #0066cc; border-radius: 10px; padding: 12px; margin-bottom: 12px;">
-                                        <div style="font-size: 0.7rem; color: #0066cc; margin-bottom: 8px;">Monto</div>
-                                        <input type="text" value="$ 0" style="width: 100%; padding: 6px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.75rem; margin-bottom: 8px;">
-                                        <div style="font-size: 0.7rem; color: #0066cc; margin-bottom: 8px;">Institución</div>
-                                        <div style="border: 1px solid #ddd; border-radius: 4px; padding: 6px; background: white; font-size: 0.75rem; margin-bottom: 8px;">▼</div>
-                                        <button style="width: 100%; background: #00ff00; border: none; padding: 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;">Continuar</button>
+                                    <div style="border: 2px solid #0066cc; border-radius: 10px; padding: 15px; margin-bottom: 15px;">
+                                        <div style="font-size: 0.75rem; color: #0066cc; margin-bottom: 10px;">Monto</div>
+                                        <input type="text" value="$ 0" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.8rem; margin-bottom: 10px;">
+                                        <div style="font-size: 0.75rem; color: #0066cc; margin-bottom: 10px;">Institución</div>
+                                        <div style="border: 1px solid #ddd; border-radius: 4px; padding: 8px; background: white; font-size: 0.8rem; margin-bottom: 12px;">▼</div>
+                                        <button style="width: 100%; background: #00ff00; border: none; padding: 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">Continuar</button>
                                     </div>
-                                    <div style="background: #00ff00; border-radius: 6px; padding: 6px; display: flex; gap: 3px; font-size: 0.6rem; font-weight: 600;">
+                                    <div style="background: #00ff00; border-radius: 6px; padding: 8px; display: flex; gap: 4px; font-size: 0.65rem; font-weight: 600;">
                                         <div style="flex: 1; text-align: center;">Trans</div>
                                         <div style="flex: 1; text-align: center;">Serv</div>
                                         <div style="flex: 1; text-align: center;">Perfil</div>
@@ -1445,74 +1604,90 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px;">
-                            <h4 style="font-size: 0.9rem; margin: 0 0 8px 0; color: #f87171;">❌ Problemas:</h4>
-                            <ul style="font-size: 0.8rem; line-height: 1.6; color: #cbd5e1; margin: 0; padding-left: 18px;">
-                                <li>Verde brillante (#00ff00) causa fatiga visual</li>
-                                <li>Contraste insuficiente en varios elementos</li>
-                                <li>Sin jerarquía visual clara</li>
-                                <li>Campos de formulario confusos</li>
-                                <li>Sin affordances (pistas de interacción)</li>
-                            </ul>
-                        </div>
                     </div>
 
                     <!-- DESPUÉS -->
-                    <div style="background: rgba(74, 222, 128, 0.1); padding: 20px; border-radius: 12px; border: 2px solid #4ade80;">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: #4ade80; text-align: center;">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <h3 style="font-size: 1.4rem; margin-bottom: 20px; color: #4ade80; text-align: center;">
                             <i class="fas fa-check-circle"></i> DESPUÉS
                         </h3>
 
-                        <div style="width: 260px; height: 450px; background: #f5f5f5; border-radius: 25px; padding: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); margin: 0 auto 15px;">
+                        <div style="width: 300px; height: 550px; background: #f5f5f5; border-radius: 30px; padding: 15px; box-shadow: 0 10px 30px rgba(74, 222, 128, 0.4);">
                             <div style="background: white; height: 100%; border-radius: 20px; overflow: hidden;">
-                                <div style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); padding: 15px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                                    <div style="font-size: 0.7rem; font-weight: 600; color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+                                <div style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); padding: 18px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                                    <div style="font-size: 0.75rem; font-weight: 600; color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
                                         COAC Ciudad de Zamora
                                     </div>
                                 </div>
-                                <div style="padding: 15px;">
-                                    <div style="text-align: right; color: #495057; font-size: 0.8rem; margin-bottom: 12px; font-weight: 500;">
+                                <div style="padding: 20px;">
+                                    <div style="text-align: right; color: #495057; font-size: 0.85rem; margin-bottom: 15px; font-weight: 500;">
                                         <i class="fas fa-user-circle"></i> Hola Alex
                                     </div>
-                                    <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; padding: 12px; margin-bottom: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-                                        <div style="font-size: 0.7rem; color: #6c757d; margin-bottom: 3px;">Saldo disponible</div>
-                                        <div style="font-size: 1.2rem; color: #212529; font-weight: 700;">$30.01</div>
-                                        <div style="font-size: 0.65rem; color: #6c757d; margin-top: 3px;">Cuenta: ****0901</div>
+                                    <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 12px; padding: 15px; margin-bottom: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                        <div style="font-size: 0.75rem; color: #6c757d; margin-bottom: 4px;">Saldo disponible</div>
+                                        <div style="font-size: 1.4rem; color: #212529; font-weight: 700;">$30.01</div>
+                                        <div style="font-size: 0.7rem; color: #6c757d; margin-top: 4px;">Cuenta: ****0901</div>
                                     </div>
-                                    <div style="background: #f8f9fa; border-radius: 10px; padding: 12px; margin-bottom: 12px;">
-                                        <h4 style="font-size: 0.8rem; color: #212529; margin: 0 0 10px 0; font-weight: 600;">
+                                    <div style="background: #f8f9fa; border-radius: 12px; padding: 15px; margin-bottom: 15px;">
+                                        <h4 style="font-size: 0.85rem; color: #212529; margin: 0 0 12px 0; font-weight: 600;">
                                             <i class="fas fa-exchange-alt"></i> Nueva Transferencia
                                         </h4>
-                                        <input type="text" placeholder="$0.00" style="width: 100%; padding: 8px; border: 2px solid #dee2e6; border-radius: 6px; font-size: 0.8rem; margin-bottom: 8px;">
-                                        <select style="width: 100%; padding: 8px; border: 2px solid #dee2e6; border-radius: 6px; font-size: 0.75rem; margin-bottom: 10px;">
+                                        <input type="text" placeholder="$0.00" style="width: 100%; padding: 10px; border: 2px solid #dee2e6; border-radius: 8px; font-size: 0.85rem; margin-bottom: 10px;">
+                                        <select style="width: 100%; padding: 10px; border: 2px solid #dee2e6; border-radius: 8px; font-size: 0.8rem; margin-bottom: 12px;">
                                             <option>Seleccionar beneficiario</option>
                                         </select>
-                                        <button style="width: 100%; background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; border: none; padding: 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; box-shadow: 0 3px 8px rgba(40, 167, 69, 0.3);">
+                                        <button style="width: 100%; background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; border: none; padding: 12px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);">
                                             <i class="fas fa-check-circle"></i> Continuar
                                         </button>
                                     </div>
-                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.65rem;">
-                                        <button style="background: white; border: 2px solid #28a745; color: #28a745; padding: 8px; border-radius: 6px; font-weight: 600;">
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.7rem;">
+                                        <button style="background: white; border: 2px solid #28a745; color: #28a745; padding: 10px; border-radius: 8px; font-weight: 600;">
                                             <i class="fas fa-chart-line"></i> Consultas
                                         </button>
-                                        <button style="background: white; border: 2px solid #6c757d; color: #6c757d; padding: 8px; border-radius: 6px;">
+                                        <button style="background: white; border: 2px solid #6c757d; color: #6c757d; padding: 10px; border-radius: 8px;">
                                             <i class="fas fa-cog"></i> Ajustes
                                         </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
 
-                        <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px;">
-                            <h4 style="font-size: 0.9rem; margin: 0 0 8px 0; color: #4ade80;">✅ Mejoras Aplicadas:</h4>
-                            <ul style="font-size: 0.8rem; line-height: 1.6; color: #cbd5e1; margin: 0; padding-left: 18px;">
-                                <li><strong>Norman:</strong> Visibilidad, feedback y jerarquía clara</li>
-                                <li><strong>Color:</strong> Verde suave con contraste WCAG AA</li>
-                                <li><strong>Gestalt:</strong> Agrupación lógica de elementos</li>
-                                <li><strong>Affordances:</strong> Sombras y estados interactivos</li>
-                            </ul>
-                        </div>
+            <!-- Slide: Análisis de Problemas y Mejoras -->
+            <div class="slide">
+                <h2><i class="fas fa-clipboard-check"></i> Análisis: Problemas y Mejoras Aplicadas</h2>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 0 40px;">
+                    <!-- Problemas del Diseño Anterior -->
+                    <div style="background: rgba(220, 53, 69, 0.1); padding: 30px; border-radius: 15px; border: 3px solid #dc3545;">
+                        <h3 style="font-size: 1.4rem; margin-bottom: 20px; color: #f87171; text-align: center;">
+                            <i class="fas fa-times-circle"></i> Problemas Identificados
+                        </h3>
+                        <ul style="font-size: 1rem; line-height: 2; color: #e2e8f0; margin: 0; padding-left: 25px;">
+                            <li><strong>Verde brillante (#00ff00)</strong> causa fatiga visual severa</li>
+                            <li><strong>Contraste insuficiente</strong> en múltiples elementos</li>
+                            <li><strong>Sin jerarquía visual</strong> clara entre acciones</li>
+                            <li><strong>Campos de formulario confusos</strong> sin labels claros</li>
+                            <li><strong>Sin affordances</strong> - no hay pistas de interacción</li>
+                            <li><strong>Espaciado inconsistente</strong> dificulta la lectura</li>
+                        </ul>
+                    </div>
+
+                    <!-- Mejoras Aplicadas -->
+                    <div style="background: rgba(74, 222, 128, 0.1); padding: 30px; border-radius: 15px; border: 3px solid #4ade80;">
+                        <h3 style="font-size: 1.4rem; margin-bottom: 20px; color: #4ade80; text-align: center;">
+                            <i class="fas fa-check-circle"></i> Mejoras Aplicadas
+                        </h3>
+                        <ul style="font-size: 1rem; line-height: 2; color: #e2e8f0; margin: 0; padding-left: 25px;">
+                            <li><strong>Don Norman:</strong> Visibilidad clara, feedback inmediato, jerarquía definida</li>
+                            <li><strong>Psicología del Color:</strong> Verde suave (#28a745) con contraste WCAG AA (4.5:1)</li>
+                            <li><strong>Gestalt (Proximidad):</strong> Agrupación lógica de elementos relacionados</li>
+                            <li><strong>Affordances:</strong> Sombras sutiles, estados hover, bordes claros</li>
+                            <li><strong>Accesibilidad:</strong> Labels visibles, tamaños táctiles adecuados</li>
+                            <li><strong>Jerarquía Visual:</strong> Saldo destacado, CTA principal prominente</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -1520,28 +1695,34 @@
             <!-- Slide: Referencias -->
             <div class="slide">
                 <h2><i class="fas fa-book"></i> Referencias Bibliográficas</h2>
-                <div style="max-width: 1000px; margin: 0 auto;">
-                    <h3 style="margin-bottom: 1.5rem; font-size: 1.2rem;">Obras Fundamentales</h3>
-                    <ul style="font-size: 0.9rem; line-height: 1.8; margin-bottom: 2rem;">
-                        <li><strong>Norman, D. A. (1988).</strong> <em>The Psychology of Everyday Things</em>. Basic
-                            Books.</li>
-                        <li><strong>Norman, D. A. (2005).</strong> <em>Emotional Design</em>. New York: Basic Books.
-                        </li>
+                <div style="max-width: 1100px; margin: 0 auto; padding: 0 40px;">
+                    
+                    <h3 style="margin-bottom: 1.2rem; font-size: 1.3rem; color: var(--uide-accent);">
+                        <i class="fas fa-bookmark"></i> Bibliografía Básica
+                    </h3>
+                    <ul style="font-size: 0.95rem; line-height: 1.9; margin-bottom: 2.5rem; color: #e2e8f0;">
+                        <li><strong>Fernández Casado, P. E. (2021).</strong> <em>UX Design: hazlo fácil pensando en el usuario.</em> RA-MA Editorial.</li>
+                        <li><strong>Labrador, E. & Márquez Moreno, J. (2023).</strong> <em>UX para empresas.</em> FC Editorial.</li>
+                        <li><strong>Scolari, C. (2021).</strong> <em>Las leyes de la interfaz.</em> Gedisa.</li>
+                        <li><strong>Allanwood, G. & Beare, P. (2021).</strong> <em>Diseño de experiencias de usuario.</em> Parramón Paidotribo S.L.</li>
                     </ul>
 
-                    <h3 style="margin-bottom: 1.5rem; font-size: 1.2rem;">Diseño y Usabilidad</h3>
-                    <ul style="font-size: 0.9rem; line-height: 1.8; margin-bottom: 2rem;">
-                        <li><strong>Krug, S. (2006).</strong> <em>Don't Make Me Think, Revisited</em>. New Riders.
-                        </li>
-                        <li><strong>Cooper, A., et al. (2014).</strong> <em>About Face: The Essentials of
-                                Interaction Design</em>. Wiley.</li>
+                    <h3 style="margin-bottom: 1.2rem; font-size: 1.3rem; color: var(--uide-primary);">
+                        <i class="fas fa-book-open"></i> Bibliografía Complementaria
+                    </h3>
+                    <ul style="font-size: 0.95rem; line-height: 1.9; margin-bottom: 2.5rem; color: #e2e8f0;">
+                        <li><strong>Coronado García, B. (2024).</strong> <em>Aplicación de técnicas de usabilidad y accesibilidad en el entorno cliente.</em> Editorial Tutor Formación.</li>
+                        <li><strong>Fernández Casado, P. E. (2019).</strong> <em>Usabilidad web: teoría y uso.</em> Ediciones de la U.</li>
+                        <li><strong>Sarrab, M., Al-Shihi, H., & Safia, N. (2021).</strong> <em>Handbook of Mobile Application Development.</em> Bentham Science.</li>
+                        <li><strong>Romero-Hall, E. (2020).</strong> <em>Research Methods in Learning Design and Technology.</em> Taylor & Francis.</li>
                     </ul>
 
-                    <h3 style="margin-bottom: 1.5rem; font-size: 1.2rem;">Accesibilidad</h3>
-                    <ul style="font-size: 0.9rem; line-height: 1.8;">
-                        <li><strong>WCAG 2.1</strong> - Web Content Accessibility Guidelines</li>
-                        <li><strong>MacKenzie, I. S. (2013).</strong> <em>Human-Computer Interaction: An Empirical
-                                Research Perspective</em>. Elsevier.</li>
+                    <h3 style="margin-bottom: 1.2rem; font-size: 1.3rem; color: #4ade80;">
+                        <i class="fas fa-graduation-cap"></i> Fuentes ASU
+                    </h3>
+                    <ul style="font-size: 0.95rem; line-height: 1.9; color: #e2e8f0;">
+                        <li><strong>Arizona State University (2025).</strong> <em>HSE 325 - Human Computer Interaction.</em></li>
+                        <li><strong>Arizona State University (2025).</strong> <em>Advanced Python Packages for Business Analytics.</em></li>
                     </ul>
                 </div>
             </div>
@@ -1552,7 +1733,7 @@
         <div class="navigation">
             <button class="nav-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
             <span class="slide-counter">
-                <span id="currentSlide">1</span> / <span id="totalSlides">16</span>
+                <span id="currentSlide">1</span> / <span id="totalSlides">19</span>
             </span>
             <button class="nav-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
         </div>
