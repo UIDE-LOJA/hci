@@ -184,7 +184,8 @@ th {
 }
 
 /* Navigation */
-.navigation {
+.navigation,
+.nav-controls {
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -252,7 +253,7 @@ th {
 }
 
 /* Progress Bar */
-.progress-bar {
+.progress-container {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -260,6 +261,13 @@ th {
     height: 4px;
     background: rgba(255, 255, 255, 0.1);
     z-index: 1000;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--uide-accent);
+    transition: width 0.3s ease;
+    width: 0;
 }
 
 .progress-fill {
