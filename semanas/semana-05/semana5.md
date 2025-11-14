@@ -8,7 +8,7 @@
 
 ## Introducción
 
-Esta guía de estudio cubre los contenidos fundamentales de las Unidades 1 y 2 del curso de Interacción Persona-Ordenador (HCI), preparando a los estudiantes para la evaluación diagnóstica. El material abarca desde los fundamentos históricos y teóricos de HCI hasta los principios cognitivos y de diseño que sustentan las interfaces modernas.
+Esta guía de estudio cubre los contenidos fundamentales de las Unidades 1 y 2 del curso de Interacción Persona-Computador (HCI), preparando a los estudiantes para la evaluación diagnóstica. El material abarca desde los fundamentos históricos y teóricos de HCI hasta los principios cognitivos y de diseño que sustentan las interfaces modernas.
 
 ---
 
@@ -26,7 +26,7 @@ Esta guía de estudio cubre los contenidos fundamentales de las Unidades 1 y 2 d
 
 **Los Tres Elementos Fundamentales de HCI (Poslad, 2009):**
 1. **Humanos**: Usuarios únicos o múltiples, con habilidades físicas y mentales diversas
-2. **Ordenadores**: No solo PC, sino dispositivos con chips programables (tablets, IoT, sistemas embebidos)
+2. **Computadores**: No solo PC, sino dispositivos con chips programables (tablets, IoT, sistemas embebidos)
 3. **Interacción**: Comunicación dirigida mediante comandos, manipulación directa o interfaces naturales
 
 ### 1.2 Historia y Evolución
@@ -296,10 +296,10 @@ d) Aumenta linealmente la satisfacción del usuario
 ¿Cuáles son los tres elementos fundamentales de HCI según Poslad (2009)?
 a) Hardware, Software, Redes
 b) Entrada, Procesamiento, Salida
-c) Humanos, Ordenadores, Interacción
+c) Humanos, Computadores, Interacción
 d) Diseño, Implementación, Evaluación
 
-**Respuesta correcta**: c) Humanos, Ordenadores, Interacción
+**Respuesta correcta**: c) Humanos, Computadores, Interacción
 
 ### Preguntas de Completar
 

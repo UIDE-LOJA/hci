@@ -1,0 +1,24 @@
+{
+  "quiz": {
+    "title": "GA-1.1: Control de Lectura - Diseño y Psicología en HCI",
+    "description": "Evaluación rápida de conceptos clave sobre Don Norman, Psicología del Color, Principios de Gestalt, Affordances y WCAG. Lee cuidadosamente cada pregunta y selecciona la(s) respuesta(s) correcta(s).",
+    "quiz_type": "assignment",
+    "time_limit": 15,
+    "allowed_attempts": 1,
+    "scoring_policy": "keep_highest",
+    "cant_go_back": false,
+    "shuffle_answers": true,
+    "show_correct_answers": "always",
+    "show_correct_answers_last_attempt": false,
+    "one_question_at_a_time": false,
+    "require_lockdown_browser": false,
+    "require_lockdown_browser_for_results": false,
+    "access_code": "",
+    "ip_filter": "",
+    "due_at": null,
+    "lock_at": null,
+    "unlock_at": null,
+    "published": false,
+    "points_possible": 0.5
+  }
+}

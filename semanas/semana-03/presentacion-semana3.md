@@ -62,7 +62,7 @@
 
 ### Patrón Cíclico
 - **Naturaleza**: Proceso dinámico y continuo
-- **Aplicación**: Base para análisis de interacción persona-ordenador
+- **Aplicación**: Base para análisis de interacción persona-Computador
 
 ---
 

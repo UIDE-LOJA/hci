@@ -1,7 +1,7 @@
 1. Múltiples Dispositivos y Plataformas
-La Interacción Persona-Ordenador (HCI) ha experimentado un cambio dramático con la pérdida de la predominancia del ordenador de escritorio como plataforma principal.
+La Interacción Persona-Computador (HCI) ha experimentado un cambio dramático con la pérdida de la predominancia del Computador de escritorio como plataforma principal.
 Evolución del Ecosistema
-1. Definición Ampliada de "Ordenador": El término "ordenador" ahora se refiere a cualquier dispositivo con un chip IC programable. Los dispositivos con sistemas operativos multitarea (MTOS) abarcan PC, portátiles, teléfonos móviles, consolas de juegos y grabadores/reproductores AV.
+1. Definición Ampliada de "Computador": El término "Computador" ahora se refiere a cualquier dispositivo con un chip IC programable. Los dispositivos con sistemas operativos multitarea (MTOS) abarcan PC, portátiles, teléfonos móviles, consolas de juegos y grabadores/reproductores AV.
 2. Visión Ubicua (UbiCom): La visión de la Computación Ubicua (UbiCom) postula que la tecnología debe volverse ubicuidad, ubicua, invisible y estar incrustada en el entorno. Los diseñadores buscan proporcionar una experiencia de producto fluida y sin interrupciones (seamless) a medida que las personas saltan entre el PC, el móvil y la tableta.
 3. Clasificación de Dispositivos UbiCom: Los dispositivos UbiCom se han clasificado por tamaño (macro, micro y nano). Otras formas incluyen tabs (pestañas), pads (blocs), boards (tableros), Dust (polvo inteligente) y Skins (telas conductoras).
 4. Arquitectura de Sistemas Distribuidos: Debido a la complejidad de los sistemas distribuidos (que interconectan componentes de información, procesamiento y comunicación), a menudo se proyectan diversos grados de transparencia para ocultar esta complejidad al usuario. La arquitectura busca reducir la complejidad mediante la modularización y la abstracción (separación de intereses).

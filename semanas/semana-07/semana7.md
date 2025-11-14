@@ -2,7 +2,7 @@ Estados de Carga, Vacíos y Error
 El diseño de la interfaz debe gestionar activamente los estados transitorios, incluyendo la latencia y la ausencia de contenido, para asegurar que el usuario mantenga el flujo de interacción.
 A. Gestión de la Latencia y el Umbral de Doherty
 La latencia o tiempo de espera en una interacción es un factor crítico.
-• Umbral Crítico: El Umbral de Doherty establece que el tiempo de espera en una interacción Persona-Ordenador no debe superar los 396 ms. La razón de este valor es que, superado ese lapso, la capacidad de atención del usuario se va perdiendo.
+• Umbral Crítico: El Umbral de Doherty establece que el tiempo de espera en una interacción Persona-Computador no debe superar los 396 ms. La razón de este valor es que, superado ese lapso, la capacidad de atención del usuario se va perdiendo.
 • Impacto en la Productividad: Mantener los tiempos de respuesta por debajo de este umbral hace que la interacción sea fluida, lo que genera un clima óptimo para que aumente la productividad y el usuario no se frustre.
 • Aplicación en Carga: El tiempo invertido en la carga de la página (el primer renderizado) o el lapso que transcurre desde que el usuario interactúa con un elemento hasta que se muestra el resultado en pantalla tampoco debería superar este umbral.
 • Expectativas Elevadas: Los usuarios se acostumbran a esperar menos tiempo debido al aumento constante de potencia y velocidad (Ley de Moore). Si un sistema no evoluciona para reducir los tiempos, los usuarios dejarán de usar el producto porque no cumplirá sus expectativas de Usabilidad y Experiencia de Usuario.

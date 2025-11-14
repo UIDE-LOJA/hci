@@ -26,7 +26,7 @@
 
 ### Definición Inicial
 
-La Interacción Persona-Ordenador (HCI) es un **campo de investigación y práctica** cuya emergencia se alinea con un cambio dramático en las prácticas informáticas.
+La Interacción Persona-Computador (HCI) es un **campo de investigación y práctica** cuya emergencia se alinea con un cambio dramático en las prácticas informáticas.
 
 > MacKenzie (2013): "Aunque surgió formalmente en la década de 1980, el campo extiende sus raíces hasta hace más de 30 años."
 
@@ -136,7 +136,7 @@ Usuarios únicos o múltiples, con habilidades físicas y mentales diversas, int
 
 <!-- .slide: data-auto-animate -->
 
-### 2. Ordenadores
+### 2. Computadores
 
 <div data-id="computers" class="r-fit-text">DISPOSITIVOS</div>
 

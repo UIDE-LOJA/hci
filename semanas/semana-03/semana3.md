@@ -6,7 +6,7 @@ El término experiencia del usuario (UX) probablemente se originó a principios 
 El Diseño de las Cosas de Todos los Días (The Design of Everyday Things)
 El libro de Norman de 1988, inicialmente publicado como The Psychology of Everyday Things y luego reimpreso como The Design of Everyday Things, es un análisis refrescante sobre los temas psicológicos en el diseño de la tecnología cotidiana. En este libro, Norman popularizó el concepto de affordances percibidas.
 Modelo Cognitivo: Etapas de Acción y Diseño
-Norman (1988) propuso un modelo explicativo de la interacción persona-ordenador basado en siete etapas de acción dispuestas en un patrón cíclico (Formar el objetivo, Formar la intención, Especificar la acción, Ejecutar la acción, Percibir el estado, Interpretar el estado y Evaluar el resultado).
+Norman (1988) propuso un modelo explicativo de la interacción persona-Computador basado en siete etapas de acción dispuestas en un patrón cíclico (Formar el objetivo, Formar la intención, Especificar la acción, Ejecutar la acción, Percibir el estado, Interpretar el estado y Evaluar el resultado).
 Este modelo dinámico condujo a la identificación de dos fallas clave en la interacción:
 1. Golfo de Ejecución: La falta de coincidencia entre las intenciones del usuario y las acciones permitidas por el sistema.
 2. Golfo de Evaluación: La falta de coincidencia entre la representación del sistema y las expectativas del usuario (lo que espera ver basado en su modelo mental).

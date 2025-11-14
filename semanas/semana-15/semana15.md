@@ -1,10 +1,10 @@
-Compendio de Fronteras de la Interacción Persona-Ordenador
+Compendio de Fronteras de la Interacción Persona-Computador
 1. Computación Afectiva y Emocional
 La computación afectiva y emocional es un dominio crucial en la HCI moderna, que busca integrar y explotar la vida emocional humana en los sistemas computacionales.
 A. Conceptos y Origen
 1. Definición: La Computación Afectiva (Affective Computing) se define como la computación que se relaciona con, surge de, o influye en las emociones humanas.
 2. Origen: La idea fue propuesta por Picard en el MIT en 1995.
-3. Clasificación: Se considera un subtipo de la Interacción Persona-Ordenador Implícita (iHCI) y un subtipo de la inteligencia humana.
+3. Clasificación: Se considera un subtipo de la Interacción Persona-Computador Implícita (iHCI) y un subtipo de la inteligencia humana.
 4. Diseño: Los modelos de inteligencia humana son un modelo central para el diseño de sistemas de computación afectiva. La respuesta emocional es un factor central en el comportamiento humano.
 5. Aplicaciones: Las aplicaciones incluyen aprendizaje asistido por computadora, recuperación de información perceptiva, artes y entretenimiento, y salud humana e interacción.
 B. Rendición Emocional y Predicción Conductual
@@ -74,4 +74,4 @@ Poslad, S. (2009). Ubiquitous Computing: Smart Devices, Environments and Interac
 Shneiderman, B., y Plaisant, C. (2004). Designing the User Interface: Strategies for Effective Human Computer Interaction (4th ed.). Pearson Education, Inc..
 Shoshana, Z. (2019). The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power. PublicAffairs.
 Solovey, E. T., Schermerhorn, P., Scheutz, M., Sassaroli, A., Fantini, S., & Jacob, R. J. K. (2012). Brainput: Enhancing interactive systems with streaming fNIRS brain input. Proceedings of the ACM SIGCHI Conference on Human Factors in Computing Systems—CHI 2012. New York: ACM. 2193–2202.
-Fuentes con información previamente identificada: Fronteras de la Interacción Persona-Ordenador; Interfaces Naturales y Móviles: Gestos, Voz y Háptica; Investigación UX: Métodos Mixtos, Analítica y Biometría.
+Fuentes con información previamente identificada: Fronteras de la Interacción Persona-Computador; Interfaces Naturales y Móviles: Gestos, Voz y Háptica; Investigación UX: Métodos Mixtos, Analítica y Biometría.

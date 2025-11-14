@@ -20,7 +20,7 @@ La analítica de UX y el Big Data se centran en la recolección, el análisis y 
 5. A/B Testing (Experimentación Continua): Es una técnica utilizada para medir cuál de dos (o más) conceptos logra un objetivo de manera más efectiva.
     ◦ En el marco Lean UX, es una herramienta poderosa para determinar la validez de las hipótesis.
     ◦ El método implica liberar la experiencia propuesta a un pequeño subconjunto de usuarios y medir el criterio de éxito en comparación con un grupo de control.
-    ◦ Este proceso es parte de la oportunidad de "experimentación continua" que procede de las transacciones ubicuas mediadas por ordenador.
+    ◦ Este proceso es parte de la oportunidad de "experimentación continua" que procede de las transacciones ubicuas mediadas por Computador.
 2. Big Data y Predicción Conductual
 • Excedente Conductual (Behavioral Surplus): El aparato digital ubicuo (que incluye la computación ambiental e IoT) transforma continuamente la actividad del mundo real (patrones de clic, dwell times, ubicación) en datos listos para generar predicciones. Esta materia prima conductual es convertida por la inteligencia de máquina (AI/ML) en productos algorítmicos altamente rentables diseñados para predecir el comportamiento.
 • Valor Reinvertido: Históricamente, en los inicios de Google, los datos de comportamiento eran reinvertidos en el usuario para mejorar el producto (aumentar velocidad, precisión y relevancia), en lo que se llama el ciclo de reaprovechamiento del valor conductual (behavioral value reinvestment cycle).

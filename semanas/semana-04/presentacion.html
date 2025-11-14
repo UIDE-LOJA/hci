@@ -1,0 +1,2189 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interacción Hombre Computador - Semana 4</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+    <link rel="stylesheet" href="presentacion.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="presentacion.js" defer></script>
+</head>
+
+<body>
+    <div class="uide-logo">
+        <img src="../../assets/images/Logo%20UIDE.png" alt="UIDE Logo">
+    </div>
+    <div class="presentation-container">
+
+        <!-- Slide 1: Title -->
+        <div class="slide active title-slide">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h3 style="color: #e2e8f0; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem;">
+                    Presentación Semana 4
+                </h3>
+                <h2 style="color: var(--uide-accent); font-size: 2.2rem; font-weight: 600; margin-bottom: 0.5rem;">
+                    Cómo pensamos y decidimos al usar interfaces
+                </h2>
+                <p style="color: #ffffff; font-size: 1.4rem; font-weight: 500;">
+                    PP-07-HCI • Séptimo Nivel
+                </p>
+                <p style="color: #e2e8f0; font-size: 1.2rem; margin-top: 0.5rem;">
+                    Interacción Hombre Computador
+                </p>
+            </div>
+
+            <div style="text-align: center; margin: 2rem 0;">
+                <p style="color: #ffffff; font-size: 1.3rem; font-weight: 600;">
+                    Prof. Charlie Cárdenas Toledo, M.Sc.
+                </p>
+                <p style="color: var(--uide-primary); font-size: 1.2rem; font-weight: 500; margin-top: 0.5rem;">
+                    Octubre 2025 – Febrero 2026
+                </p>
+            </div>
+
+            <div
+                style="text-align: center; margin-top: 2.5rem; padding: 25px; background: rgba(15, 20, 25, 0.6); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                <h3 style="color: var(--uide-accent); font-size: 1.4rem; margin-bottom: 1rem;">
+                    <i class="fas fa-palette"></i> Unidad 2: Principios de Diseño y Percepción
+                </h3>
+                <p style="color: #e2e8f0; font-size: 1.1rem; line-height: 1.4; margin: 0.5rem 0;">
+                    <strong>Semana 4</strong> • Ley de Fitts y Ley de Hick • Atención, memoria y percepción •
+                    Carga cognitiva • Ley de Miller
+                </p>
+                <p style="color: #cbd5e1; font-size: 1rem; margin-top: 1rem; font-style: italic;">
+                    Principios Cognitivos y Leyes de la Interacción Humano-Computador
+                </p>
+            </div>
+        </div>
+
+
+        <!-- Slide 2: Actividades y Herramientas -->
+        <div class="slide">
+            <h2><i class="fas fa-clipboard-list"></i> Actividades Calificadas y Herramientas</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 0 40px;">
+                <!-- Columna Izquierda: Actividades Calificadas -->
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div
+                        style="padding: 20px; background: rgba(15, 20, 25, 0.6); border-radius: 12px; border: 2px solid var(--uide-primary);">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h3 style="color: var(--uide-primary); font-size: 1.3rem; margin: 0;">
+                                <i class="fas fa-clipboard-check"></i> Actividades Calificadas
+                            </h3>
+                            <button onclick="copyActivities()" class="teacher-copy-btn"
+                                style="display: none; background: rgba(96, 165, 250, 0.2); border: 1px solid #60a5fa; color: #60a5fa; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; transition: all 0.3s;"
+                                onmouseover="this.style.background='rgba(96, 165, 250, 0.3)'"
+                                onmouseout="this.style.background='rgba(96, 165, 250, 0.2)'">
+                                <i class="fas fa-copy"></i> Copiar
+                            </button>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <!-- GA-1.1 -->
+                            <div
+                                style="background: rgba(96, 165, 250, 0.15); padding: 15px; border-radius: 10px; border-left: 4px solid #60a5fa;">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                                    <span style="color: #e2e8f0; font-size: 1rem; font-weight: 600;">
+                                        <i class="fas fa-check-circle"></i> GA-1.1: Revisión rápida
+                                    </span>
+                                    <span style="color: var(--uide-accent); font-size: 1rem; font-weight: 700;">0.5
+                                        pts</span>
+                                </div>
+                                <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0; line-height: 1.4;">
+                                    Evaluación rápida de conceptos clave
+                                </p>
+                            </div>
+
+                            <!-- PE-1.3 -->
+                            <div
+                                style="background: rgba(74, 222, 128, 0.15); padding: 15px; border-radius: 10px; border-left: 4px solid #4ade80;">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                                    <span style="color: #e2e8f0; font-size: 1rem; font-weight: 600;">
+                                        <i class="fas fa-laptop-code"></i> PE-1.3: Taller "before/after"
+                                    </span>
+                                    <span style="color: var(--uide-accent); font-size: 1rem; font-weight: 700;">2.25
+                                        pts</span>
+                                </div>
+                                <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0; line-height: 1.4;">
+                                    Aplicando principios de Gestalt con IA
+                                </p>
+                            </div>
+
+                            <!-- TA-1.3 -->
+                            <div
+                                style="background: rgba(233, 171, 33, 0.15); padding: 15px; border-radius: 10px; border-left: 4px solid var(--uide-accent);">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                                    <span style="color: #e2e8f0; font-size: 1rem; font-weight: 600;">
+                                        <i class="fas fa-home"></i> TA-1.3: Tarjeta de color
+                                    </span>
+                                    <span style="color: var(--uide-accent); font-size: 1rem; font-weight: 700;">3
+                                        pts</span>
+                                </div>
+                                <p style="color: #cbd5e1; font-size: 0.85rem; margin: 0; line-height: 1.4;">
+                                    Tarjeta de color con justificación psicológica
+                                </p>
+                            </div>
+
+                            <!-- Total -->
+                            <div
+                                style="background: rgba(233, 171, 33, 0.2); padding: 15px; border-radius: 10px; border: 2px solid var(--uide-accent); margin-top: 5px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="color: var(--uide-accent); font-size: 1.1rem; font-weight: 700;">
+                                        <i class="fas fa-star"></i> Total Semana 3
+                                    </span>
+                                    <span style="color: var(--uide-accent); font-size: 1.3rem; font-weight: 700;">5.75
+                                        pts</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Herramientas -->
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div
+                        style="padding: 20px; background: rgba(35, 53, 110, 0.3); border-radius: 12px; border: 2px solid #60a5fa;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h3 style="color: #60a5fa; font-size: 1.3rem; margin: 0;">
+                                <i class="fas fa-tools"></i> Herramientas
+                            </h3>
+                            <button onclick="copyTools()" class="teacher-copy-btn"
+                                style="display: none; background: rgba(74, 222, 128, 0.2); border: 1px solid #4ade80; color: #4ade80; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; transition: all 0.3s;"
+                                onmouseover="this.style.background='rgba(74, 222, 128, 0.3)'"
+                                onmouseout="this.style.background='rgba(74, 222, 128, 0.2)'">
+                                <i class="fas fa-copy"></i> Copiar
+                            </button>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <div
+                                style="background: rgba(74, 222, 128, 0.1); padding: 12px; border-radius: 8px; border-left: 3px solid #4ade80;">
+                                <i class="fas fa-palette" style="color: #4ade80; margin-right: 8px;"></i>
+                                <span style="color: #e2e8f0; font-size: 0.95rem; font-weight: 500;">Demos interactivas
+                                    de color</span>
+                            </div>
+                            <div
+                                style="background: rgba(74, 222, 128, 0.1); padding: 12px; border-radius: 8px; border-left: 3px solid #4ade80;">
+                                <i class="fas fa-universal-access" style="color: #4ade80; margin-right: 8px;"></i>
+                                <span style="color: #e2e8f0; font-size: 0.95rem; font-weight: 500;">Verificador de
+                                    contraste WCAG</span>
+                            </div>
+                            <div
+                                style="background: rgba(74, 222, 128, 0.1); padding: 12px; border-radius: 8px; border-left: 3px solid #4ade80;">
+                                <i class="fas fa-mobile-alt" style="color: #4ade80; margin-right: 8px;"></i>
+                                <span style="color: #e2e8f0; font-size: 0.95rem; font-weight: 500;">Caso de estudio:
+                                    COAC Ciudad de Zamora</span>
+                            </div>
+                            <div
+                                style="background: rgba(74, 222, 128, 0.1); padding: 12px; border-radius: 8px; border-left: 3px solid #4ade80;">
+                                <i class="fas fa-shapes" style="color: #4ade80; margin-right: 8px;"></i>
+                                <span style="color: #e2e8f0; font-size: 0.95rem; font-weight: 500;">Ejercicios de
+                                    Gestalt (proximidad)</span>
+                            </div>
+                            <div
+                                style="background: rgba(74, 222, 128, 0.1); padding: 12px; border-radius: 8px; border-left: 3px solid #4ade80;">
+                                <i class="fas fa-hand-pointer" style="color: #4ade80; margin-right: 8px;"></i>
+                                <span style="color: #e2e8f0; font-size: 0.95rem; font-weight: 500;">Comparador de
+                                    affordances</span>
+                            </div>
+                            <div
+                                style="background: rgba(74, 222, 128, 0.1); padding: 12px; border-radius: 8px; border-left: 3px solid #4ade80;">
+                                <i class="fas fa-book" style="color: #4ade80; margin-right: 8px;"></i>
+                                <span style="color: #e2e8f0; font-size: 0.95rem; font-weight: 500;">Bibliografía
+                                    especializada</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        style="background: rgba(233, 171, 33, 0.1); padding: 15px; border-radius: 10px; border-left: 4px solid var(--uide-accent);">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <p style="margin: 0; font-size: 0.9rem; color: #e2e8f0; font-weight: 600;">
+                                <i class="fas fa-graduation-cap"></i> Unidad 2: Principios de Diseño y Percepción
+                            </p>
+                            <button onclick="copyUnitTitle()" class="teacher-copy-btn"
+                                style="display: none; background: rgba(233, 171, 33, 0.2); border: 1px solid var(--uide-accent); color: var(--uide-accent); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.75rem; transition: all 0.3s;"
+                                onmouseover="this.style.background='rgba(233, 171, 33, 0.3)'"
+                                onmouseout="this.style.background='rgba(233, 171, 33, 0.2)'">
+                                <i class="fas fa-copy"></i> Copiar
+                            </button>
+                        </div>
+                        <p style="margin: 0; font-size: 0.85rem; color: #cbd5e1; line-height: 1.5;">
+                            Don Norman (diseño centrado en el usuario) • Psicología del color • Gestalt • Affordances y
+                            señalizadores
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Variable para controlar si los botones están visibles
+            let teacherModeActive = false;
+
+            // Detectar combinación de teclas Ctrl+Shift+C
+            document.addEventListener('keydown', function (e) {
+                // Ctrl+Shift+C (Windows/Linux) o Cmd+Shift+C (Mac)
+                if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'C') {
+                    e.preventDefault();
+                    teacherModeActive = !teacherModeActive;
+                    toggleTeacherButtons();
+
+                    // Mostrar notificación del estado
+                    if (teacherModeActive) {
+                        showCopyNotification('🎓 Modo Docente Activado - Botones de copiar visibles');
+                    } else {
+                        showCopyNotification('👁️ Modo Docente Desactivado - Botones ocultos');
+                    }
+                }
+            });
+
+            // Función para mostrar/ocultar botones de copiar
+            function toggleTeacherButtons() {
+                const buttons = document.querySelectorAll('.teacher-copy-btn');
+                buttons.forEach(button => {
+                    if (teacherModeActive) {
+                        button.style.display = 'block';
+                        button.style.animation = 'fadeIn 0.3s ease-in';
+                    } else {
+                        button.style.display = 'none';
+                    }
+                });
+            }
+
+            // Función para copiar actividades calificadas
+            function copyActivities() {
+                const text = `ACTIVIDADES CALIFICADAS - SEMANA 3
+
+GA-1.1: Revisión rápida (0.5 pts)
+Evaluación rápida de conceptos clave
+
+PE-1.3: Taller "before/after" (2.25 pts)
+Aplicando principios de Gestalt con IA
+
+TA-1.3: Tarjeta de color (3 pts)
+Tarjeta de color con justificación psicológica
+
+TOTAL: 5.75 puntos`;
+
+                navigator.clipboard.writeText(text).then(() => {
+                    showCopyNotification('Actividades copiadas al portapapeles');
+                }).catch(err => {
+                    console.error('Error al copiar:', err);
+                });
+            }
+
+            // Función para copiar herramientas
+            function copyTools() {
+                const text = `HERRAMIENTAS DE APRENDIZAJE - SEMANA 3
+
+• Demos interactivas de color
+• Verificador de contraste WCAG
+• Caso de estudio: COAC Ciudad de Zamora
+• Ejercicios de Gestalt (proximidad)
+• Comparador de affordances
+• Bibliografía especializada`;
+
+                navigator.clipboard.writeText(text).then(() => {
+                    showCopyNotification('Herramientas copiadas al portapapeles');
+                }).catch(err => {
+                    console.error('Error al copiar:', err);
+                });
+            }
+
+            // Función para copiar título de unidad
+            function copyUnitTitle() {
+                const text = `Semana 3 • Don Norman (diseño centrado en el usuario) • Psicología del color • Gestalt • Affordances y señalizadores`;
+
+                navigator.clipboard.writeText(text).then(() => {
+                    showCopyNotification('Contenido de la semana copiado al portapapeles');
+                }).catch(err => {
+                    console.error('Error al copiar:', err);
+                });
+            }
+
+            // Función para mostrar notificación de copiado
+            function showCopyNotification(message) {
+                const notification = document.createElement('div');
+                notification.textContent = message;
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: rgba(74, 222, 128, 0.95);
+                    color: #0f1419;
+                    padding: 15px 25px;
+                    border-radius: 8px;
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                    z-index: 10000;
+                    animation: slideIn 0.3s ease-out;
+                `;
+
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    notification.style.animation = 'slideOut 0.3s ease-out';
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 300);
+                }, 2000);
+            }
+
+            // Agregar estilos de animación
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from {
+                        transform: translateX(400px);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                }
+                
+                @keyframes slideOut {
+                    from {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                    to {
+                        transform: translateX(400px);
+                        opacity: 0;
+                    }
+                }
+                
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                        transform: scale(0.9);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        </script>
+
+        <!-- Slide 2: Objetivos -->
+        <div class="slide">
+            <h2><i class="fas fa-bullseye"></i> Objetivos de la Presentación</h2>
+            <ul>
+                <li>Comprender las <span class="highlight">contribuciones de Don Norman</span> al diseño centrado en el
+                    usuario</li>
+                <li>Analizar los <span class="highlight">principios de psicología del color</span> en interfaces</li>
+                <li>Dominar los <span class="highlight">principios de Gestalt</span> para organización visual</li>
+                <li>Aplicar <span class="highlight">affordances y señalizadores</span> en diseño de interacción</li>
+                <li>Integrar <span class="highlight">teoría psicológica</span> en práctica de diseño UX</li>
+            </ul>
+        </div>
+
+        <!-- Slide 3: Agenda -->
+        <div class="slide">
+            <h2><i class="fas fa-chart-line"></i> Agenda</h2>
+            <div class="content-grid">
+                <div class="feature-card">
+                    <h3>1. Don Norman</h3>
+                    <p>Diseño Centrado en el Usuario</p>
+                </div>
+                <div class="feature-card">
+                    <h3>2. Psicología del Color</h3>
+                    <p>Valor, Matiz y Saturación</p>
+                </div>
+                <div class="feature-card">
+                    <h3>3. Gestalt</h3>
+                    <p>Principios de Percepción Visual</p>
+                </div>
+                <div class="feature-card">
+                    <h3>4. Affordances</h3>
+                    <p>Pistas Visuales de Interacción</p>
+                </div>
+                <div class="feature-card">
+                    <h3>5. Integración</h3>
+                    <p>Aplicación Práctica</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Caso Real COAC Ciudad de Zamora -->
+        <div class="slide">
+            <h2><i class="fas fa-user-graduate"></i> Don Norman: Diseño Centrado en el Usuario</h2>
+
+            <div
+                style="background: rgba(233, 171, 33, 0.15); padding: 10px 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid var(--uide-accent);">
+                <p style="margin: 0; font-size: 1rem; color: #e2e8f0;">
+                    <i class="fas fa-mobile-alt"></i> <strong>Problema común:</strong> "No encuentro el botón de
+                    transferencia" - Falta de visibilidad y feedback
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; padding: 0 20px;">
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div class="quote" style="font-size: 1.1rem; padding: 20px; margin: 0;">
+                        "El término experiencia del usuario (UX) se originó en Apple cuando Norman se unió como
+                        psicólogo cognitivo"
+                    </div>
+
+                    <div
+                        style="background: rgba(35, 53, 110, 0.3); padding: 20px; border-radius: 12px; border: 2px solid var(--uide-accent);">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--uide-accent);">
+                            <i class="fas fa-book"></i> "The Design of Everyday Things"
+                        </h3>
+                        <p style="font-size: 0.95rem; line-height: 1.6; color: #e2e8f0;">
+                            Publicado en 1988, revolucionó el diseño centrado en el usuario. Popularizó el concepto
+                            de <strong>affordances percibidas</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    style="background: rgba(35, 53, 110, 0.3); padding: 20px; border-radius: 12px; border: 2px solid rgba(74, 222, 128, 0.3);">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: #4ade80; text-align: center;">
+                        <i class="fas fa-lightbulb"></i> Aplicación Práctica
+                    </h3>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px;">
+                            <h4 style="font-size: 1rem; margin: 0 0 8px 0; color: var(--uide-accent);">
+                                ❌ Antes
+                            </h4>
+                            <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; color: #cbd5e1;">
+                                Todos los botones iguales, sin jerarquía, sin feedback visual
+                            </p>
+                        </div>
+
+                        <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px;">
+                            <h4 style="font-size: 1rem; margin: 0 0 8px 0; color: #4ade80;">
+                                <i class="fas fa-check-circle"></i> Después (con Norman)
+                            </h4>
+                            <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; color: #cbd5e1;">
+                                Visibilidad clara, modelo conceptual coherente, mappings obvios, feedback inmediato
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Los 4 Principios de Norman -->
+        <div class="slide">
+            <h2><i class="fas fa-check-circle"></i> Los 4 Principios de Buen Diseño</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 0 20px;">
+                <div
+                    style="background: rgba(40, 167, 69, 0.1); padding: 20px; border-radius: 12px; border: 2px solid #4ade80;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: #4ade80;">
+                        <i class="fas fa-eye"></i> 1. Visibilidad
+                    </h3>
+                    <p style="margin: 0 0 12px 0; font-size: 0.95rem; line-height: 1.6; color: #e2e8f0;">
+                        El estado y las alternativas de acción deben ser <strong>visibles</strong>
+                    </p>
+                    <div
+                        style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; font-size: 0.85rem; color: #cbd5e1;">
+                        <i class="fas fa-university"></i> <strong>Ejemplo:</strong> Mostrar saldo actual,
+                        opciones disponibles, estado de transacciones
+                    </div>
+                </div>
+
+                <div
+                    style="background: rgba(35, 53, 110, 0.1); padding: 20px; border-radius: 12px; border: 2px solid #60a5fa;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: #60a5fa;">
+                        <i class="fas fa-brain"></i> 2. Modelo Conceptual
+                    </h3>
+                    <p style="margin: 0 0 12px 0; font-size: 0.95rem; line-height: 1.6; color: #e2e8f0;">
+                        Buen <strong>modelo conceptual</strong> con imagen de sistema consistente
+                    </p>
+                    <div
+                        style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; font-size: 0.85rem; color: #cbd5e1;">
+                        <i class="fas fa-university"></i> <strong>Ejemplo:</strong> Iconos consistentes, flujo
+                        lógico de transferencias, terminología bancaria clara
+                    </div>
+                </div>
+
+                <div
+                    style="background: rgba(233, 171, 33, 0.1); padding: 20px; border-radius: 12px; border: 2px solid var(--uide-accent);">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--uide-accent);">
+                        <i class="fas fa-map-marked-alt"></i> 3. Mappings
+                    </h3>
+                    <p style="margin: 0 0 12px 0; font-size: 0.95rem; line-height: 1.6; color: #e2e8f0;">
+                        Buenos <strong>mapeos</strong> que revelen relaciones entre etapas
+                    </p>
+                    <div
+                        style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; font-size: 0.85rem; color: #cbd5e1;">
+                        <i class="fas fa-university"></i> <strong>Ejemplo:</strong> Botón "Transferir" →
+                        Formulario → Confirmación → Comprobante
+                    </div>
+                </div>
+
+                <div
+                    style="background: rgba(220, 53, 69, 0.1); padding: 20px; border-radius: 12px; border: 2px solid var(--uide-primary);">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--uide-primary);">
+                        <i class="fas fa-comments"></i> 4. Feedback
+                    </h3>
+                    <p style="margin: 0 0 12px 0; font-size: 0.95rem; line-height: 1.6; color: #e2e8f0;">
+                        <strong>Retroalimentación continua</strong> para el usuario
+                    </p>
+                    <div
+                        style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; font-size: 0.85rem; color: #cbd5e1;">
+                        <i class="fas fa-university"></i> <strong>Ejemplo:</strong> Animaciones de carga,
+                        confirmaciones visuales, notificaciones de éxito/error
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Psicología del Color - Introducción al Problema -->
+        <div class="slide">
+            <h2><i class="fas fa-palette"></i> Psicología del Color en aplicaciones bancarias</h2>
+
+            <div
+                style="background: rgba(233, 171, 33, 0.15); padding: 10px 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid var(--uide-accent);">
+                <p style="margin: 0; font-size: 1rem; color: #e2e8f0;">
+                    <i class="fas fa-mobile-alt"></i> <strong>Problema común:</strong> "Los colores me confunden"
+                    - Todos los botones grises, sin jerarquía visual
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; padding: 0 20px;">
+                <div
+                    style="background: rgba(35, 53, 110, 0.3); padding: 20px; border-radius: 12px; border: 2px solid var(--uide-accent);">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--uide-accent);">
+                        <i class="fas fa-adjust"></i> Valor (Value)
+                    </h3>
+                    <p style="font-size: 0.9rem; line-height: 1.6; color: #e2e8f0; margin-bottom: 12px;">
+                        Lo claro u oscuro que es un color
+                    </p>
+                    <div
+                        style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; font-size: 0.8rem; color: #cbd5e1;">
+                        <i class="fas fa-university"></i> <strong>Uso:</strong> Botón principal más oscuro para
+                        destacar
+                    </div>
+                </div>
+
+                <div
+                    style="background: rgba(35, 53, 110, 0.3); padding: 20px; border-radius: 12px; border: 2px solid rgba(74, 222, 128, 0.3);">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: #4ade80;">
+                        <i class="fas fa-circle"></i> Matiz (Hue)
+                    </h3>
+                    <p style="font-size: 0.9rem; line-height: 1.6; color: #e2e8f0; margin-bottom: 12px;">
+                        El color puro (rojo, verde, azul)
+                    </p>
+                    <div
+                        style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; font-size: 0.8rem; color: #cbd5e1;">
+                        <i class="fas fa-university"></i> <strong>Uso:</strong> Verde para "Transferir", Rojo para
+                        "Cancelar"
+                    </div>
+                </div>
+
+                <div
+                    style="background: rgba(35, 53, 110, 0.3); padding: 20px; border-radius: 12px; border: 2px solid var(--uide-primary);">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--uide-primary);">
+                        <i class="fas fa-tint"></i> Saturación
+                    </h3>
+                    <p style="font-size: 0.9rem; line-height: 1.6; color: #e2e8f0; margin-bottom: 12px;">
+                        La pureza del color
+                    </p>
+                    <div
+                        style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; font-size: 0.8rem; color: #cbd5e1;">
+                        <i class="fas fa-university"></i> <strong>Uso:</strong> Alta saturación para botón
+                        "Confirmar transferencia"
+                    </div>
+                </div>
+            </div>
+
+            <div
+                style="text-align: center; margin-top: 25px; padding: 20px; background: rgba(15, 20, 25, 0.6); border-radius: 10px; border: 2px solid rgba(233, 171, 33, 0.3); margin: 25px 20px 0 20px;">
+                <p style="font-size: 1.05rem; margin: 0; color: #e2e8f0;">
+                    <i class="fas fa-arrow-right"></i> <strong>Siguiente:</strong> Experimenta con el color para el
+                    botón de transferencia de COAC Ciudad de Zamora
+                </p>
+            </div>
+        </div>
+
+        <!-- DEMO INTERACTIVA 1: Psicología del Color para COAC Ciudad de Zamora -->
+        <div class="slide">
+            <h2><i class="fas fa-flask"></i> Demo: Diseñando el Botón de Transferencia</h2>
+
+            <div
+                style="display: grid; grid-template-columns: 45% 55%; gap: 25px; padding: 0 20px; height: calc(100vh - 200px);">
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div
+                        style="background: rgba(15, 20, 25, 0.6); padding: 20px; border-radius: 12px; border: 2px solid var(--uide-accent);">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--uide-accent);">
+                            <i class="fas fa-sliders-h"></i> Experimenta con el Color
+                        </h3>
+
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 8px; font-size: 0.9rem; color: #e2e8f0;">
+                                <strong>Matiz (Hue):</strong> <span id="hueValue">120</span>°
+                            </label>
+                            <input type="range" id="hueSlider" min="0" max="360" value="120"
+                                style="width: 100%; height: 8px; border-radius: 5px; background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000); cursor: pointer;">
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 8px; font-size: 0.9rem; color: #e2e8f0;">
+                                <strong>Saturación:</strong> <span id="satValue">70</span>%
+                            </label>
+                            <input type="range" id="satSlider" min="0" max="100" value="70"
+                                style="width: 100%; height: 8px; border-radius: 5px; cursor: pointer;">
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 8px; font-size: 0.9rem; color: #e2e8f0;">
+                                <strong>Valor (Lightness):</strong> <span id="lightValue">45</span>%
+                            </label>
+                            <input type="range" id="lightSlider" min="0" max="100" value="45"
+                                style="width: 100%; height: 8px; border-radius: 5px; cursor: pointer;">
+                        </div>
+
+                        <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; margin-top: 15px;">
+                            <p style="font-size: 0.85rem; margin: 0 0 8px 0; color: #cbd5e1;">
+                                <strong>Color HSL:</strong> <code id="hslCode"
+                                    style="color: var(--uide-accent);">hsl(120, 70%, 45%)</code>
+                            </p>
+                            <p style="font-size: 0.85rem; margin: 0; color: #cbd5e1;">
+                                <strong>Color HEX:</strong> <code id="hexCode"
+                                    style="color: var(--uide-accent);">#28a745</code>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        style="background: rgba(233, 171, 33, 0.1); padding: 15px; border-radius: 10px; border-left: 4px solid var(--uide-accent);">
+                        <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; color: #e2e8f0;">
+                            <i class="fas fa-lightbulb"></i> <strong>Objetivo:</strong> Mejora el verde brillante
+                            (#00ff00) de la COAC para reducir fatiga visual
+                        </p>
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div
+                        style="background: rgba(35, 53, 110, 0.3); padding: 30px; border-radius: 12px; border: 2px solid rgba(74, 222, 128, 0.3); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 25px; color: #4ade80; text-align: center;">
+                            <i class="fas fa-mobile-alt"></i> COAC Ciudad de Zamora - Vista Previa
+                        </h3>
+
+                        <div
+                            style="width: 300px; height: 520px; background: #f5f5f5; border-radius: 30px; padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                            <div style="background: white; height: 100%; border-radius: 20px; overflow: hidden;">
+                                <!-- Header dinámico con el color seleccionado -->
+                                <div id="dynamicHeader"
+                                    style="background: hsl(120, 70%, 45%); padding: 15px; text-align: center; transition: background 0.3s;">
+                                    <div
+                                        style="font-size: 0.7rem; font-weight: 600; color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+                                        COAC Ciudad de Zamora</div>
+                                </div>
+
+                                <div style="padding: 20px;">
+                                    <div
+                                        style="text-align: right; color: #495057; font-size: 0.85rem; margin-bottom: 15px; font-weight: 500;">
+                                        <i class="fas fa-user-circle"></i> Hola Alex
+                                    </div>
+
+                                    <!-- Saldo -->
+                                    <div
+                                        style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 12px; padding: 15px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                        <p style="font-size: 0.75rem; color: #6c757d; margin: 0 0 5px 0;">Saldo
+                                            disponible</p>
+                                        <p style="font-size: 1.4rem; color: #212529; margin: 0; font-weight: 700;">
+                                            $30.01</p>
+                                        <p style="font-size: 0.7rem; color: #6c757d; margin: 5px 0 0 0;">Cuenta:
+                                            ****0901</p>
+                                    </div>
+
+                                    <h4
+                                        style="font-size: 0.85rem; color: #212529; margin: 0 0 12px 0; font-weight: 600;">
+                                        <i class="fas fa-bolt"></i> Acciones rápidas
+                                    </h4>
+
+                                    <!-- Problema: Todos los botones iguales (sin color) -->
+                                    <div id="buttonsContainer"
+                                        style="display: flex; flex-direction: column; gap: 10px;">
+                                        <button class="action-button"
+                                            style="width: 100%; background: #888; color: white; border: none; padding: 15px; border-radius: 4px; font-size: 0.9rem; cursor: pointer; font-weight: 500; transition: all 0.3s;">
+                                            <i class="fas fa-exchange-alt"></i> Transferir
+                                        </button>
+
+                                        <button class="action-button"
+                                            style="width: 100%; background: #888; color: white; border: none; padding: 15px; border-radius: 4px; font-size: 0.9rem; cursor: pointer; font-weight: 500; transition: all 0.3s;">
+                                            <i class="fas fa-credit-card"></i> Pagar
+                                        </button>
+
+                                        <button class="action-button"
+                                            style="width: 100%; background: #888; color: white; border: none; padding: 15px; border-radius: 4px; font-size: 0.9rem; cursor: pointer; font-weight: 500; transition: all 0.3s;">
+                                            <i class="fas fa-chart-line"></i> Consultar
+                                        </button>
+
+                                        <button class="action-button"
+                                            style="width: 100%; background: #888; color: white; border: none; padding: 15px; border-radius: 4px; font-size: 0.9rem; cursor: pointer; font-weight: 500; transition: all 0.3s;">
+                                            <i class="fas fa-cog"></i> Configurar
+                                        </button>
+                                    </div>
+
+                                    <div
+                                        style="margin-top: 15px; padding: 12px; background: rgba(220, 53, 69, 0.1); border-radius: 8px; border-left: 3px solid #dc3545;">
+                                        <p style="margin: 0; font-size: 0.75rem; color: #f87171; line-height: 1.4;">
+                                            <i class="fas fa-exclamation-triangle"></i> <strong>Problema:</strong> Sin
+                                            jerarquía visual, todos los botones parecen igual de importantes
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="colorFeedback"
+                        style="padding: 20px; background: rgba(0,0,0,0.3); border-radius: 8px; min-height: 100px;">
+                        <h4 style="font-size: 1rem; margin: 0 0 12px 0; color: var(--uide-accent); text-align: center;">
+                            <i class="fas fa-brain"></i> Impacto Psicológico
+                        </h4>
+                        <div id="feedbackContent" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                            <div style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px;">
+                                <div style="font-size: 0.75rem; color: #4ade80; margin-bottom: 4px;">Emoción</div>
+                                <div id="emotionText" style="font-size: 0.9rem; color: #e2e8f0; font-weight: 600;">
+                                    Confianza</div>
+                            </div>
+                            <div style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px;">
+                                <div style="font-size: 0.75rem; color: #60a5fa; margin-bottom: 4px;">Energía</div>
+                                <div id="energyText" style="font-size: 0.9rem; color: #e2e8f0; font-weight: 600;">Media
+                                </div>
+                            </div>
+                            <div style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px;">
+                                <div style="font-size: 0.75rem; color: var(--uide-accent); margin-bottom: 4px;">
+                                    Legibilidad</div>
+                                <div id="readabilityText" style="font-size: 0.9rem; color: #e2e8f0; font-weight: 600;">
+                                    Buena</div>
+                            </div>
+                            <div style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px;">
+                                <div style="font-size: 0.75rem; color: #f87171; margin-bottom: 4px;">Fatiga Visual</div>
+                                <div id="fatigueText" style="font-size: 0.9rem; color: #e2e8f0; font-weight: 600;">Baja
+                                </div>
+                            </div>
+                        </div>
+                        <div id="recommendation"
+                            style="margin-top: 12px; padding: 10px; background: rgba(74, 222, 128, 0.1); border-radius: 6px; border-left: 3px solid #4ade80;">
+                            <p style="margin: 0; font-size: 0.8rem; color: #cbd5e1; line-height: 1.4;">
+                                <i class="fas fa-check-circle"></i> <strong>Recomendación:</strong> <span
+                                    id="recommendationText">Color equilibrado para acciones financieras</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Script para actualizar el color y el feedback psicológico
+            document.addEventListener('DOMContentLoaded', function () {
+                const hueSlider = document.getElementById('hueSlider');
+                const satSlider = document.getElementById('satSlider');
+                const lightSlider = document.getElementById('lightSlider');
+                const hueValue = document.getElementById('hueValue');
+                const satValue = document.getElementById('satValue');
+                const lightValue = document.getElementById('lightValue');
+                const hslCode = document.getElementById('hslCode');
+                const hexCode = document.getElementById('hexCode');
+                const previewButton = document.getElementById('previewButton');
+                const dynamicHeader = document.getElementById('dynamicHeader');
+                const emotionText = document.getElementById('emotionText');
+                const energyText = document.getElementById('energyText');
+                const readabilityText = document.getElementById('readabilityText');
+                const fatigueText = document.getElementById('fatigueText');
+                const recommendationText = document.getElementById('recommendationText');
+                const recommendation = document.getElementById('recommendation');
+
+                function updateColor() {
+                    const h = hueSlider.value;
+                    const s = satSlider.value;
+                    const l = lightSlider.value;
+
+                    hueValue.textContent = h;
+                    satValue.textContent = s;
+                    lightValue.textContent = l;
+
+                    const hslColor = `hsl(${h}, ${s}%, ${l}%)`;
+                    hslCode.textContent = hslColor;
+
+                    // Convertir HSL a HEX
+                    const hex = hslToHex(h, s, l);
+                    hexCode.textContent = hex;
+
+                    // Actualizar elementos visuales
+                    if (dynamicHeader) dynamicHeader.style.background = hslColor;
+
+                    // Actualizar el primer botón (Transferir) con el color seleccionado
+                    const actionButtons = document.querySelectorAll('.action-button');
+                    if (actionButtons.length > 0) {
+                        actionButtons[0].style.background = hslColor;
+                        actionButtons[0].style.boxShadow = `0 4px 12px ${hslColor}40`;
+                        actionButtons[0].style.fontWeight = '600';
+                        actionButtons[0].style.borderRadius = '8px';
+                    }
+
+                    // Actualizar feedback psicológico
+                    updatePsychologicalFeedback(h, s, l);
+                }
+
+                function updatePsychologicalFeedback(h, s, l) {
+                    // Determinar emoción según el matiz
+                    let emotion = '';
+                    if (h >= 0 && h < 30) emotion = 'Urgencia';
+                    else if (h >= 30 && h < 60) emotion = 'Optimismo';
+                    else if (h >= 60 && h < 150) emotion = 'Confianza';
+                    else if (h >= 150 && h < 210) emotion = 'Calma';
+                    else if (h >= 210 && h < 270) emotion = 'Profesionalismo';
+                    else if (h >= 270 && h < 330) emotion = 'Creatividad';
+                    else emotion = 'Pasión';
+
+                    // Determinar energía según saturación
+                    let energy = s > 70 ? 'Alta' : s > 40 ? 'Media' : 'Baja';
+
+                    // Determinar legibilidad según valor
+                    let readability = (l > 30 && l < 70) ? 'Buena' : (l >= 70 || l <= 30) ? 'Regular' : 'Mala';
+
+                    // Determinar fatiga visual
+                    let fatigue = (s > 90 && l > 50) ? 'Alta' : (s > 70) ? 'Media' : 'Baja';
+
+                    // Actualizar textos
+                    emotionText.textContent = emotion;
+                    energyText.textContent = energy;
+                    readabilityText.textContent = readability;
+                    fatigueText.textContent = fatigue;
+
+                    // Generar recomendación
+                    let rec = '';
+                    let recColor = '';
+                    if (h >= 100 && h <= 140 && s >= 50 && s <= 80 && l >= 35 && l <= 55) {
+                        rec = 'Excelente elección para acciones financieras. Verde equilibrado que transmite confianza.';
+                        recColor = '#4ade80';
+                    } else if (s > 90 && l > 60) {
+                        rec = 'Cuidado: Alta saturación puede causar fatiga visual. Reduce la saturación.';
+                        recColor = '#f87171';
+                    } else if (l < 30 || l > 70) {
+                        rec = 'Contraste insuficiente. Ajusta el valor para mejor legibilidad.';
+                        recColor = '#e9ab21';
+                    } else if (h >= 0 && h < 30) {
+                        rec = 'Rojo sugiere urgencia o peligro. Úsalo solo para acciones destructivas.';
+                        recColor = '#e9ab21';
+                    } else {
+                        rec = 'Color aceptable. Considera ajustar para optimizar el impacto psicológico.';
+                        recColor = '#60a5fa';
+                    }
+
+                    recommendationText.textContent = rec;
+                    recommendation.style.borderLeftColor = recColor;
+                    recommendation.style.background = recColor + '1a';
+                }
+
+                function hslToHex(h, s, l) {
+                    l /= 100;
+                    const a = s * Math.min(l, 1 - l) / 100;
+                    const f = n => {
+                        const k = (n + h / 30) % 12;
+                        const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+                        return Math.round(255 * color).toString(16).padStart(2, '0');
+                    };
+                    return `#${f(0)}${f(8)}${f(4)}`;
+                }
+
+                if (hueSlider) hueSlider.addEventListener('input', updateColor);
+                if (satSlider) satSlider.addEventListener('input', updateColor);
+                if (lightSlider) lightSlider.addEventListener('input', updateColor);
+
+                // Inicializar
+                updateColor();
+            });
+        </script>
+
+        <!-- Slide 7: Gestalt - Introducción al Problema -->
+        <div class="slide">
+            <h2><i class="fas fa-shapes"></i> Principios de Gestalt en aplicaciones bancarias</h2>
+
+            <div
+                style="background: rgba(233, 171, 33, 0.15); padding: 10px 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid var(--uide-accent);">
+                <p style="margin: 0; font-size: 1rem; color: #e2e8f0;">
+                    <i class="fas fa-mobile-alt"></i> <strong>Problema común:</strong> "Todo se ve igual" - Falta
+                    de agrupación visual de funciones relacionadas
+                </p>
+            </div>
+
+            <div class="quote" style="font-size: 1.1rem; padding: 20px; margin: 0 20px 20px 20px;">
+                "Las personas perciben algo no como un conjunto de características individuales, sino como un todo
+                unificado"
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 0 20px;">
+                <div
+                    style="background: rgba(35, 53, 110, 0.3); padding: 20px; border-radius: 12px; border: 2px solid var(--uide-accent);">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--uide-accent);">
+                        <i class="fas fa-compress-arrows-alt"></i> Proximidad
+                    </h3>
+                    <p style="font-size: 0.9rem; line-height: 1.6; color: #e2e8f0; margin-bottom: 12px;">
+                        Elementos cercanos se perciben como relacionados
+                    </p>
+                    <div
+                        style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; font-size: 0.8rem; color: #cbd5e1;">
+                        <i class="fas fa-university"></i> <strong>Ejemplo:</strong> Agrupar "Transferir",
+                        "Pagar", "Recargar" juntos como "Operaciones"
+                    </div>
+                </div>
+
+                <div
+                    style="background: rgba(35, 53, 110, 0.3); padding: 20px; border-radius: 12px; border: 2px solid rgba(74, 222, 128, 0.3);">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: #4ade80;">
+                        <i class="fas fa-clone"></i> Similitud
+                    </h3>
+                    <p style="font-size: 0.9rem; line-height: 1.6; color: #e2e8f0; margin-bottom: 12px;">
+                        Elementos similares se perciben como relacionados
+                    </p>
+                    <div
+                        style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; font-size: 0.8rem; color: #cbd5e1;">
+                        <i class="fas fa-university"></i> <strong>Ejemplo:</strong> Mismo estilo de botón para
+                        todas las operaciones financieras
+                    </div>
+                </div>
+
+                <div
+                    style="background: rgba(35, 53, 110, 0.3); padding: 20px; border-radius: 12px; border: 2px solid var(--uide-primary);">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--uide-primary);">
+                        <i class="fas fa-link"></i> Conexión Uniforme
+                    </h3>
+                    <p style="font-size: 0.9rem; line-height: 1.6; color: #e2e8f0; margin-bottom: 12px;">
+                        Elementos conectados visualmente se agrupan
+                    </p>
+                    <div
+                        style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; font-size: 0.8rem; color: #cbd5e1;">
+                        <i class="fas fa-university"></i> <strong>Ejemplo:</strong> Líneas o tarjetas que
+                        conectan pasos de una transferencia
+                    </div>
+                </div>
+
+                <div
+                    style="background: rgba(35, 53, 110, 0.3); padding: 20px; border-radius: 12px; border: 2px solid #60a5fa;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: #60a5fa;">
+                        <i class="fas fa-image"></i> Figura-Fondo
+                    </h3>
+                    <p style="font-size: 0.9rem; line-height: 1.6; color: #e2e8f0; margin-bottom: 12px;">
+                        Separar elementos de enfoque del fondo
+                    </p>
+                    <div
+                        style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; font-size: 0.8rem; color: #cbd5e1;">
+                        <i class="fas fa-university"></i> <strong>Ejemplo:</strong> Diálogos modales con fondo
+                        oscurecido
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DEMO INTERACTIVA 2: Gestalt Proximidad -->
+        <div class="slide">
+            <h2><i class="fas fa-flask"></i> Demo: Principio de Proximidad</h2>
+
+            <div style="display: grid; grid-template-columns: 35% 65%; gap: 25px; padding: 0 20px;">
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div
+                        style="background: rgba(15, 20, 25, 0.6); padding: 20px; border-radius: 12px; border: 2px solid var(--uide-accent);">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--uide-accent);">
+                            <i class="fas fa-sliders-h"></i> Ajusta el Espaciado
+                        </h3>
+
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 8px; font-size: 0.9rem; color: #e2e8f0;">
+                                <strong>Espacio entre grupos:</strong> <span id="spacingValue">50</span>px
+                            </label>
+                            <input type="range" id="spacingSlider" min="10" max="150" value="50"
+                                style="width: 100%; height: 8px; border-radius: 5px; cursor: pointer;">
+                        </div>
+
+                        <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px;">
+                            <p style="font-size: 0.85rem; margin: 0; color: #cbd5e1; line-height: 1.6;">
+                                <strong>Observa:</strong> A mayor espaciado, más clara es la separación entre
+                                campos del formulario
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        style="background: rgba(35, 53, 110, 0.3); padding: 20px; border-radius: 12px; border: 2px solid rgba(74, 222, 128, 0.3);">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 12px; color: #4ade80;">
+                            <i class="fas fa-info-circle"></i> Grupos Funcionales
+                        </h3>
+                        <div style="font-size: 0.85rem; color: #e2e8f0; line-height: 1.6;">
+                            <div style="margin-bottom: 8px;">
+                                <strong style="color: var(--uide-accent);">Grupo 1:</strong> Información de cuenta
+                                (Saldo, Número)
+                            </div>
+                            <div style="margin-bottom: 8px;">
+                                <strong style="color: var(--uide-accent);">Grupo 2:</strong> Datos de transferencia
+                                (Monto, Destinatario)
+                            </div>
+                            <div>
+                                <strong style="color: var(--uide-accent);">Grupo 3:</strong> Acciones (Continuar,
+                                Cancelar)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        style="background: rgba(233, 171, 33, 0.1); padding: 15px; border-radius: 10px; border-left: 4px solid var(--uide-accent);">
+                        <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; color: #e2e8f0;">
+                            <i class="fas fa-lightbulb"></i> <strong>Objetivo:</strong> Mejora el espaciado del
+                            formulario actual de la COAC para mejor legibilidad
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    style="background: rgba(35, 53, 110, 0.3); padding: 30px; border-radius: 12px; border: 2px solid var(--uide-primary); display: flex; flex-direction: column; justify-content: center;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 20px; color: var(--uide-primary); text-align: center;">
+                        <i class="fas fa-mobile-alt"></i> Visualización de Proximidad
+                    </h3>
+
+                    <div id="proximityDemo"
+                        style="background: rgba(0,0,0,0.3); padding: 30px; border-radius: 8px; min-height: 400px; display: flex; flex-direction: column; justify-content: space-around;">
+                        <!-- Grupo 1: Información de Cuenta -->
+                        <div style="display: flex; flex-direction: column; transition: all 0.3s;">
+                            <div
+                                style="background: rgba(74, 222, 128, 0.2); padding: 12px; border-radius: 8px; margin-bottom: 8px; border-left: 4px solid #4ade80;">
+                                <div style="font-size: 0.75rem; color: #4ade80; margin-bottom: 4px;">Número de Cuenta
+                                </div>
+                                <div style="font-size: 0.9rem; color: #e2e8f0; font-weight: 600;">****0901</div>
+                            </div>
+                            <div
+                                style="background: rgba(74, 222, 128, 0.2); padding: 12px; border-radius: 8px; border-left: 4px solid #4ade80;">
+                                <div style="font-size: 0.75rem; color: #4ade80; margin-bottom: 4px;">Saldo Disponible
+                                </div>
+                                <div style="font-size: 0.9rem; color: #e2e8f0; font-weight: 600;">$30.01</div>
+                            </div>
+                        </div>
+
+                        <!-- Espacio dinámico 1 -->
+                        <div id="spacing1"
+                            style="height: 50px; transition: height 0.3s; display: flex; align-items: center; justify-content: center;">
+                            <div
+                                style="width: 2px; height: 100%; background: rgba(233, 171, 33, 0.3); position: relative;">
+                                <div
+                                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(15, 20, 25, 0.9); padding: 4px 8px; border-radius: 4px; white-space: nowrap;">
+                                    <span id="spacing1Label"
+                                        style="font-size: 0.7rem; color: var(--uide-accent);">50px</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Grupo 2: Datos de Transferencia -->
+                        <div style="display: flex; flex-direction: column; transition: all 0.3s;">
+                            <div
+                                style="background: rgba(96, 165, 250, 0.2); padding: 12px; border-radius: 8px; margin-bottom: 8px; border-left: 4px solid #60a5fa;">
+                                <div style="font-size: 0.75rem; color: #60a5fa; margin-bottom: 4px;">Monto</div>
+                                <div style="font-size: 0.9rem; color: #e2e8f0; font-weight: 600;">$500.00</div>
+                            </div>
+                            <div
+                                style="background: rgba(96, 165, 250, 0.2); padding: 12px; border-radius: 8px; border-left: 4px solid #60a5fa;">
+                                <div style="font-size: 0.75rem; color: #60a5fa; margin-bottom: 4px;">Destinatario</div>
+                                <div style="font-size: 0.9rem; color: #e2e8f0; font-weight: 600;">Juan Pérez</div>
+                            </div>
+                        </div>
+
+                        <!-- Espacio dinámico 2 -->
+                        <div id="spacing2"
+                            style="height: 50px; transition: height 0.3s; display: flex; align-items: center; justify-content: center;">
+                            <div
+                                style="width: 2px; height: 100%; background: rgba(233, 171, 33, 0.3); position: relative;">
+                                <div
+                                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(15, 20, 25, 0.9); padding: 4px 8px; border-radius: 4px; white-space: nowrap;">
+                                    <span id="spacing2Label"
+                                        style="font-size: 0.7rem; color: var(--uide-accent);">50px</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Grupo 3: Acciones -->
+                        <div style="display: flex; gap: 10px; transition: all 0.3s;">
+                            <div
+                                style="flex: 1; background: rgba(220, 53, 69, 0.2); padding: 12px; border-radius: 8px; text-align: center; border-left: 4px solid #dc3545;">
+                                <div style="font-size: 0.85rem; color: #f87171; font-weight: 600;">Cancelar</div>
+                            </div>
+                            <div
+                                style="flex: 1; background: rgba(74, 222, 128, 0.2); padding: 12px; border-radius: 8px; text-align: center; border-left: 4px solid #4ade80;">
+                                <div style="font-size: 0.85rem; color: #4ade80; font-weight: 600;">Continuar</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px; text-align: center; font-size: 0.9rem; color: #cbd5e1;">
+                        <i class="fas fa-info-circle"></i> Los elementos cercanos se perciben como un grupo
+                    </div>
+                </div>
+
+                <script>
+                    // Script para actualizar el espaciado dinámicamente
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const spacingSlider = document.getElementById('spacingSlider');
+                        const spacingValue = document.getElementById('spacingValue');
+                        const spacing1 = document.getElementById('spacing1');
+                        const spacing2 = document.getElementById('spacing2');
+                        const spacing1Label = document.getElementById('spacing1Label');
+                        const spacing2Label = document.getElementById('spacing2Label');
+
+                        if (spacingSlider) {
+                            spacingSlider.addEventListener('input', function () {
+                                const value = this.value;
+                                spacingValue.textContent = value;
+                                spacing1.style.height = value + 'px';
+                                spacing2.style.height = value + 'px';
+                                spacing1Label.textContent = value + 'px';
+                                spacing2Label.textContent = value + 'px';
+                            });
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+
+        <!-- Slide 8: Affordances - Introducción al Problema -->
+        <div class="slide">
+            <h2><i class="fas fa-hand-pointer"></i> Affordances en aplicaciones bancarias</h2>
+
+            <div
+                style="background: rgba(233, 171, 33, 0.15); padding: 10px 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid var(--uide-accent);">
+                <p style="margin: 0; font-size: 1rem; color: #e2e8f0;">
+                    <i class="fas fa-mobile-alt"></i> <strong>Problema común:</strong> "No sé si hice clic o
+                    no" - Botones sin pistas visuales de interacción
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 0 20px;">
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div
+                        style="background: rgba(35, 53, 110, 0.3); padding: 20px; border-radius: 12px; border: 2px solid var(--uide-accent);">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--uide-accent);">
+                            <i class="fas fa-book"></i> Affordance Percibida (Norman)
+                        </h3>
+                        <div class="quote" style="font-size: 0.9rem; padding: 15px; margin: 0;">
+                            "Se refiere a lo que creemos que el objeto puede hacer, no necesariamente lo que
+                            realmente hace"
+                        </div>
+                    </div>
+
+                    <div
+                        style="background: rgba(35, 53, 110, 0.3); padding: 20px; border-radius: 12px; border: 2px solid rgba(74, 222, 128, 0.3);">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 12px; color: #4ade80;">
+                            <i class="fas fa-eye"></i> Pistas Visuales
+                        </h3>
+                        <ul style="font-size: 0.9rem; line-height: 1.7; color: #e2e8f0;">
+                            <li><strong>Sombras:</strong> Sugieren elevación y clickeabilidad</li>
+                            <li><strong>Bordes:</strong> Definen áreas interactivas</li>
+                            <li><strong>Cursor:</strong> Cambia a pointer sobre elementos clickeables</li>
+                            <li><strong>Estados:</strong> Hover, active, disabled</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div
+                    style="background: rgba(35, 53, 110, 0.3); padding: 20px; border-radius: 12px; border: 2px solid var(--uide-primary);">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--uide-primary); text-align: center;">
+                        <i class="fas fa-lightbulb"></i> Aplicación a COAC Ciudad de Zamora
+                    </h3>
+
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px;">
+                            <h4 style="font-size: 1rem; margin: 0 0 8px 0; color: #f87171;">
+                                ❌ Antes (Diseño Plano Extremo)
+                            </h4>
+                            <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; color: #cbd5e1;">
+                                Botones sin sombras, sin estados hover, sin feedback visual. Usuarios no saben
+                                qué es clickeable.
+                            </p>
+                        </div>
+
+                        <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px;">
+                            <h4 style="font-size: 1rem; margin: 0 0 8px 0; color: #4ade80;">
+                                ✅ Después (Flat Design 2.0)
+                            </h4>
+                            <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; color: #cbd5e1;">
+                                Sombras sutiles, estados hover claros, feedback inmediato, cursor pointer.
+                                Affordances obvias.
+                            </p>
+                        </div>
+
+                        <div
+                            style="background: rgba(233, 171, 33, 0.1); padding: 12px; border-radius: 8px; border-left: 4px solid var(--uide-accent);">
+                            <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; color: #e2e8f0;">
+                                <i class="fas fa-info-circle"></i> <strong>Balance:</strong> Diseño moderno con
+                                affordances claras
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DEMO INTERACTIVA 3: Affordances -->
+        <div class="slide">
+            <h2><i class="fas fa-flask"></i> Demo: Comparando Pistas Visuales</h2>
+
+            <div style="display: grid; grid-template-columns: 30% 70%; gap: 25px; padding: 0 20px;">
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div
+                        style="background: rgba(15, 20, 25, 0.6); padding: 20px; border-radius: 12px; border: 2px solid var(--uide-accent);">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--uide-accent);">
+                            <i class="fas fa-toggle-on"></i> Estilo de Diseño
+                        </h3>
+
+                        <div
+                            style="display: flex; align-items: center; justify-content: space-between; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px;">
+                            <span style="font-size: 0.9rem; color: #e2e8f0;">Con Affordances</span>
+                            <label style="position: relative; display: inline-block; width: 60px; height: 30px;">
+                                <input type="checkbox" id="styleToggle" style="opacity: 0; width: 0; height: 0;">
+                                <span
+                                    style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #4ade80; transition: .4s; border-radius: 30px;"></span>
+                                <span
+                                    style="position: absolute; cursor: pointer; height: 22px; width: 22px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%;"></span>
+                            </label>
+                            <span style="font-size: 0.9rem; color: #e2e8f0;">Plano Extremo</span>
+                        </div>
+                    </div>
+
+                    <div
+                        style="background: rgba(35, 53, 110, 0.3); padding: 20px; border-radius: 12px; border: 2px solid rgba(74, 222, 128, 0.3);">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 12px; color: #4ade80;">
+                            <i class="fas fa-info-circle"></i> Observa
+                        </h3>
+                        <p style="font-size: 0.85rem; margin: 0; color: #e2e8f0; line-height: 1.6;">
+                            <strong>Con Affordances:</strong> Sombras sutiles y gradientes sugieren
+                            interactividad<br><br>
+                            <strong>Plano Extremo:</strong> Como el diseño actual de la COAC, sin indicadores
+                            visuales
+                        </p>
+                    </div>
+
+                    <div
+                        style="background: rgba(233, 171, 33, 0.1); padding: 15px; border-radius: 10px; border-left: 4px solid var(--uide-accent);">
+                        <p style="margin: 0; font-size: 0.85rem; line-height: 1.5; color: #e2e8f0;">
+                            <i class="fas fa-lightbulb"></i> <strong>Objetivo:</strong> Compara el diseño actual vs.
+                            el mejorado con affordances claras
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    style="background: rgba(35, 53, 110, 0.3); padding: 30px; border-radius: 12px; border: 2px solid var(--uide-primary);">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 25px; color: var(--uide-primary); text-align: center;">
+                        <i class="fas fa-mobile-alt"></i> COAC Ciudad de Zamora - Transferencia
+                    </h3>
+
+                    <div
+                        style="width: 320px; height: 550px; background: #f5f5f5; border-radius: 30px; padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin: 0 auto;">
+                        <div
+                            style="background: white; height: 100%; border-radius: 20px; padding: 25px; overflow: hidden;">
+                            <!-- Header -->
+                            <div
+                                style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); padding: 12px; text-align: center; margin: -25px -25px 20px -25px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                                <div
+                                    style="font-size: 0.75rem; font-weight: 600; color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+                                    COAC Ciudad de Zamora
+                                </div>
+                            </div>
+
+                            <div
+                                style="text-align: right; color: #495057; font-size: 0.85rem; margin-bottom: 15px; font-weight: 500;">
+                                <i class="fas fa-user-circle"></i> Hola Alex
+                            </div>
+
+                            <div style="margin-bottom: 20px;">
+                                <label
+                                    style="display: block; font-size: 0.75rem; color: #495057; margin-bottom: 5px; font-weight: 500;">Monto</label>
+                                <input type="text" value="$500.00" class="form-input"
+                                    style="width: 100%; padding: 12px; border: 2px solid #dee2e6; border-radius: 8px; font-size: 1rem; background: white; transition: border 0.3s;">
+                            </div>
+
+                            <div style="margin-bottom: 25px;">
+                                <label
+                                    style="display: block; font-size: 0.75rem; color: #495057; margin-bottom: 5px; font-weight: 500;">Destinatario</label>
+                                <select class="form-select"
+                                    style="width: 100%; padding: 12px; border: 2px solid #dee2e6; border-radius: 8px; font-size: 0.9rem; background: white; cursor: pointer;">
+                                    <option>Juan Pérez - Cuenta ****1234</option>
+                                </select>
+                            </div>
+
+                            <button class="demo-button"
+                                data-gradient-color="linear-gradient(135deg, #28a745 0%, #20c997 100%)"
+                                data-flat-color="#28a745"
+                                style="width: 100%; background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; border: none; padding: 16px; border-radius: 8px; font-size: 1rem; cursor: pointer; font-weight: 600; box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3); transition: all 0.3s; margin-bottom: 10px;">
+                                <i class="fas fa-check-circle"></i> Confirmar Transferencia
+                            </button>
+
+                            <button class="demo-button"
+                                data-gradient-color="linear-gradient(to bottom, #6c757d, #5a6268)"
+                                data-flat-color="#6c757d"
+                                style="width: 100%; background: linear-gradient(to bottom, #6c757d, #5a6268); color: white; border: none; padding: 16px; border-radius: 8px; font-size: 1rem; cursor: pointer; font-weight: 500; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: all 0.3s;">
+                                <i class="fas fa-times-circle"></i> Cancelar
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <style>
+            /* Estilos para hover solo cuando hay affordances */
+            .demo-button.with-affordances:hover {
+                transform: translateY(-3px) scale(1.02);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), inset 0 -3px 6px rgba(0, 0, 0, 0.15) !important;
+                filter: brightness(1.1);
+            }
+
+            .demo-button.with-affordances:active {
+                transform: translateY(1px) scale(0.98);
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25), inset 0 2px 6px rgba(0, 0, 0, 0.25) !important;
+                filter: brightness(0.95);
+            }
+
+            /* Sin hover en plano extremo */
+            .demo-button.flat-extreme:hover {
+                transform: none;
+                filter: none;
+            }
+
+            .demo-button.flat-extreme:active {
+                transform: none;
+                filter: none;
+            }
+
+            /* Inputs y selects con affordances */
+            .form-input.with-affordances {
+                cursor: text;
+                transition: all 0.3s;
+            }
+
+            .form-input.with-affordances:hover {
+                border-color: #28a745 !important;
+                box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+            }
+
+            .form-input.with-affordances:focus {
+                border-color: #28a745 !important;
+                box-shadow: 0 0 0 4px rgba(40, 167, 69, 0.2);
+                outline: none;
+            }
+
+            .form-select.with-affordances {
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+
+            .form-select.with-affordances:hover {
+                border-color: #28a745 !important;
+                box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+            }
+
+            /* Sin affordances en inputs */
+            .form-input.flat-extreme {
+                cursor: default;
+                transition: none;
+            }
+
+            .form-input.flat-extreme:hover {
+                border-color: #dee2e6 !important;
+                box-shadow: none;
+            }
+
+            .form-select.flat-extreme {
+                cursor: default;
+                transition: none;
+            }
+
+            .form-select.flat-extreme:hover {
+                border-color: #dee2e6 !important;
+                box-shadow: none;
+            }
+        </style>
+
+        <script>
+            // Toggle functionality for affordance demo - Completamente visual
+            document.addEventListener('DOMContentLoaded', function () {
+                const styleToggle = document.getElementById('styleToggle');
+
+                if (styleToggle) {
+                    styleToggle.addEventListener('change', function () {
+                        const isFlat = this.checked;
+                        const demoButtons = document.querySelectorAll('.demo-button');
+                        const formInputs = document.querySelectorAll('.form-input');
+                        const formSelects = document.querySelectorAll('.form-select');
+                        const toggleSpan = this.nextElementSibling.nextElementSibling;
+
+                        // Actualizar botones
+                        demoButtons.forEach(button => {
+                            if (isFlat) {
+                                // PLANO EXTREMO - Sin affordances
+                                button.style.boxShadow = 'none';
+                                button.style.background = button.dataset.flatColor || button.style.background;
+                                button.style.borderRadius = '0px';
+                                button.style.cursor = 'default'; // Sin cursor pointer
+                                button.style.opacity = '0.85';
+                                button.style.border = '1px solid rgba(0,0,0,0.15)';
+                                button.style.fontWeight = '400';
+                                button.classList.remove('with-affordances');
+                                button.classList.add('flat-extreme');
+                            } else {
+                                // CON AFFORDANCES - Pistas visuales claras
+                                button.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2), inset 0 -2px 4px rgba(0,0,0,0.1)';
+                                button.style.background = button.dataset.gradientColor || button.style.background;
+                                button.style.borderRadius = '8px';
+                                button.style.cursor = 'pointer'; // Cursor pointer visible
+                                button.style.opacity = '1';
+                                button.style.border = 'none';
+                                button.style.fontWeight = '600';
+                                button.classList.remove('flat-extreme');
+                                button.classList.add('with-affordances');
+                            }
+                        });
+
+                        // Actualizar inputs
+                        formInputs.forEach(input => {
+                            if (isFlat) {
+                                input.style.cursor = 'default';
+                                input.style.borderRadius = '0px';
+                                input.style.border = '1px solid #ccc';
+                                input.classList.remove('with-affordances');
+                                input.classList.add('flat-extreme');
+                            } else {
+                                input.style.cursor = 'text';
+                                input.style.borderRadius = '8px';
+                                input.style.border = '2px solid #dee2e6';
+                                input.classList.remove('flat-extreme');
+                                input.classList.add('with-affordances');
+                            }
+                        });
+
+                        // Actualizar selects
+                        formSelects.forEach(select => {
+                            if (isFlat) {
+                                select.style.cursor = 'default';
+                                select.style.borderRadius = '0px';
+                                select.style.border = '1px solid #ccc';
+                                select.classList.remove('with-affordances');
+                                select.classList.add('flat-extreme');
+                            } else {
+                                select.style.cursor = 'pointer';
+                                select.style.borderRadius = '8px';
+                                select.style.border = '2px solid #dee2e6';
+                                select.classList.remove('flat-extreme');
+                                select.classList.add('with-affordances');
+                            }
+                        });
+
+                        // Move toggle slider
+                        if (toggleSpan) {
+                            toggleSpan.style.transform = isFlat ? 'translateX(30px)' : 'translateX(0)';
+                        }
+                    });
+
+                    // Inicializar con affordances
+                    const demoButtons = document.querySelectorAll('.demo-button');
+                    const formInputs = document.querySelectorAll('.form-input');
+                    const formSelects = document.querySelectorAll('.form-select');
+
+                    demoButtons.forEach(button => {
+                        button.classList.add('with-affordances');
+                    });
+
+                    formInputs.forEach(input => {
+                        input.classList.add('with-affordances');
+                    });
+
+                    formSelects.forEach(select => {
+                        select.classList.add('with-affordances');
+                    });
+                }
+            });
+        </script>
+
+        <!-- DEMO INTERACTIVA 4: Verificador de Contraste -->
+        <div class="slide">
+            <h2><i class="fas fa-universal-access"></i> Demo: Verificador de Contraste WCAG</h2>
+
+            <div
+                style="display: grid; grid-template-columns: 35% 65%; gap: 20px; padding: 0 20px; height: calc(100vh - 150px);">
+                <!-- Columna Izquierda: Controles -->
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div
+                        style="background: rgba(15, 20, 25, 0.6); padding: 15px; border-radius: 10px; border: 2px solid var(--uide-accent);">
+                        <h3 style="font-size: 1rem; margin-bottom: 12px; color: var(--uide-accent);">
+                            <i class="fas fa-palette"></i> Colores
+                        </h3>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;">
+                            <div>
+                                <label
+                                    style="display: block; margin-bottom: 5px; font-size: 0.75rem; color: #e2e8f0;">Texto</label>
+                                <input type="color" id="fgColor" value="#000000"
+                                    style="width: 100%; height: 40px; border: 2px solid var(--uide-accent); border-radius: 6px; cursor: pointer;">
+                            </div>
+                            <div>
+                                <label
+                                    style="display: block; margin-bottom: 5px; font-size: 0.75rem; color: #e2e8f0;">Fondo</label>
+                                <input type="color" id="bgColor" value="#00ff00"
+                                    style="width: 100%; height: 40px; border: 2px solid var(--uide-accent); border-radius: 6px; cursor: pointer;">
+                            </div>
+                        </div>
+
+                        <div
+                            style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; text-align: center;">
+                            <p style="font-size: 0.75rem; margin: 0 0 5px 0; color: #cbd5e1;">Ratio de Contraste</p>
+                            <p id="contrastRatio"
+                                style="font-size: 1.5rem; margin: 0; color: var(--uide-accent); font-weight: 700;">
+                                15.30:1</p>
+                        </div>
+                    </div>
+
+                    <div
+                        style="background: rgba(35, 53, 110, 0.3); padding: 15px; border-radius: 10px; border: 2px solid rgba(74, 222, 128, 0.3);">
+                        <h3 style="font-size: 0.95rem; margin-bottom: 10px; color: #4ade80;">
+                            <i class="fas fa-check-circle"></i> Resultado WCAG
+                        </h3>
+                        <div id="wcagResult"
+                            style="font-size: 0.9rem; color: #e2e8f0; text-align: center; padding: 12px; background: rgba(0,0,0,0.3); border-radius: 6px;">
+                            <span style="color: #4ade80;"><i class="fas fa-check-circle"></i> AAA (Excelente)</span>
+                        </div>
+                    </div>
+
+                    <div
+                        style="background: rgba(233, 171, 33, 0.1); padding: 12px; border-radius: 8px; border-left: 3px solid var(--uide-accent);">
+                        <p style="margin: 0; font-size: 0.7rem; line-height: 1.4; color: #e2e8f0;">
+                            <strong>WCAG:</strong> AAA ≥7:1 • AA ≥4.5:1 • AA Large ≥3:1<br>
+                            <em style="color: #f87171;">Prueba con el verde brillante de COAC (#00ff00)</em>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Vista Previa -->
+                <div
+                    style="background: rgba(35, 53, 110, 0.3); padding: 20px; border-radius: 12px; border: 2px solid var(--uide-primary); display: flex; flex-direction: column;">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 15px; color: var(--uide-primary); text-align: center;">
+                        <i class="fas fa-mobile-alt"></i> Vista Previa de Legibilidad
+                    </h3>
+
+                    <div
+                        style="width: 280px; height: 450px; background: #f5f5f5; border-radius: 25px; padding: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); margin: 0 auto;">
+                        <div id="contrastPreview"
+                            style="background-color: #00ff00; color: #000000; height: 100%; border-radius: 18px; padding: 20px; overflow-y: auto; transition: all 0.3s;">
+                            <h4 style="font-size: 1rem; margin: 0 0 10px 0; font-weight: 700;">
+                                <i class="fas fa-university"></i> COAC Ciudad de Zamora
+                            </h4>
+                            <p style="font-size: 0.85rem; margin: 0 0 10px 0; line-height: 1.5;">
+                                Bienvenido a su banca en línea. Consulte saldos y realice transferencias.
+                            </p>
+
+                            <div
+                                style="background: rgba(0,0,0,0.05); padding: 12px; border-radius: 6px; margin: 10px 0;">
+                                <p style="font-size: 0.7rem; margin: 0 0 3px 0;">Saldo disponible</p>
+                                <p style="font-size: 1.2rem; margin: 0; font-weight: 700;">$30.01</p>
+                                <p style="font-size: 0.65rem; margin: 3px 0 0 0;">Cuenta: ****0901</p>
+                            </div>
+
+                            <h5 style="font-size: 0.8rem; margin: 10px 0 8px 0; font-weight: 600;">
+                                Últimas transacciones
+                            </h5>
+                            <p style="font-size: 0.75rem; margin: 0 0 5px 0; line-height: 1.4;">
+                                • Transferencia enviada - $500.00
+                            </p>
+                            <p style="font-size: 0.75rem; margin: 0 0 5px 0; line-height: 1.4;">
+                                • Pago de servicios - $85.50
+                            </p>
+                            <p style="font-size: 0.75rem; margin: 0 0 10px 0; line-height: 1.4;">
+                                • Depósito recibido - $200.00
+                            </p>
+
+                            <p style="font-size: 0.65rem; margin: 0; line-height: 1.3; opacity: 0.8;">
+                                Texto pequeño: La accesibilidad es fundamental para todos nuestros socios.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        style="margin-top: 15px; padding: 10px; background: rgba(0,0,0,0.3); border-radius: 6px; text-align: center;">
+                        <p style="margin: 0; font-size: 0.75rem; color: #cbd5e1;">
+                            <i class="fas fa-info-circle"></i> Ajusta los colores para verificar legibilidad
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide: Introducción a WCAG -->
+        <div class="slide">
+            <h2><i class="fas fa-universal-access"></i> WCAG: Web Content Accessibility Guidelines</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 0 40px;">
+                <!-- Columna Izquierda: ¿Qué es WCAG? -->
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div
+                        style="background: rgba(35, 53, 110, 0.3); padding: 25px; border-radius: 12px; border: 2px solid var(--uide-accent);">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--uide-accent);">
+                            <i class="fas fa-info-circle"></i> ¿Qué es WCAG?
+                        </h3>
+                        <p style="font-size: 1rem; line-height: 1.7; color: #e2e8f0; margin: 0;">
+                            Las <strong>Pautas de Accesibilidad para el Contenido Web (WCAG)</strong> son un conjunto de
+                            recomendaciones internacionales desarrolladas por el W3C para hacer el contenido web más
+                            accesible para personas con discapacidades.
+                        </p>
+                    </div>
+
+                    <div
+                        style="background: rgba(233, 171, 33, 0.1); padding: 25px; border-radius: 12px; border-left: 4px solid var(--uide-accent);">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--uide-accent);">
+                            <i class="fas fa-users"></i> ¿Para quién?
+                        </h3>
+                        <ul
+                            style="font-size: 0.95rem; line-height: 1.8; color: #e2e8f0; margin: 0; padding-left: 20px;">
+                            <li>Personas con discapacidad visual</li>
+                            <li>Personas con discapacidad auditiva</li>
+                            <li>Personas con discapacidad motriz</li>
+                            <li>Personas con discapacidad cognitiva</li>
+                            <li>Adultos mayores</li>
+                            <li><strong>Todos los usuarios</strong> se benefician</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Niveles de Conformidad -->
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div
+                        style="background: rgba(35, 53, 110, 0.3); padding: 25px; border-radius: 12px; border: 2px solid var(--uide-primary);">
+                        <h3
+                            style="font-size: 1.3rem; margin-bottom: 20px; color: var(--uide-primary); text-align: center;">
+                            <i class="fas fa-layer-group"></i> Niveles de Conformidad
+                        </h3>
+
+                        <div style="display: flex; flex-direction: column; gap: 15px;">
+                            <!-- Nivel A -->
+                            <div
+                                style="background: rgba(220, 53, 69, 0.2); padding: 15px; border-radius: 10px; border-left: 4px solid #dc3545;">
+                                <h4 style="font-size: 1.1rem; margin: 0 0 8px 0; color: #f87171;">
+                                    <strong>Nivel A</strong> - Mínimo
+                                </h4>
+                                <p style="font-size: 0.9rem; margin: 0; color: #e2e8f0; line-height: 1.6;">
+                                    Requisitos básicos de accesibilidad. Si no se cumplen, algunos usuarios no podrán
+                                    acceder al contenido.
+                                </p>
+                            </div>
+
+                            <!-- Nivel AA -->
+                            <div
+                                style="background: rgba(233, 171, 33, 0.2); padding: 15px; border-radius: 10px; border-left: 4px solid var(--uide-accent);">
+                                <h4 style="font-size: 1.1rem; margin: 0 0 8px 0; color: var(--uide-accent);">
+                                    <strong>Nivel AA</strong> - Recomendado
+                                </h4>
+                                <p style="font-size: 0.9rem; margin: 0; color: #e2e8f0; line-height: 1.6;">
+                                    <strong>Estándar legal en muchos países.</strong> Elimina barreras significativas de
+                                    accesibilidad. Contraste mínimo 4.5:1.
+                                </p>
+                            </div>
+
+                            <!-- Nivel AAA -->
+                            <div
+                                style="background: rgba(74, 222, 128, 0.2); padding: 15px; border-radius: 10px; border-left: 4px solid #4ade80;">
+                                <h4 style="font-size: 1.1rem; margin: 0 0 8px 0; color: #4ade80;">
+                                    <strong>Nivel AAA</strong> - Óptimo
+                                </h4>
+                                <p style="font-size: 0.9rem; margin: 0; color: #e2e8f0; line-height: 1.6;">
+                                    Máximo nivel de accesibilidad. Contraste mínimo 7:1. Difícil de lograr en todo el
+                                    sitio.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        style="background: rgba(96, 165, 250, 0.1); padding: 20px; border-radius: 10px; border: 2px solid #60a5fa; text-align: center;">
+                        <p style="font-size: 0.95rem; margin: 0; color: #e2e8f0; line-height: 1.6;">
+                            <i class="fas fa-lightbulb"></i> <strong>Objetivo:</strong> Cumplir al menos con <strong
+                                style="color: var(--uide-accent);">Nivel AA</strong> en todos los proyectos
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide: Principios POUR de WCAG -->
+        <div class="slide">
+            <h2><i class="fas fa-hands-helping"></i> Los 4 Principios POUR de WCAG</h2>
+
+            <div style="padding: 0 40px;">
+                <div
+                    style="background: rgba(233, 171, 33, 0.1); padding: 15px 20px; border-radius: 8px; margin-bottom: 25px; border-left: 4px solid var(--uide-accent); text-align: center;">
+                    <p style="margin: 0; font-size: 1.05rem; color: #e2e8f0;">
+                        <i class="fas fa-info-circle"></i> El contenido web debe ser <strong>Perceptible, Operable,
+                            Comprensible y Robusto</strong>
+                    </p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <!-- 1. Perceptible -->
+                    <div
+                        style="background: rgba(96, 165, 250, 0.1); padding: 25px; border-radius: 12px; border: 3px solid #60a5fa;">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: #60a5fa;">
+                            <i class="fas fa-eye"></i> 1. Perceptible
+                        </h3>
+                        <p style="font-size: 0.95rem; margin-bottom: 12px; color: #e2e8f0; line-height: 1.6;">
+                            La información debe ser presentada de forma que los usuarios puedan percibirla
+                        </p>
+                        <ul style="font-size: 0.9rem; line-height: 1.7; color: #cbd5e1; margin: 0; padding-left: 20px;">
+                            <li><strong>Texto alternativo</strong> para imágenes</li>
+                            <li><strong>Subtítulos</strong> para videos</li>
+                            <li><strong>Contraste de color</strong> adecuado (4.5:1)</li>
+                            <li><strong>Contenido adaptable</strong> a diferentes dispositivos</li>
+                        </ul>
+                    </div>
+
+                    <!-- 2. Operable -->
+                    <div
+                        style="background: rgba(74, 222, 128, 0.1); padding: 25px; border-radius: 12px; border: 3px solid #4ade80;">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: #4ade80;">
+                            <i class="fas fa-hand-pointer"></i> 2. Operable
+                        </h3>
+                        <p style="font-size: 0.95rem; margin-bottom: 12px; color: #e2e8f0; line-height: 1.6;">
+                            Los componentes de la interfaz deben ser operables por todos
+                        </p>
+                        <ul style="font-size: 0.9rem; line-height: 1.7; color: #cbd5e1; margin: 0; padding-left: 20px;">
+                            <li><strong>Navegación por teclado</strong> completa</li>
+                            <li><strong>Tiempo suficiente</strong> para leer/usar contenido</li>
+                            <li><strong>Sin contenido</strong> que cause convulsiones</li>
+                            <li><strong>Navegación clara</strong> y predecible</li>
+                        </ul>
+                    </div>
+
+                    <!-- 3. Comprensible -->
+                    <div
+                        style="background: rgba(233, 171, 33, 0.1); padding: 25px; border-radius: 12px; border: 3px solid var(--uide-accent);">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--uide-accent);">
+                            <i class="fas fa-brain"></i> 3. Comprensible
+                        </h3>
+                        <p style="font-size: 0.95rem; margin-bottom: 12px; color: #e2e8f0; line-height: 1.6;">
+                            La información y operación de la interfaz deben ser comprensibles
+                        </p>
+                        <ul style="font-size: 0.9rem; line-height: 1.7; color: #cbd5e1; margin: 0; padding-left: 20px;">
+                            <li><strong>Texto legible</strong> y comprensible</li>
+                            <li><strong>Funcionamiento predecible</strong> de páginas</li>
+                            <li><strong>Ayuda para evitar</strong> y corregir errores</li>
+                            <li><strong>Instrucciones claras</strong> en formularios</li>
+                        </ul>
+                    </div>
+
+                    <!-- 4. Robusto -->
+                    <div
+                        style="background: rgba(220, 53, 69, 0.1); padding: 25px; border-radius: 12px; border: 3px solid var(--uide-primary);">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--uide-primary);">
+                            <i class="fas fa-shield-alt"></i> 4. Robusto
+                        </h3>
+                        <p style="font-size: 0.95rem; margin-bottom: 12px; color: #e2e8f0; line-height: 1.6;">
+                            El contenido debe ser robusto para funcionar con tecnologías actuales y futuras
+                        </p>
+                        <ul style="font-size: 0.9rem; line-height: 1.7; color: #cbd5e1; margin: 0; padding-left: 20px;">
+                            <li><strong>HTML semántico</strong> válido</li>
+                            <li><strong>Compatible con lectores</strong> de pantalla</li>
+                            <li><strong>Funciona en múltiples</strong> navegadores</li>
+                            <li><strong>Tecnologías asistivas</strong> compatibles</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Caso Real COAC Ciudad de Zamora -->
+        <div class="slide">
+            <h2><i class="fas fa-mobile-alt"></i> Caso Real: COAC Ciudad de Zamora</h2>
+
+            <div
+                style="background: rgba(233, 171, 33, 0.1); padding: 15px 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid var(--uide-accent);">
+                <p style="margin: 0; font-size: 1rem; color: #e2e8f0;">
+                    <i class="fas fa-university"></i> <strong>Caso de Estudio:</strong> Aplicaremos principios de HCI
+                    para rediseñar la app móvil
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 45% 55%; gap: 25px; padding: 0 20px;">
+                <!-- Columna Izquierda: Diseño Actual -->
+                <div
+                    style="background: rgba(35, 53, 110, 0.3); padding: 25px; border-radius: 12px; border: 2px solid #00ff00;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 20px; color: #00ff00; text-align: center;">
+                        <i class="fas fa-eye"></i> Diseño Actual
+                    </h3>
+
+                    <!-- Mockup simplificado de la app real -->
+                    <div
+                        style="width: 280px; height: 550px; background: #f5f5f5; border-radius: 30px; padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin: 0 auto;">
+                        <div style="background: white; height: 100%; border-radius: 20px; overflow: hidden;">
+                            <!-- Header verde brillante -->
+                            <div style="background: #00ff00; padding: 15px; text-align: center;">
+                                <div style="font-size: 0.75rem; font-weight: 600; color: #000;">COOPERATIVA DE
+                                    AHORRO Y<br>CRÉDITO CIUDAD DE ZAMORA</div>
+                            </div>
+
+                            <div style="padding: 20px;">
+                                <div
+                                    style="text-align: right; color: #0066cc; font-size: 0.9rem; margin-bottom: 15px; font-weight: 600;">
+                                    Hola Alex</div>
+
+                                <!-- Tabs -->
+                                <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                                    <button
+                                        style="flex: 1; padding: 10px; background: #f0f0f0; border: 1px solid #0066cc; border-radius: 8px; font-size: 0.75rem; color: #0066cc;">Coop.
+                                        Ciudad Zamora</button>
+                                    <button
+                                        style="flex: 1; padding: 10px; background: #00ff00; border: none; border-radius: 8px; font-size: 0.75rem; color: #000; font-weight: 600;">Otros
+                                        Bancos</button>
+                                </div>
+
+                                <!-- Cuenta -->
+                                <div
+                                    style="border: 2px solid #0066cc; border-radius: 8px; padding: 12px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-size: 0.85rem; color: #0066cc;">4201010009 01</span>
+                                    <span style="font-size: 0.85rem; color: #0066cc; font-weight: 600;">$ 30.01
+                                        ▼</span>
+                                </div>
+
+                                <!-- Formulario -->
+                                <div
+                                    style="border: 2px solid #0066cc; border-radius: 12px; padding: 15px; margin-bottom: 15px;">
+                                    <div style="margin-bottom: 12px;">
+                                        <div
+                                            style="font-size: 0.8rem; color: #0066cc; font-weight: 600; margin-bottom: 5px;">
+                                            Monto</div>
+                                        <div style="display: flex; gap: 8px;">
+                                            <input type="text" value="$ 0"
+                                                style="flex: 1; padding: 8px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.85rem;">
+                                            <input type="text" value="00"
+                                                style="width: 50px; padding: 8px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.85rem;">
+                                            <button
+                                                style="background: #00ff00; border: none; padding: 8px 15px; border-radius: 6px; font-size: 0.75rem; font-weight: 600;">Beneficiarios</button>
+                                        </div>
+                                    </div>
+
+                                    <div style="margin-bottom: 12px;">
+                                        <div
+                                            style="font-size: 0.8rem; color: #0066cc; font-weight: 600; margin-bottom: 5px;">
+                                            Institución Financiera</div>
+                                        <div
+                                            style="border: 1px solid #ddd; border-radius: 6px; padding: 8px; background: white; font-size: 0.85rem; color: #999;">
+                                            ▼ ✕</div>
+                                    </div>
+
+                                    <div style="margin-bottom: 12px;">
+                                        <div
+                                            style="font-size: 0.8rem; color: #0066cc; font-weight: 600; margin-bottom: 5px;">
+                                            Tipo Cuenta</div>
+                                        <div
+                                            style="border: 1px solid #ddd; border-radius: 6px; padding: 8px; background: white; font-size: 0.85rem; color: #999;">
+                                            ▼ ✕</div>
+                                    </div>
+
+                                    <button
+                                        style="width: 100%; background: #00ff00; border: none; padding: 12px; border-radius: 8px; font-size: 0.9rem; font-weight: 600; margin-top: 10px;">Continuar</button>
+                                </div>
+
+                                <!-- Operaciones -->
+                                <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 8px;">
+                                    Operaciones</div>
+                                <div
+                                    style="background: #00ff00; border-radius: 8px; padding: 8px; display: flex; gap: 5px; font-size: 0.7rem; font-weight: 600;">
+                                    <div style="flex: 1; text-align: center;">Transferencias</div>
+                                    <div style="flex: 1; text-align: center;">Servicios</div>
+                                    <div style="flex: 1; text-align: center;">Mi Perfil</div>
+                                    <div style="flex: 1; text-align: center;">Mis Contactos</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Análisis -->
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div
+                        style="background: rgba(220, 53, 69, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #dc3545;">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 12px; color: #f87171;">
+                            <i class="fas fa-exclamation-triangle"></i> Problemas Identificados
+                        </h3>
+                        <ul style="font-size: 0.85rem; line-height: 1.7; color: #e2e8f0; margin: 0;">
+                            <li><strong>Color:</strong> Verde brillante (#00ff00) puede causar fatiga visual y
+                                bajo contraste</li>
+                            <li><strong>Jerarquía:</strong> Múltiples botones verdes sin diferenciación clara
+                            </li>
+                            <li><strong>Espaciado:</strong> Elementos muy juntos, dificulta la lectura</li>
+                            <li><strong>Affordances:</strong> Campos de formulario poco claros (dropdowns
+                                vacíos)</li>
+                            <li><strong>Accesibilidad:</strong> Contraste insuficiente en varios elementos</li>
+                        </ul>
+                    </div>
+
+                    <div
+                        style="background: rgba(233, 171, 33, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid var(--uide-accent);">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 12px; color: var(--uide-accent);">
+                            <i class="fas fa-lightbulb"></i> Principios HCI a Aplicar
+                        </h3>
+                        <ul style="font-size: 0.85rem; line-height: 1.7; color: #e2e8f0; margin: 0;">
+                            <li><strong>Don Norman:</strong> Visibilidad, feedback, mappings y modelo conceptual</li>
+                            <li><strong>Psicología del Color:</strong> Jerarquía visual y contraste adecuado</li>
+                            <li><strong>Gestalt:</strong> Agrupación lógica de elementos relacionados</li>
+                            <li><strong>Affordances:</strong> Pistas visuales claras de interactividad</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide: Resultado Final - Antes vs Después -->
+        <div class="slide">
+            <h2><i class="fas fa-exchange-alt"></i> Resultado Final: Antes vs Después</h2>
+
+            <div
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 0 40px; align-items: center; height: calc(100vh - 180px);">
+                <!-- ANTES -->
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <h3 style="font-size: 1.4rem; margin-bottom: 20px; color: #f87171; text-align: center;">
+                        <i class="fas fa-times-circle"></i> ANTES
+                    </h3>
+
+                    <div
+                        style="width: 300px; height: 550px; background: #f5f5f5; border-radius: 30px; padding: 15px; box-shadow: 0 10px 30px rgba(220, 53, 69, 0.4);">
+                        <div style="background: white; height: 100%; border-radius: 20px; overflow: hidden;">
+                            <div
+                                style="background: #00ff00; padding: 15px; text-align: center; font-size: 0.7rem; font-weight: 600; color: #000;">
+                                COOPERATIVA DE AHORRO Y CRÉDITO CIUDAD DE ZAMORA
+                            </div>
+                            <div style="padding: 20px;">
+                                <div
+                                    style="text-align: right; color: #0066cc; font-size: 0.85rem; margin-bottom: 15px;">
+                                    Hola Alex</div>
+                                <div
+                                    style="border: 2px solid #0066cc; border-radius: 6px; padding: 12px; margin-bottom: 15px; font-size: 0.8rem; color: #0066cc;">
+                                    ****0901 | $30.01
+                                </div>
+                                <div
+                                    style="border: 2px solid #0066cc; border-radius: 10px; padding: 15px; margin-bottom: 15px;">
+                                    <div style="font-size: 0.75rem; color: #0066cc; margin-bottom: 10px;">Monto</div>
+                                    <input type="text" value="$ 0"
+                                        style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.8rem; margin-bottom: 10px;">
+                                    <div style="font-size: 0.75rem; color: #0066cc; margin-bottom: 10px;">Institución
+                                    </div>
+                                    <div
+                                        style="border: 1px solid #ddd; border-radius: 4px; padding: 8px; background: white; font-size: 0.8rem; margin-bottom: 12px;">
+                                        ▼</div>
+                                    <button
+                                        style="width: 100%; background: #00ff00; border: none; padding: 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">Continuar</button>
+                                </div>
+                                <div
+                                    style="background: #00ff00; border-radius: 6px; padding: 8px; display: flex; gap: 4px; font-size: 0.65rem; font-weight: 600;">
+                                    <div style="flex: 1; text-align: center;">Trans</div>
+                                    <div style="flex: 1; text-align: center;">Serv</div>
+                                    <div style="flex: 1; text-align: center;">Perfil</div>
+                                    <div style="flex: 1; text-align: center;">Cont</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DESPUÉS -->
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <h3 style="font-size: 1.4rem; margin-bottom: 20px; color: #4ade80; text-align: center;">
+                        <i class="fas fa-check-circle"></i> DESPUÉS
+                    </h3>
+
+                    <div
+                        style="width: 300px; height: 550px; background: #f5f5f5; border-radius: 30px; padding: 15px; box-shadow: 0 10px 30px rgba(74, 222, 128, 0.4);">
+                        <div style="background: white; height: 100%; border-radius: 20px; overflow: hidden;">
+                            <div
+                                style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); padding: 18px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                                <div
+                                    style="font-size: 0.75rem; font-weight: 600; color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+                                    COAC Ciudad de Zamora
+                                </div>
+                            </div>
+                            <div style="padding: 20px;">
+                                <div
+                                    style="text-align: right; color: #495057; font-size: 0.85rem; margin-bottom: 15px; font-weight: 500;">
+                                    <i class="fas fa-user-circle"></i> Hola Alex
+                                </div>
+                                <div
+                                    style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 12px; padding: 15px; margin-bottom: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                                    <div style="font-size: 0.75rem; color: #6c757d; margin-bottom: 4px;">Saldo
+                                        disponible</div>
+                                    <div style="font-size: 1.4rem; color: #212529; font-weight: 700;">$30.01</div>
+                                    <div style="font-size: 0.7rem; color: #6c757d; margin-top: 4px;">Cuenta: ****0901
+                                    </div>
+                                </div>
+                                <div
+                                    style="background: #f8f9fa; border-radius: 12px; padding: 15px; margin-bottom: 15px;">
+                                    <h4
+                                        style="font-size: 0.85rem; color: #212529; margin: 0 0 12px 0; font-weight: 600;">
+                                        <i class="fas fa-exchange-alt"></i> Nueva Transferencia
+                                    </h4>
+                                    <input type="text" placeholder="$0.00"
+                                        style="width: 100%; padding: 10px; border: 2px solid #dee2e6; border-radius: 8px; font-size: 0.85rem; margin-bottom: 10px;">
+                                    <select
+                                        style="width: 100%; padding: 10px; border: 2px solid #dee2e6; border-radius: 8px; font-size: 0.8rem; margin-bottom: 12px;">
+                                        <option>Seleccionar beneficiario</option>
+                                    </select>
+                                    <button
+                                        style="width: 100%; background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; border: none; padding: 12px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);">
+                                        <i class="fas fa-check-circle"></i> Continuar
+                                    </button>
+                                </div>
+                                <div
+                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.7rem;">
+                                    <button
+                                        style="background: white; border: 2px solid #28a745; color: #28a745; padding: 10px; border-radius: 8px; font-weight: 600;">
+                                        <i class="fas fa-chart-line"></i> Consultas
+                                    </button>
+                                    <button
+                                        style="background: white; border: 2px solid #6c757d; color: #6c757d; padding: 10px; border-radius: 8px;">
+                                        <i class="fas fa-cog"></i> Ajustes
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide: Análisis de Problemas y Mejoras -->
+        <div class="slide">
+            <h2><i class="fas fa-clipboard-check"></i> Análisis: Problemas y Mejoras Aplicadas</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 0 40px;">
+                <!-- Problemas del Diseño Anterior -->
+                <div
+                    style="background: rgba(220, 53, 69, 0.1); padding: 30px; border-radius: 15px; border: 3px solid #dc3545;">
+                    <h3 style="font-size: 1.4rem; margin-bottom: 20px; color: #f87171; text-align: center;">
+                        <i class="fas fa-times-circle"></i> Problemas Identificados
+                    </h3>
+                    <ul style="font-size: 1rem; line-height: 2; color: #e2e8f0; margin: 0; padding-left: 25px;">
+                        <li><strong>Verde brillante (#00ff00)</strong> causa fatiga visual severa</li>
+                        <li><strong>Contraste insuficiente</strong> en múltiples elementos</li>
+                        <li><strong>Sin jerarquía visual</strong> clara entre acciones</li>
+                        <li><strong>Campos de formulario confusos</strong> sin labels claros</li>
+                        <li><strong>Sin affordances</strong> - no hay pistas de interacción</li>
+                        <li><strong>Espaciado inconsistente</strong> dificulta la lectura</li>
+                    </ul>
+                </div>
+
+                <!-- Mejoras Aplicadas -->
+                <div
+                    style="background: rgba(74, 222, 128, 0.1); padding: 30px; border-radius: 15px; border: 3px solid #4ade80;">
+                    <h3 style="font-size: 1.4rem; margin-bottom: 20px; color: #4ade80; text-align: center;">
+                        <i class="fas fa-check-circle"></i> Mejoras Aplicadas
+                    </h3>
+                    <ul style="font-size: 1rem; line-height: 2; color: #e2e8f0; margin: 0; padding-left: 25px;">
+                        <li><strong>Don Norman:</strong> Visibilidad clara, feedback inmediato, jerarquía definida</li>
+                        <li><strong>Psicología del Color:</strong> Verde suave (#28a745) con contraste WCAG AA (4.5:1)
+                        </li>
+                        <li><strong>Gestalt (Proximidad):</strong> Agrupación lógica de elementos relacionados</li>
+                        <li><strong>Affordances:</strong> Sombras sutiles, estados hover, bordes claros</li>
+                        <li><strong>Accesibilidad:</strong> Labels visibles, tamaños táctiles adecuados</li>
+                        <li><strong>Jerarquía Visual:</strong> Saldo destacado, CTA principal prominente</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide: Referencias -->
+        <div class="slide">
+            <h2><i class="fas fa-book"></i> Referencias Bibliográficas</h2>
+            <div style="max-width: 1100px; margin: 0 auto; padding: 0 40px;">
+
+                <h3 style="margin-bottom: 1.2rem; font-size: 1.3rem; color: var(--uide-accent);">
+                    <i class="fas fa-bookmark"></i> Bibliografía Básica
+                </h3>
+                <ul style="font-size: 0.95rem; line-height: 1.9; margin-bottom: 2.5rem; color: #e2e8f0;">
+                    <li><strong>Fernández Casado, P. E. (2021).</strong> <em>UX Design: hazlo fácil pensando en el
+                            usuario.</em> RA-MA Editorial.</li>
+                    <li><strong>Labrador, E. & Márquez Moreno, J. (2023).</strong> <em>UX para empresas.</em> FC
+                        Editorial.</li>
+                    <li><strong>Scolari, C. (2021).</strong> <em>Las leyes de la interfaz.</em> Gedisa.</li>
+                    <li><strong>Allanwood, G. & Beare, P. (2021).</strong> <em>Diseño de experiencias de usuario.</em>
+                        Parramón Paidotribo S.L.</li>
+                </ul>
+
+                <h3 style="margin-bottom: 1.2rem; font-size: 1.3rem; color: var(--uide-primary);">
+                    <i class="fas fa-book-open"></i> Bibliografía Complementaria
+                </h3>
+                <ul style="font-size: 0.95rem; line-height: 1.9; margin-bottom: 2.5rem; color: #e2e8f0;">
+                    <li><strong>Coronado García, B. (2024).</strong> <em>Aplicación de técnicas de usabilidad y
+                            accesibilidad en el entorno cliente.</em> Editorial Tutor Formación.</li>
+                    <li><strong>Fernández Casado, P. E. (2019).</strong> <em>Usabilidad web: teoría y uso.</em>
+                        Ediciones de la U.</li>
+                    <li><strong>Sarrab, M., Al-Shihi, H., & Safia, N. (2021).</strong> <em>Handbook of Mobile
+                            Application Development.</em> Bentham Science.</li>
+                    <li><strong>Romero-Hall, E. (2020).</strong> <em>Research Methods in Learning Design and
+                            Technology.</em> Taylor & Francis.</li>
+                </ul>
+
+                <h3 style="margin-bottom: 1.2rem; font-size: 1.3rem; color: #4ade80;">
+                    <i class="fas fa-graduation-cap"></i> Fuentes ASU
+                </h3>
+                <ul style="font-size: 0.95rem; line-height: 1.9; color: #e2e8f0;">
+                    <li><strong>Arizona State University (2025).</strong> <em>HSE 325 - Human Computer Interaction.</em>
+                    </li>
+                    <li><strong>Arizona State University (2025).</strong> <em>Advanced Python Packages for Business
+                            Analytics.</em></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+
+                <div style="background: rgba(35, 53, 110, 0.3); padding: 20px; border-radius: 12px; border: 2px solid rgba(74, 222, 128, 0.3);">
+                    <h3 style="margin-bottom: 1rem; font-size: 1.2rem; color: #4ade80;">
+                        <i class="fas fa-book-reader"></i> Fuentes Modernas
+                    </h3>
+                    <ul style="font-size: 0.9rem; line-height: 1.8; color: #e2e8f0;">
+                        <li><strong>Keele, S. W. (1973).</strong> <em>Attention and Human Performance.</em></li>
+                        <li><strong>MacKenzie, I. S. (1992, 2013).</strong> Investigaciones sobre la ley de Fitts y HCI.</li>
+                        <li><strong>Norman, D. A. (1988).</strong> <em>The Psychology of Everyday Things.</em></li>
+                        <li><strong>Shneiderman, B., & Plaisant, C. (2004).</strong> <em>Designing the User Interface.</em></li>
+                        <li><strong>Williams, R. (2008).</strong> <em>100 Things Every Designer Needs to Know About People.</em></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="background: rgba(233, 171, 33, 0.15); padding: 15px; border-radius: 10px; border-left: 4px solid var(--uide-accent); margin: 20px 20px 0 20px;">
+                <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: #e2e8f0; text-align: center; font-style: italic;">
+                    Presentación elaborada a partir del compendio de Semana 4 - Leyes de Fitts y Hick, Atención, Memoria, Percepción, Carga Cognitiva y Ley de Miller.
+                </p>
+            </div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">12</span>
+            </span>
+            <button class="nav-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressBar"></div>
+        </div>
+    </div>
+</body>
+
+</html>

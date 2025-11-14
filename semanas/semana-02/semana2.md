@@ -1,9 +1,9 @@
 Este compendio aborda los temas solicitados—Factores Humanos, Cognición Distribuida y Teoría de la Actividad, HCI Ubicua, y el Rol de NASA en HCI/Ingeniería de Software—utilizando exclusivamente la información disponible en las fuentes proporcionadas y estructurando las citas y referencias en un formato similar al estilo APA, según lo permitido por los datos fuente.
 
 --------------------------------------------------------------------------------
-Compendio de Temas de Interacción Persona-Ordenador
+Compendio de Temas de Interacción Persona-Computador
 Factores Humanos
-Los Factores Humanos, o Ergonomía, son una de las disciplinas más centrales y fundamentales para la Interacción Persona-Ordenador (HCI).
+Los Factores Humanos, o Ergonomía, son una de las disciplinas más centrales y fundamentales para la Interacción Persona-Computador (HCI).
 Definición y Alcance
 El campo de los factores humanos es tanto una ciencia como un campo de la ingeniería. Se encarga de las capacidades, limitaciones y rendimiento humanos, con el objetivo de diseñar sistemas que sean eficientes, seguros, cómodos e incluso agradables para sus usuarios.
 La HCI se define esencialmente como factores humanos, pero enfocada específicamente en la interacción humana con tecnología informática de algún tipo.
@@ -43,7 +43,7 @@ La UbiCom fue articulada por Mark Weiser (1991) con la visión de que las comput
 • Ubicuo vs. Global: La UbiCom busca el soporte a la ubicuidad basada en el contexto (context based ubiquity), limitada a los servicios útiles y evitando la sobrecarga del usuario con demasiada información y toma de decisiones.
 • Propiedades Centrales: La UbiCom se distingue por cinco propiedades fundamentales:
     1. Sistemas TIC Distribuidos: Interconectados y accesibles de manera transparente.
-    2. Interacción Persona-Ordenador Implícita (iHCI): La interacción debe estar más oculta.
+    2. Interacción Persona-Computador Implícita (iHCI): La interacción debe estar más oculta.
     3. Conciencia del Contexto (Context-Awareness): Las computadoras son conscientes de su entorno para optimizar su funcionamiento.
     4. Autonomía: Los sistemas pueden operar sin intervención humana.
     5. Inteligencia: Los sistemas manejan una multiplicidad de acciones e interacciones dinámicas.

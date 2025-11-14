@@ -25,7 +25,7 @@
 ## 🧠 Factores Humanos: La Base de HCI
 
 ### Definición Central
-> *"Los Factores Humanos, o Ergonomía, son una de las disciplinas más centrales y fundamentales para la Interacción Persona-Ordenador (HCI)"*
+> *"Los Factores Humanos, o Ergonomía, son una de las disciplinas más centrales y fundamentales para la Interacción Persona-Computador (HCI)"*
 
 ### Características Clave
 - **Ciencia e Ingeniería**: Se encarga de capacidades, limitaciones y rendimiento humanos

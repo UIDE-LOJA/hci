@@ -190,7 +190,7 @@ La asignatura de Interacción Hombre-Computadora (HCI) introduce a los estudiant
 
 **Elaborado por:**
 Cargo: Docente de la carrera de Ingeniería en Tecnologías de la Información
-Nombre: Mgs. Charlie Alexander Cárdenas Toledo
+Nombre: Prof. Charlie Cárdenas Toledo, M.Sc.
 
 **Revisado por:**
 Cargo: Coordinador académico de la carrera de Ingeniería en Tecnologías de la Información
