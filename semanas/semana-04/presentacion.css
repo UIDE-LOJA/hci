@@ -401,3 +401,34 @@ button {
 .slide::-webkit-scrollbar-thumb:hover {
     background: rgba(233, 171, 33, 0.7);
 }
+
+
+/* Slide Input Navigation */
+#slideInput {
+    transition: all 0.3s ease;
+}
+
+#slideInput:hover {
+    background: rgba(0,0,0,0.7) !important;
+    border-color: var(--uide-accent) !important;
+    box-shadow: 0 0 10px rgba(233, 171, 33, 0.3);
+}
+
+#slideInput:focus {
+    outline: none;
+    background: rgba(0,0,0,0.8) !important;
+    border-color: var(--uide-accent) !important;
+    box-shadow: 0 0 15px rgba(233, 171, 33, 0.5);
+}
+
+/* Ocultar flechas del input number en Chrome, Safari, Edge */
+#slideInput::-webkit-outer-spin-button,
+#slideInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Ocultar flechas del input number en Firefox */
+#slideInput[type=number] {
+    -moz-appearance: textfield;
+}

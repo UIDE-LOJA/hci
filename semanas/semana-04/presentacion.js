@@ -97,6 +97,43 @@ class PresentationController {
         };
         
         this.handleSwipe = handleSwipe;
+        
+        // Slide input navigation
+        const slideInput = document.getElementById('slideInput');
+        if (slideInput) {
+            // Cuando cambia el valor (blur o flechas arriba/abajo)
+            slideInput.addEventListener('change', (e) => {
+                const slideNum = parseInt(e.target.value);
+                if (slideNum >= 1 && slideNum <= this.totalSlides) {
+                    this.goToSlide(slideNum - 1);
+                } else {
+                    // Restaurar valor válido si está fuera de rango
+                    e.target.value = this.currentSlide + 1;
+                }
+            });
+            
+            // Cuando presiona Enter
+            slideInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const slideNum = parseInt(e.target.value);
+                    if (slideNum >= 1 && slideNum <= this.totalSlides) {
+                        this.goToSlide(slideNum - 1);
+                        slideInput.blur(); // Quitar foco del input
+                    } else {
+                        // Restaurar valor válido
+                        e.target.value = this.currentSlide + 1;
+                    }
+                }
+            });
+            
+            // Prevenir que las flechas del teclado naveguen slides cuando el input tiene foco
+            slideInput.addEventListener('keydown', (e) => {
+                if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key)) {
+                    e.stopPropagation(); // Evitar que el evento llegue al document
+                }
+            });
+        }
     }
 
     goToSlide(index) {
@@ -131,6 +168,12 @@ class PresentationController {
         // Update slide counter
         if (this.currentSlideEl) {
             this.currentSlideEl.textContent = this.currentSlide + 1;
+        }
+        
+        // Update slide input
+        const slideInput = document.getElementById('slideInput');
+        if (slideInput) {
+            slideInput.value = this.currentSlide + 1;
         }
         
         // Update progress bar
