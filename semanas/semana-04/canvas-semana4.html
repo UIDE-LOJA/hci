@@ -1,0 +1,136 @@
+<p>Esta semana introducimos <strong>Modelos Predictivos y Carga Cognitiva en HCI</strong> con foco en
+    <em>Ley de Fitts</em>, <em>Ley de Hick</em>, <em>percepción y atención</em>, y <em>memoria de trabajo</em>. 
+    Aplicaremos estos principios a un caso de uso real: una app de pedidos para restaurante (mesa→cocina), optimizando 
+    la interacción de meseros y personal de cocina durante horas pico.</p>
+
+<p><strong>¿Qué veremos?</strong></p>
+
+<div class="_tableContainer_1rjym_1">
+    <div class="group _tableWrapper_1rjym_13 flex w-fit flex-col-reverse">
+        <table class="w-fit min-w-(--thread-content-width)" style="border-collapse: collapse; width: 100%;" border="1">
+            <thead>
+                <tr>
+                    <th style="width: 22%;">Tema</th>
+                    <th style="width: 50%;">Contenido clave</th>
+                    <th style="width: 28%;">Ejemplos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Caso de Uso</td>
+                    <td><strong>App de pedidos mesa→cocina</strong>: meseros envían pedidos desde app móvil; panel 
+                        táctil en cocina para marcar estados (en proceso, preparado, servido). <strong>Reto</strong>: 
+                        evitar errores de captura, coordinar múltiples pedidos, mantener visibilidad del estado.</td>
+                    <td>Usuarios: meseros, jefe de cocina, estaciones (parrilla, barra fría, postres). Contexto: 
+                        servicio de restaurante con alta demanda.</td>
+                </tr>
+                <tr>
+                    <td>Ley de Fitts</td>
+                    <td><strong>MT = a + b × ID</strong>, donde ID = log₂(2A/W). Tiempo de movimiento es función de 
+                        distancia (A) y ancho del objetivo (W). <strong>Principio</strong>: objetivos grandes y cercanos 
+                        son más rápidos de alcanzar.</td>
+                    <td>Panel de cocina: botones grandes (con iconos) permiten toques precisos incluso con guantes. 
+                        Botones pequeños = más errores y tiempo perdido.</td>
+                </tr>
+                <tr>
+                    <td>Ley de Hick</td>
+                    <td><strong>RT = a + b log₂(n)</strong>. Tiempo de reacción aumenta logarítmicamente con número de 
+                        opciones (n). Cada opción extra añade ~150ms. <strong>Problema</strong>: sobreestimulación → 
+                        parálisis decisional.</td>
+                    <td>App del mesero: menú jerárquico (4 categorías) = 1.5s vs lista plana (24 opciones) = 3.6s. 
+                        Solución: menús jerárquicos y presets.</td>
+                </tr>
+                <tr>
+                    <td>Percepción y Atención</td>
+                    <td><strong>Percepción visual</strong>: reconocimiento de patrones, colores, iconos. 
+                        <strong>Atención selectiva</strong>: foco en información relevante. <strong>Memoria de 
+                        trabajo</strong>: capacidad limitada (7±2 elementos).</td>
+                    <td>Códigos de color para estados: amarillo (en proceso), verde (listo), azul (servir). Iconos 
+                        reconocibles: fuego, check, campana. Agrupación visual de pedidos por mesa.</td>
+                </tr>
+                <tr>
+                    <td>Carga Cognitiva</td>
+                    <td><strong>Carga intrínseca</strong>: complejidad inherente de la tarea. <strong>Carga 
+                        extrínseca</strong>: diseño de la interfaz. <strong>Carga germánica</strong>: procesamiento y 
+                        aprendizaje. Reducir opciones simultáneas y usar agrupación visual.</td>
+                    <td>Durante horas pico: minimizar carga extrínseca con diseño simple, agrupación clara, y feedback 
+                        inmediato. Evitar saturar a la brigada.</td>
+                </tr>
+                <tr>
+                    <td>Ley de Miller</td>
+                    <td><strong>7±2 elementos</strong> en memoria de trabajo. Agrupar información en chunks para no 
+                        exceder capacidad. Aplicar a estados de pedidos y órdenes simultáneas.</td>
+                    <td>Agrupar pedidos por mesa (no por plato individual). Mostrar máximo 5-7 pedidos activos en 
+                        pantalla principal. Usar colores y posición para facilitar reconocimiento.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<p><strong>Objetivos de aprendizaje</strong></p>
+
+<p>Al finalizar la semana podrás:</p>
+
+<ul>
+    <li>
+        <p>Aplicar las <strong>leyes de Fitts y Hick</strong> al diseño de interfaces para optimizar tiempo de 
+            interacción y decisión.</p>
+    </li>
+    <li>
+        <p>Integrar principios de <strong>percepción, atención y memoria</strong> para reducir errores y mejorar 
+            eficiencia.</p>
+    </li>
+    <li>
+        <p>Disminuir la <strong>carga cognitiva</strong> mediante diseño simple, agrupación visual y feedback claro.</p>
+    </li>
+    <li>
+        <p>Usar la <strong>Ley de Miller</strong> para agrupar información sin saturar la memoria de trabajo de los 
+            usuarios.</p>
+    </li>
+</ul>
+
+<p><strong>Materiales</strong></p>
+
+<ul>
+    <li>
+        <p><strong>Presentación:</strong> Semana 4 — Modelos Predictivos y Carga Cognitiva en HCI.</p>
+    </li>
+    <li>
+        <p><strong>Bibliografía:</strong></p>
+        <ul>
+            <li>Fernández Casado, P. E. (2021). <em>UX Design: hazlo fácil pensando en el usuario</em>. RA-MA Editorial.</li>
+            <li>Labrador, E. & Márquez Moreno, J. (2023). <em>UX para empresas</em>. FC Editorial.</li>
+            <li>Scolari, C. (2021). <em>Las leyes de la interfaz</em>. Gedisa.</li>
+            <li>Allanwood, G. & Beare, P. (2021). <em>Diseño de experiencias de usuario</em>. Parramón Paidotribo S.L.</li>
+        </ul>
+    </li>
+    <li>
+        <p><strong>Herramientas:</strong> Figma, Adobe XD, Maze, UsabilityHub, Google Forms para recolección de datos, 
+            Excel o Google Sheets para análisis.</p>
+    </li>
+</ul>
+
+<p><strong>Actividades</strong></p>
+
+<ul>
+    <li>
+        <p><strong>Lectura guiada</strong> del compendio Semana 4 y lecturas sobre leyes de Fitts y Hick.</p>
+    </li>
+    <li>
+        <p><strong>GA-1.2: Problemas rápidos (Fitts/Hick)</strong> — ejercicios de aplicación de fórmulas y análisis 
+            de casos — <strong>1.5 pts</strong>.</p>
+    </li>
+    <li>
+        <p><strong>PE-1.4: Micro-experimento A/B de menú</strong> — diseñar dos variantes (menú con muchas opciones vs 
+            menú simplificado/categorizado), formular hipótesis, realizar pruebas con usuarios, recolectar datos 
+            (tiempo, errores, clics), y analizar resultados con estadísticas descriptivas y gráficas — 
+            <strong>2.25 pts</strong>.</p>
+    </li>
+    <li>
+        <p><strong>Total de la semana:</strong> <strong>3.75/30</strong> (Evaluación diagnóstica).</p>
+    </li>
+</ul>
+
+<p>Si tienes dudas, utiliza el <strong>horario de tutorías (lunes 10:00-12:00 | viernes 08:00-09:00)</strong> o envía 
+    consulta por <strong>correo institucional</strong> con tiempo de respuesta máximo 48 horas laborables.</p>
