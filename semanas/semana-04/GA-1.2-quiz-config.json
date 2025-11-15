@@ -1,0 +1,18 @@
+{
+  "id": "GA-1.2-fitts-hick",
+  "title": "GA-1.2: Problemas rápidos (Fitts/Hick)",
+  "description": "Evaluación sobre la Ley de Fitts y la Ley de Hick aplicadas a HCI - 1.5 pts",
+  "quiz_type": "assignment",
+  "time_limit": 20,
+  "allowed_attempts": 2,
+  "scoring_policy": "keep_highest",
+  "shuffle_answers": true,
+  "show_correct_answers": true,
+  "show_correct_answers_at": null,
+  "hide_correct_answers_at": null,
+  "one_question_at_a_time": false,
+  "cant_go_back": false,
+  "access_code": "",
+  "ip_filter": "",
+  "published": false
+}

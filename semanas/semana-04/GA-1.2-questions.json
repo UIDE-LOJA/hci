@@ -1,0 +1,282 @@
+[
+  {
+    "question": {
+      "question_name": "Concepto Ley de Fitts",
+      "question_text": "<p>¿Qué establece la Ley de Fitts sobre el tiempo de movimiento hacia un objetivo?</p>",
+      "question_type": "multiple_choice_question",
+      "points_possible": 0.15,
+      "answers": [
+        {
+          "answer_text": "Solo depende de la velocidad del usuario",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Revisa el concepto básico de la Ley de Fitts en el material de la semana 4."
+        },
+        {
+          "answer_text": "Está determinado por la distancia al objetivo y el tamaño del objetivo",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! La Ley de Fitts establece que el tiempo de movimiento está determinado por la distancia al objetivo y su tamaño."
+        },
+        {
+          "answer_text": "Es constante independientemente del tamaño del objetivo",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. El tamaño del objetivo sí afecta el tiempo de movimiento."
+        },
+        {
+          "answer_text": "Solo se aplica a movimientos lentos y precisos",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. La ley se aplica a movimientos rápidos y dirigidos."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Aplicación Fitts en diseño",
+      "question_text": "<p>Según la Ley de Fitts, ¿por qué es ventajoso posicionar controles importantes en los bordes o esquinas de la pantalla?</p>",
+      "question_type": "multiple_choice_question",
+      "points_possible": 0.15,
+      "answers": [
+        {
+          "answer_text": "Porque son más visibles para el usuario",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. La ventaja no es principalmente visual."
+        },
+        {
+          "answer_text": "Porque reducen los movimientos de ajuste fino y minimizan errores",
+          "answer_weight": 100,
+          "answer_comments": "¡Exacto! Los bordes y esquinas actúan como objetivos infinitos, reduciendo movimientos de ajuste fino."
+        },
+        {
+          "answer_text": "Porque aumentan el tiempo de reacción",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. De hecho, reducen el tiempo de movimiento."
+        },
+        {
+          "answer_text": "Porque ocupan menos espacio en pantalla",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. La ventaja está relacionada con la precisión del movimiento."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Fórmula Ley de Hick",
+      "question_text": "<p>La Ley de Hick establece que el tiempo de reacción (RT) se calcula como:</p>",
+      "question_type": "multiple_choice_question",
+      "points_possible": 0.15,
+      "answers": [
+        {
+          "answer_text": "RT = a + b × n",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Esta no es la fórmula correcta de la Ley de Hick."
+        },
+        {
+          "answer_text": "RT = a + b log₂(n)",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! La fórmula es RT = a + b log₂(n), donde n es el número de opciones."
+        },
+        {
+          "answer_text": "RT = a × b / n",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Revisa la formulación matemática de la Ley de Hick."
+        },
+        {
+          "answer_text": "RT = log₂(a + b × n)",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. El logaritmo se aplica solo al número de opciones."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Tiempo procesamiento Hick",
+      "question_text": "<p>Según la Ley de Hick, ¿cuál es el tiempo aproximado de procesamiento cognitivo por cada opción adicional en humanos?</p>",
+      "question_type": "multiple_choice_question",
+      "points_possible": 0.15,
+      "answers": [
+        {
+          "answer_text": "50 ms/bit",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. El valor es mayor."
+        },
+        {
+          "answer_text": "150 ms/bit",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! La constante b representa aproximadamente 150 ms/bit de procesamiento."
+        },
+        {
+          "answer_text": "300 ms/bit",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Este valor es demasiado alto."
+        },
+        {
+          "answer_text": "500 ms/bit",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Revisa el valor de la constante b en la Ley de Hick."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Aplicabilidad Ley de Hick",
+      "question_text": "<p>La Ley de Hick se aplica efectivamente a decisiones complejas que involucran búsqueda extensa, lectura y resolución de problemas.</p>",
+      "question_type": "true_false_question",
+      "points_possible": 0.15,
+      "answers": [
+        {
+          "answer_text": "Verdadero",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. La ley se aplica mejor a decisiones simples con respuestas únicas por estímulo."
+        },
+        {
+          "answer_text": "Falso",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! La Ley de Hick es más aplicable a tareas de decisión simples, no a decisiones complejas."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Ley de Miller capacidad",
+      "question_text": "<p>Según la Ley de Miller, ¿cuál es la capacidad aproximada de la memoria a corto plazo?</p>",
+      "question_type": "multiple_choice_question",
+      "points_possible": 0.15,
+      "answers": [
+        {
+          "answer_text": "3 ± 1 elementos",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. La capacidad es mayor."
+        },
+        {
+          "answer_text": "7 ± 2 elementos",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! La Ley de Miller establece que podemos recordar 7 ± 2 elementos (5 a 9)."
+        },
+        {
+          "answer_text": "10 ± 3 elementos",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Este valor es demasiado alto."
+        },
+        {
+          "answer_text": "15 ± 5 elementos",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Revisa el concepto de la Ley de Miller sobre la capacidad de memoria a corto plazo."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Chunking concepto",
+      "question_text": "<p>¿Qué es el 'chunking' o fragmentación en el contexto de la memoria de trabajo?</p>",
+      "question_type": "multiple_choice_question",
+      "points_possible": 0.15,
+      "answers": [
+        {
+          "answer_text": "Dividir información en partes más pequeñas para olvidarla más rápido",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. El chunking ayuda a recordar, no a olvidar."
+        },
+        {
+          "answer_text": "Agrupar múltiples ítems de bajo nivel en un solo ítem significativo de alto nivel",
+          "answer_weight": 100,
+          "answer_comments": "¡Exacto! El chunking agrupa múltiples ítems de bajo nivel en un solo ítem significativo de alto nivel."
+        },
+        {
+          "answer_text": "Eliminar información irrelevante de la memoria",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. El chunking es sobre agrupar, no eliminar."
+        },
+        {
+          "answer_text": "Aumentar el tiempo de procesamiento de cada elemento",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Revisa el concepto de chunking y su función en la memoria de trabajo."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Reducir carga cognitiva",
+      "question_text": "<p>¿Cuál de las siguientes NO es una estrategia efectiva para reducir la carga cognitiva?</p>",
+      "question_type": "multiple_choice_question",
+      "points_possible": 0.15,
+      "answers": [
+        {
+          "answer_text": "Eliminar elementos que no ayuden al objetivo del usuario",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Esta SÍ es una estrategia efectiva para reducir la carga cognitiva."
+        },
+        {
+          "answer_text": "Agrupar información que debe ser recordada",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. El chunking SÍ reduce la carga cognitiva."
+        },
+        {
+          "answer_text": "Aumentar el número de opciones disponibles simultáneamente",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! Aumentar opciones incrementa la carga cognitiva; las otras estrategias sí la reducen."
+        },
+        {
+          "answer_text": "Automatizar tareas intensivas en memoria y cálculo",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. La automatización SÍ reduce la carga cognitiva."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Reconocimiento vs Recuerdo",
+      "question_text": "<p>En el diseño de interfaces, el reconocimiento (como elegir de un menú) es más fácil y reduce más la carga cognitiva que el recuerdo libre (como escribir comandos).</p>",
+      "question_type": "true_false_question",
+      "points_possible": 0.15,
+      "answers": [
+        {
+          "answer_text": "Verdadero",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! El reconocimiento es más fácil y rápido, reduciendo la carga cognitiva."
+        },
+        {
+          "answer_text": "Falso",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. El diseño debe favorecer el reconocimiento sobre el recuerdo."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Aplicación práctica menús",
+      "question_text": "<p>Para aplicar la Ley de Hick en el diseño de menús, la mejor estrategia es:</p>",
+      "question_type": "multiple_choice_question",
+      "points_possible": 0.15,
+      "answers": [
+        {
+          "answer_text": "Mostrar todas las opciones en un solo nivel para mayor visibilidad",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Esto aumentaría el tiempo de decisión según la Ley de Hick."
+        },
+        {
+          "answer_text": "Reducir el número de opciones mediante subdivisiones categóricas",
+          "answer_weight": 100,
+          "answer_comments": "¡Excelente! Reducir opciones mediante subdivisiones categóricas facilita la selección."
+        },
+        {
+          "answer_text": "Aumentar el tamaño de fuente de cada opción",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. El tamaño de fuente no reduce el número de opciones a procesar."
+        },
+        {
+          "answer_text": "Ordenar las opciones alfabéticamente sin categorías",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Revisa las aplicaciones prácticas de la Ley de Hick en el diseño de menús."
+        }
+      ]
+    }
+  }
+]
