@@ -146,67 +146,112 @@
             </div>
         </div>
 
-        <!-- Slide 5: Ley de Fitts -->
+        <!-- Slide 5: Fundamento Teórico - Ley de Fitts -->
         <div class="slide">
-            <h2><i class="fas fa-bullseye"></i> Ley de Fitts</h2>
+            <h2><i class="fas fa-book-open"></i> Fundamento Teórico: Ley de Fitts</h2>
 
             <div style="padding: 0 40px;">
-                <!-- Concepto principal -->
-                <div style="text-align: center; margin-bottom: 30px;">
-                    <p style="font-size: 1.3rem; color: #cbd5e1; margin: 0 auto; line-height: 1.6; max-width: 800px;">
-                        "La rapidez para alcanzar un objetivo depende de su <strong
-                            style="color: var(--uide-accent);">tamaño</strong> y <strong
-                            style="color: var(--uide-accent);">distancia</strong>"
+                <!-- Encabezado con contexto -->
+                <div style="text-align: center; margin-bottom: 25px;">
+                    <h3 style="font-size: 1.4rem; color: var(--uide-accent); margin-bottom: 10px;">
+                        <i class="fas fa-user-tie"></i> Paul Fitts, 1954
+                    </h3>
+                    <p
+                        style="font-size: 1.05rem; color: #cbd5e1; margin: 0; max-width: 950px; margin: 0 auto; line-height: 1.6;">
+                        "La rapidez con la que una persona se mueve hacia un objetivo depende del <strong
+                            style="color: var(--uide-accent);">tamaño</strong> y la <strong
+                            style="color: var(--uide-accent);">distancia</strong> de este"
                     </p>
                 </div>
 
-                <!-- Principio visual -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 30px;">
+                <!-- Fórmula principal destacada -->
+                <div
+                    style="background: linear-gradient(135deg, rgba(35, 53, 110, 0.4), rgba(233, 171, 33, 0.2)); padding: 25px; border-radius: 16px; border: 3px solid var(--uide-accent); margin-bottom: 25px; text-align: center;">
+                    <code
+                        style="color: var(--uide-accent); font-size: 2rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+                        MT = A + B × log₂(2D/W)
+                    </code>
                     <div
-                        style="background: rgba(220, 53, 69, 0.15); padding: 30px; border-radius: 12px; border: 3px solid #dc3545; text-align: center;">
-                        <div style="font-size: 3.5rem; margin-bottom: 15px;"><i class="fas fa-times-circle"
-                                style="color: #dc3545;"></i></div>
-                        <h4 style="font-size: 1.2rem; color: #dc3545; margin-bottom: 12px;">Más Difícil</h4>
-                        <p style="font-size: 1rem; color: #e2e8f0; margin: 0;">
-                            <strong>Pequeño + Lejos</strong><br>
-                            = Mayor tiempo y errores
-                        </p>
-                    </div>
-
-                    <div
-                        style="background: rgba(74, 222, 128, 0.15); padding: 30px; border-radius: 12px; border: 3px solid #4ade80; text-align: center;">
-                        <div style="font-size: 3.5rem; margin-bottom: 15px;"><i class="fas fa-check-circle"
-                                style="color: #4ade80;"></i></div>
-                        <h4 style="font-size: 1.2rem; color: #4ade80; margin-bottom: 12px;">Más Fácil</h4>
-                        <p style="font-size: 1rem; color: #e2e8f0; margin: 0;">
-                            <strong>Grande + Cerca</strong><br>
-                            = Menor tiempo y precisión
-                        </p>
+                        style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-top: 20px; color: #e2e8f0; font-size: 0.88rem;">
+                        <div>
+                            <div style="font-weight: 700; color: var(--uide-accent); margin-bottom: 5px;">MT</div>
+                            <div>Tiempo de movimiento</div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; color: var(--uide-accent); margin-bottom: 5px;">D</div>
+                            <div>Distancia al objetivo</div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; color: var(--uide-accent); margin-bottom: 5px;">W</div>
+                            <div>Ancho del objetivo</div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; color: var(--uide-accent); margin-bottom: 5px;">A, B</div>
+                            <div>Constantes empíricas</div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; color: var(--uide-accent); margin-bottom: 5px;">log₂</div>
+                            <div>Función logarítmica</div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Aplicación en diseño -->
+                <!-- Ejemplo práctico de cálculo -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                    <div
+                        style="background: rgba(59, 130, 246, 0.15); padding: 20px; border-radius: 12px; border: 2px solid #3b82f6;">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 12px; color: #60a5fa; text-align: center;">
+                            <i class="fas fa-calculator"></i> Ejemplo de Cálculo
+                        </h4>
+                        <div style="font-size: 0.88rem; color: #e2e8f0; line-height: 1.7;">
+                            <p style="margin: 0 0 8px 0;"><strong style="color: #60a5fa;">Escenario:</strong> Botón de
+                                60px a 100px de distancia</p>
+                            <p style="margin: 0 0 8px 0;"><strong style="color: #60a5fa;">Constantes:</strong> A = 0.4,
+                                B = 0.2</p>
+                            <p
+                                style="margin: 0; padding: 12px; background: rgba(0,0,0,0.3); border-radius: 8px; font-family: monospace;">
+                                MT = 0.4 + 0.2 × log₂(2×100/60)<br>
+                                MT ≈ <strong style="color: var(--uide-accent);">0.75 segundos</strong>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        style="background: rgba(168, 85, 247, 0.15); padding: 20px; border-radius: 12px; border: 2px solid #a855f7;">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 12px; color: #c084fc; text-align: center;">
+                            <i class="fas fa-lightbulb"></i> Principio Clave
+                        </h4>
+                        <div style="font-size: 0.88rem; color: #e2e8f0; line-height: 1.7; text-align: center;">
+                            <div style="font-size: 2.5rem; margin: 10px 0;">📏</div>
+                            <p style="margin: 0; font-size: 0.95rem;">
+                                <strong style="color: #dc3545;">Objetivo pequeño + lejos</strong><br>
+                                = Mayor tiempo<br><br>
+                                <strong style="color: #4ade80;">Objetivo grande + cerca</strong><br>
+                                = Menor tiempo
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Implicaciones para diseño -->
                 <div
-                    style="background: rgba(59, 130, 246, 0.15); padding: 25px; border-radius: 12px; border: 2px solid #3b82f6;">
-                    <h4 style="font-size: 1.15rem; margin-bottom: 15px; color: #60a5fa; text-align: center;">
-                        <i class="fas fa-lightbulb"></i> Aplicación en Diseño UI
+                    style="background: rgba(74, 222, 128, 0.15); padding: 18px; border-radius: 12px; border: 2px solid #4ade80;">
+                    <h4 style="font-size: 1.05rem; margin-bottom: 10px; color: #4ade80; text-align: center;">
+                        <i class="fas fa-desktop"></i> Implicaciones para Diseño de Interfaces
                     </h4>
                     <div
-                        style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; font-size: 0.95rem; color: #e2e8f0;">
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-check-circle"
-                                style="color: #4ade80; font-size: 1.2rem; flex-shrink: 0;"></i>
-                            <span>Botones principales grandes y visibles</span>
+                        style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; font-size: 0.85rem; color: #e2e8f0;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <i class="fas fa-check-circle" style="color: #4ade80; font-size: 1rem; flex-shrink: 0;"></i>
+                            <span>Botones principales deben ser grandes</span>
                         </div>
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-check-circle"
-                                style="color: #4ade80; font-size: 1.2rem; flex-shrink: 0;"></i>
-                            <span>Elementos relacionados agrupados</span>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <i class="fas fa-check-circle" style="color: #4ade80; font-size: 1rem; flex-shrink: 0;"></i>
+                            <span>Elementos relacionados deben estar cerca</span>
                         </div>
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-check-circle"
-                                style="color: #4ade80; font-size: 1.2rem; flex-shrink: 0;"></i>
-                            <span>CTAs en zonas accesibles</span>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <i class="fas fa-check-circle" style="color: #4ade80; font-size: 1rem; flex-shrink: 0;"></i>
+                            <span>CTAs accesibles, no en esquinas lejanas</span>
                         </div>
                     </div>
                 </div>
@@ -325,28 +370,6 @@
             </div>
         </div>
 
-        <!-- Slide 5.5.1: Ley de Fitts - Problema (Objetivos pequeños y alejados) -->
-        <div class="slide">
-            <!-- Mockup a pantalla completa sin título -->
-            <div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
-                <iframe src="mockup-fitts-bad.html"
-                    style="width: 100%; height: 100%; border: none; background: transparent;"
-                    title="Mockup Ley de Fitts - Mal Diseño">
-                </iframe>
-            </div>
-        </div>
-
-        <!-- Slide 5.5.2: Ley de Fitts - Solución (Objetivos grandes y cercanos) -->
-        <div class="slide">
-            <!-- Mockup a pantalla completa sin título -->
-            <div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
-                <iframe src="mockup-fitts-good.html"
-                    style="width: 100%; height: 100%; border: none; background: transparent;"
-                    title="Mockup Ley de Fitts - Buen Diseño">
-                </iframe>
-            </div>
-        </div>
-
         <!-- Slide 5.6: Píxeles Primos y Píxeles Mágicos -->
         <div class="slide">
             <h2><i class="fas fa-crosshairs"></i> Píxeles Primos y Píxeles Mágicos</h2>
@@ -440,30 +463,29 @@
                     <!-- Esquinas (Píxeles Mágicos) -->
                     <div
                         style="position: absolute; top: 10px; left: 10px; width: 60px; height: 60px; background: rgba(220, 53, 69, 0.5); border: 2px solid #dc3545; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-direction: column; box-shadow: 0 3px 10px rgba(220, 53, 69, 0.4);">
-                        <div style="font-size: 1.2rem;"><i class="fas fa-circle" style="color: #dc3545;"></i></div>
+                        <div style="font-size: 1.2rem;">🔴</div>
                         <div style="font-size: 0.6rem; color: #fff; font-weight: 700;">DIFÍCIL</div>
                     </div>
                     <div
                         style="position: absolute; top: 10px; right: 10px; width: 60px; height: 60px; background: rgba(220, 53, 69, 0.5); border: 2px solid #dc3545; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-direction: column; box-shadow: 0 3px 10px rgba(220, 53, 69, 0.4);">
-                        <div style="font-size: 1.2rem;"><i class="fas fa-circle" style="color: #dc3545;"></i></div>
+                        <div style="font-size: 1.2rem;">🔴</div>
                         <div style="font-size: 0.6rem; color: #fff; font-weight: 700;">DIFÍCIL</div>
                     </div>
                     <div
                         style="position: absolute; bottom: 10px; left: 10px; width: 60px; height: 60px; background: rgba(220, 53, 69, 0.5); border: 2px solid #dc3545; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-direction: column; box-shadow: 0 3px 10px rgba(220, 53, 69, 0.4);">
-                        <div style="font-size: 1.2rem;"><i class="fas fa-circle" style="color: #dc3545;"></i></div>
+                        <div style="font-size: 1.2rem;">🔴</div>
                         <div style="font-size: 0.6rem; color: #fff; font-weight: 700;">DIFÍCIL</div>
                     </div>
                     <div
                         style="position: absolute; bottom: 10px; right: 10px; width: 60px; height: 60px; background: rgba(220, 53, 69, 0.5); border: 2px solid #dc3545; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-direction: column; box-shadow: 0 3px 10px rgba(220, 53, 69, 0.4);">
-                        <div style="font-size: 1.2rem;"><i class="fas fa-circle" style="color: #dc3545;"></i></div>
+                        <div style="font-size: 1.2rem;">🔴</div>
                         <div style="font-size: 0.6rem; color: #fff; font-weight: 700;">DIFÍCIL</div>
                     </div>
 
                     <!-- Centro (Píxel Principal) -->
                     <div
                         style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 240px; height: 140px; background: rgba(74, 222, 128, 0.5); border: 3px solid #4ade80; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 6px 20px rgba(74, 222, 128, 0.4);">
-                        <div style="font-size: 2.5rem; margin-bottom: 5px;"><i class="fas fa-bullseye"
-                                style="color: #4ade80;"></i></div>
+                        <div style="font-size: 2.5rem; margin-bottom: 5px;">🎯</div>
                         <div
                             style="font-size: 1.1rem; color: #fff; font-weight: 700; text-shadow: 0 2px 6px rgba(0,0,0,0.5);">
                             ZONA ÓPTIMA</div>
@@ -491,8 +513,7 @@
                 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px;">
                     <div
                         style="background: rgba(74, 222, 128, 0.15); padding: 15px; border-radius: 10px; border: 2px solid #4ade80; text-align: center;">
-                        <div style="font-size: 2rem; margin-bottom: 6px;"><i class="fas fa-circle"
-                                style="color: #4ade80;"></i></div>
+                        <div style="font-size: 2rem; margin-bottom: 6px;">🟢</div>
                         <h4 style="font-size: 0.95rem; color: #4ade80; margin-bottom: 6px; font-weight: 700;">Zona Verde
                         </h4>
                         <p style="font-size: 0.8rem; color: #e2e8f0; margin: 0; line-height: 1.4;">
@@ -503,8 +524,7 @@
 
                     <div
                         style="background: rgba(251, 146, 60, 0.15); padding: 15px; border-radius: 10px; border: 2px solid #fb923c; text-align: center;">
-                        <div style="font-size: 2rem; margin-bottom: 6px;"><i class="fas fa-circle"
-                                style="color: #fb923c;"></i></div>
+                        <div style="font-size: 2rem; margin-bottom: 6px;">🟡</div>
                         <h4 style="font-size: 0.95rem; color: #fb923c; margin-bottom: 6px; font-weight: 700;">Zona
                             Amarilla</h4>
                         <p style="font-size: 0.8rem; color: #e2e8f0; margin: 0; line-height: 1.4;">
@@ -515,8 +535,7 @@
 
                     <div
                         style="background: rgba(220, 53, 69, 0.15); padding: 15px; border-radius: 10px; border: 2px solid #dc3545; text-align: centers;">
-                        <div style="font-size: 2rem; margin-bottom: 6px;"><i class="fas fa-circle"
-                                style="color: #dc3545;"></i></div>
+                        <div style="font-size: 2rem; margin-bottom: 6px;">🔴</div>
                         <h4 style="font-size: 0.95rem; color: #f87171; margin-bottom: 6px; font-weight: 700;">Zona Roja
                         </h4>
                         <p style="font-size: 0.8rem; color: #e2e8f0; margin: 0; line-height: 1.4;">
@@ -528,65 +547,107 @@
             </div>
         </div>
 
-        <!-- Slide 8: Ley de Hick -->
+        <!-- Slide 8: Fundamento Teórico - Ley de Hick-Hyman -->
         <div class="slide">
-            <h2><i class="fas fa-route"></i> Ley de Hick</h2>
+            <h2><i class="fas fa-book-open"></i> Fundamento Teórico: Ley de Hick-Hyman</h2>
 
             <div style="padding: 0 40px;">
-                <!-- Concepto principal -->
-                <div style="text-align: center; margin-bottom: 30px;">
-                    <p style="font-size: 1.3rem; color: #cbd5e1; margin: 0 auto; line-height: 1.6; max-width: 800px;">
-                        "El tiempo de decisión aumenta con el <strong style="color: var(--uide-accent);">número de
-                            opciones</strong> disponibles"
+                <!-- Encabezado con contexto -->
+                <div style="text-align: center; margin-bottom: 25px;">
+                    <h3 style="font-size: 1.4rem; color: var(--uide-accent); margin-bottom: 10px;">
+                        <i class="fas fa-user-tie"></i> William Hick & Ray Hyman, 1952
+                    </h3>
+                    <p
+                        style="font-size: 1.05rem; color: #cbd5e1; margin: 0; max-width: 950px; margin: 0 auto; line-height: 1.6;">
+                        "El tiempo que lleva tomar una decisión aumenta con el <strong
+                            style="color: var(--uide-accent);">número</strong> y la <strong
+                            style="color: var(--uide-accent);">complejidad</strong> de las opciones"
                     </p>
                 </div>
 
-                <!-- Principio visual -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 30px;">
+                <!-- Fórmula principal destacada -->
+                <div
+                    style="background: linear-gradient(135deg, rgba(35, 53, 110, 0.4), rgba(233, 171, 33, 0.2)); padding: 25px; border-radius: 16px; border: 3px solid var(--uide-accent); margin-bottom: 25px; text-align: center;">
+                    <code
+                        style="color: var(--uide-accent); font-size: 2rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+                        RT = a + b × log₂(n)
+                    </code>
                     <div
-                        style="background: rgba(220, 53, 69, 0.15); padding: 30px; border-radius: 12px; border: 3px solid #dc3545; text-align: center;">
-                        <div style="font-size: 3.5rem; margin-bottom: 15px;"><i class="fas fa-brain"
-                                style="color: #dc3545;"></i></div>
-                        <h4 style="font-size: 1.2rem; color: #dc3545; margin-bottom: 12px;">Sobrecarga</h4>
-                        <p style="font-size: 1rem; color: #e2e8f0; margin: 0;">
-                            <strong>Muchas opciones</strong><br>
-                            = Decisión lenta y confusa
-                        </p>
-                    </div>
-
-                    <div
-                        style="background: rgba(74, 222, 128, 0.15); padding: 30px; border-radius: 12px; border: 3px solid #4ade80; text-align: center;">
-                        <div style="font-size: 3.5rem; margin-bottom: 15px;"><i class="fas fa-bolt"
-                                style="color: #4ade80;"></i></div>
-                        <h4 style="font-size: 1.2rem; color: #4ade80; margin-bottom: 12px;">Claridad</h4>
-                        <p style="font-size: 1rem; color: #e2e8f0; margin: 0;">
-                            <strong>Pocas opciones</strong><br>
-                            = Decisión rápida y clara
-                        </p>
+                        style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 20px; color: #e2e8f0; font-size: 0.88rem;">
+                        <div>
+                            <div style="font-weight: 700; color: var(--uide-accent); margin-bottom: 5px;">RT</div>
+                            <div>Tiempo de reacción</div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; color: var(--uide-accent); margin-bottom: 5px;">n</div>
+                            <div>Número de opciones</div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; color: var(--uide-accent); margin-bottom: 5px;">a, b</div>
+                            <div>Constantes empíricas</div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; color: var(--uide-accent); margin-bottom: 5px;">+150ms</div>
+                            <div>Por cada opción extra</div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Aplicación en diseño -->
+                <!-- Ejemplo práctico de cálculo -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                    <div
+                        style="background: rgba(59, 130, 246, 0.15); padding: 20px; border-radius: 12px; border: 2px solid #3b82f6;">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 12px; color: #60a5fa; text-align: center;">
+                            <i class="fas fa-calculator"></i> Ejemplo de Cálculo
+                        </h4>
+                        <div style="font-size: 0.88rem; color: #e2e8f0; line-height: 1.7;">
+                            <p style="margin: 0 0 8px 0;"><strong style="color: #60a5fa;">Escenario:</strong> Menú con 8
+                                opciones</p>
+                            <p style="margin: 0 0 8px 0;"><strong style="color: #60a5fa;">Constantes:</strong> a = 0.5, b =
+                                0.15</p>
+                            <p
+                                style="margin: 0; padding: 12px; background: rgba(0,0,0,0.3); border-radius: 8px; font-family: monospace;">
+                                RT = 0.5 + 0.15 × log₂(8)<br>
+                                RT ≈ <strong style="color: var(--uide-accent);">0.95 segundos</strong>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        style="background: rgba(168, 85, 247, 0.15); padding: 20px; border-radius: 12px; border: 2px solid #a855f7;">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 12px; color: #c084fc; text-align: center;">
+                            <i class="fas fa-lightbulb"></i> Principio Clave
+                        </h4>
+                        <div style="font-size: 0.88rem; color: #e2e8f0; line-height: 1.7; text-align: center;">
+                            <div style="font-size: 2.5rem; margin: 10px 0;">🧠</div>
+                            <p style="margin: 0; font-size: 0.95rem;">
+                                <strong style="color: #dc3545;">Más opciones</strong><br>
+                                = Mayor tiempo de decisión<br><br>
+                                <strong style="color: #4ade80;">Menos opciones</strong><br>
+                                = Decisión más rápida
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Implicaciones para diseño -->
                 <div
-                    style="background: rgba(59, 130, 246, 0.15); padding: 25px; border-radius: 12px; border: 2px solid #3b82f6;">
-                    <h4 style="font-size: 1.15rem; margin-bottom: 15px; color: #60a5fa; text-align: center;">
-                        <i class="fas fa-lightbulb"></i> Aplicación en Diseño UI
+                    style="background: rgba(74, 222, 128, 0.15); padding: 18px; border-radius: 12px; border: 2px solid #4ade80;">
+                    <h4 style="font-size: 1.05rem; margin-bottom: 10px; color: #4ade80; text-align: center;">
+                        <i class="fas fa-desktop"></i> Implicaciones para Diseño de Interfaces
                     </h4>
                     <div
-                        style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; font-size: 0.95rem; color: #e2e8f0;">
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-check-circle"
-                                style="color: #4ade80; font-size: 1.2rem; flex-shrink: 0;"></i>
-                            <span>Agrupar opciones en categorías</span>
+                        style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; font-size: 0.85rem; color: #e2e8f0;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <i class="fas fa-check-circle" style="color: #4ade80; font-size: 1rem; flex-shrink: 0;"></i>
+                            <span>Minimizar opciones en acciones críticas</span>
                         </div>
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-check-circle"
-                                style="color: #4ade80; font-size: 1.2rem; flex-shrink: 0;"></i>
-                            <span>Dividir procesos complejos en pasos</span>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <i class="fas fa-check-circle" style="color: #4ade80; font-size: 1rem; flex-shrink: 0;"></i>
+                            <span>Dividir tareas complejas en pasos pequeños</span>
                         </div>
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-check-circle"
-                                style="color: #4ade80; font-size: 1.2rem; flex-shrink: 0;"></i>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <i class="fas fa-check-circle" style="color: #4ade80; font-size: 1rem; flex-shrink: 0;"></i>
                             <span>Destacar opciones recomendadas</span>
                         </div>
                     </div>
@@ -610,8 +671,7 @@
                         <h4 style="font-size: 1.1rem; margin-bottom: 10px; color: #60a5fa; text-align: center;">Menús
                             Simplificados</h4>
                         <p style="font-size: 0.88rem; color: #e2e8f0; margin: 0; line-height: 1.6;">
-                            Categoriza opciones en grupos lógicos. Los menús jerárquicos reducen opciones visibles y
-                            facilitan
+                            Categoriza opciones en grupos lógicos. Los menús jerárquicos reducen opciones visibles y facilitan
                             la decisión.
                         </p>
                     </div>
@@ -625,8 +685,7 @@
                         <h4 style="font-size: 1.1rem; margin-bottom: 10px; color: #c084fc; text-align: center;">Opciones
                             Recomendadas</h4>
                         <p style="font-size: 0.88rem; color: #e2e8f0; margin: 0; line-height: 1.6;">
-                            Evita sobrecargar a los usuarios destacando opciones sugeridas. Guía la decisión sin
-                            eliminar
+                            Evita sobrecargar a los usuarios destacando opciones sugeridas. Guía la decisión sin eliminar
                             alternativas.
                         </p>
                     </div>
@@ -637,12 +696,10 @@
                         <div style="text-align: center; margin-bottom: 12px;">
                             <i class="fas fa-graduation-cap" style="font-size: 2.8rem; color: #f472b6;"></i>
                         </div>
-                        <h4 style="font-size: 1.1rem; margin-bottom: 10px; color: #f472b6; text-align: center;">
-                            Onboarding
+                        <h4 style="font-size: 1.1rem; margin-bottom: 10px; color: #f472b6; text-align: center;">Onboarding
                             Progresivo</h4>
                         <p style="font-size: 0.88rem; color: #e2e8f0; margin: 0; line-height: 1.6;">
-                            Presenta funciones gradualmente. Minimiza la carga cognitiva mostrando características
-                            básicas
+                            Presenta funciones gradualmente. Minimiza la carga cognitiva mostrando características básicas
                             primero.
                         </p>
                     </div>
@@ -656,12 +713,10 @@
                         <div style="text-align: center; margin-bottom: 12px;">
                             <i class="fas fa-layer-group" style="font-size: 2.8rem; color: #4ade80;"></i>
                         </div>
-                        <h4 style="font-size: 1.1rem; margin-bottom: 10px; color: #4ade80; text-align: center;">Dividir
-                            Tareas
+                        <h4 style="font-size: 1.1rem; margin-bottom: 10px; color: #4ade80; text-align: center;">Dividir Tareas
                             Complejas</h4>
                         <p style="font-size: 0.88rem; color: #e2e8f0; margin: 0; line-height: 1.6;">
-                            Fragmenta procesos en pasos pequeños para disminuir la carga cognitiva. Usa wizards y
-                            formularios
+                            Fragmenta procesos en pasos pequeños para disminuir la carga cognitiva. Usa wizards y formularios
                             multipaso.
                         </p>
                     </div>
@@ -675,8 +730,7 @@
                         <h4 style="font-size: 1.1rem; margin-bottom: 10px; color: #fb923c; text-align: center;">Acciones
                             Críticas</h4>
                         <p style="font-size: 0.88rem; color: #e2e8f0; margin: 0; line-height: 1.6;">
-                            Cuando el tiempo de respuesta es crítico, reduce opciones al mínimo para acelerar la
-                            decisión.
+                            Cuando el tiempo de respuesta es crítico, reduce opciones al mínimo para acelerar la decisión.
                         </p>
                     </div>
                 </div>
@@ -692,20 +746,17 @@
                         <div style="display: flex; align-items: flex-start; gap: 8px;">
                             <i class="fas fa-check-circle"
                                 style="color: var(--uide-accent); font-size: 1rem; margin-top: 2px; flex-shrink: 0;"></i>
-                            <span><strong>Google:</strong> Una barra de búsqueda, sin distracciones ni decisiones
-                                extra</span>
+                            <span><strong>Google:</strong> Una barra de búsqueda, sin distracciones ni decisiones extra</span>
                         </div>
                         <div style="display: flex; align-items: flex-start; gap: 8px;">
                             <i class="fas fa-check-circle"
                                 style="color: var(--uide-accent); font-size: 1rem; margin-top: 2px; flex-shrink: 0;"></i>
-                            <span><strong>Apple TV:</strong> Control minimalista, complejidad transferida a la
-                                interfaz</span>
+                            <span><strong>Apple TV:</strong> Control minimalista, complejidad transferida a la interfaz</span>
                         </div>
                         <div style="display: flex; align-items: flex-start; gap: 8px;">
                             <i class="fas fa-check-circle"
                                 style="color: var(--uide-accent); font-size: 1rem; margin-top: 2px; flex-shrink: 0;"></i>
-                            <span><strong>Slack:</strong> Bot que enseña funciones progresivamente, no todo a la
-                                vez</span>
+                            <span><strong>Slack:</strong> Bot que enseña funciones progresivamente, no todo a la vez</span>
                         </div>
                     </div>
                 </div>
@@ -714,86 +765,186 @@
 
         <!-- Slide 9: Ley de Hick - Problema (Lista Plana) -->
         <div class="slide">
-            <!-- Mockup a pantalla completa sin título -->
-            <div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
-                <iframe src="mockup-hick-bad.html"
-                    style="width: 100%; height: 100%; border: none; background: transparent;"
-                    title="Mockup Ley de Hick - Mal Diseño">
-                </iframe>
+            <h2><i class="fas fa-times-circle" style="color: #dc3545;"></i> Ley de Hick: Problema - Lista Plana
+            </h2>
+
+            <div style="display: grid; grid-template-columns: 30% 70%; gap: 25px; padding: 0 20px;">
+                <!-- Columna Izquierda: Texto Explicativo (30%) -->
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div
+                        style="background: rgba(220, 53, 69, 0.15); padding: 25px; border-radius: 12px; border-left: 6px solid #dc3545;">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: #f87171;">
+                            <i class="fas fa-exclamation-triangle"></i> Problema Identificado
+                        </h3>
+                        <p style="font-size: 0.95rem; line-height: 1.7; color: #e2e8f0; margin: 0;">
+                            Lista plana con 24 platos sin categorización aumenta la carga cognitiva del mesero.
+                        </p>
+                    </div>
+
+                    <div
+                        style="background: rgba(35, 53, 110, 0.3); padding: 20px; border-radius: 12px; border: 2px solid var(--uide-accent); text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 10px;">⏱️</div>
+                        <p style="font-size: 0.95rem; line-height: 1.5; color: #cbd5e1; margin: 0;">
+                            <strong style="color: var(--uide-accent);">n = 24 opciones</strong><br>
+                            ↓<br>
+                            <strong style="color: #f87171;">~3.6 segundos de búsqueda</strong>
+                        </p>
+                    </div>
+
+                    <div
+                        style="background: rgba(220, 53, 69, 0.2); padding: 20px; border-radius: 12px; border-left: 4px solid #dc3545;">
+                        <h4 style="font-size: 1rem; margin-bottom: 12px; color: #f87171;">
+                            <i class="fas fa-times-circle"></i> Consecuencias
+                        </h4>
+                        <ul style="font-size: 0.9rem; line-height: 1.8; color: #e2e8f0; margin: 0; padding-left: 20px;">
+                            <li>Parálisis decisional</li>
+                            <li>Mayor tiempo de atención</li>
+                            <li>Fatiga cognitiva</li>
+                            <li>Errores en pedidos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Mockup con Iframe (70%) -->
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <iframe src="mockup-hick-bad.html"
+                        style="width: 100%; height: 650px; border: none; border-radius: 12px; background: transparent;"
+                        title="Mockup Ley de Hick - Mal Diseño">
+                    </iframe>
+                </div>
             </div>
         </div>
 
         <!-- Slide 10: Ley de Hick - Solución (Menú Jerárquico) -->
         <div class="slide">
-            <!-- Mockup a pantalla completa sin título -->
-            <div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
-                <iframe src="mockup-hick-good.html"
-                    style="width: 100%; height: 100%; border: none; background: transparent;"
-                    title="Mockup Ley de Hick - Buen Diseño">
-                </iframe>
+            <h2><i class="fas fa-check-circle" style="color: #4ade80;"></i> Ley de Hick: Solución - Menú Jerárquico
+            </h2>
+
+            <div style="display: grid; grid-template-columns: 30% 70%; gap: 25px; padding: 0 20px;">
+                <!-- Columna Izquierda: Texto Explicativo (30%) -->
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div
+                        style="background: rgba(74, 222, 128, 0.15); padding: 25px; border-radius: 12px; border-left: 6px solid #4ade80;">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: #4ade80;">
+                            <i class="fas fa-check-circle"></i> Solución Aplicada
+                        </h3>
+                        <p style="font-size: 0.95rem; line-height: 1.7; color: #e2e8f0; margin: 0;">
+                            Menú jerárquico con 5 categorías reduce opciones visibles y facilita la decisión.
+                        </p>
+                    </div>
+
+                    <div
+                        style="background: rgba(35, 53, 110, 0.3); padding: 20px; border-radius: 12px; border: 2px solid var(--uide-accent); text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 10px;">✅</div>
+                        <p style="font-size: 0.95rem; line-height: 1.5; color: #cbd5e1; margin: 0;">
+                            <strong style="color: var(--uide-accent);">n = 5 categorías</strong><br>
+                            ↓<br>
+                            <strong style="color: #4ade80;">~1 segundo inicial</strong>
+                        </p>
+                    </div>
+
+                    <div
+                        style="background: rgba(74, 222, 128, 0.2); padding: 20px; border-radius: 12px; border-left: 4px solid #4ade80;">
+                        <h4 style="font-size: 1rem; margin-bottom: 12px; color: #4ade80;">
+                            <i class="fas fa-star"></i> Beneficios
+                        </h4>
+                        <ul style="font-size: 0.9rem; line-height: 1.8; color: #e2e8f0; margin: 0; padding-left: 20px;">
+                            <li>Decisión más rápida</li>
+                            <li>Menor carga cognitiva</li>
+                            <li>Navegación intuitiva</li>
+                            <li>Menos errores</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Mockup con Iframe (70%) -->
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <iframe src="mockup-hick-good.html"
+                        style="width: 100%; height: 650px; border: none; border-radius: 12px; background: transparent;"
+                        title="Mockup Ley de Hick - Buen Diseño">
+                    </iframe>
+                </div>
             </div>
         </div>
 
-        <!-- Slide 9: Percepción y Atención Visual -->
+        <!-- Slide 9: Fundamento Teórico - Percepción y Atención -->
         <div class="slide">
-            <h2><i class="fas fa-eye"></i> Percepción y Atención Visual</h2>
+            <h2><i class="fas fa-book-open"></i> Fundamento Teórico: Percepción y Atención Visual</h2>
 
             <div style="padding: 0 40px;">
-                <!-- Concepto principal -->
-                <div style="text-align: center; margin-bottom: 30px;">
-                    <p style="font-size: 1.3rem; color: #cbd5e1; margin: 0 auto; line-height: 1.6; max-width: 850px;">
-                        "El usuario ve primero el <strong style="color: var(--uide-accent);">conjunto general</strong>,
-                        luego enfoca en los <strong style="color: var(--uide-accent);">detalles importantes</strong>"
+                <div
+                    style="background: rgba(35, 53, 110, 0.3); padding: 25px; border-radius: 12px; border: 2px solid var(--uide-accent); margin-bottom: 25px;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--uide-accent);">
+                        <i class="fas fa-eye"></i> Procesamiento Visual Humano
+                    </h3>
+                    <p style="font-size: 1rem; line-height: 1.8; color: #e2e8f0; margin-bottom: 15px;">
+                        El sistema visual humano procesa información mediante dos tipos de visión: <strong>foveal
+                            (central)</strong> para alta resolución y <strong>periférica</strong> para detección de
+                        movimiento
+                        y contexto. La atención visual es selectiva y limitada, procesando información mediante
+                        <strong>fijaciones</strong> (200-300 ms) y <strong>sacadas</strong> (30-120 ms).
                     </p>
-                </div>
 
-                <!-- Principios Gestalt simplificados -->
-                <div style="margin-bottom: 25px;">
-                    <h4 style="font-size: 1.15rem; margin-bottom: 20px; color: #4ade80; text-align: center;">
-                        <i class="fas fa-layer-group"></i> Principios de Agrupación Visual
-                    </h4>
-                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0;">
                         <div
-                            style="background: rgba(59, 130, 246, 0.15); padding: 20px; border-radius: 12px; text-align: center;">
-                            <div style="font-size: 2rem; margin-bottom: 10px;"><i class="fas fa-map-marker-alt"
-                                    style="color: #60a5fa;"></i></div>
-                            <h5 style="font-size: 1rem; color: #60a5fa; margin-bottom: 8px;">Proximidad</h5>
-                            <p style="font-size: 0.85rem; color: #e2e8f0; margin: 0;">Lo cercano se agrupa</p>
+                            style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; border: 2px solid #60a5fa;">
+                            <h4 style="color: #60a5fa; margin-bottom: 10px; font-size: 1.1rem;">
+                                <i class="fas fa-bullseye"></i> Visión Foveal
+                            </h4>
+                            <ul style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+                                <li>2° de campo visual</li>
+                                <li>Alta resolución y color</li>
+                                <li>Lectura y detalles</li>
+                            </ul>
                         </div>
                         <div
-                            style="background: rgba(168, 85, 247, 0.15); padding: 20px; border-radius: 12px; text-align: center;">
-                            <div style="font-size: 2rem; margin-bottom: 10px;"><i class="fas fa-palette"
-                                    style="color: #c084fc;"></i></div>
-                            <h5 style="font-size: 1rem; color: #c084fc; margin-bottom: 8px;">Similitud</h5>
-                            <p style="font-size: 0.85rem; color: #e2e8f0; margin: 0;">Lo parecido se asocia</p>
-                        </div>
-                        <div
-                            style="background: rgba(74, 222, 128, 0.15); padding: 20px; border-radius: 12px; text-align: center;">
-                            <div style="font-size: 2rem; margin-bottom: 10px;"><i class="fas fa-arrow-right"
-                                    style="color: #4ade80;"></i></div>
-                            <h5 style="font-size: 1rem; color: #4ade80; margin-bottom: 8px;">Continuidad</h5>
-                            <p style="font-size: 0.85rem; color: #e2e8f0; margin: 0;">Seguimos patrones</p>
-                        </div>
-                        <div
-                            style="background: rgba(236, 72, 153, 0.15); padding: 20px; border-radius: 12px; text-align: center;">
-                            <div style="font-size: 2rem; margin-bottom: 10px;"><i class="fas fa-square"
-                                    style="color: #f472b6;"></i></div>
-                            <h5 style="font-size: 1rem; color: #f472b6; margin-bottom: 8px;">Cierre</h5>
-                            <p style="font-size: 0.85rem; color: #e2e8f0; margin: 0;">Completamos formas</p>
+                            style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; border: 2px solid #4ade80;">
+                            <h4 style="color: #4ade80; margin-bottom: 10px; font-size: 1.1rem;">
+                                <i class="fas fa-circle-notch"></i> Visión Periférica
+                            </h4>
+                            <ul style="font-size: 0.85rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+                                <li>Resto del campo visual</li>
+                                <li>Detección de movimiento</li>
+                                <li>Captura el "gist" general</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- Codificación redundante -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                    <div
+                        style="background: rgba(74, 222, 128, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #4ade80;">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 12px; color: #4ade80;">
+                            <i class="fas fa-layer-group"></i> Principios Gestalt
+                        </h4>
+                        <ul style="font-size: 0.9rem; line-height: 1.7; color: #e2e8f0; margin: 0;">
+                            <li><strong>Proximidad:</strong> elementos cercanos se agrupan</li>
+                            <li><strong>Similitud:</strong> elementos similares se asocian</li>
+                            <li><strong>Continuidad:</strong> seguimos patrones visuales</li>
+                            <li><strong>Cierre:</strong> completamos formas incompletas</li>
+                        </ul>
+                    </div>
+
+                    <div
+                        style="background: rgba(96, 165, 250, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #60a5fa;">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 12px; color: #60a5fa;">
+                            <i class="fas fa-crosshairs"></i> Atención Selectiva
+                        </h4>
+                        <ul style="font-size: 0.9rem; line-height: 1.7; color: #e2e8f0; margin: 0;">
+                            <li>Recursos limitados de procesamiento</li>
+                            <li>Ceguera por inatención (Simons & Chabris)</li>
+                            <li>Preatentivos: color, movimiento, tamaño</li>
+                            <li>Atentivos: requieren búsqueda secuencial</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div
-                    style="background: rgba(233, 171, 33, 0.15); padding: 25px; border-radius: 12px; border: 2px solid var(--uide-accent);">
-                    <h4 style="font-size: 1.15rem; margin-bottom: 15px; color: var(--uide-accent); text-align: center;">
-                        <i class="fas fa-lightbulb"></i> Codificación Redundante
-                    </h4>
-                    <p style="font-size: 1rem; line-height: 1.6; color: #e2e8f0; text-align: center; margin: 0;">
-                        Usa <strong>múltiples señales visuales</strong> para comunicar información importante:<br>
-                        <span style="color: var(--uide-accent); font-size: 1.1rem; font-weight: 600;">Color + Ícono +
-                            Texto</span>
+                    style="background: rgba(233, 171, 33, 0.1); padding: 15px; border-radius: 10px; border-left: 4px solid var(--uide-accent);">
+                    <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: #e2e8f0;">
+                        <i class="fas fa-quote-left"></i> <strong>Codificación Redundante:</strong>
+                        Usar múltiples canales (color + forma + texto) mejora la percepción y reduce errores,
+                        especialmente en condiciones de alta carga cognitiva o distracciones ambientales.
                     </p>
                 </div>
             </div>
@@ -992,73 +1143,94 @@
             </div>
         </div>
 
-        <!-- Slide 11: Memoria de Trabajo -->
+        <!-- Slide 11: Fundamento Teórico - Memoria de Trabajo -->
         <div class="slide">
-            <h2><i class="fas fa-brain"></i> Memoria de Trabajo</h2>
+            <h2><i class="fas fa-book-open"></i> Fundamento Teórico: Memoria de Trabajo</h2>
 
             <div style="padding: 0 40px;">
-                <!-- Concepto principal -->
-                <div style="text-align: center; margin-bottom: 35px;">
-                    <p style="font-size: 1.3rem; color: #cbd5e1; margin: 0 auto; line-height: 1.6; max-width: 800px;">
-                        "La memoria a corto plazo es <strong style="color: var(--uide-accent);">limitada y
-                            frágil</strong>"
-                    </p>
-                </div>
-
-                <!-- Limitaciones visuales -->
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 30px;">
-                    <div
-                        style="background: rgba(220, 53, 69, 0.15); padding: 25px; border-radius: 12px; border: 3px solid #dc3545; text-align: center;">
-                        <div style="font-size: 3rem; margin-bottom: 15px;"><i class="fas fa-sort-numeric-down"
-                                style="color: #f87171;"></i></div>
-                        <h4 style="font-size: 1.1rem; color: #f87171; margin-bottom: 10px;">Capacidad Limitada</h4>
-                        <p style="font-size: 1rem; color: #e2e8f0; margin: 0;">Solo <strong>4-7 elementos</strong></p>
-                    </div>
-
-                    <div
-                        style="background: rgba(236, 72, 153, 0.15); padding: 25px; border-radius: 12px; border: 3px solid #ec4899; text-align: center;">
-                        <div style="font-size: 3rem; margin-bottom: 15px;"><i class="fas fa-hourglass-half"
-                                style="color: #f472b6;"></i></div>
-                        <h4 style="font-size: 1.1rem; color: #f472b6; margin-bottom: 10px;">Duración Breve</h4>
-                        <p style="font-size: 1rem; color: #e2e8f0; margin: 0;">Desaparece en <strong>segundos</strong>
-                        </p>
-                    </div>
-
-                    <div
-                        style="background: rgba(168, 85, 247, 0.15); padding: 25px; border-radius: 12px; border: 3px solid #a855f7; text-align: center;">
-                        <div style="font-size: 3rem; margin-bottom: 15px;"><i class="fas fa-exclamation-triangle"
-                                style="color: #c084fc;"></i></div>
-                        <h4 style="font-size: 1.1rem; color: #c084fc; margin-bottom: 10px;">Frágil</h4>
-                        <p style="font-size: 1rem; color: #e2e8f0; margin: 0;">Las <strong>interrupciones</strong> la
-                            borran</p>
-                    </div>
-                </div>
-
-                <!-- Solución: Reconocimiento vs Recuerdo -->
                 <div
-                    style="background: rgba(74, 222, 128, 0.15); padding: 30px; border-radius: 12px; border: 2px solid #4ade80;">
-                    <h4 style="font-size: 1.2rem; margin-bottom: 20px; color: #4ade80; text-align: center;">
-                        <i class="fas fa-lightbulb"></i> Solución: Reconocimiento > Recuerdo
-                    </h4>
-                    <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: center;">
-                        <div style="text-align: center;">
-                            <div style="font-size: 2.5rem; margin-bottom: 10px;"><i class="fas fa-times-circle"
-                                    style="color: #dc3545;"></i></div>
-                            <h5 style="font-size: 1.05rem; color: #dc3545; margin-bottom: 8px;">Recuerdo (Difícil)</h5>
-                            <p style="font-size: 0.9rem; color: #e2e8f0; margin: 0;">Usuario debe recordar información
+                    style="background: rgba(35, 53, 110, 0.3); padding: 25px; border-radius: 12px; border: 2px solid var(--uide-accent); margin-bottom: 25px;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--uide-accent);">
+                        <i class="fas fa-brain"></i> Modelo de Baddeley y Hitch (1974)
+                    </h3>
+                    <p style="font-size: 1rem; line-height: 1.8; color: #e2e8f0; margin-bottom: 15px;">
+                        La <strong>memoria de trabajo</strong> es un sistema de capacidad limitada responsable del
+                        almacenamiento temporal y manipulación de información necesaria para tareas cognitivas
+                        complejas.
+                        Según <strong>Alan Baddeley</strong>, consta de múltiples componentes que trabajan
+                        coordinadamente.
+                    </p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 20px 0;">
+                        <div
+                            style="background: rgba(96, 165, 250, 0.2); padding: 15px; border-radius: 8px; border: 2px solid #60a5fa;">
+                            <h4 style="color: #60a5fa; margin-bottom: 8px; font-size: 0.95rem; text-align: center;">
+                                <i class="fas fa-microphone"></i> Bucle Fonológico
+                            </h4>
+                            <p
+                                style="font-size: 0.8rem; line-height: 1.5; color: #cbd5e1; margin: 0; text-align: center;">
+                                Información verbal y auditiva
                             </p>
                         </div>
-                        <div style="font-size: 2rem; color: var(--uide-accent);"><i class="fas fa-arrow-right"></i>
+                        <div
+                            style="background: rgba(74, 222, 128, 0.2); padding: 15px; border-radius: 8px; border: 2px solid #4ade80;">
+                            <h4 style="color: #4ade80; margin-bottom: 8px; font-size: 0.95rem; text-align: center;">
+                                <i class="fas fa-image"></i> Agenda Visoespacial
+                            </h4>
+                            <p
+                                style="font-size: 0.8rem; line-height: 1.5; color: #cbd5e1; margin: 0; text-align: center;">
+                                Información visual y espacial
+                            </p>
                         </div>
-                        <div style="text-align: center;">
-                            <div style="font-size: 2.5rem; margin-bottom: 10px;"><i class="fas fa-check-circle"
-                                    style="color: #4ade80;"></i></div>
-                            <h5 style="font-size: 1.05rem; color: #4ade80; margin-bottom: 8px;">Reconocimiento (Fácil)
-                            </h5>
-                            <p style="font-size: 0.9rem; color: #e2e8f0; margin: 0;">Mostrar información visible con
-                                íconos</p>
+                        <div
+                            style="background: rgba(233, 171, 33, 0.2); padding: 15px; border-radius: 8px; border: 2px solid var(--uide-accent);">
+                            <h4
+                                style="color: var(--uide-accent); margin-bottom: 8px; font-size: 0.95rem; text-align: center;">
+                                <i class="fas fa-cog"></i> Ejecutivo Central
+                            </h4>
+                            <p
+                                style="font-size: 0.8rem; line-height: 1.5; color: #cbd5e1; margin: 0; text-align: center;">
+                                Coordina y controla recursos
+                            </p>
                         </div>
                     </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                    <div
+                        style="background: rgba(220, 53, 69, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #dc3545;">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 12px; color: #f87171;">
+                            <i class="fas fa-exclamation-triangle"></i> Limitaciones
+                        </h4>
+                        <ul style="font-size: 0.9rem; line-height: 1.7; color: #e2e8f0; margin: 0;">
+                            <li><strong>Capacidad limitada:</strong> ~4 chunks (Cowan, 2001)</li>
+                            <li><strong>Duración breve:</strong> 15-30 segundos sin repaso</li>
+                            <li><strong>Vulnerable a interferencias:</strong> interrupciones causan olvido</li>
+                            <li><strong>Efecto de primacía y recencia</strong></li>
+                        </ul>
+                    </div>
+
+                    <div
+                        style="background: rgba(74, 222, 128, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #4ade80;">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 12px; color: #4ade80;">
+                            <i class="fas fa-check-circle"></i> Reconocimiento vs. Recuerdo
+                        </h4>
+                        <ul style="font-size: 0.9rem; line-height: 1.7; color: #e2e8f0; margin: 0;">
+                            <li><strong>Reconocimiento:</strong> más fácil, requiere menos esfuerzo</li>
+                            <li><strong>Recuerdo:</strong> más difícil, propenso a errores</li>
+                            <li><strong>Diseño UX:</strong> favorecer reconocimiento sobre recuerdo</li>
+                            <li><strong>Iconos estándar:</strong> aprovechan memoria a largo plazo</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div
+                    style="background: rgba(233, 171, 33, 0.1); padding: 15px; border-radius: 10px; border-left: 4px solid var(--uide-accent);">
+                    <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: #e2e8f0;">
+                        <i class="fas fa-quote-left"></i> <strong>Principio de Diseño:</strong>
+                        "No hagas pensar" (Steve Krug). Las interfaces deben minimizar la carga en la memoria de
+                        trabajo mostrando información relevante en lugar de requerir que los usuarios la recuerden.
+                    </p>
                 </div>
             </div>
         </div>
@@ -1275,74 +1447,96 @@
             </div>
         </div>
 
-        <!-- Slide 13: Carga Cognitiva -->
+        <!-- Slide 13: Fundamento Teórico - Carga Cognitiva -->
         <div class="slide">
-            <h2><i class="fas fa-brain"></i> Carga Cognitiva</h2>
+            <h2><i class="fas fa-book-open"></i> Fundamento Teórico: Teoría de Carga Cognitiva</h2>
 
             <div style="padding: 0 40px;">
-                <!-- Concepto principal -->
-                <div style="text-align: center; margin-bottom: 35px;">
-                    <p style="font-size: 1.3rem; color: #cbd5e1; margin: 0 auto; line-height: 1.6; max-width: 850px;">
-                        "La mente tiene <strong style="color: var(--uide-accent);">capacidad limitada</strong>. El
-                        diseño debe <strong style="color: var(--uide-accent);">minimizar el esfuerzo mental</strong>
-                        innecesario"
-                    </p>
-                </div>
-
-                <!-- Tipos de carga -->
-                <div style="margin-bottom: 30px;">
-                    <h4 style="font-size: 1.15rem; margin-bottom: 20px; color: var(--uide-accent); text-align: center;">
-                        <i class="fas fa-layer-group"></i> Tipos de Carga
-                    </h4>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div
-                            style="background: rgba(74, 222, 128, 0.15); padding: 25px; border-radius: 12px; border: 3px solid #4ade80; text-align: center;">
-                            <div style="font-size: 2.5rem; margin-bottom: 15px;"><i class="fas fa-check-circle"
-                                    style="color: #4ade80;"></i></div>
-                            <h5 style="font-size: 1.1rem; color: #4ade80; margin-bottom: 10px;">Carga Intrínseca</h5>
-                            <p style="font-size: 0.95rem; color: #e2e8f0; margin: 0;">
-                                Propia de la tarea<br>
-                                <strong>(No se puede eliminar)</strong>
-                            </p>
-                        </div>
-
-                        <div
-                            style="background: rgba(220, 53, 69, 0.15); padding: 25px; border-radius: 12px; border: 3px solid #dc3545; text-align: center;">
-                            <div style="font-size: 2.5rem; margin-bottom: 15px;"><i class="fas fa-times-circle"
-                                    style="color: #dc3545;"></i></div>
-                            <h5 style="font-size: 1.1rem; color: #f87171; margin-bottom: 10px;">Carga Extrínseca</h5>
-                            <p style="font-size: 0.95rem; color: #e2e8f0; margin: 0;">
-                                Por mal diseño<br>
-                                <strong>(DEBE eliminarse)</strong>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Estrategias de reducción -->
                 <div
-                    style="background: rgba(59, 130, 246, 0.15); padding: 25px; border-radius: 12px; border: 2px solid #3b82f6;">
-                    <h4 style="font-size: 1.15rem; margin-bottom: 18px; color: #60a5fa; text-align: center;">
-                        <i class="fas fa-lightbulb"></i> Cómo Reducir Carga Cognitiva
-                    </h4>
-                    <div
-                        style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; font-size: 0.95rem; color: #e2e8f0;">
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-check-circle"
-                                style="color: #4ade80; font-size: 1.2rem; flex-shrink: 0;"></i>
-                            <span>Agrupar información relacionada</span>
+                    style="background: rgba(35, 53, 110, 0.3); padding: 25px; border-radius: 12px; border: 2px solid var(--uide-accent); margin-bottom: 25px;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--uide-accent);">
+                        <i class="fas fa-graduation-cap"></i> Teoría de Sweller (1988)
+                    </h3>
+                    <p style="font-size: 1rem; line-height: 1.8; color: #e2e8f0; margin-bottom: 15px;">
+                        La <strong>Teoría de Carga Cognitiva (Cognitive Load Theory - CLT)</strong> propuesta por
+                        <strong>John Sweller</strong> establece que el aprendizaje y desempeño se optimizan cuando
+                        la carga cognitiva se gestiona eficientemente. La memoria de trabajo tiene recursos limitados
+                        que deben distribuirse entre diferentes tipos de carga.
+                    </p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 20px 0;">
+                        <div
+                            style="background: rgba(74, 222, 128, 0.2); padding: 15px; border-radius: 8px; border: 2px solid #4ade80;">
+                            <h4 style="color: #4ade80; margin-bottom: 8px; font-size: 0.9rem; text-align: center;">
+                                <i class="fas fa-check-circle"></i> Intrínseca
+                            </h4>
+                            <p
+                                style="font-size: 0.75rem; line-height: 1.5; color: #cbd5e1; margin: 0; text-align: center;">
+                                Inherente a la tarea<br>
+                                <strong>No se puede reducir</strong>
+                            </p>
                         </div>
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-check-circle"
-                                style="color: #4ade80; font-size: 1.2rem; flex-shrink: 0;"></i>
-                            <span>Usar valores predeterminados</span>
+                        <div
+                            style="background: rgba(220, 53, 69, 0.2); padding: 15px; border-radius: 8px; border: 2px solid #dc3545;">
+                            <h4 style="color: #f87171; margin-bottom: 8px; font-size: 0.9rem; text-align: center;">
+                                <i class="fas fa-times-circle"></i> Extrínseca
+                            </h4>
+                            <p
+                                style="font-size: 0.75rem; line-height: 1.5; color: #cbd5e1; margin: 0; text-align: center;">
+                                Mal diseño de interfaz<br>
+                                <strong>Debe eliminarse</strong>
+                            </p>
                         </div>
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-check-circle"
-                                style="color: #4ade80; font-size: 1.2rem; flex-shrink: 0;"></i>
-                            <span>Eliminar información innecesaria</span>
+                        <div
+                            style="background: rgba(96, 165, 250, 0.2); padding: 15px; border-radius: 8px; border: 2px solid #60a5fa;">
+                            <h4 style="color: #60a5fa; margin-bottom: 8px; font-size: 0.9rem; text-align: center;">
+                                <i class="fas fa-chart-line"></i> Relevante
+                            </h4>
+                            <p
+                                style="font-size: 0.75rem; line-height: 1.5; color: #cbd5e1; margin: 0; text-align: center;">
+                                Construcción de esquemas<br>
+                                <strong>Debe fomentarse</strong>
+                            </p>
                         </div>
                     </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                    <div
+                        style="background: rgba(220, 53, 69, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #dc3545;">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 12px; color: #f87171;">
+                            <i class="fas fa-exclamation-triangle"></i> Fuentes de Sobrecarga
+                        </h4>
+                        <ul style="font-size: 0.9rem; line-height: 1.7; color: #e2e8f0; margin: 0;">
+                            <li><strong>Efecto de atención dividida:</strong> información dispersa</li>
+                            <li><strong>Redundancia:</strong> duplicación innecesaria</li>
+                            <li><strong>Búsqueda visual:</strong> mala organización</li>
+                            <li><strong>Jerga técnica:</strong> sin contexto adecuado</li>
+                        </ul>
+                    </div>
+
+                    <div
+                        style="background: rgba(74, 222, 128, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #4ade80;">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 12px; color: #4ade80;">
+                            <i class="fas fa-tools"></i> Estrategias de Reducción
+                        </h4>
+                        <ul style="font-size: 0.9rem; line-height: 1.7; color: #e2e8f0; margin: 0;">
+                            <li><strong>Chunking:</strong> agrupar información relacionada</li>
+                            <li><strong>Progresión gradual:</strong> revelación progresiva</li>
+                            <li><strong>Automatización:</strong> valores predeterminados</li>
+                            <li><strong>Eliminación:</strong> remover lo innecesario</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div
+                    style="background: rgba(233, 171, 33, 0.1); padding: 15px; border-radius: 10px; border-left: 4px solid var(--uide-accent);">
+                    <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: #e2e8f0;">
+                        <i class="fas fa-quote-left"></i> <strong>Ley de Tesler (Conservación de la
+                            Complejidad):</strong>
+                        "Toda aplicación tiene una complejidad inherente que no puede eliminarse, solo transferirse."
+                        El diseñador debe decidir: ¿quién asume la complejidad, el sistema o el usuario?
+                    </p>
                 </div>
             </div>
         </div>
@@ -1573,73 +1767,77 @@
             </div>
         </div>
 
-        <!-- Slide 15: Ley de Miller -->
+        <!-- Slide 15: Fundamento Teórico - Ley de Miller -->
         <div class="slide">
-            <h2><i class="fas fa-list-ol"></i> Ley de Miller: 7±2</h2>
+            <h2><i class="fas fa-book-open"></i> Fundamento Teórico: Ley de Miller</h2>
 
             <div style="padding: 0 40px;">
-                <!-- Concepto principal -->
-                <div style="text-align: center; margin-bottom: 35px;">
+                <div
+                    style="background: rgba(35, 53, 110, 0.3); padding: 25px; border-radius: 12px; border: 2px solid var(--uide-accent); margin-bottom: 25px;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--uide-accent);">
+                        <i class="fas fa-brain"></i> "El Mágico Número Siete" (Miller, 1956)
+                    </h3>
+                    <p style="font-size: 1rem; line-height: 1.8; color: #e2e8f0; margin-bottom: 15px;">
+                        En su artículo seminal "<strong>The Magical Number Seven, Plus or Minus Two</strong>",
+                        <strong>George A. Miller</strong> demostró que la capacidad de la memoria de trabajo humana
+                        está limitada a aproximadamente <strong>7 ± 2 elementos</strong>. Este hallazgo ha sido
+                        fundamental para comprender las limitaciones cognitivas humanas.
+                    </p>
+
                     <div
-                        style="background: rgba(233, 171, 33, 0.15); padding: 30px; border-radius: 16px; border: 3px solid var(--uide-accent); margin-bottom: 20px;">
-                        <div style="color: var(--uide-accent); font-size: 4rem; font-weight: 700; margin-bottom: 15px;">
+                        style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; text-align: center; margin: 20px 0;">
+                        <div style="color: var(--uide-accent); font-size: 3rem; font-weight: 700; margin-bottom: 10px;">
                             7 ± 2
                         </div>
-                        <p style="font-size: 1.2rem; color: #e2e8f0; margin: 0;">
-                            Máximo de elementos que podemos recordar a la vez
-                        </p>
-                    </div>
-                    <p style="font-size: 1.1rem; color: #cbd5e1; margin: 0 auto; line-height: 1.6; max-width: 700px;">
-                        "Presenta información en <strong style="color: var(--uide-accent);">grupos pequeños</strong>
-                        para no sobrecargar la memoria"
-                    </p>
-                </div>
-
-                <!-- Solución: Chunking -->
-                <div
-                    style="background: rgba(74, 222, 128, 0.15); padding: 30px; border-radius: 12px; border: 2px solid #4ade80; margin-bottom: 25px;">
-                    <h4 style="font-size: 1.2rem; margin-bottom: 20px; color: #4ade80; text-align: center;">
-                        <i class="fas fa-layer-group"></i> Solución: Chunking (Agrupación)
-                    </h4>
-                    <p style="font-size: 1rem; color: #e2e8f0; text-align: center; margin-bottom: 20px;">
-                        Agrupa elementos relacionados para aumentar la capacidad percibida
-                    </p>
-                    <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; text-align: center;">
-                        <div style="color: #dc3545; font-size: 1rem; margin-bottom: 15px;">
-                            <i class="fas fa-times-circle"></i> Difícil: <code
-                                style="color: #f87171; font-size: 1.1rem;">1 4 9 1 6 2 5 3 6</code> (9 elementos)
+                        <div style="color: #cbd5e1; font-size: 1rem; margin-bottom: 15px;">
+                            <strong>Rango:</strong> 5 a 9 elementos (chunks) en memoria de trabajo
                         </div>
-                        <div style="color: #4ade80; font-size: 1rem;">
-                            <i class="fas fa-check-circle"></i> Fácil: <code
-                                style="color: #4ade80; font-size: 1.1rem;">1491 - 625 - 36</code> (3 grupos)
+                        <div
+                            style="background: rgba(220, 53, 69, 0.2); padding: 12px; border-radius: 6px; margin-top: 15px;">
+                            <p style="margin: 0; font-size: 0.85rem; color: #f87171; line-height: 1.5;">
+                                <i class="fas fa-info-circle"></i> <strong>Actualización (Cowan, 2001):</strong><br>
+                                Investigación reciente sugiere que la capacidad real es <strong>~4 chunks</strong>
+                                sin estrategias de agrupación
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Aplicación en diseño -->
-                <div
-                    style="background: rgba(59, 130, 246, 0.15); padding: 25px; border-radius: 12px; border: 2px solid #3b82f6;">
-                    <h4 style="font-size: 1.15rem; margin-bottom: 18px; color: #60a5fa; text-align: center;">
-                        <i class="fas fa-lightbulb"></i> Aplicación en Diseño UI
-                    </h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
                     <div
-                        style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; font-size: 0.95rem; color: #e2e8f0;">
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-check-circle"
-                                style="color: #4ade80; font-size: 1.2rem; flex-shrink: 0;"></i>
-                            <span>Máximo 7 opciones en menús</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-check-circle"
-                                style="color: #4ade80; font-size: 1.2rem; flex-shrink: 0;"></i>
-                            <span>Agrupar listas por categorías</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-check-circle"
-                                style="color: #4ade80; font-size: 1.2rem; flex-shrink: 0;"></i>
-                            <span>Paginar resultados largos</span>
-                        </div>
+                        style="background: rgba(74, 222, 128, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #4ade80;">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 12px; color: #4ade80;">
+                            <i class="fas fa-layer-group"></i> Chunking (Agrupación)
+                        </h4>
+                        <ul style="font-size: 0.9rem; line-height: 1.7; color: #e2e8f0; margin: 0;">
+                            <li>Agrupar elementos relacionados en unidades significativas</li>
+                            <li>Ejemplo: 149162536 → 1491 - 625 - 36</li>
+                            <li>Aumenta efectivamente la capacidad de memoria</li>
+                            <li>Depende del conocimiento previo del usuario</li>
+                        </ul>
                     </div>
+
+                    <div
+                        style="background: rgba(96, 165, 250, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #60a5fa;">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 12px; color: #60a5fa;">
+                            <i class="fas fa-desktop"></i> Aplicaciones en Diseño
+                        </h4>
+                        <ul style="font-size: 0.9rem; line-height: 1.7; color: #e2e8f0; margin: 0;">
+                            <li>Menús con máximo 7 opciones</li>
+                            <li>Listas agrupadas por categorías</li>
+                            <li>Paginación de resultados</li>
+                            <li>Navegación con breadcrumbs limitados</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div
+                    style="background: rgba(233, 171, 33, 0.1); padding: 15px; border-radius: 10px; border-left: 4px solid var(--uide-accent);">
+                    <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: #e2e8f0;">
+                        <i class="fas fa-quote-left"></i> <strong>Limitación práctica:</strong>
+                        No se trata solo de cantidad de elementos, sino de la <em>complejidad</em> de cada uno.
+                        Elementos simples y familiares ocupan menos espacio cognitivo que información nueva o compleja.
+                    </p>
                 </div>
             </div>
         </div>

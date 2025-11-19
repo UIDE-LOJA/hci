@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ley de Fitts - Buen Diseño Mobile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 20px;
+        }
+
+        .phone-mockup {
+            position: relative;
+            width: 100%;
+            max-width: 380px;
+            aspect-ratio: 9/19.5;
+            background: #1d1d1f;
+            border-radius: 55px;
+            padding: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 0 0 2px rgba(255,255,255,0.1);
+        }
+
+        .phone-screen {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 45px;
+            overflow: hidden;
+        }
+
+        .notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 30px;
+            background: #000;
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+        }
+
+        .notch::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+        }
+
+        .app-content {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, #1a1f2e 0%, #0f1419 100%);
+            padding: 45px 15px 20px 15px;
+            overflow-y: auto;
+        }
+
+        .app-content::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .app-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .app-content::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+        }
+
+        .ease-badge {
+            position: absolute;
+            top: 50px;
+            right: 15px;
+            background: rgba(74, 222, 128, 0.15);
+            border: 2px solid #4ade80;
+            border-radius: 12px;
+            padding: 8px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            z-index: 5;
+        }
+
+        .ease-badge .label {
+            font-size: 0.7rem;
+            color: #4ade80;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .ease-meter {
+            display: flex;
+            gap: 3px;
+        }
+
+        .ease-bar {
+            width: 6px;
+            height: 20px;
+            background: rgba(74, 222, 128, 0.3);
+            border-radius: 2px;
+        }
+
+        .ease-bar.active {
+            background: #4ade80;
+            box-shadow: 0 0 6px rgba(74, 222, 128, 0.6);
+        }
+
+        .header {
+            text-align: center;
+            color: #e2e8f0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-top: 5px;
+        }
+
+        .order-card {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 16px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .order-header {
+            font-size: 1.05rem;
+            color: #e2e8f0;
+            margin-bottom: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .order-header i {
+            font-size: 1rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* BOTONES GRANDES - BUEN DISEÑO MÓVIL */
+        .button-group button {
+            flex: 1;
+            padding: 16px 8px;
+            font-size: 0.85rem;
+            border: none;
+            border-radius: 12px;
+            color: #000;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            min-height: 65px;
+        }
+
+        .button-group button:active {
+            transform: scale(0.97);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+
+        .button-group button i {
+            font-size: 1.3rem;
+        }
+
+        .btn-proceso { background: linear-gradient(135deg, #fbbf24, #f59e0b); }
+        .btn-listo { background: linear-gradient(135deg, #4ade80, #22c55e); }
+        .btn-servir { background: linear-gradient(135deg, #60a5fa, #3b82f6); }
+
+        .home-indicator {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-mockup">
+        <div class="phone-screen">
+            <div class="notch"></div>
+
+            <div class="app-content">
+                <!-- Badge de facilidad -->
+                <div class="ease-badge">
+                    <div class="label">W GRANDE</div>
+                    <div class="ease-meter">
+                        <div class="ease-bar"></div>
+                        <div class="ease-bar active"></div>
+                        <div class="ease-bar active"></div>
+                        <div class="ease-bar active"></div>
+                        <div class="ease-bar active"></div>
+                    </div>
+                    <div class="label" style="font-size: 0.65rem;">↓ MT</div>
+                </div>
+
+                <h1 class="header">Cocina</h1>
+
+                <!-- Pedido 1 -->
+                <div class="order-card">
+                    <div class="order-header">
+                        <i class="fas fa-hamburger"></i>
+                        Mesa 5 - Hamburguesa
+                    </div>
+                    <div class="button-group">
+                        <button class="btn-proceso">
+                            <i class="fas fa-fire"></i>
+                            <span>Proceso</span>
+                        </button>
+                        <button class="btn-listo">
+                            <i class="fas fa-check"></i>
+                            <span>Listo</span>
+                        </button>
+                        <button class="btn-servir">
+                            <i class="fas fa-bell"></i>
+                            <span>Servir</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pedido 2 -->
+                <div class="order-card">
+                    <div class="order-header">
+                        <i class="fas fa-pizza-slice"></i>
+                        Mesa 3 - Pizza
+                    </div>
+                    <div class="button-group">
+                        <button class="btn-proceso">
+                            <i class="fas fa-fire"></i>
+                            <span>Proceso</span>
+                        </button>
+                        <button class="btn-listo">
+                            <i class="fas fa-check"></i>
+                            <span>Listo</span>
+                        </button>
+                        <button class="btn-servir">
+                            <i class="fas fa-bell"></i>
+                            <span>Servir</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pedido 3 -->
+                <div class="order-card">
+                    <div class="order-header">
+                        <i class="fas fa-bowl-food"></i>
+                        Mesa 7 - Pasta
+                    </div>
+                    <div class="button-group">
+                        <button class="btn-proceso">
+                            <i class="fas fa-fire"></i>
+                            <span>Proceso</span>
+                        </button>
+                        <button class="btn-listo">
+                            <i class="fas fa-check"></i>
+                            <span>Listo</span>
+                        </button>
+                        <button class="btn-servir">
+                            <i class="fas fa-bell"></i>
+                            <span>Servir</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pedido 4 -->
+                <div class="order-card">
+                    <div class="order-header">
+                        <i class="fas fa-salad"></i>
+                        Mesa 2 - Ensalada
+                    </div>
+                    <div class="button-group">
+                        <button class="btn-proceso">
+                            <i class="fas fa-fire"></i>
+                            <span>Proceso</span>
+                        </button>
+                        <button class="btn-listo">
+                            <i class="fas fa-check"></i>
+                            <span>Listo</span>
+                        </button>
+                        <button class="btn-servir">
+                            <i class="fas fa-bell"></i>
+                            <span>Servir</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pedido 5 -->
+                <div class="order-card">
+                    <div class="order-header">
+                        <i class="fas fa-soup"></i>
+                        Mesa 8 - Sopa
+                    </div>
+                    <div class="button-group">
+                        <button class="btn-proceso">
+                            <i class="fas fa-fire"></i>
+                            <span>Proceso</span>
+                        </button>
+                        <button class="btn-listo">
+                            <i class="fas fa-check"></i>
+                            <span>Listo</span>
+                        </button>
+                        <button class="btn-servir">
+                            <i class="fas fa-bell"></i>
+                            <span>Servir</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="home-indicator"></div>
+        </div>
+    </div>
+</body>
+</html>

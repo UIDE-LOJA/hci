@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ley de Hick - Buen Diseño</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --device-bezel-color: #FDFCED;
+            --device-shadow-color: #6B6426;
+            --screen-bg: #1a1f2e;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: transparent;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            overflow: auto;
+            gap: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .tablet-mockup {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tablet-mockup__wrapper {
+            position: relative;
+            width: 90%;
+            max-width: 700px;
+            aspect-ratio: 4/3;
+            background-color: var(--device-bezel-color);
+            border-radius: 2.5rem;
+            box-shadow: inset 0px 0px 0.8px 0.8px var(--device-shadow-color), 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .tablet-mockup__inner {
+            position: absolute;
+            inset: 0.5%;
+            background-color: black;
+            border-radius: 2.2rem;
+            box-shadow: 1px 1px 1px 1px #EEEACE;
+        }
+
+        .tablet-mockup__display {
+            position: absolute;
+            inset: 1.5%;
+            background-color: var(--screen-bg);
+            border-radius: 2rem;
+            overflow-y: auto;
+            padding: 3%;
+        }
+
+        /* Scrollbar personalizado para la tablet */
+        .tablet-mockup__display::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .tablet-mockup__display::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .tablet-mockup__display::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+        }
+
+        .tablet-mockup__display::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .tablet-mockup__button {
+            position: absolute;
+            background-color: var(--device-bezel-color);
+            border-radius: 190px;
+            z-index: 10;
+            box-shadow: inset 0.1px 0px 1.1px 0.8px #f6e0c9;
+            width: 0.2rem;
+        }
+
+        .tablet-mockup__button--power {
+            top: 15%;
+            right: -0.2rem;
+            height: 8%;
+        }
+
+        .tablet-mockup__button--home {
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 0.2rem;
+            width: 8%;
+        }
+
+        .panel-header {
+            color: #e2e8f0;
+            text-align: center;
+            margin-bottom: 4%;
+            font-size: clamp(1.2rem, 3.5vw, 2rem);
+            font-weight: 700;
+        }
+
+        .menu-label {
+            color: #94a3b8;
+            font-size: clamp(0.8rem, 2vw, 1.1rem);
+            margin-bottom: 4%;
+            font-weight: 600;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.15), rgba(34, 197, 94, 0.1));
+            border: 2px solid rgba(74, 222, 128, 0.3);
+            border-radius: 1.2rem;
+            padding: 4% 5%;
+            margin-bottom: 3%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .category-card:hover {
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.25), rgba(34, 197, 94, 0.15));
+            border-color: rgba(74, 222, 128, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 222, 128, 0.3);
+        }
+
+        .category-icon {
+            font-size: clamp(2rem, 5vw, 3rem);
+            text-align: center;
+            margin-bottom: 2%;
+        }
+
+        .category-title {
+            font-size: clamp(0.95rem, 2.4vw, 1.3rem);
+            font-weight: 700;
+            color: #e2e8f0;
+            text-align: center;
+            margin-bottom: 1.5%;
+        }
+
+        .category-count {
+            font-size: clamp(0.75rem, 1.9vw, 1rem);
+            color: #94a3b8;
+            text-align: center;
+        }
+
+        .success-box {
+            max-width: 700px;
+            width: 90%;
+            padding: 15px 20px;
+            background: rgba(74, 222, 128, 0.1);
+            border-radius: 0.8rem;
+            border-left: 4px solid #4ade80;
+            box-shadow: 0 2px 8px rgba(74, 222, 128, 0.2);
+        }
+
+        .success-box p {
+            margin: 0;
+            font-size: clamp(0.85rem, 2vw, 1.1rem);
+            color: #22c55e;
+            line-height: 1.6;
+        }
+
+        .success-box strong {
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="tablet-mockup">
+            <div class="tablet-mockup__wrapper">
+                <div class="tablet-mockup__inner">
+                    <div class="tablet-mockup__display">
+                        <h1 class="panel-header">Menú del Mesero</h1>
+
+                        <div class="menu-label">Selecciona una categoría (5 opciones):</div>
+
+                        <!-- Menú jerárquico por categorías -->
+                        <div class="category-card">
+                            <div class="category-icon">🍔</div>
+                            <div class="category-title">Hamburguesas</div>
+                            <div class="category-count">6 opciones</div>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-icon">🍕</div>
+                            <div class="category-title">Pizzas</div>
+                            <div class="category-count">6 opciones</div>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-icon">🍝</div>
+                            <div class="category-title">Pastas</div>
+                            <div class="category-count">5 opciones</div>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-icon">🥗</div>
+                            <div class="category-title">Ensaladas</div>
+                            <div class="category-count">3 opciones</div>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-icon">🍰</div>
+                            <div class="category-title">Postres</div>
+                            <div class="category-count">4 opciones</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tablet-mockup__button tablet-mockup__button--power"></div>
+                <div class="tablet-mockup__button tablet-mockup__button--home"></div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

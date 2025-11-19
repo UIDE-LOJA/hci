@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ley de Fitts - Buen Diseño</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --device-bezel-color: #FDFCED;
+            --device-shadow-color: #6B6426;
+            --screen-bg: #1a1f2e;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: transparent;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            overflow: auto;
+            gap: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .tablet-mockup {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tablet-mockup__wrapper {
+            position: relative;
+            width: 90%;
+            max-width: 700px;
+            aspect-ratio: 4/3;
+            background-color: var(--device-bezel-color);
+            border-radius: 2.5rem;
+            box-shadow: inset 0px 0px 0.8px 0.8px var(--device-shadow-color), 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .tablet-mockup__inner {
+            position: absolute;
+            inset: 0.5%;
+            background-color: black;
+            border-radius: 2.2rem;
+            box-shadow: 1px 1px 1px 1px #EEEACE;
+        }
+
+        .tablet-mockup__display {
+            position: absolute;
+            inset: 1.5%;
+            background-color: var(--screen-bg);
+            border-radius: 2rem;
+            padding: 3%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .tablet-mockup__display::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .tablet-mockup__display::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .tablet-mockup__display::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+        }
+
+        .tablet-mockup__display::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .tablet-mockup__button {
+            position: absolute;
+            background-color: var(--device-bezel-color);
+            border-radius: 190px;
+            z-index: 10;
+            box-shadow: inset 0.1px 0px 1.1px 0.8px #f6e0c9;
+            width: 0.2rem;
+        }
+
+        .tablet-mockup__button--power {
+            top: 15%;
+            right: -0.2rem;
+            height: 8%;
+        }
+
+        .tablet-mockup__button--home {
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 0.2rem;
+            width: 8%;
+        }
+
+        .panel-header {
+            color: #e2e8f0;
+            text-align: center;
+            margin-bottom: 3%;
+            font-size: clamp(1.1rem, 3.2vw, 1.8rem);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .checkout-container {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 1rem;
+            padding: 4%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .checkout-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .checkout-container::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .checkout-container::-webkit-scrollbar-thumb {
+            background: rgba(74, 222, 128, 0.3);
+            border-radius: 10px;
+        }
+
+        .checkout-container::-webkit-scrollbar-thumb:hover {
+            background: rgba(74, 222, 128, 0.5);
+        }
+
+        /* Productos con áreas grandes y fáciles de tocar */
+        .product-list {
+            margin-bottom: 4%;
+            flex-shrink: 0;
+        }
+
+        .product-card {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(37, 99, 235, 0.1));
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            border-radius: 1rem;
+            padding: 3.5%;
+            margin-bottom: 2.5%;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 60px;
+        }
+
+        .product-card:hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(37, 99, 235, 0.15));
+            border-color: rgba(59, 130, 246, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-name {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-weight: 700;
+            color: #e2e8f0;
+            margin-bottom: 1%;
+        }
+
+        .product-price {
+            font-size: clamp(0.85rem, 2.1vw, 1.1rem);
+            color: #60a5fa;
+            font-weight: 600;
+        }
+
+        .add-btn {
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.3), rgba(34, 197, 94, 0.2));
+            border: 2px solid rgba(74, 222, 128, 0.5);
+            color: #4ade80;
+            border-radius: 0.8rem;
+            padding: 2.5% 5.5%;
+            font-size: clamp(0.95rem, 2.3vw, 1.25rem);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 55px;
+            min-height: 48px;
+        }
+
+        .add-btn:hover {
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.4), rgba(34, 197, 94, 0.3));
+            border-color: rgba(74, 222, 128, 0.7);
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(74, 222, 128, 0.4);
+        }
+
+        /* Carrito con controles grandes y espaciados */
+        .cart-summary {
+            background: rgba(51, 65, 85, 0.4);
+            border-radius: 1rem;
+            padding: 4%;
+            margin-top: 4%;
+            flex-shrink: 0;
+        }
+
+        .cart-label {
+            color: #94a3b8;
+            font-size: clamp(0.9rem, 2.2vw, 1.2rem);
+            margin-bottom: 3%;
+            font-weight: 600;
+        }
+
+        .cart-item {
+            background: rgba(30, 41, 59, 0.6);
+            border-radius: 0.8rem;
+            padding: 3.5%;
+            margin-bottom: 2.5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 60px;
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-name {
+            font-size: clamp(0.95rem, 2.3vw, 1.2rem);
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 1%;
+        }
+
+        .item-price {
+            font-size: clamp(0.8rem, 1.9vw, 1rem);
+            color: #94a3b8;
+        }
+
+        /* Controles grandes y fáciles de presionar */
+        .item-controls {
+            display: flex;
+            gap: 3%;
+            align-items: center;
+        }
+
+        .control-btn-large {
+            background: rgba(59, 130, 246, 0.2);
+            border: 2px solid rgba(59, 130, 246, 0.4);
+            color: #60a5fa;
+            border-radius: 0.6rem;
+            padding: 2% 3.5%;
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            font-weight: 700;
+            cursor: pointer;
+            min-width: 42px;
+            min-height: 42px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .control-btn-large:hover {
+            background: rgba(59, 130, 246, 0.3);
+            border-color: rgba(59, 130, 246, 0.6);
+            transform: scale(1.1);
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+        }
+
+        .control-btn-large.delete {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: rgba(239, 68, 68, 0.4);
+            color: #ef4444;
+        }
+
+        .control-btn-large.delete:hover {
+            background: rgba(239, 68, 68, 0.3);
+            border-color: rgba(239, 68, 68, 0.6);
+        }
+
+        .quantity-display-large {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-weight: 700;
+            color: #e2e8f0;
+            padding: 0 3%;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .total-section {
+            border-top: 2px solid rgba(74, 222, 128, 0.3);
+            padding-top: 4%;
+            margin-top: 4%;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4%;
+        }
+
+        .total-label {
+            color: #94a3b8;
+            font-size: clamp(1.1rem, 2.7vw, 1.5rem);
+            font-weight: 600;
+        }
+
+        .total-amount {
+            color: #4ade80;
+            font-size: clamp(1.4rem, 3.5vw, 2rem);
+            font-weight: 700;
+        }
+
+        /* Botón de pago GRANDE y centrado */
+        .btn-checkout-large {
+            width: 100%;
+            padding: 4.5%;
+            border-radius: 1rem;
+            border: none;
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.3), rgba(34, 197, 94, 0.2));
+            border: 3px solid rgba(74, 222, 128, 0.5);
+            color: #4ade80;
+            font-size: clamp(1.1rem, 2.8vw, 1.5rem);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-height: 58px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-checkout-large:hover {
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.4), rgba(34, 197, 94, 0.3));
+            border-color: rgba(74, 222, 128, 0.7);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(74, 222, 128, 0.4);
+        }
+
+        .success-box {
+            max-width: 700px;
+            width: 90%;
+            padding: 15px 20px;
+            background: rgba(74, 222, 128, 0.1);
+            border-radius: 0.8rem;
+            border-left: 4px solid #4ade80;
+            box-shadow: 0 2px 8px rgba(74, 222, 128, 0.2);
+        }
+
+        .success-box p {
+            margin: 0;
+            font-size: clamp(0.85rem, 2vw, 1.1rem);
+            color: #22c55e;
+            line-height: 1.6;
+        }
+
+        .success-box strong {
+            font-weight: 700;
+        }
+
+        .success-list {
+            margin: 10px 0 0 0;
+            padding-left: 20px;
+            color: #4ade80;
+            font-size: clamp(0.8rem, 1.9vw, 1rem);
+        }
+
+        .success-list li {
+            margin-bottom: 5px;
+        }
+
+        /* Notificaciones */
+        .notification {
+            position: absolute;
+            top: 3%;
+            right: 3%;
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.95), rgba(34, 197, 94, 0.9));
+            border: 2px solid #4ade80;
+            border-radius: 0.8rem;
+            padding: 3% 4%;
+            color: #fff;
+            font-size: clamp(0.75rem, 1.8vw, 1rem);
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(74, 222, 128, 0.4);
+            z-index: 1000;
+            animation: slideIn 0.3s ease-out;
+            max-width: 45%;
+        }
+
+        .notification.error {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.95), rgba(220, 38, 38, 0.9));
+            border-color: #ef4444;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+        }
+
+        .notification.warning {
+            background: linear-gradient(135deg, rgba(251, 146, 60, 0.95), rgba(249, 115, 22, 0.9));
+            border-color: #fb923c;
+            box-shadow: 0 4px 12px rgba(251, 146, 60, 0.4);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="tablet-mockup">
+            <div class="tablet-mockup__wrapper">
+                <div class="tablet-mockup__inner">
+                    <div class="tablet-mockup__display">
+                        <h1 class="panel-header">Sistema de Pedidos</h1>
+
+                        <div class="checkout-container">
+                            <!-- Productos con botones grandes -->
+                            <div class="product-list">
+                                <div class="product-card">
+                                    <div class="product-info">
+                                        <div class="product-name">🍔 Hamburguesa</div>
+                                        <div class="product-price">$4.50</div>
+                                    </div>
+                                    <button class="add-btn">+</button>
+                                </div>
+
+                                <div class="product-card">
+                                    <div class="product-info">
+                                        <div class="product-name">🍕 Pizza</div>
+                                        <div class="product-price">$8.00</div>
+                                    </div>
+                                    <button class="add-btn">+</button>
+                                </div>
+
+                                <div class="product-card">
+                                    <div class="product-info">
+                                        <div class="product-name">🍝 Pasta</div>
+                                        <div class="product-price">$6.50</div>
+                                    </div>
+                                    <button class="add-btn">+</button>
+                                </div>
+                            </div>
+
+                            <!-- Carrito con controles grandes -->
+                            <div class="cart-summary">
+                                <div class="cart-label">Carrito de compras:</div>
+
+                                <div class="cart-item">
+                                    <div class="item-info">
+                                        <div class="item-name">Hamburguesa</div>
+                                        <div class="item-price">$4.50 c/u</div>
+                                    </div>
+                                    <div class="item-controls">
+                                        <button class="control-btn-large">−</button>
+                                        <span class="quantity-display-large">2</span>
+                                        <button class="control-btn-large">+</button>
+                                        <button class="control-btn-large delete">🗑</button>
+                                    </div>
+                                </div>
+
+                                <div class="cart-item">
+                                    <div class="item-info">
+                                        <div class="item-name">Pizza</div>
+                                        <div class="item-price">$8.00 c/u</div>
+                                    </div>
+                                    <div class="item-controls">
+                                        <button class="control-btn-large">−</button>
+                                        <span class="quantity-display-large">1</span>
+                                        <button class="control-btn-large">+</button>
+                                        <button class="control-btn-large delete">🗑</button>
+                                    </div>
+                                </div>
+
+                                <div class="total-section">
+                                    <div class="total-row">
+                                        <span class="total-label">Total:</span>
+                                        <span class="total-amount">$17.00</span>
+                                    </div>
+
+                                    <!-- Botón grande y centrado -->
+                                    <button class="btn-checkout-large">💳 Procesar Pago</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tablet-mockup__button tablet-mockup__button--power"></div>
+                <div class="tablet-mockup__button tablet-mockup__button--home"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función para mostrar notificación
+        function showNotification(message, type = 'success') {
+            // Eliminar notificaciones anteriores
+            const existing = document.querySelector('.notification');
+            if (existing) {
+                existing.remove();
+            }
+
+            // Crear nueva notificación
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            document.querySelector('.tablet-mockup__display').appendChild(notification);
+
+            // Eliminar después de 3 segundos
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease-in';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Datos del carrito
+        let cart = [
+            { name: 'Hamburguesa', price: 4.50, quantity: 2 },
+            { name: 'Pizza', price: 8.00, quantity: 1 }
+        ];
+
+        // Función para actualizar el total
+        function updateTotal() {
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.querySelector('.total-amount').textContent = '$' + total.toFixed(2);
+        }
+
+        // Función para renderizar items del carrito
+        function renderCart() {
+            const cartContainer = document.querySelector('.cart-summary').querySelector('div:nth-child(2)');
+            const cartLabel = document.querySelector('.cart-label');
+
+            // Limpiar excepto el label
+            cartContainer.parentElement.querySelectorAll('.cart-item').forEach(el => el.remove());
+
+            // Renderizar items
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <div class="item-info">
+                        <div class="item-name">${item.name}</div>
+                        <div class="item-price">$${item.price.toFixed(2)} c/u</div>
+                    </div>
+                    <div class="item-controls">
+                        <button class="control-btn-large" onclick="decreaseQuantity(${index})">−</button>
+                        <span class="quantity-display-large">${item.quantity}</span>
+                        <button class="control-btn-large" onclick="increaseQuantity(${index})">+</button>
+                        <button class="control-btn-large delete" onclick="removeItem(${index})">🗑</button>
+                    </div>
+                `;
+                cartLabel.parentElement.insertBefore(cartItem, document.querySelector('.total-section'));
+            });
+
+            updateTotal();
+        }
+
+        // Funciones de control
+        function increaseQuantity(index) {
+            cart[index].quantity++;
+            renderCart();
+            showNotification(`${cart[index].name} +1`, 'success');
+        }
+
+        function decreaseQuantity(index) {
+            if (cart[index].quantity > 1) {
+                cart[index].quantity--;
+                renderCart();
+                showNotification(`${cart[index].name} -1`, 'warning');
+            }
+        }
+
+        function removeItem(index) {
+            const itemName = cart[index].name;
+            cart.splice(index, 1);
+            renderCart();
+            showNotification(`${itemName} eliminado`, 'error');
+        }
+
+        // Agregar productos
+        const products = [
+            { name: '🍔 Hamburguesa', price: 4.50 },
+            { name: '🍕 Pizza', price: 8.00 },
+            { name: '🍝 Pasta', price: 6.50 }
+        ];
+
+        document.querySelectorAll('.product-card').forEach((card, index) => {
+            const addBtn = card.querySelector('.add-btn');
+            addBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const product = products[index];
+                const productName = product.name.substring(3); // Quitar emoji
+                const existingItem = cart.find(i => i.name === productName);
+
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({ name: productName, price: product.price, quantity: 1 });
+                }
+                renderCart();
+                showNotification(`${productName} agregado al carrito`, 'success');
+            });
+        });
+
+        // Botón de pago
+        document.querySelector('.btn-checkout-large').addEventListener('click', () => {
+            if (cart.length > 0) {
+                const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2);
+                showNotification(`💳 Procesando pago de $${total}`, 'success');
+                setTimeout(() => {
+                    cart = [];
+                    renderCart();
+                    showNotification('✅ Pago completado exitosamente', 'success');
+                }, 2000);
+            } else {
+                showNotification('El carrito está vacío', 'error');
+            }
+        });
+
+        // Inicializar
+        renderCart();
+    </script>
+</body>
+
+</html>
