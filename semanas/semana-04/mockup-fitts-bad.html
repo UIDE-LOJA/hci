@@ -444,7 +444,7 @@
                                             <button class="control-btn">-</button>
                                             <span class="quantity-display">2</span>
                                             <button class="control-btn">+</button>
-                                            <button class="control-btn">🗑</button>
+                                            <button class="control-btn"><i class="fas fa-trash"></i></button>
                                         </div>
                                     </div>
                                     <div class="cart-item">
@@ -453,7 +453,7 @@
                                             <button class="control-btn">-</button>
                                             <span class="quantity-display">1</span>
                                             <button class="control-btn">+</button>
-                                            <button class="control-btn">🗑</button>
+                                            <button class="control-btn"><i class="fas fa-trash"></i></button>
                                         </div>
                                     </div>
                                     <div class="cart-item">
@@ -462,7 +462,7 @@
                                             <button class="control-btn">-</button>
                                             <span class="quantity-display">3</span>
                                             <button class="control-btn">+</button>
-                                            <button class="control-btn">🗑</button>
+                                            <button class="control-btn"><i class="fas fa-trash"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -534,7 +534,7 @@
                         <button class="control-btn" onclick="decreaseQuantity(${index})">-</button>
                         <span class="quantity-display">${item.quantity}</span>
                         <button class="control-btn" onclick="increaseQuantity(${index})">+</button>
-                        <button class="control-btn" onclick="removeItem(${index})">🗑</button>
+                        <button class="control-btn" onclick="removeItem(${index})"><i class="fas fa-trash"></i></button>
                     </div>
                 </div>
             `).join('');
@@ -594,11 +594,11 @@
         document.querySelector('.btn-checkout').addEventListener('click', () => {
             if (cart.length > 0) {
                 const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2);
-                showNotification(`💳 Procesando pago de $${total}`, 'success');
+                showNotification(`Procesando pago de $${total}`, 'success');
                 setTimeout(() => {
                     cart = [];
                     renderCart();
-                    showNotification('✅ Pago completado', 'success');
+                    showNotification('Pago completado', 'success');
                 }, 2000);
             } else {
                 showNotification('El carrito está vacío', 'error');

@@ -466,7 +466,7 @@
                             <div class="product-list">
                                 <div class="product-card">
                                     <div class="product-info">
-                                        <div class="product-name">🍔 Hamburguesa</div>
+                                        <div class="product-name"><i class="fas fa-burger"></i> Hamburguesa</div>
                                         <div class="product-price">$4.50</div>
                                     </div>
                                     <button class="add-btn">+</button>
@@ -474,7 +474,7 @@
 
                                 <div class="product-card">
                                     <div class="product-info">
-                                        <div class="product-name">🍕 Pizza</div>
+                                        <div class="product-name"><i class="fas fa-pizza-slice"></i> Pizza</div>
                                         <div class="product-price">$8.00</div>
                                     </div>
                                     <button class="add-btn">+</button>
@@ -482,7 +482,7 @@
 
                                 <div class="product-card">
                                     <div class="product-info">
-                                        <div class="product-name">🍝 Pasta</div>
+                                        <div class="product-name"><i class="fas fa-bowl-food"></i> Pasta</div>
                                         <div class="product-price">$6.50</div>
                                     </div>
                                     <button class="add-btn">+</button>
@@ -502,7 +502,7 @@
                                         <button class="control-btn-large">−</button>
                                         <span class="quantity-display-large">2</span>
                                         <button class="control-btn-large">+</button>
-                                        <button class="control-btn-large delete">🗑</button>
+                                        <button class="control-btn-large delete"><i class="fas fa-trash"></i></button>
                                     </div>
                                 </div>
 
@@ -515,7 +515,7 @@
                                         <button class="control-btn-large">−</button>
                                         <span class="quantity-display-large">1</span>
                                         <button class="control-btn-large">+</button>
-                                        <button class="control-btn-large delete">🗑</button>
+                                        <button class="control-btn-large delete"><i class="fas fa-trash"></i></button>
                                     </div>
                                 </div>
 
@@ -526,7 +526,7 @@
                                     </div>
 
                                     <!-- Botón grande y centrado -->
-                                    <button class="btn-checkout-large">💳 Procesar Pago</button>
+                                    <button class="btn-checkout-large"><i class="fas fa-credit-card"></i> Procesar Pago</button>
                                 </div>
                             </div>
                         </div>
@@ -593,7 +593,7 @@
                         <button class="control-btn-large" onclick="decreaseQuantity(${index})">−</button>
                         <span class="quantity-display-large">${item.quantity}</span>
                         <button class="control-btn-large" onclick="increaseQuantity(${index})">+</button>
-                        <button class="control-btn-large delete" onclick="removeItem(${index})">🗑</button>
+                        <button class="control-btn-large delete" onclick="removeItem(${index})"><i class="fas fa-trash"></i></button>
                     </div>
                 `;
                 cartLabel.parentElement.insertBefore(cartItem, document.querySelector('.total-section'));
@@ -626,9 +626,9 @@
 
         // Agregar productos
         const products = [
-            { name: '🍔 Hamburguesa', price: 4.50 },
-            { name: '🍕 Pizza', price: 8.00 },
-            { name: '🍝 Pasta', price: 6.50 }
+            { name: 'Hamburguesa', price: 4.50 },
+            { name: 'Pizza', price: 8.00 },
+            { name: 'Pasta', price: 6.50 }
         ];
 
         document.querySelectorAll('.product-card').forEach((card, index) => {
@@ -636,7 +636,7 @@
             addBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 const product = products[index];
-                const productName = product.name.substring(3); // Quitar emoji
+                const productName = product.name;
                 const existingItem = cart.find(i => i.name === productName);
 
                 if (existingItem) {
@@ -653,11 +653,11 @@
         document.querySelector('.btn-checkout-large').addEventListener('click', () => {
             if (cart.length > 0) {
                 const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2);
-                showNotification(`💳 Procesando pago de $${total}`, 'success');
+                showNotification(`Procesando pago de $${total}`, 'success');
                 setTimeout(() => {
                     cart = [];
                     renderCart();
-                    showNotification('✅ Pago completado exitosamente', 'success');
+                    showNotification('Pago completado exitosamente', 'success');
                 }, 2000);
             } else {
                 showNotification('El carrito está vacío', 'error');
