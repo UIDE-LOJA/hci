@@ -1,0 +1,24 @@
+{
+  "quiz": {
+    "title": "GA-1.2 — Evaluación Teórica: Fundamentos y Principios de HCI",
+    "description": "<p>Esta evaluación cubre los conceptos fundamentales de HCI estudiados en las semanas 1-4, incluyendo: definiciones básicas, heurísticas de usabilidad, factores humanos, cognición distribuida, principios de Don Norman, psicología del color, Gestalt, affordances, Ley de Fitts, Ley de Hick, percepción, atención, memoria y carga cognitiva.</p><p><strong>Instrucciones:</strong></p><ul><li>Lee cuidadosamente cada pregunta antes de responder</li><li>Algunas preguntas tienen múltiples respuestas correctas</li><li>Tienes 60 minutos para completar la evaluación</li><li>Solo tienes 1 intento</li></ul>",
+    "quiz_type": "assignment",
+    "time_limit": 60,
+    "allowed_attempts": 1,
+    "scoring_policy": "keep_highest",
+    "cant_go_back": false,
+    "shuffle_answers": true,
+    "show_correct_answers": "always",
+    "show_correct_answers_last_attempt": false,
+    "one_question_at_a_time": false,
+    "require_lockdown_browser": false,
+    "require_lockdown_browser_for_results": false,
+    "access_code": "",
+    "ip_filter": "",
+    "due_at": null,
+    "lock_at": null,
+    "unlock_at": null,
+    "published": false,
+    "points_possible": 2
+  }
+}

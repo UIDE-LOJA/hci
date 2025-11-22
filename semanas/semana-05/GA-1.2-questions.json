@@ -1,0 +1,610 @@
+[
+  {
+    "question": {
+      "question_name": "Definición de HCI",
+      "question_text": "<p>Según MacKenzie (2013), ¿cuál es la definición correcta de HCI (Interacción Hombre-Computador)?</p>",
+      "question_type": "multiple_choice_question",
+      "points_possible": 0.1,
+      "answers": [
+        {
+          "answer_text": "Campo interdisciplinario que se preocupa por el diseño, evaluación e implementación de sistemas computacionales interactivos para uso humano",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! Esta es la definición formal de HCI según MacKenzie (2013)."
+        },
+        {
+          "answer_text": "Disciplina que estudia únicamente la programación de interfaces gráficas",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. HCI es mucho más amplio que solo programación de interfaces."
+        },
+        {
+          "answer_text": "Campo que se enfoca exclusivamente en el diseño visual de aplicaciones",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. HCI incluye diseño, evaluación e implementación, no solo aspectos visuales."
+        },
+        {
+          "answer_text": "Estudio de la ergonomía física de los dispositivos computacionales",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Aunque la ergonomía es parte de HCI, la definición es más amplia."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Primera Norma de Krug",
+      "question_text": "<p>La Primera Norma de Krug sobre usabilidad establece que:</p>",
+      "question_type": "true_false_question",
+      "points_possible": 0.1,
+      "answers": [
+        {
+          "answer_text": "Verdadero",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! La Primera Norma de Krug es '¡No me hagas pensar!' - el usuario debe entender una página sin esfuerzo cognitivo."
+        },
+        {
+          "answer_text": "Falso",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Esta es precisamente la Primera Norma de Krug sobre usabilidad."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Elementos Fundamentales de HCI",
+      "question_text": "<p>Selecciona todos los elementos fundamentales que componen HCI:</p>",
+      "question_type": "multiple_answers_question",
+      "points_possible": 0.1,
+      "answers": [
+        {
+          "answer_text": "Humanos (usuarios con habilidades diversas)",
+          "answer_weight": 33.33,
+          "answer_comments": "Correcto. Los humanos son uno de los tres elementos fundamentales de HCI."
+        },
+        {
+          "answer_text": "Computadores (dispositivos con chips programables)",
+          "answer_weight": 33.33,
+          "answer_comments": "Correcto. Los computadores son el segundo elemento fundamental."
+        },
+        {
+          "answer_text": "Interacción (comunicación bidireccional)",
+          "answer_weight": 33.33,
+          "answer_comments": "Correcto. La interacción es el tercer elemento fundamental de HCI."
+        },
+        {
+          "answer_text": "Redes de comunicación",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Aunque importantes, las redes no son uno de los tres elementos fundamentales de HCI."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Factores Humanos Definición",
+      "question_text": "<p>Los Factores Humanos o Ergonomía se encargan de:</p>",
+      "question_type": "multiple_choice_question",
+      "points_possible": 0.1,
+      "answers": [
+        {
+          "answer_text": "Capacidades, limitaciones y rendimiento humanos para diseñar sistemas eficientes, seguros y cómodos",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! Esta es la definición central de Factores Humanos en HCI."
+        },
+        {
+          "answer_text": "Únicamente la postura física del usuario frente al computador",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Los Factores Humanos abarcan mucho más que solo la postura física."
+        },
+        {
+          "answer_text": "Exclusivamente el diseño estético de las interfaces",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Los Factores Humanos se centran en capacidades y limitaciones humanas, no solo estética."
+        },
+        {
+          "answer_text": "La velocidad de procesamiento de los computadores",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Los Factores Humanos se enfocan en el ser humano, no en el hardware."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Modelo del Procesador Humano",
+      "question_text": "<p>El Modelo del Procesador Humano (MHP) desarrollado por Card, Moran y Newell incluye los componentes: [comp1], [comp2] y [comp3].</p>",
+      "question_type": "fill_in_multiple_blanks_question",
+      "points_possible": 0.1,
+      "answers": [
+        {
+          "answer_text": "Entrada Perceptual",
+          "answer_weight": 100,
+          "answer_comments": "Correcto",
+          "blank_id": "comp1"
+        },
+        {
+          "answer_text": "entrada perceptual",
+          "answer_weight": 100,
+          "answer_comments": "Correcto",
+          "blank_id": "comp1"
+        },
+        {
+          "answer_text": "perceptual",
+          "answer_weight": 100,
+          "answer_comments": "Correcto",
+          "blank_id": "comp1"
+        },
+        {
+          "answer_text": "Cognición",
+          "answer_weight": 100,
+          "answer_comments": "Correcto",
+          "blank_id": "comp2"
+        },
+        {
+          "answer_text": "cognición",
+          "answer_weight": 100,
+          "answer_comments": "Correcto",
+          "blank_id": "comp2"
+        },
+        {
+          "answer_text": "Salida Motora",
+          "answer_weight": 100,
+          "answer_comments": "Correcto",
+          "blank_id": "comp3"
+        },
+        {
+          "answer_text": "salida motora",
+          "answer_weight": 100,
+          "answer_comments": "Correcto",
+          "blank_id": "comp3"
+        },
+        {
+          "answer_text": "motora",
+          "answer_weight": 100,
+          "answer_comments": "Correcto",
+          "blank_id": "comp3"
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Don Norman Contribución",
+      "question_text": "<p>¿Qué libro publicado en 1988 revolucionó el diseño centrado en el usuario y popularizó el concepto de affordances percibidas?</p>",
+      "question_type": "short_answer_question",
+      "points_possible": 0.1,
+      "answers": [
+        {
+          "answer_text": "The Design of Everyday Things",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto!"
+        },
+        {
+          "answer_text": "Design of Everyday Things",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto!"
+        },
+        {
+          "answer_text": "the design of everyday things",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto!"
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Principios de Norman",
+      "question_text": "<p>Los cuatro principios de buen diseño según Don Norman son: visibilidad, modelo conceptual, [principio1] y [principio2].</p>",
+      "question_type": "multiple_dropdowns_question",
+      "points_possible": 0.1,
+      "answers": [
+        {
+          "text": "Mappings",
+          "comments": "Correcto. Los mappings revelan relaciones entre etapas.",
+          "weight": 100,
+          "blank_id": "principio1"
+        },
+        {
+          "text": "Affordances",
+          "comments": "Incorrecto. Aunque importante, affordances no es uno de los 4 principios básicos.",
+          "weight": 0,
+          "blank_id": "principio1"
+        },
+        {
+          "text": "Color",
+          "comments": "Incorrecto. El color no es uno de los 4 principios de Norman.",
+          "weight": 0,
+          "blank_id": "principio1"
+        },
+        {
+          "text": "Feedback",
+          "comments": "Correcto. El feedback es el cuarto principio de buen diseño.",
+          "weight": 100,
+          "blank_id": "principio2"
+        },
+        {
+          "text": "Estética",
+          "comments": "Incorrecto. La estética no es uno de los 4 principios básicos de Norman.",
+          "weight": 0,
+          "blank_id": "principio2"
+        },
+        {
+          "text": "Velocidad",
+          "comments": "Incorrecto. La velocidad no es uno de los 4 principios de Norman.",
+          "weight": 0,
+          "blank_id": "principio2"
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Ley de Fitts Concepto",
+      "question_text": "<p>La Ley de Fitts establece que la rapidez para alcanzar un objetivo depende de su tamaño y distancia.</p>",
+      "question_type": "true_false_question",
+      "points_possible": 0.1,
+      "answers": [
+        {
+          "answer_text": "Verdadero",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! La Ley de Fitts indica que objetivos más grandes y cercanos son más fáciles de alcanzar."
+        },
+        {
+          "answer_text": "Falso",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Esta es precisamente la definición de la Ley de Fitts."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Aplicaciones Ley de Fitts",
+      "question_text": "<p>Selecciona todas las aplicaciones correctas de la Ley de Fitts en diseño UI:</p>",
+      "question_type": "multiple_answers_question",
+      "points_possible": 0.1,
+      "answers": [
+        {
+          "answer_text": "Los botones principales o CTAs deben ser grandes y fácilmente accesibles",
+          "answer_weight": 25,
+          "answer_comments": "Correcto. Botones grandes y accesibles reducen el tiempo de interacción."
+        },
+        {
+          "answer_text": "Elementos de navegación frecuentes deben estar cerca del punto de partida del usuario",
+          "answer_weight": 25,
+          "answer_comments": "Correcto. La proximidad reduce el tiempo de movimiento."
+        },
+        {
+          "answer_text": "En pantallas táctiles, colocar CTAs en la 'zona del pulgar' (centro de pantalla)",
+          "answer_weight": 25,
+          "answer_comments": "Correcto. La zona del pulgar es el área más accesible en dispositivos móviles."
+        },
+        {
+          "answer_text": "Usar padding estratégico para crear áreas de clic amplias",
+          "answer_weight": 25,
+          "answer_comments": "Correcto. El padding aumenta el área de interacción efectiva."
+        },
+        {
+          "answer_text": "Colocar todos los botones en las esquinas de la pantalla",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Las esquinas son los 'píxeles mágicos', las áreas más difíciles de alcanzar."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Píxeles Primos vs Mágicos",
+      "question_text": "<p>El 'Píxel Principal' (Prime Pixel) se refiere a:</p>",
+      "question_type": "multiple_choice_question",
+      "points_possible": 0.1,
+      "answers": [
+        {
+          "answer_text": "El área donde se sitúa actualmente el cursor del usuario, desde donde realizará su siguiente acción",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! El píxel principal es la ubicación actual del cursor, el punto de partida para la siguiente interacción."
+        },
+        {
+          "answer_text": "Las cuatro esquinas de la pantalla",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Esa es la definición de 'Píxeles Mágicos', no del Píxel Principal."
+        },
+        {
+          "answer_text": "El centro exacto de la pantalla",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. El píxel principal es donde está el cursor actualmente, no necesariamente el centro."
+        },
+        {
+          "answer_text": "El primer píxel de la pantalla (esquina superior izquierda)",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. El píxel principal es dinámico, depende de dónde está el cursor del usuario."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Ley de Hick Aplicación",
+      "question_text": "<p>La Ley de Hick se relaciona con:</p>",
+      "question_type": "multiple_choice_question",
+      "points_possible": 0.1,
+      "answers": [
+        {
+          "answer_text": "El tiempo de decisión aumenta con el número de opciones disponibles",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! La Ley de Hick establece que más opciones = más tiempo para decidir."
+        },
+        {
+          "answer_text": "El tamaño de los botones en la interfaz",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Eso corresponde a la Ley de Fitts, no a la Ley de Hick."
+        },
+        {
+          "answer_text": "La velocidad de carga de una página web",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. La Ley de Hick trata sobre el tiempo de decisión, no de carga."
+        },
+        {
+          "answer_text": "La cantidad de memoria RAM necesaria",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. La Ley de Hick es sobre cognición humana, no recursos técnicos."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Principios Gestalt",
+      "question_text": "<p>Los principios de Gestalt ayudan a organizar visualmente los elementos en una interfaz.</p>",
+      "question_type": "true_false_question",
+      "points_possible": 0.1,
+      "answers": [
+        {
+          "answer_text": "Verdadero",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! Los principios de Gestalt (proximidad, similitud, continuidad, etc.) son fundamentales para la organización visual."
+        },
+        {
+          "answer_text": "Falso",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Los principios de Gestalt son esenciales para la percepción visual en diseño de interfaces."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Affordances Definición",
+      "question_text": "<p>Las affordances en diseño de interfaces son:</p>",
+      "question_type": "multiple_choice_question",
+      "points_possible": 0.1,
+      "answers": [
+        {
+          "answer_text": "Pistas visuales que sugieren cómo interactuar con un elemento (ej: sombras, gradientes, estados hover)",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! Las affordances son señales que indican la funcionalidad de un elemento."
+        },
+        {
+          "answer_text": "El precio de una aplicación en la tienda",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Affordances se refiere a pistas de interacción, no a aspectos económicos."
+        },
+        {
+          "answer_text": "La velocidad de respuesta del sistema",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Affordances son pistas visuales de interacción, no rendimiento técnico."
+        },
+        {
+          "answer_text": "El número de usuarios simultáneos que soporta el sistema",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Affordances se relaciona con diseño de interacción, no con capacidad técnica."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Cognición Distribuida",
+      "question_text": "<p>La Cognición Distribuida se refiere a:</p>",
+      "question_type": "multiple_choice_question",
+      "points_possible": 0.1,
+      "answers": [
+        {
+          "answer_text": "El conocimiento distribuido entre personas, artefactos y el entorno para realizar tareas complejas",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! La cognición distribuida reconoce que el conocimiento no está solo en la mente individual."
+        },
+        {
+          "answer_text": "La distribución de servidores en la nube",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Cognición distribuida es un concepto de HCI, no de infraestructura técnica."
+        },
+        {
+          "answer_text": "El reparto de tareas entre diferentes departamentos",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Aunque relacionado, cognición distribuida es más específico sobre cómo se distribuye el conocimiento."
+        },
+        {
+          "answer_text": "La velocidad de procesamiento del cerebro humano",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Cognición distribuida trata sobre cómo el conocimiento se distribuye en sistemas, no sobre velocidad cerebral."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Carga Cognitiva",
+      "question_text": "<p>Para reducir la carga cognitiva en interfaces de alta demanda, se debe:</p>",
+      "question_type": "multiple_answers_question",
+      "points_possible": 0.1,
+      "answers": [
+        {
+          "answer_text": "Simplificar las opciones y agrupar elementos relacionados",
+          "answer_weight": 33.33,
+          "answer_comments": "Correcto. La simplificación y agrupación reducen la carga mental."
+        },
+        {
+          "answer_text": "Usar reconocimiento en lugar de recuerdo (mostrar opciones en lugar de que el usuario las memorice)",
+          "answer_weight": 33.33,
+          "answer_comments": "Correcto. El reconocimiento es menos demandante cognitivamente que el recuerdo."
+        },
+        {
+          "answer_text": "Proporcionar feedback claro e inmediato",
+          "answer_weight": 33.33,
+          "answer_comments": "Correcto. El feedback reduce la incertidumbre y la carga cognitiva."
+        },
+        {
+          "answer_text": "Agregar más opciones y funcionalidades en cada pantalla",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Más opciones aumentan la carga cognitiva, no la reducen."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Ley de Miller",
+      "question_text": "<p>La Ley de Miller (7±2) sugiere que:</p>",
+      "question_type": "multiple_choice_question",
+      "points_possible": 0.1,
+      "answers": [
+        {
+          "answer_text": "La memoria de trabajo humana puede mantener aproximadamente 7 elementos (más o menos 2)",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! La Ley de Miller establece el límite de la memoria de trabajo en 7±2 elementos."
+        },
+        {
+          "answer_text": "Una interfaz debe tener exactamente 7 botones",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. La Ley de Miller trata sobre capacidad de memoria, no sobre número fijo de botones."
+        },
+        {
+          "answer_text": "El tiempo de respuesta debe ser menor a 7 segundos",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. La Ley de Miller se refiere a capacidad de memoria, no a tiempo de respuesta."
+        },
+        {
+          "answer_text": "Se deben usar 7 colores diferentes en cada pantalla",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. La Ley de Miller no prescribe el uso de colores."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Computación Ubicua",
+      "question_text": "<p>La Computación Ubicua (UbiComp) se caracteriza por:</p>",
+      "question_type": "multiple_choice_question",
+      "points_possible": 0.1,
+      "answers": [
+        {
+          "answer_text": "Sistemas que se adaptan automáticamente al contexto del usuario (context-aware)",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! UbiComp se refiere a computación integrada en el entorno que responde al contexto."
+        },
+        {
+          "answer_text": "Computadores que están en todas las oficinas",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. UbiComp es más que solo disponibilidad física de computadores."
+        },
+        {
+          "answer_text": "Aplicaciones que funcionan en múltiples sistemas operativos",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Eso es multiplataforma, no computación ubicua."
+        },
+        {
+          "answer_text": "Servidores distribuidos geográficamente",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. UbiComp se refiere a la integración contextual de la computación, no a distribución de servidores."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Variabilidad Humana",
+      "question_text": "<p>La variabilidad humana en HCI implica que el diseño nunca es preciso, sino siempre aproximado.</p>",
+      "question_type": "true_false_question",
+      "points_possible": 0.1,
+      "answers": [
+        {
+          "answer_text": "Verdadero",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! La diversidad humana (edad, género, experiencia, discapacidades) hace que el diseño sea siempre una aproximación."
+        },
+        {
+          "answer_text": "Falso",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. La variabilidad humana es un factor fundamental que hace imposible un diseño 'perfecto' para todos."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Responders Humanos",
+      "question_text": "<p>En HCI, los 'responders' humanos primarios son:</p>",
+      "question_type": "multiple_choice_question",
+      "points_possible": 0.1,
+      "answers": [
+        {
+          "answer_text": "Dedos y manos",
+          "answer_weight": 100,
+          "answer_comments": "¡Correcto! Los dedos y manos son los responders primarios en la interacción con computadores."
+        },
+        {
+          "answer_text": "Los oídos",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Los oídos son receptores (entrada), no responders (salida)."
+        },
+        {
+          "answer_text": "Los ojos",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. Los ojos son principalmente receptores de entrada perceptual, aunque pueden ser responders en eye-tracking."
+        },
+        {
+          "answer_text": "El cerebro",
+          "answer_weight": 0,
+          "answer_comments": "Incorrecto. El cerebro procesa información (cognición), pero los responders son los efectores motores."
+        }
+      ]
+    }
+  },
+  {
+    "question": {
+      "question_name": "Psicología del Color",
+      "question_text": "<p>En psicología del color para interfaces, los tres componentes principales son: [comp1], matiz y saturación.</p>",
+      "question_type": "fill_in_multiple_blanks_question",
+      "points_possible": 0.1,
+      "answers": [
+        {
+          "answer_text": "valor",
+          "answer_weight": 100,
+          "answer_comments": "Correcto",
+          "blank_id": "comp1"
+        },
+        {
+          "answer_text": "Valor",
+          "answer_weight": 100,
+          "answer_comments": "Correcto",
+          "blank_id": "comp1"
+        },
+        {
+          "answer_text": "luminosidad",
+          "answer_weight": 100,
+          "answer_comments": "Correcto - el valor también se conoce como luminosidad",
+          "blank_id": "comp1"
+        },
+        {
+          "answer_text": "Luminosidad",
+          "answer_weight": 100,
+          "answer_comments": "Correcto - el valor también se conoce como luminosidad",
+          "blank_id": "comp1"
+        }
+      ]
+    }
+  }
+]
